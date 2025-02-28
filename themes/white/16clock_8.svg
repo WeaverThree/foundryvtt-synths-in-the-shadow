@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer3"
+     style="display:none"
+     transform="translate(-4096,-3672.5398)">
+    <rect
+       style="fill:#999999"
+       id="rect267"
+       width="512"
+       height="512"
+       x="3584"
+       y="3672.5398" />
+    <rect
+       style="fill:#999999"
+       id="rect273"
+       width="512"
+       height="512"
+       x="4096"
+       y="3672.5396" />
+    <rect
+       style="fill:#999999"
+       id="rect279"
+       width="512"
+       height="512"
+       x="4608"
+       y="3672.5398" />
+  </g>
+  <g
+     id="layer1"
+     transform="translate(-4096,-3672.5398)">
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#f2f2f2;fill-opacity:1;stroke:#5599ff;stroke-width:0.3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 1280,3686.1257 v 205.8908 l 13.9192,2.7567 78.8487,-190.1948 z m 92.7679,18.4527 -78.791,190.2183 11.8047,7.8735 145.6311,-145.543 z m 78.6448,52.5487 -145.5868,145.5868 7.8931,11.7917 190.2424,-78.7336 z m 52.5487,78.6448 -190.2183,78.791 2.7798,13.9146 205.8912,0.062 z m 18.4527,92.7679 h -205.8908 l -2.7567,13.9192 190.1948,78.8487 z m -18.4527,92.7679 -190.2183,-78.791 -7.8735,11.8047 145.543,145.6311 z m -52.5487,78.6448 -145.5868,-145.5868 -11.7917,7.8931 78.7336,190.2424 z m -78.6448,52.5487 -78.791,-190.2183 -13.9146,2.7798 -0.062,205.8912 z"
+       id="path273"
+       transform="translate(3072,-2.4414063e-4)" />
+  </g>
+  <g
+     id="layer2"
+     transform="translate(-4096,-3672.5398)">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:12;stroke-dasharray:none"
+       d="M 256,209.25963 V 33.447236 M 238.11323,212.81753 170.83274,50.388056 M 222.94957,222.94957 98.631431,98.631431 M 212.81753,238.11323 50.388056,170.83274 M 209.25963,256 H 33.447236 M 212.81753,273.88677 50.388056,341.16726 M 222.94957,289.05043 98.631431,413.36857 M 238.11323,299.18247 170.83274,461.61194 M 256,302.74037 v 175.81239 m 17.88677,-179.37029 67.28049,162.42947 M 289.05043,289.05043 413.36857,413.36857 m -114.1861,-139.4818 162.42947,67.28049 M 302.74037,256 H 478.55276 M 299.18247,238.11323 461.61194,170.83274 M 289.05043,222.94957 413.36857,98.631431 M 273.88677,212.81753 341.16726,50.388056"
+       id="path274"
+       transform="translate(4096,3672.5396)" />
+    <path
+       style="font-variation-settings:normal;fill:none;fill-opacity:1;stroke:#000000;stroke-width:12;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+       id="path275"
+       d="m 256.00001,598.1843 92.76788,18.45268 78.64481,52.54878 52.54878,78.64482 18.45267,92.76788 -18.45268,92.76788 -52.54878,78.64476 -78.64482,52.5488 -92.76788,18.4527 -92.76788,-18.4527 -78.644807,-52.5488 -52.548781,-78.64478 -18.452676,-92.76788 18.452681,-92.76788 52.548785,-78.64481 78.644818,-52.54878 z"
+       transform="translate(4096,3087.9412)" />
+    <path
+       style="font-variation-settings:normal;fill:none;fill-opacity:1;stroke:#000000;stroke-width:80.1513;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+       id="path276"
+       d="m 256.00001,598.1843 92.76788,18.45268 78.64481,52.54878 52.54878,78.64482 18.45267,92.76788 -18.45268,92.76788 -52.54878,78.64476 -78.64482,52.5488 -92.76788,18.4527 -92.76788,-18.4527 -78.644807,-52.5488 -52.548781,-78.64478 -18.452676,-92.76788 18.452681,-92.76788 52.548785,-78.64481 78.644818,-52.54878 z"
+       transform="matrix(0.15004355,0,0,0.14939077,4313.5889,3802.6531)" />
+  </g>
+</svg>
