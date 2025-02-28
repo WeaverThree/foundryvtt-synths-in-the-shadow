@@ -1,17 +1,17 @@
-import { BladesSheet } from "./blades-sheet.js";
+import { SitsSheet } from "./sits-sheet.js";
 import { BladesActiveEffect } from "./blades-active-effect.js";
 import { BladesHelpers } from "./blades-helpers.js";
 
 /**
- * @extends {BladesSheet}
+ * @extends {SitsSheet}
  */
-export class BladesCrewSheet extends BladesSheet {
+export class BladesCrewSheet extends SitsSheet {
 
   /** @override */
 	static get defaultOptions() {
 	  return foundry.utils.mergeObject(super.defaultOptions, {
   	  classes: ["blades-in-the-dark", "sheet", "actor", "crew"],
-  	  template: "systems/blades-in-the-dark/templates/crew-sheet.html",
+  	  template: "systems/synths-in-the-shadow/templates/crew-sheet.html",
       width: 940,
       height: 940,
       tabs: [{navSelector: ".tabs", contentSelector: ".tab-content", initial: "turfs"}]

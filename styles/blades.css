@@ -105,13 +105,6 @@
   cursor: pointer;
   color: red;
 }
-.dice-tooltip .dice-rolls .roll.method {
-  font-size: var(--font-size-10);
-  background: transparent;
-  min-width: auto;
-  line-height: 10px;
-  vertical-align: super;
-}
 .blades-in-the-dark section {
   display: flex;
   flex-direction: column;
@@ -131,7 +124,7 @@
 }
 .blades-in-the-dark section.experience {
   margin-bottom: 0px;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .blades-in-the-dark .flex-horizontal {
   display: flex;
@@ -193,8 +186,7 @@
 .blades-in-the-dark .editor-content {
   min-height: 150px;
 }
-.blades-in-the-dark .cohort-description,
-.blades-in-the-dark .gang-description {
+.blades-in-the-dark .description {
   font-style: italic;
 }
 .blades-in-the-dark i.nullifier {
@@ -225,7 +217,7 @@
   text-align: right;
 }
 .blades-in-the-dark .loadout select option {
-  color: black;
+  color: white;
 }
 .blades-in-the-dark .loadout select:hover {
   color: red;
@@ -243,26 +235,21 @@
 .blades-in-the-dark td {
   padding: 5px;
 }
-/* --Controls minimum size of windows--*/
 .blades-in-the-dark {
-  min-width: 360px;
+  min-width: 420px;
   min-height: 320px;
 }
-/* --Start Clocks--*/
 .blades-in-the-dark .clock-zero-label {
   color: #191813;
 }
 .blades-in-the-dark .clocks.clocks-4 {
   position: relative;
-  display: flex;
-  justify-content: center;
-  margin-top: 25px;
 }
 .blades-in-the-dark .clocks.clocks-4 .blades-clock {
   position: relative;
   padding: 0;
-  width: 225px;
-  height: 225px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   list-style: none;
   overflow: hidden;
@@ -304,15 +291,12 @@
 }
 .blades-in-the-dark .clocks.clocks-6 {
   position: relative;
-  display: flex;
-  justify-content: center;
-  margin-top: 25px;
 }
 .blades-in-the-dark .clocks.clocks-6 .blades-clock {
   position: relative;
   padding: 0;
-  width: 225px;
-  height: 225px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   list-style: none;
   overflow: hidden;
@@ -360,15 +344,12 @@
 }
 .blades-in-the-dark .clocks.clocks-8 {
   position: relative;
-  display: flex;
-  justify-content: center;
-  margin-top: 25px;
 }
 .blades-in-the-dark .clocks.clocks-8 .blades-clock {
   position: relative;
   padding: 0;
-  width: 225px;
-  height: 225px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   list-style: none;
   overflow: hidden;
@@ -397,41 +378,37 @@
   display: none;
 }
 .blades-in-the-dark .clocks.clocks-8 .blades-clock *:nth-child(3) {
-  transform: rotate(0deg) skewY(120deg);
+  transform: rotate(0deg) skewY(135deg);
 }
 .blades-in-the-dark .clocks.clocks-8 .blades-clock *:nth-child(5) {
-  transform: rotate(45deg) skewY(120deg);
+  transform: rotate(45deg) skewY(135deg);
 }
 .blades-in-the-dark .clocks.clocks-8 .blades-clock *:nth-child(7) {
-  transform: rotate(90deg) skewY(120deg);
+  transform: rotate(90deg) skewY(135deg);
 }
 .blades-in-the-dark .clocks.clocks-8 .blades-clock *:nth-child(9) {
-  transform: rotate(135deg) skewY(120deg);
+  transform: rotate(135deg) skewY(135deg);
 }
 .blades-in-the-dark .clocks.clocks-8 .blades-clock *:nth-child(11) {
-  transform: rotate(180deg) skewY(120deg);
+  transform: rotate(180deg) skewY(135deg);
 }
 .blades-in-the-dark .clocks.clocks-8 .blades-clock *:nth-child(13) {
-  transform: rotate(225deg) skewY(120deg);
+  transform: rotate(225deg) skewY(135deg);
 }
 .blades-in-the-dark .clocks.clocks-8 .blades-clock *:nth-child(15) {
-  transform: rotate(270deg) skewY(120deg);
+  transform: rotate(270deg) skewY(135deg);
 }
 .blades-in-the-dark .clocks.clocks-8 .blades-clock *:nth-child(17) {
-  transform: rotate(315deg) skewY(120deg);
+  transform: rotate(315deg) skewY(135deg);
 }
 .blades-in-the-dark .clocks.clocks-10 {
   position: relative;
-  display: flex;
-  justify-content: center;
-  margin-top: 25px;
-
 }
 .blades-in-the-dark .clocks.clocks-10 .blades-clock {
   position: relative;
   padding: 0;
-  width: 225px;
-  height: 225px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   list-style: none;
   overflow: hidden;
@@ -460,46 +437,43 @@
   display: none;
 }
 .blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(3) {
-  transform: rotate(0deg) skewY(135deg);
+  transform: rotate(0deg) skewY(126deg);
 }
 .blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(5) {
-  transform: rotate(36deg) skewY(135deg);
+  transform: rotate(36deg) skewY(126deg);
 }
 .blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(7) {
-  transform: rotate(72deg) skewY(135deg);
+  transform: rotate(72deg) skewY(126deg);
 }
 .blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(9) {
-  transform: rotate(108deg) skewY(135deg);
+  transform: rotate(108deg) skewY(126deg);
 }
 .blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(11) {
-  transform: rotate(144deg) skewY(135deg);
+  transform: rotate(144deg) skewY(126deg);
 }
 .blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(13) {
-  transform: rotate(180deg) skewY(135deg);
+  transform: rotate(180deg) skewY(126deg);
 }
 .blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(15) {
-  transform: rotate(216deg) skewY(135deg);
+  transform: rotate(216deg) skewY(126deg);
 }
 .blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(17) {
-  transform: rotate(252deg) skewY(135deg);
+  transform: rotate(252deg) skewY(126deg);
 }
 .blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(19) {
-  transform: rotate(288deg) skewY(135deg);
+  transform: rotate(288deg) skewY(126deg);
 }
 .blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(21) {
-  transform: rotate(324deg) skewY(135deg);
+  transform: rotate(324deg) skewY(126deg);
 }
 .blades-in-the-dark .clocks.clocks-12 {
   position: relative;
-  display: flex;
-  justify-content: center;
-  margin-top: 25px;
 }
 .blades-in-the-dark .clocks.clocks-12 .blades-clock {
   position: relative;
   padding: 0;
-  width: 225px;
-  height: 225px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   list-style: none;
   overflow: hidden;
@@ -566,46 +540,9 @@
 .blades-in-the-dark .blades-clock-name-type > * {
   margin-bottom: 10px;
 }
-.blades-in-the-dark .blades-clock-name {
-    height: 60px;
-    text-align: center;
-	margin: 10px auto;
+.blades-in-the-dark .blades-clock-name-type .blades-clock {
+  margin: 10px auto;
 }
-.blades-in-the-dark .clock-name input {
-    height: 40px;
-    line-height: 48px;
-    font-size: 32px;
-    width: 100%;
-    background: none;
-    border: 1px solid transparent;
-    padding: 1px 3px;
-    font-family: "Kirsty", "Crimson Text", serif;
-    border-radius: 3px;
-    color: rgb(25, 24, 19);
-    margin: 3px;
-	text-align: center;
-}
-.blades-in-the-dark .clock-name.editable input:hover,
-.blades-in-the-dark .clock-name.editable input:focus {
-    border: 1px solid rgb(25, 24, 19);
-}
-.blades-in-the-dark .clock-config {
-    text-align: center;
-}
-.blades-in-the-dark .clock-config .clock-config-group {
-    margin-left: 1.5em;
-    display: inline-block;
-}
-.blades-in-the-dark .clock-config .clock-config-group:first-child {
-    margin-left: 0;
-}
-.blades-in-the-dark .clock-config .clock-config-group label {
-    margin-right: 3px;
-}
-.blades-in-the-dark .clock-config .clock-config-group select {
-    width: 100px;
-}
-/* --End Clocks-- */
 .blades-in-the-dark.crew.sheet .coins {
   display: flex;
   /* Hide the browser's default checkbox */
@@ -673,26 +610,13 @@
 }
 .blades-in-the-dark.crew.sheet .item .item-control {
   flex-grow: 1;
-  max-width: 18px;
 }
 .blades-in-the-dark.crew.sheet .item .item-body,
 .blades-in-the-dark.crew.sheet .item .item-class-label {
   width: 100px;
 }
-.blades-in-the-dark.crew.sheet .item-crew-rep {
-  height: 35px;
-  padding-top: 10px;
-  justify-content: start;
-}
 .blades-in-the-dark.crew.sheet .item-class-label {
-  margin-top: 4px;
   margin-bottom: 10px;
-  font-weight: bold;
-  width: 125px;
-}
-.blades-in-the-dark.crew.sheet .item-crew-rep .item {
-  margin-bottom: 10px;
-  width: 150px;
 }
 .blades-in-the-dark.crew.sheet .name,
 .blades-in-the-dark.crew.sheet .lair {
@@ -702,7 +626,6 @@
   padding: 20px;
 }
 .blades-in-the-dark.crew.sheet nav {
-  width: 512px;
   padding-bottom: 10px;
 }
 .blades-in-the-dark.crew.sheet .crew-coins {
@@ -751,7 +674,7 @@
   background-image: url("assets/teeth/stresstooth-red.png");
   background-repeat: no-repeat;
   background-size: contain;
-  margin-right: 5px;
+  margin-right: 0px;
   transition: filter 0.1s;
   cursor: pointer;
 }
@@ -780,9 +703,9 @@
 .blades-in-the-dark.crew.sheet .crew-reputation input:checked + label {
   background-image: url("assets/teeth/stresstooth-red.png");
 }
-/*.blades-in-the-dark.crew.sheet .crew-reputation input:disabled + label {
+.blades-in-the-dark.crew.sheet .crew-reputation input:disabled + label {
   background-image: url(assets/teeth/stresstooth-black.png);
-} */
+}
 .blades-in-the-dark.crew.sheet .turf-container {
   overflow-x: scroll;
   overflow-y: clip;
@@ -1043,18 +966,6 @@
 .blades-in-the-dark.crew.sheet .gang-expert-type-selector .gang-type-boxes {
   flex-wrap: wrap;
 }
-.blades-in-the-dark.crew.sheet .acquaintance i {
-  padding: 1px;
-  margin-right: 3px;
-  width: 1.2em;
-  text-align: center;
-}
-.blades-in-the-dark.crew.sheet .acquaintance i.red-icon {
-  color: #880000;
-}
-.blades-in-the-dark.crew.sheet .acquaintance i.green-icon {
-  color: #006600;
-}
 .blades-in-the-dark.crew.sheet .cohorts {
   flex-wrap: wrap;
 }
@@ -1103,24 +1014,14 @@
   text-align: center;
 }
 .blades-in-the-dark.crew.sheet .class-name {
-  width: 320px;
-  height: 135px;
+  width: 512px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   font-size: 48px;
   text-transform: uppercase;
   border: 3px solid #191813;
-}
-.blades-in-the-dark.crew.sheet .hunting-ground {
-  width: 180px;
-  height: 120px;
-  text-align: center;
-}
-.blades-in-the-dark.crew.sheet .hunting-ground-label a {
-  font-size: 16px;
-  font-family: "Crimson Text", serif;
-  font-weight: bold;
 }
 .blades-in-the-dark.crew.sheet .class-name .big-name {
   font-weight: bold;
@@ -1157,7 +1058,7 @@
   background-image: url("assets/teeth/stresstooth-red.png");
   background-repeat: no-repeat;
   background-size: contain;
-  margin-right: 5px;
+  margin-right: 0px;
   transition: filter 0.1s;
   cursor: pointer;
 }
@@ -1197,7 +1098,7 @@
   background-image: url("assets/teeth/shorttooth-red.png");
   background-repeat: no-repeat;
   background-size: contain;
-  margin-right: 5px;
+  margin-right: 0px;
   cursor: not-allowed;
 }
 .blades-in-the-dark.crew.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap label:last-of-type {
@@ -1331,13 +1232,12 @@
   /* Hide the browser's default checkbox */
 }
 .blades-in-the-dark.actor.pc * .big-teeth-section .big-teeth label {
-  height: 50px;
-  width: 17px;
-  background-image: url("assets/teeth/stresstooth-red.png");
+  height: 28px;
+  width: 14px;
+  background-image: url("assets/pips/pip-red.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  margin-right: 5px;
-  transition: filter 0.1s;
+  margin-right: 0px;
   cursor: pointer;
 }
 .blades-in-the-dark.actor.pc * .big-teeth-section .big-teeth label:last-of-type {
@@ -1353,17 +1253,22 @@
   margin-top: 4px;
 }
 .blades-in-the-dark.actor.pc * .big-teeth-section .big-teeth label:hover {
-  filter: brightness(0.8);
-  opacity: 0.9;
+  background-image: url("assets/pips/pip-red-hover.svg");
 }
 .blades-in-the-dark.actor.pc * .big-teeth-section .big-teeth input {
   display: none;
 }
 .blades-in-the-dark.actor.pc * .big-teeth-section .big-teeth input:checked ~ label {
-  background-image: url("assets/teeth/stresstooth-halfgrey.png");
+  background-image: url("assets/pips/pip-base.svg");
+}
+.blades-in-the-dark.actor.pc * .big-teeth-section .big-teeth input:checked ~ label:hover {
+  background-image: url("assets/pips/pip-base-hover.svg");
 }
 .blades-in-the-dark.actor.pc * .big-teeth-section .big-teeth input:checked + label {
-  background-image: url("assets/teeth/stresstooth-red.png");
+  background-image: url("assets/pips/pip-red.svg");
+}
+.blades-in-the-dark.actor.pc * .big-teeth-section .big-teeth input:checked + label:hover {
+  background-image: url("assets/pips/pip-red-hover.svg");
 }
 .blades-in-the-dark.actor.pc * .big-teeth-section .small-teeth-container .small-teeth-wrap {
   display: flex;
@@ -1376,7 +1281,7 @@
   background-image: url("assets/teeth/shorttooth-red.png");
   background-repeat: no-repeat;
   background-size: contain;
-  margin-right: 5px;
+  margin-right: 0px;
   cursor: not-allowed;
 }
 .blades-in-the-dark.actor.pc * .big-teeth-section .small-teeth-container .small-teeth-wrap label:last-of-type {
@@ -1436,7 +1341,7 @@
   text-decoration: none;
   font-weight: bold;
 }
-.blades-in-the-dark.actor.pc * .character-stress label[for$="-0"] {
+.blades-in-the-dark.actor.pc * .character-overload label[for$="-0"] {
   margin-right: 0px;
 }
 .blades-in-the-dark.actor.pc * .abilities .item-name, .blades-in-the-dark.actor.pc * .loadout .item-name {
@@ -1462,13 +1367,12 @@
   right: 10px;
 }
 .blades-in-the-dark.actor.pc * .teeth-experience label {
-  height: 30px;
+  height: 20px;
   width: 10px;
-  background-image: url("assets/teeth/xptooth-red.png");
+  background-image: url("assets/pips/w-pip-blue.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  margin-right: 5px;
-  transition: filter 0.1s;
+  margin-right: 0px;
   cursor: pointer;
 }
 .blades-in-the-dark.actor.pc * .teeth-experience label:last-of-type {
@@ -1484,17 +1388,22 @@
   margin-top: 4px;
 }
 .blades-in-the-dark.actor.pc * .teeth-experience label:hover {
-  filter: brightness(0.8);
-  opacity: 0.9;
+  background-image: url("assets/pips/w-pip-blue-hover.svg");
 }
 .blades-in-the-dark.actor.pc * .teeth-experience input {
   display: none;
 }
 .blades-in-the-dark.actor.pc * .teeth-experience input:checked ~ label {
-  background-image: url("assets/teeth/stresstooth-halfgrey.png");
+  background-image: url("assets/pips/w-pip-base.svg");
+}
+.blades-in-the-dark.actor.pc * .teeth-experience input:checked ~ label:hover {
+  background-image: url("assets/pips/w-pip-base-hover.svg");
 }
 .blades-in-the-dark.actor.pc * .teeth-experience input:checked + label {
-  background-image: url("assets/teeth/xptooth-red.png");
+  background-image: url("assets/pips/w-pip-blue.svg");
+}
+.blades-in-the-dark.actor.pc * .teeth-experience input:checked + label:hover {
+  background-image: url("assets/pips/w-pip-blue-hover.svg");
 }
 .blades-in-the-dark.actor.pc * .harm-armor {
   display: flex;
@@ -1564,12 +1473,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* Hide the browser's default checkbox */
 }
 .blades-in-the-dark.actor.pc * .attributes {
   display: flex;
   flex-direction: column;
-  width: 225px;
+  width: 200px;
 }
 .blades-in-the-dark.actor.pc * .attributes .stripe {
   background-color: #191813;
@@ -1597,13 +1505,12 @@
   right: 0px;
 }
 .blades-in-the-dark.actor.pc * .attributes .attributes-exp .stripe-tooth-body label {
-  height: 30px;
+  height: 20px;
   width: 10px;
-  background-image: url("assets/teeth/xptooth-red.png");
+  background-image: url("assets/pips/w-pip-blue.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  margin-right: 5px;
-  transition: filter 0.1s;
+  margin-right: 0px;
   cursor: pointer;
 }
 .blades-in-the-dark.actor.pc * .attributes .attributes-exp .stripe-tooth-body label:last-of-type {
@@ -1619,17 +1526,22 @@
   margin-top: 4px;
 }
 .blades-in-the-dark.actor.pc * .attributes .attributes-exp .stripe-tooth-body label:hover {
-  filter: brightness(0.8);
-  opacity: 0.9;
+  background-image: url("assets/pips/w-pip-blue-hover.svg");
 }
 .blades-in-the-dark.actor.pc * .attributes .attributes-exp .stripe-tooth-body input {
   display: none;
 }
 .blades-in-the-dark.actor.pc * .attributes .attributes-exp .stripe-tooth-body input:checked ~ label {
-  background-image: url("assets/teeth/xptooth-white.png");
+  background-image: url("assets/pips/w-pip-base.svg");
+}
+.blades-in-the-dark.actor.pc * .attributes .attributes-exp .stripe-tooth-body input:checked ~ label:hover {
+  background-image: url("assets/pips/w-pip-base-hover.svg");
 }
 .blades-in-the-dark.actor.pc * .attributes .attributes-exp .stripe-tooth-body input:checked + label {
-  background-image: url("assets/teeth/xptooth-red.png");
+  background-image: url("assets/pips/w-pip-blue.svg");
+}
+.blades-in-the-dark.actor.pc * .attributes .attributes-exp .stripe-tooth-body input:checked + label:hover {
+  background-image: url("assets/pips/w-pip-blue-hover.svg");
 }
 .blades-in-the-dark.actor.pc * .attributes .attributes-container {
   display: flex;
@@ -1696,7 +1608,10 @@
 .blades-in-the-dark.actor.pc * .item .item-control {
   flex-grow: 1;
 }
-
+.blades-in-the-dark.actor.pc * .item .item-body,
+.blades-in-the-dark.actor.pc * .item .item-class-label {
+  width: 100px;
+}
 .blades-in-the-dark.actor.pc * .item-class-label {
   margin-bottom: 10px;
 }
@@ -1754,22 +1669,6 @@
 .blades-in-the-dark.actor.pc * .coins.coins-stashed {
   width: 190px;
 }
-.blades-in-the-dark.actor.pc * .acquaintance {
-  line-height: 1em;
-  padding: 2px 5px;
-}
-.blades-in-the-dark.actor.pc * .acquaintance i {
-  padding: 1px;
-  margin-right: 3px;
-  width: 1.2em;
-  text-align: center;
-}
-.blades-in-the-dark.actor.pc * .acquaintance i.red-icon {
-  color: #880000;
-}
-.blades-in-the-dark.actor.pc * .acquaintance i.green-icon {
-  color: #006600;
-}
 .blades-in-the-dark.item.sheet .item {
   justify-content: space-between;
 }
@@ -1791,28 +1690,12 @@
 }
 .blades-in-the-dark.item.sheet .item .item-body,
 .blades-in-the-dark.item.sheet .item .item-class-label {
-  width: auto;
+  width: 100px;
 }
 .blades-in-the-dark.item.sheet .item-class-label {
   margin-bottom: 10px;
 }
-.blades-in-the-dark .npc-sheet .text-line {
-  height: 26px;
-  margin-bottom: 5px;
-  padding: 5px 10px;
-  width: 200px;
-  text-align: right;
-  font-family: Kirsty, serif;
-}
-.blades-in-the-dark .npc-sheet {
-  justify-content: start;
-}
-.blades-in-the-dark .npc-sheet img {
-  margin: 20px;
-}
-.blades-in-the-dark .npc-lines {
-  width: 700px;
-}
+
 .chat-label {
   background-color: #191813;
   font-family: Kirsty, serif;
@@ -1831,14 +1714,6 @@
   text-align: center;
   padding: 3px 5px;
   height: 20px !important;
-}
-
-.chat-item img {
-  width: 40px;
-  height: 40px;
-  float: left;
-  margin-right: 5px;
-  margin-top: 5px;
 }
 
 .label-stripe-chat {
@@ -1910,6 +1785,5 @@
 .items-to-add .tooltip:hover .tooltiptext {
   visibility: visible;
 }
-
 
 /*# sourceMappingURL=blades.css.map */

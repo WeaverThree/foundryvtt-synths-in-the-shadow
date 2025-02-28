@@ -25,7 +25,7 @@
   "BITD.TitlePostItem": "Post item",
   "BITD.Vice": "Vice",
   "BITD.Class": "Class",
-  "BITD.Stress": "Stress",
+  "SITS.Overload": "Overload",
   "BITD.Alias": "Alias",
   "BITD.Designation": "Designation",
   "BITD.Look": "Colors/Look",
@@ -194,6 +194,8 @@
   "BITD.RollPartialSuccess": "Partial Success",
   "BITD.RollSomeDice": "Roll Some Dice!",
   "BITD.RollNumberOfDice": "Number of Dice",
+
+  
   "BITD.RollDoWithIncreasedEffect": "You do it with <strong>increased effect</strong>.",
   "BITD.RollDo": "You do it.",
   "BITD.RollPartialSuccessPositionControlled": "You hesitate. Withdraw and try a different approach, or else do it with a minor consequence: a <strong>minor complication</strong> occurs, you have <strong>reduced effect</strong>, you suffer <strong>lesser harm</strong>, you end up in a <strong>risky</strong> position.",

@@ -6,7 +6,7 @@ import { BladesHelpers } from "./blades-helpers.js";
  * @extends {ActorSheet}
  */
 
-export class BladesSheet extends ActorSheet {
+export class SitsSheet extends ActorSheet {
 
   /* -------------------------------------------- */
 

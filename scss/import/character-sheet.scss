@@ -47,7 +47,7 @@ $hover-brightness: 0.8;
     }
   }
 
-  // Stress and Trauma
+  // Overload and Trauma
 
   .big-teeth-section {
 
@@ -69,9 +69,9 @@ $hover-brightness: 0.8;
       margin-right: 0px;
     }
 
-    // Stress
+    // Overload
     .big-teeth {
-      @include toothradio(17px, 50px, "assets/teeth/stresstooth-halfgrey.png", "assets/teeth/stresstooth-red.png");
+      @include pipradio_hover(14px, 28px, "assets/pips/pip-base.svg", "assets/pips/pip-red.svg", "assets/pips/pip-base-hover.svg", "assets/pips/pip-red-hover.svg");
     }
 
     /* Trauma */
@@ -96,7 +96,7 @@ $hover-brightness: 0.8;
 
   }
 
-  .character-stress {
+  .character-overload {
     label {
       &[for$="-0"] {
         margin-right: 0px;
@@ -135,7 +135,7 @@ $hover-brightness: 0.8;
 
   // Experience teeth
   .teeth-experience {
-    @include toothradio(10px, 30px, "assets/teeth/stresstooth-halfgrey.png", "assets/teeth/stresstooth-red.png");
+    @include pipradio_hover(10px, 20px, "assets/pips/w-pip-base.svg", "assets/pips/w-pip-blue.svg", "assets/pips/w-pip-base-hover.svg", "assets/pips/w-pip-blue-hover.svg");
     position: absolute;
     top: 0px;
     right: 10px;
@@ -208,7 +208,7 @@ $hover-brightness: 0.8;
       margin-bottom: 10px;
 
       .stripe-tooth-body {
-        @include toothradio(10px, 30px, "assets/teeth/xptooth-white.png", "assets/teeth/xptooth-red.png");
+        @include pipradio_hover(10px, 20px, "assets/pips/w-pip-base.svg", "assets/pips/w-pip-blue.svg", "assets/pips/w-pip-base-hover.svg", "assets/pips/w-pip-blue-hover.svg");
         position: absolute;
         top: 0px;
         right: 0px;

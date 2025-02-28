@@ -5,7 +5,7 @@
  * @param {string} position
  * @param {string} effect
  */
-export async function bladesRoll(dice_amount, attribute_name = "", position = "risky", effect = "standard", note = "", current_stress, current_crew_tier) {
+export async function bladesRoll(dice_amount, attribute_name = "", position = "risky", effect = "standard", note = "", current_overload, current_crew_tier) {
 
   // ChatMessage.getSpeaker(controlledToken)
   let zeromode = false;
@@ -14,14 +14,14 @@ export async function bladesRoll(dice_amount, attribute_name = "", position = "r
   if ( dice_amount === 0 ) { zeromode = true; dice_amount = 2; }
   
   //if using Threat Rolls, increase dice pool by number of extra threats after establishing zeromode
-	//Threat Roll comes in as 'effect' and number of Extra dice from threats is coming in as 'current_stress'
-	if (effect === 'BITD.ThreatRoll') {dice_amount = Number(dice_amount)+Number(current_stress);}
+	//Threat Roll comes in as 'effect' and number of Extra dice from threats is coming in as 'current_overload'
+	if (effect === 'BITD.ThreatRoll') {dice_amount = Number(dice_amount)+Number(current_overload);}
 
 	let r = new Roll( `${dice_amount}d6`, {} );
 
 	// show 3d Dice so Nice if enabled
 	await r.evaluate();
-	await showChatRollMessage(r, zeromode, attribute_name, position, effect, note, current_stress, current_crew_tier);
+	await showChatRollMessage(r, zeromode, attribute_name, position, effect, note, current_overload, current_crew_tier);
 
 }
 
@@ -34,7 +34,7 @@ export async function bladesRoll(dice_amount, attribute_name = "", position = "r
  * @param {string} position
  * @param {string} effect
  */
-async function showChatRollMessage(r, zeromode, attribute_name = "", position = "", effect = "", note = "", current_stress, current_crew_tier) {
+async function showChatRollMessage(r, zeromode, attribute_name = "", position = "", effect = "", note = "", current_overload, current_crew_tier) {
   let speaker = ChatMessage.getSpeaker();
   let rolls = (r.terms)[0].results;
   let attribute_label = BladesHelpers.getRollLabel(attribute_name);
@@ -70,11 +70,11 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
 		//process the die results
 		roll_status = getBladesRollStatus(z_rolls, zeromode);
 		if (position === "desperate") {if (roll_status === "partial-success") {roll_status = "failure";} }
-		result = await renderTemplate("systems/blades-in-the-dark/templates/chat/threat-roll.html", {rolls: z_rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, position: position, effect: effect, note: note, header: true, body: true, footer: false});
+		result = await renderTemplate("systems/synths-in-the-shadow/templates/chat/threat-roll.html", {rolls: z_rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, position: position, effect: effect, note: note, header: true, body: true, footer: false});
 		firstLoop = false;
 		
 		// decrement for one result output to the chat message
-		current_stress--;
+		current_overload--;
 	} //end if zeromode
 	
 	// sort the roll results and remap them to have a sorted rolls array
@@ -89,7 +89,7 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
 	let use_die=[];
 
 	//loop through the html template for each of the extra threats
-	for (let j = current_stress; j >= 0; j--) {
+	for (let j = current_overload; j >= 0; j--) {
 		//pull the highest result to feed into the html
 		use_die[0] = s_rolls[s_rolls.length-1];
 
@@ -102,16 +102,16 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
 
 		//render the html
 		if (firstLoop) {
-			result = await renderTemplate("systems/blades-in-the-dark/templates/chat/threat-roll.html", {rolls: use_die, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, position: position, effect: effect, note: note, header: true, body: true, footer: false});
+			result = await renderTemplate("systems/synths-in-the-shadow/templates/chat/threat-roll.html", {rolls: use_die, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, position: position, effect: effect, note: note, header: true, body: true, footer: false});
 		firstLoop = false;
 		} else {
-			result += await renderTemplate("systems/blades-in-the-dark/templates/chat/threat-roll.html", {rolls: use_die, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, position: position, effect: effect, note: note, header: false, body: true, footer: false});
+			result += await renderTemplate("systems/synths-in-the-shadow/templates/chat/threat-roll.html", {rolls: use_die, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, position: position, effect: effect, note: note, header: false, body: true, footer: false});
 		}
 
 	} //end for loop
 
 	// render html for the note and the remaining die results
-	result += await renderTemplate("systems/blades-in-the-dark/templates/chat/threat-roll.html", {rolls: s_rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, position: position, effect: effect, note: note, header: false, body: false, footer: true, edge: edge});		
+	result += await renderTemplate("systems/synths-in-the-shadow/templates/chat/threat-roll.html", {rolls: s_rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, position: position, effect: effect, note: note, header: false, body: false, footer: true, edge: edge});		
   
   }
   
@@ -142,37 +142,37 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
         effect_localize = 'BITD.EffectStandard'
     }
 
-    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/action-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, position: position, position_localize: position_localize, effect: effect, effect_localize: effect_localize, note: note, edge: edge});
+    result = await renderTemplate("systems/synths-in-the-shadow/templates/chat/action-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, position: position, position_localize: position_localize, effect: effect, effect_localize: effect_localize, note: note, edge: edge});
   }
   // Check for Resistance roll
   else if (BladesHelpers.isAttributeAttribute(attribute_name)) {
-    let stress = getBladesRollStress(rolls, zeromode);
-	let filepath = "systems/blades-in-the-dark/templates/chat/resistance-roll.html";
+    let overload = getBladesRollOverload(rolls, zeromode);
+	let filepath = "systems/synths-in-the-shadow/templates/chat/resistance-roll.html";
 	if (game.settings.get('blades-in-the-dark', 'PushYourself')){
-		filepath = "systems/blades-in-the-dark/templates/chat/push-yourself-roll.html";
+		filepath = "systems/synths-in-the-shadow/templates/chat/push-yourself-roll.html";
 	}
-    result = await renderTemplate(filepath, {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, stress: stress, note: note, edge: edge});
+    result = await renderTemplate(filepath, {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, overload: overload, note: note, edge: edge});
   }
   // Check for Indugle Vice roll
   else if (attribute_name == 'BITD.Vice') {
-    let clear_stress = getBladesRollVice(rolls, zeromode);
+    let clear_overload = getBladesRollVice(rolls, zeromode);
 
-    if (current_stress - clear_stress >= 0) {
+    if (current_overload - clear_overload >= 0) {
       roll_status = "success";
     } else {
       roll_status = "failure";
-      clear_stress = current_stress;
+      clear_overload = current_overload;
     }
 
-    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/vice-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, clear_stress: clear_stress, note: note, edge: edge});
+    result = await renderTemplate("systems/synths-in-the-shadow/templates/chat/vice-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, clear_overload: clear_overload, note: note, edge: edge});
   }
   // Check for Gather Information roll
   else if (attribute_name == 'BITD.GatherInformation') {
-    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/gather-info-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, note: note, edge: edge});
+    result = await renderTemplate("systems/synths-in-the-shadow/templates/chat/gather-info-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, note: note, edge: edge});
   }
   // Check for Engagement roll
   else if (attribute_name == 'BITD.Engagement') {
-    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/engagement-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, note: note, edge: edge});
+    result = await renderTemplate("systems/synths-in-the-shadow/templates/chat/engagement-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, note: note, edge: edge});
   }
   // Check for Asset roll
   else if (attribute_name == 'BITD.AcquireAsset') {
@@ -194,11 +194,11 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
         break;
     }
 
-    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/asset-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, tier_quality: tier_quality, note: note,  edge: edge});
+    result = await renderTemplate("systems/synths-in-the-shadow/templates/chat/asset-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, tier_quality: tier_quality, note: note,  edge: edge});
   }
   // Fortune roll if not specified
   else {
-    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/fortune-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: "BITD.Fortune", note: note, edge: edge});
+    result = await renderTemplate("systems/synths-in-the-shadow/templates/chat/fortune-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: "BITD.Fortune", note: note, edge: edge});
   }
 
   let messageData;
@@ -280,13 +280,13 @@ export function getBladesRollStatus(rolls, zeromode = false) {
 
 }
 /**
- * Get stress of the Roll.
+ * Get overload of the Roll.
  * @param {Array} rolls
  * @param {Boolean} zeromode
  */
-export function getBladesRollStress(rolls, zeromode = false) {
+export function getBladesRollOverload(rolls, zeromode = false) {
 
-  var stress = 6;
+  var overload = 6;
 
   // Sort roll values from lowest to highest.
   let sorted_rolls = rolls.map(i => i.result).sort();
@@ -294,7 +294,7 @@ export function getBladesRollStress(rolls, zeromode = false) {
   let roll_status = "failure"
 
   if (sorted_rolls[0] === 6 && zeromode) {
-    stress = -1;
+    overload = -1;
   }
   else {
     let use_die;
@@ -312,19 +312,19 @@ export function getBladesRollStress(rolls, zeromode = false) {
     }
 
     if (use_die === 6 && prev_use_die && prev_use_die === 6) {
-      stress = -1;
+      overload = -1;
     } else {
-      stress = 6 - use_die;
+      overload = 6 - use_die;
     }
 
   }
 
-  return stress;
+  return overload;
 
 }
 
 /**
- * Get stress cleared with a Vice Roll.
+ * Get overload cleared with a Vice Roll.
  * @param {Array} rolls
  * @param {Boolean} zeromode
  */
@@ -349,14 +349,14 @@ export function getBladesRollVice(rolls, zeromode = false) {
  * Call a Roll popup.
  */
 export async function simpleRollPopup() {
-	//get stress and tier from selected token
-	let current_stress = 0;
+	//get overload and tier from selected token
+	let current_overload = 0;
 	let current_tier = 0;
 	let selected_tokens = canvas.tokens.controlled;
 	if (selected_tokens.length >0) {
 		let target_actor = game.actors.get(selected_tokens[0].document.actorId);
 		if (target_actor.type == "character") {
-			current_stress = parseInt(target_actor.system.stress.value);
+			current_overload = parseInt(target_actor.system.overload.value);
 			try {
 				let current_crew = game.actors.get(target_actor.system.crew[0].id);
 				current_tier = parseInt(current_crew.system.tier);
@@ -369,7 +369,7 @@ export async function simpleRollPopup() {
 		if (target_actor.type == "crew") {
 			current_tier = parseInt(target_actor.system.tier);
 		}
-		console.log("For the selected token, Stress is "+current_stress+" and Tier is "+current_tier);
+		console.log("For the selected token, Overload is "+current_overload+" and Tier is "+current_tier);
 	} 
 	else {console.log("No Token is selected.");}
 	
@@ -404,9 +404,9 @@ export async function simpleRollPopup() {
           <div class="radio-group" style="display:flex;flex-direction:row;justify-content:space-between;">
             <label><input type="radio" id="indulgeVice" name="rollSelection"> ${game.i18n.localize("BITD.IndulgeVice")}</label>
             <span style="width:200px">
-              <label>${game.i18n.localize('BITD.Stress')}:</label>
-              <select style="width:100px;float:right" id="stress" name="stress">
-				<option value="${current_stress}" selected disabled hidden>${current_stress}</option>
+              <label>${game.i18n.localize('BITD.Overload')}:</label>
+              <select style="width:100px;float:right" id="overload" name="overload">
+				<option value="${current_overload}" selected disabled hidden>${current_overload}</option>
                 ${Array(11).fill().map((item, i) => `<option value="${i}">${i}</option>`).join('')}
               </select>
             </span>
@@ -434,7 +434,7 @@ export async function simpleRollPopup() {
         label: `Roll`,
         callback: async (html) => {
           let diceQty = Number(html.find('[name="qty"]')[0].value);
-          let stress = Number(html.find('[name="stress"]')[0].value);
+          let overload = Number(html.find('[name="overload"]')[0].value);
           let tier = Number(html.find('[name="tier"]')[0].value);
           let note = html.find('[name="note"]')[0].value;
 
@@ -449,7 +449,7 @@ export async function simpleRollPopup() {
                   await bladesRoll(diceQty,"BITD.Engagement","","",note,"");
                   break;
                 case 'indulgeVice':
-                  await bladesRoll(diceQty,"BITD.Vice","","",note,stress);
+                  await bladesRoll(diceQty,"BITD.Vice","","",note,overload);
                   break;
                 case 'acquireAsset':
 				  diceQty = diceQty + tier; console.log(diceQty);

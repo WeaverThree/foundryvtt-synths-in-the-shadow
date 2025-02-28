@@ -6,7 +6,7 @@
   {{#if (eq roll_status "failure")}}
   <div class="die {{roll_status}}">{{localize "BITD.RollFailure"}}</div>
   <div class="description">
-    <p>{{{localize "BITD.RollViceFailure" clear_stress=clear_stress}}}
+    <p>{{{localize "BITD.RollViceFailure" clear_overload=clear_overload}}}
     <ul>
       <li>{{{localize "BITD.RollViceFailureAttactTrouble"}}}</li>
       <li>{{{localize "BITD.RollViceFailureBrag"}}}</li>
@@ -18,7 +18,7 @@
   {{else}}
   <div class="die success">{{localize "BITD.RollSuccess"}}</div>
   <div class="description">
-    <p>{{{localize "BITD.RollVice" clear_stress=clear_stress}}}</p>
+    <p>{{{localize "BITD.RollVice" clear_overload=clear_overload}}}</p>
   </div>
   {{/if}}
   <div class="description">

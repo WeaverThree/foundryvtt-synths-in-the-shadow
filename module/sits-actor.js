@@ -5,7 +5,7 @@ import { BladesHelpers } from "./blades-helpers.js";
  * Extend the basic Actor
  * @extends {Actor}
  */
-export class BladesActor extends Actor {
+export class SitsActor extends Actor {
 
   /** @override */
   static async create(data, options={}) {
@@ -201,7 +201,7 @@ export class BladesActor extends Actor {
             let note = html.find('[name="note"]')[0].value;
             let action_dice_amount = this.getRollData().dice_amount[attribute_name] + modifier;
             let vice_dice_amount = this.getRollData().dice_amount['BITD.Vice'] + modifier;
-            let stress = parseInt(this.system.stress.value);
+            let overload = parseInt(this.system.overload.value);
             if (BladesHelpers.isAttributeAction(attribute_name)) {
               let input = html.find("input");
               for (let i = 0; i < input.length; i++){
@@ -224,7 +224,7 @@ export class BladesActor extends Actor {
                       await bladesRoll(action_dice_amount,"BITD.GatherInformation","","",note,"");
                       break;
                     case 'indulgeVice':
-                      await bladesRoll(vice_dice_amount,"BITD.Vice","","",note,stress);
+                      await bladesRoll(vice_dice_amount,"BITD.Vice","","",note,overload);
                       break;
                     case 'engagement':
                       let engagement_dice_amount = Number(html.find('[name="qty"]')[0].value);
@@ -271,7 +271,7 @@ export class BladesActor extends Actor {
     }
     dice_amount += additional_dice_amount;
 
-    await bladesRoll(dice_amount, attribute_name, position, effect, note, this.system.stress.value);
+    await bladesRoll(dice_amount, attribute_name, position, effect, note, this.system.overload.value);
   }
 
 
@@ -369,14 +369,14 @@ export class BladesActor extends Actor {
     return attributes;
   }
 
-  getMaxStress() {
-    let max_stress = this.system.stress.max;
+  getMaxOverload() {
+    let max_overload = this.system.overload.max;
     let crew = this.system.crew;
     if (crew.length > 0) {
       let crew_actor = game.actors.get(crew[0].id);
-      max_stress = max_stress + crew_actor.system.scoundrel.add_stress;
+      max_overload = max_overload + crew_actor.system.scoundrel.add_overload;
     }
-    return max_stress;
+    return max_overload;
   }
 
   getMaxTrauma() {

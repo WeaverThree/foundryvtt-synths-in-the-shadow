@@ -1,17 +1,17 @@
 
-import { BladesSheet } from "./blades-sheet.js";
+import { SitsSheet } from "./sits-sheet.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
- * @extends {BladesSheet}
+ * @extends {SitsSheet}
  */
-export class BladesClockSheet extends BladesSheet {
+export class BladesClockSheet extends SitsSheet {
 
   /** @override */
 	static get defaultOptions() {
 	  return foundry.utils.mergeObject(super.defaultOptions, {
   	  classes: ["blades-in-the-dark", "sheet", "actor", "clock"],
-  	  template: "systems/blades-in-the-dark/templates/actors/clock-sheet.html",
+  	  template: "systems/synths-in-the-shadow/templates/actors/clock-sheet.html",
       width: 360,
       height: 400,
     });
@@ -50,7 +50,7 @@ export class BladesClockSheet extends BladesSheet {
 
   /** @override */
   async _updateObject(event, formData) {
-    let image_path = `systems/blades-in-the-dark/themes/${formData['system.color']}/${formData['system.type']}clock_${formData['system.value']}.svg`;
+    let image_path = `systems/synths-in-the-shadow/themes/${formData['system.color']}/${formData['system.type']}clock_${formData['system.value']}.svg`;
     formData['img'] = image_path;
     formData['prototypeToken.texture.src'] = image_path;
     let data = [];

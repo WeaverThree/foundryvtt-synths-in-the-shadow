@@ -8,7 +8,6 @@
 
     <div class="grow-two">
       <div id="character-{{_id}}-name-box">
-        <label for="character-{{_id}}-name"><b>{{localize "BITD.Name"}}</b></label>
         <input type="text" id="character-{{_id}}-name" class="name" name="name" value="{{name}}">
       </div>
 
@@ -102,11 +101,10 @@
 
     <div class="grow-two">
       <div id="character-{{_id}}-alias-box">
-        <label for="character-{{_id}}-alias"><b>{{localize "BITD.Alias"}}</b></label>
         <input type="text" id="character-{{_id}}-alias" class="alias" name="system.alias" value="{{system.alias}}">
       </div>
 
-      {{> "systems/blades-in-the-dark/templates/parts/coins.html" actor=actor}}
+      {{> "systems/synths-in-the-shadow/templates/parts/coins.html" actor=actor}}
 	  
 	  {{#if (getSetting 'Edge')}}
 	  <div class="attributes" style="padding: 10px">
@@ -135,9 +133,9 @@
 		<a class="down-exp-clock" data-tooltip="{{localize 'BITD.MinusXP'}}"><i class="fas fa-caret-down"></i></a>
 	</div>
 		<!-- 
-	<img src="systems/blades-in-the-dark/themes/{{system.exp_clock.color}}/{{system.exp_clock.size}}clock_{{system.exp_clock.value}}.svg" height="45" width="45" style="border-style: none"/>
+	<img src="systems/synths-in-the-shadow/themes/{{system.exp_clock.color}}/{{system.exp_clock.size}}clock_{{system.exp_clock.value}}.svg" height="45" width="45" style="border-style: none"/>
 		-->
-	<img src="systems/blades-in-the-dark/styles/assets/progressclocks-svg/Progress Clock {{system.exp_clock.size}}-{{system.exp_clock.value}}.svg" height="45" width="45" style="border-style: none"/>
+	<img src="systems/synths-in-the-shadow/styles/assets/progressclocks-svg/Progress Clock {{system.exp_clock.size}}-{{system.exp_clock.value}}.svg" height="45" width="45" style="border-style: none"/>
 	{{#if (gteq system.exp_clock.number 1)}}
 		<div class="flex-vertical" style="font-size: 16px">
 			<a class="add-exp-clock" data-tooltip="{{localize 'BITD.MinusXPClock'}}" style="visibility:hidden"><i class="fas fa-angles-up"></i></a>
@@ -145,28 +143,28 @@
 		</div>
 			{{#if (lteq system.exp_clock.number 10)}}
 				{{#times_from 1 system.exp_clock.number}}
-					<img src="systems/blades-in-the-dark/styles/assets/progressclocks-svg/Progress Clock 6-6.svg" height="45" width="45" style="border-style: none"/>
+					<img src="systems/synths-in-the-shadow/styles/assets/progressclocks-svg/Progress Clock 6-6.svg" height="45" width="45" style="border-style: none"/>
 				{{/times_from}}
 			{{else}}
-				<img src="systems/blades-in-the-dark/styles/assets/progressclocks-svg/Progress Clock 6-6.svg" height="45" width="45" style="border-style: none"/>
+				<img src="systems/synths-in-the-shadow/styles/assets/progressclocks-svg/Progress Clock 6-6.svg" height="45" width="45" style="border-style: none"/>
 				<p style="font-family: Kirsty, serif; font-size: 24px">x {{system.exp_clock.number}}</p>
 			{{/if}}
 	{{/if}}
 	{{/if}}
   </section>
-  {{!-- Stress and Trauma --}}
-  <div id="character-{{_id}}-stress-trauma" class="section big-teeth-section">
-    <div id="character-{{_id}}-stress" class="big-teeth character-stress">
-      {{#multiboxes system.stress.value}}
+  {{!-- Overload and Trauma --}}
+  <div id="character-{{_id}}-overload-trauma" class="section big-teeth-section">
+    <div id="character-{{_id}}-overload" class="big-teeth character-overload">
+      {{#multiboxes system.overload.value}}
 
-      <input type="radio" id="character-{{_id}}-stress-0" name="system.stress.value" value="0" dtype="Radio">
-      <!--<label class="black-label" for="character-{{_id}}-stress-0">{{localize system.stress.name}}</label>-->
-	  <div class="black-label">{{localize system.stress.name}}</div>
+      <input type="radio" id="character-{{_id}}-overload-0" name="system.overload.value" value="0" dtype="Radio">
+      <!--<label class="black-label" for="character-{{_id}}-overload-0">{{localize system.overload.name}}</label>-->
+	  <div class="black-label">{{localize system.overload.name}}</div>
 
-      {{#times_from 1 system.stress.max}}
-        <input type="radio" id="character-{{../_id}}-stress-{{this}}" name="system.stress.value" value="{{this}}"
+      {{#times_from 1 system.overload.max}}
+        <input type="radio" id="character-{{../_id}}-overload-{{this}}" name="system.overload.value" value="{{this}}"
                dtype="Radio">
-        <label class="radio-toggle" for="character-{{../_id}}-stress-{{this}}"></label>
+        <label class="radio-toggle" for="character-{{../_id}}-overload-{{this}}"></label>
       {{/times_from}}
 
       {{/multiboxes}}
@@ -187,41 +185,6 @@
         </div>
       </div>
       {{/traumacounter}}
-    </div>
-
-    <div id="character-{{_id}}-trauma-list" class="trauma-list">
-      <label>
-        <input type="checkbox" data-dType="Boolean" name="system.trauma.list.cold" value="cold" {{checked system.trauma.list.cold}}>
-		<span class="checkmark">{{localize system.trauma.options.[0]}}</span>
-      </label>
-      <label>
-        <input type="checkbox" data-dType="Boolean" name="system.trauma.list.haunted" value="haunted" {{checked system.trauma.list.haunted}}>
-        <span class="checkmark">{{localize system.trauma.options.[1]}}</span>
-      </label>
-      <label>
-        <input type="checkbox" data-dType="Boolean" name="system.trauma.list.obsessed" value="obsessed" {{checked system.trauma.list.obsessed}}>
-        <span class="checkmark">{{localize system.trauma.options.[2]}}</span>
-      </label>
-      <label>
-        <input type="checkbox" data-dType="Boolean" name="system.trauma.list.paranoid" value="paranoid" {{checked system.trauma.list.paranoid}}>
-        <span class="checkmark">{{localize system.trauma.options.[3]}}</span>
-      </label>
-      <label>
-        <input type="checkbox" data-dType="Boolean" name="system.trauma.list.reckless" value="reckless" {{checked system.trauma.list.reckless}}>
-        <span class="checkmark">{{localize system.trauma.options.[4]}}</span>
-      </label>
-      <label>
-        <input type="checkbox" data-dType="Boolean" name="system.trauma.list.soft" value="soft" {{checked system.trauma.list.soft}}>
-        <span class="checkmark">{{localize system.trauma.options.[5]}}</span>
-      </label>
-      <label>
-        <input type="checkbox" data-dType="Boolean" name="system.trauma.list.unstable" value="unstable" {{checked system.trauma.list.unstable}}>
-        <span class="checkmark">{{localize system.trauma.options.[6]}}</span>
-      </label>
-      <label>
-        <input type="checkbox" data-dType="Boolean" name="system.trauma.list.vicious" value="vicious" {{checked system.trauma.list.vicious}}>
-        <span class="checkmark">{{localize system.trauma.options.[7]}}</span>
-      </label>
     </div>
 
   </div>
@@ -410,7 +373,7 @@
         <div class="label-stripe">
           <p>{{localize "BITD.Effects"}}</p>
         </div>
-        {{> "systems/blades-in-the-dark/templates/parts/active-effects.html"}}
+        {{> "systems/synths-in-the-shadow/templates/parts/active-effects.html"}}
       </div>
 
       {{!-- Full Item List --}}
@@ -432,7 +395,7 @@
 
     </div>
     {{!-- Attributes --}}
-    {{> "systems/blades-in-the-dark/templates/parts/attributes.html" actor=actor}}
+    {{> "systems/synths-in-the-shadow/templates/parts/attributes.html" actor=actor}}
   </section>
 
 </form>

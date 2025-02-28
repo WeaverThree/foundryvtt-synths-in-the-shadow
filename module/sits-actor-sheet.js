@@ -1,18 +1,18 @@
-import { BladesSheet } from "./blades-sheet.js";
+import { SitsSheet } from "./sits-sheet.js";
 import { BladesActiveEffect } from "./blades-active-effect.js";
 import { BladesHelpers } from "./blades-helpers.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
- * @extends {BladesSheet}
+ * @extends {SitsSheet}
  */
-export class BladesActorSheet extends BladesSheet {
+export class SitsActorSheet extends SitsSheet {
 
   /** @override */
 	static get defaultOptions() {
 	  return foundry.utils.mergeObject(super.defaultOptions, {
   	  classes: ["blades-in-the-dark", "sheet", "actor", "pc"],
-  	  template: "systems/blades-in-the-dark/templates/actor-sheet.html",
+  	  template: "systems/synths-in-the-shadow/templates/actor-sheet.html",
       width: 790,
       height: 890,
       tabs: [{navSelector: ".tabs", contentSelector: ".tab-content", initial: "abilities"}]
@@ -89,8 +89,8 @@ export class BladesActorSheet extends BladesSheet {
     // catch unmigrated actor data and apply the Mastery crew ability to attribute maxes
     sheetData.system.attributes = this.actor.getComputedAttributes();
 	
-    //check for additional stress and trauma from crew sources
-    sheetData.system.stress.max = this.actor.getMaxStress();
+    //check for additional overload and trauma from crew sources
+    sheetData.system.overload.max = this.actor.getMaxOverload();
     sheetData.system.trauma.max = this.actor.getMaxTrauma();
 
 	//check for healing minimums

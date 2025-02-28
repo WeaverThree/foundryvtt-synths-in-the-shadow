@@ -31,7 +31,7 @@
       background-image: url($checked_background);
       background-repeat: no-repeat;
       background-size: contain;
-      margin-right: 5px;
+      margin-right: 0px;
   
       &:last-of-type {
         margin-right: 0px;
@@ -72,6 +72,76 @@
     }
   }
 }
+
+@mixin pipradio_hover($width, $height, $unchecked_background, $checked_background, $unchecked_hover, $checked_hover, $changeable: true) {
+
+  display: flex;
+
+  label {
+
+    & {
+      height: $height;
+      width: $width;
+      background-image: url($checked_background);
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin-right: 0px;
+  
+      &:last-of-type {
+        margin-right: 0px;
+      }
+      &[for$="-0"] {
+        width: auto;
+        height: auto;
+        background-image: none !important;
+        color: $almost_white;
+
+        i {
+          margin-top: 4px;
+        }
+      }
+
+      @if $changeable {
+        cursor: pointer;
+        &:hover {
+          background-image: url($checked_hover);
+        }
+      }
+      @else {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  /* Hide the browser's default checkbox */
+  input {
+  
+    display: none;
+  
+    &:checked {
+  
+      & ~ label {
+        background-image: url($unchecked_background);
+        @if $changeable {
+       
+          &:hover {
+            background-image: url($unchecked_hover);
+          }
+        }
+      }
+      & + label {
+        background-image: url($checked_background);
+        @if $changeable {
+       
+          &:hover {
+            background-image: url($checked_hover);
+          }
+        }
+      }
+    }
+  }
+}
+
 
 /*
  * Custom Radio

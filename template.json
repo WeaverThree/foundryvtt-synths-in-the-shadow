@@ -17,12 +17,12 @@
     },
     "acquaintances": [],
     "acquaintances_label": "BITD.Acquaintances",
-    "stress": {
+    "overload": {
       "value": [0],
       "max": 9,
       "max_default": 9,
-      "name_default": "BITD.Stress",
-      "name": "BITD.Stress"
+      "name_default": "SITS.Overload",
+      "name": "SITS.Overload"
     },
     "trauma": {
       "max": 4,
@@ -221,7 +221,7 @@
     "hunting_grounds_label": "BITD.HuntingGrounds",
     "scoundrel": {
       "add_trauma": 0,
-      "add_stress": 0,
+      "add_overload": 0,
       "mastery": false
     },
     "max": {
