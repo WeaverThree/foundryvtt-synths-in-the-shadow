@@ -291,8 +291,6 @@
   "BITD.Prison": "Prison",
 
   "BITD.ActionRoll": "Action",
-  "BITD.ThreatRoll": "Threat",
-  "BITD.PushYourself": "Push Yourself",
   "BITD.IndulgeVice": "Indulge Vice",
   "BITD.GatherInformation": "Gather Information",
   "BITD.Fortune": "Fortune",
@@ -350,32 +348,6 @@
     "Yellow": "Yellow"
   },
   
-  "BITD.Settings": {
-    "Action": {
-      "Name": "Action Rolls",
-      "Hint": "Enables the Action Roll from the Actor Dice Roller; only uncheck if you have enabled Threat Rolls."
-    },
-    "Threat": {
-      "Name": "Threat Rolls",
-      "Hint": "Enables the Threat Roll from the Deep Cuts supplement."
-    },
-    "Push": {
-      "Name": "Push Yourself Rolls",
-      "Hint": "Replaces the base Resistance Roll with the Push Yourself Roll from the Deep Cuts supplement."
-    },
-    "Load": {
-      "Name": "Alternate Load",
-      "Hint": "Replaces the base Load Rules (Light/Normal/Heavy) with the Load Rules (Discreet/Conspicuous) from the Deep Cuts supplement."
-    },
-    "ClockXP": {
-      "Name": "Experience Clocks",
-      "Hint": "Replaces the base Experience Rules with Experience Clocks from the Deep Cuts supplement."
-    },
-    "Edge": {
-      "Name": "Edge",
-      "Hint": "Adds Edge to character sheets from the Deep Cuts supplement."
-    }
-  },
   "BITD.log": {
     "info": {
       "SameNPC": "The dropped NPC is already an acquaintance of this character.",

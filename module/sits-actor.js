@@ -96,8 +96,9 @@ export class SitsActor extends Actor {
         <fieldset class="form-group" style="display:block;justify-content:space-between;">
           <legend>Roll Types</legend>
 		  `;
-		if (game.settings.get('blades-in-the-dark', 'ActionRoll')) {
-		  content += `
+
+      // Action Roll Stuff
+		  content += ` 
           <div class="radio-group" style="display:flex;flex-direction:row;justify-content:space-between;">
             <label style="width: 100px; display: inline-block;"><input type="radio" id="actionRoll" name="rollSelection" checked=true> ${game.i18n.localize("BITD.ActionRoll")}</label>
             <span style="width:150px">
@@ -118,27 +119,7 @@ export class SitsActor extends Actor {
             </span>
           </div>
 		  `;
-		}
-		if (game.settings.get('blades-in-the-dark', 'ThreatRoll')) {
-		   content += `
-		    <div class="radio-group" style="display:flex;flex-direction:row;justify-content:space-between;">
-            <label style="width: 100px; display: inline-block;"><input type="radio" id="threatRoll" name="rollSelection" checked=true> ${game.i18n.localize("BITD.ThreatRoll")}</label>
-            <span style="width:150px">
-              <label>${game.i18n.localize('BITD.Position')}:</label>
-              <select id="pos2" name="pos2">
-                <option value="risky" selected>${game.i18n.localize('BITD.PositionRisky')}</option>
-                <option value="desperate">${game.i18n.localize('BITD.PositionDesperate')}</option>
-              </select>
-            </span>
-            <span style="width:150px">
-              <label>${game.i18n.localize('BITD.ExtraThreats')}:</label>
-              <select id="extraThreats" name="extraThreats">
-                ${Array(6).fill().map((item, i) => `<option value="${i}">${i}</option>`).join('')}
-              </select>
-            </span>
-          </div>
-		  `;
-		}
+
 		  content += `
           <div class="radio-group" >
             <label>
@@ -211,11 +192,6 @@ export class SitsActor extends Actor {
                       let effect = html.find('[name="fx"]')[0].value;
 					  let position = html.find('[name="pos"]')[0].value;
                       await this.rollAttribute(attribute_name, modifier, position, effect, note);
-                      break;
-					case 'threatRoll':
-                      let extraThreats = Number(html.find('[name="extraThreats"]')[0].value);
-					  let position2 = html.find('[name="pos2"]')[0].value;
-					  await bladesRoll(action_dice_amount, attribute_name, position2, 'BITD.ThreatRoll', note, extraThreats);
                       break;
                     case 'fortune':
                       await bladesRoll(action_dice_amount,"BITD.Fortune","","",note,"");

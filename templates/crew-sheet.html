@@ -219,31 +219,7 @@
 
     {{!-- Crew XP --}}
     <div class="flex-vertical">
-	{{#if (getSetting 'ClockXP')}}
-		<div class="flex-horizontal" style="justify-content:flex-start">
-		<p class="black-label" style="width: 90px; padding-top: 3px"> {{localize "BITD.CrewXP"}}</p>
-		<div class="flex-vertical" style="font-size: 16px; padding-left: 6px; padding-right: 2px">
-			<a class="up-exp-clock" data-tooltip="{{localize 'BITD.AddXP'}}"><i class="fas fa-caret-up"></i></a>
-			<a class="down-exp-clock" data-tooltip="{{localize 'BITD.MinusXP'}}"><i class="fas fa-caret-down"></i></a>
-		</div>
-		<img src="systems/synths-in-the-shadow/styles/assets/progressclocks-svg/Progress Clock {{system.exp_clock.size}}-{{system.exp_clock.value}}.svg" height="40" width="40" style="border-style: none; padding-top: 8px"/>
-		{{#if (gteq system.exp_clock.number 1)}}
-			<div class="flex-vertical" style="font-size: 14px; padding-left: 2px; padding-right: 2px">
-				<a class="add-exp-clock" data-tooltip="{{localize 'BITD.MinusXPClock'}}" style="visibility:hidden"><i class="fas fa-angles-up"></i></a>
-				<a class="minus-exp-clock" data-tooltip="{{localize 'BITD.MinusXPClock'}}"><i class="fas fa-angles-down"></i></a>
-			</div>
-			{{#if (lteq system.exp_clock.number 4)}}
-				{{#times_from 1 system.exp_clock.number}}
-					<img src="systems/synths-in-the-shadow/styles/assets/progressclocks-svg/Progress Clock 6-6.svg" height="40" width="40" style="border-style: none; padding-top: 8px"/>
-				{{/times_from}}
-			{{else}}
-				<img src="systems/synths-in-the-shadow/styles/assets/progressclocks-svg/Progress Clock 6-6.svg" height="40" width="40" style="border-style: none; padding-top: 8px"/>
-				<p style="font-family: Kirsty, serif; font-size: 21px; padding-top: 7px">x {{system.exp_clock.number}}</p>
-			{{/if}}
-		{{/if}}
-		</div>
-	{{else}}
-      <div class="big-teeth-section">
+	      <div class="big-teeth-section">
         <div id="crew-{{_id}}-xp" class="big-teeth">
           <!--<label class="black-label" for="crew-{{_id}}-experience-0">{{localize "BITD.CrewXP"}}</label> -->
           <div class="black-label">{{localize "BITD.CrewXP"}}</div>
@@ -256,7 +232,7 @@
           {{/multiboxes}}
         </div>
       </div>
-	  {{/if}}
+
       <div class="experience-clues-container" style="padding-top: 6px;">
         <div class="experience-clues-description">{{localize "BITD.CrewExpClue1"}}</div>
         <div class="experience-clues">

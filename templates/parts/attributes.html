@@ -9,16 +9,9 @@
 		<a class="attribute-label roll-die-attribute rollable-text" data-roll-attribute="{{attribute_name}}">{{localize attribute.label}}</a>
       </div>
       <div class="stripe-tooth-body">
-	      {{#if (getSetting 'ClockXP')}}
-		  {{else}}
+	 
         {{#multiboxes attribute.exp}}
 
-        <!--
-		<label
-                for="{{../_id}}-{{attribute_name}}-exp-0"><i
-                class="fab fa-creative-commons-zero nullifier"></i></label>
-		-->
-		
         <input type="radio" id="{{../_id}}-{{attribute_name}}-exp-0"
                name="system.attributes.{{attribute_name}}.exp" value="0" checked="checked">
         {{#times_from 1 attribute.exp_max}}
@@ -28,7 +21,6 @@
         {{/times_from}}
         {{/multiboxes}}
       </div>
-	  {{/if}}
     </div>
 
     {{!-- Skills --}}

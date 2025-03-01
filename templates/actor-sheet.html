@@ -106,52 +106,10 @@
 
       {{> "systems/synths-in-the-shadow/templates/parts/coins.html" actor=actor}}
 	  
-	  {{#if (getSetting 'Edge')}}
-	  <div class="attributes" style="padding: 10px">
-	  <div class="attributes-container">
-	    {{#multiboxes system.edge.value}}
-		<div class="attribute-skill-label"><b>{{localize "BITD.Edge"}}:</b></div>
-			<input type="radio" id="edge-{{_id}}-0" name="system.edge.value" value="0" checked="checked">
-			{{#times_from 1 system.edge.max}}
-				<input type="radio" id="edge-{{_id}}-{{this}}" name="system.edge.value" value="{{this}}">
-				<label class="radio-toggle" for="edge-{{_id}}-{{this}}"></label>
-			{{/times_from}}
-		{{/multiboxes}}
-		
-	  </div> </div>
-	  {{/if}}
     </div>
 
   </section>
 
-  {{!-- Experience --}}
-  <section class="flex-horizontal experience">
-  {{#if (getSetting 'ClockXP')}}
-	<p class="black-label" style="width: 40px; padding-top: 3px"> {{localize "BITD.XP"}}</p>
-	<div class="flex-vertical" style="font-size: 18px">
-		<a class="up-exp-clock" data-tooltip="{{localize 'BITD.AddXP'}}"><i class="fas fa-caret-up"></i></a>
-		<a class="down-exp-clock" data-tooltip="{{localize 'BITD.MinusXP'}}"><i class="fas fa-caret-down"></i></a>
-	</div>
-		<!-- 
-	<img src="systems/synths-in-the-shadow/themes/{{system.exp_clock.color}}/{{system.exp_clock.size}}clock_{{system.exp_clock.value}}.svg" height="45" width="45" style="border-style: none"/>
-		-->
-	<img src="systems/synths-in-the-shadow/styles/assets/progressclocks-svg/Progress Clock {{system.exp_clock.size}}-{{system.exp_clock.value}}.svg" height="45" width="45" style="border-style: none"/>
-	{{#if (gteq system.exp_clock.number 1)}}
-		<div class="flex-vertical" style="font-size: 16px">
-			<a class="add-exp-clock" data-tooltip="{{localize 'BITD.MinusXPClock'}}" style="visibility:hidden"><i class="fas fa-angles-up"></i></a>
-			<a class="minus-exp-clock" data-tooltip="{{localize 'BITD.MinusXPClock'}}"><i class="fas fa-angles-down"></i></a>
-		</div>
-			{{#if (lteq system.exp_clock.number 10)}}
-				{{#times_from 1 system.exp_clock.number}}
-					<img src="systems/synths-in-the-shadow/styles/assets/progressclocks-svg/Progress Clock 6-6.svg" height="45" width="45" style="border-style: none"/>
-				{{/times_from}}
-			{{else}}
-				<img src="systems/synths-in-the-shadow/styles/assets/progressclocks-svg/Progress Clock 6-6.svg" height="45" width="45" style="border-style: none"/>
-				<p style="font-family: Kirsty, serif; font-size: 24px">x {{system.exp_clock.number}}</p>
-			{{/if}}
-	{{/if}}
-	{{/if}}
-  </section>
   {{!-- Overload and Trauma --}}
   <div id="character-{{_id}}-overload-trauma" class="section big-teeth-section">
     <div id="character-{{_id}}-overload" class="big-teeth character-overload">
@@ -274,8 +232,7 @@
         <div class="label-stripe">
           <p><label for="character-{{_id}}-experience-0">{{localize "BITD.Abilities"}}</label></p>
           <p><a class="item-add-popup" data-item-type="ability" data-tooltip="{{localize 'BITD.AddAbility'}}"><i class="fas fa-plus-square"></i></a></p>
-          {{#if (getSetting 'ClockXP')}}
-		  {{else}}
+      
 		  <div id="character-{{_id}}-experience" class="teeth-experience">
             <!--<label for="character-{{_id}}-experience-0"><i class="fab fa-creative-commons-zero nullifier"></i></label>-->
             {{#multiboxes system.experience}}
@@ -286,7 +243,6 @@
             {{/times_from}}
             {{/multiboxes}}
           </div>
-		  {{/if}}
         </div>
 
         <div id="character-{{_id}}-abilities-list">

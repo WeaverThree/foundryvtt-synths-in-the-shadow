@@ -18,7 +18,6 @@ import { BladesCrewSheet } from "./blades-crew-sheet.js";
 import { BladesClockSheet } from "./blades-clock-sheet.js";
 import { BladesNPCSheet } from "./blades-npc-sheet.js";
 import { BladesFactionSheet } from "./blades-faction-sheet.js";
-import * as migrations from "./migration.js";
 
 window.BladesHelpers = BladesHelpers;
 

@@ -47,19 +47,13 @@ export class SitsActorSheet extends SitsSheet {
     sheetData.system.loadout = loadout;
 
     // Encumbrance Levels
-	let load_level;
-	let mule_level;
-	if (game.settings.get('blades-in-the-dark', 'DeepCutLoad')) {
-		load_level=["BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Conspicuous","BITD.Conspicuous","BITD.Encumbered",
-				"BITD.Encumbered","BITD.Encumbered","BITD.OverMax","BITD.OverMax"];
-		mule_level=["BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Conspicuous",
-				"BITD.Conspicuous","BITD.Encumbered","BITD.Encumbered","BITD.OverMax"];
-	} else {
-		load_level=["BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Normal","BITD.Normal","BITD.Heavy","BITD.Encumbered",
-				"BITD.Encumbered","BITD.Encumbered","BITD.OverMax","BITD.OverMax"];
-		mule_level=["BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Normal","BITD.Normal",
-				"BITD.Heavy","BITD.Encumbered","BITD.OverMax","BITD.OverMax"];
-	}
+    let load_level;
+    let mule_level;
+    load_level=["BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Normal","BITD.Normal","BITD.Heavy","BITD.Encumbered",
+        "BITD.Encumbered","BITD.Encumbered","BITD.OverMax","BITD.OverMax"];
+    mule_level=["BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Normal","BITD.Normal",
+        "BITD.Heavy","BITD.Encumbered","BITD.OverMax","BITD.OverMax"];
+	
     let mule_present=0;
 
 
