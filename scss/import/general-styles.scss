@@ -66,23 +66,27 @@ section {
 .black-label {
   background-color: $almost_black;
   color: $almost_white;
-  font-size: 21px;
+  font-size: 18px;
   text-align: center;
   padding: 0px 5px;
   height: 30px;
   text-transform: capitalize;
-  font-family: Kirsty, serif;
+  font-family: BarlowCondensed, sans-serif;
+  font-weight: bold;
+  font-style: italic;
 }
 
 .gray-label {
   background-color: $gray;
   color: $almost_black;
-  font-size: 21px;
+  font-size: 18px;
   text-align: center;
   padding: 0px 5px;
   height: 30px;
   text-transform: capitalize;
-  font-family: Kirsty, serif;
+  font-family: BarlowCondensed, sans-serif;
+  font-weight: bold;
+  font-style: italic;
 }
 
 

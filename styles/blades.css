@@ -85,8 +85,81 @@
   font-weight: 600;
   font-style: italic;
 }
+@font-face {
+  font-family: "Rubik";
+  src: url("assets/fonts/Rubik/Rubik-Regular.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("assets/fonts/Rubik/Rubik-Italic.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("assets/fonts/Rubik/Rubik-Bold.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("assets/fonts/Rubik/Rubik-BoldItalic.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("assets/fonts/Rubik/Rubik-ExtraBold.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-weight: bolder;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("assets/fonts/Rubik/Rubik-ExtraBoldItalic.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-weight: bolder;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("assets/fonts/Rubik/Rubik-Light.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-weight: lighter;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("assets/fonts/Rubik/Rubik-LightItalic.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-weight: lighter;
+  font-style: italic;
+}
+@font-face {
+  font-family: "BarlowCondensed";
+  src: url("assets/fonts/Barlow_Condensed/BarlowCondensed-Regular.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "BarlowCondensed";
+  src: url("assets/fonts/Barlow_Condensed/BarlowCondensed-Italic.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "BarlowCondensed";
+  src: url("assets/fonts/Barlow_Condensed/BarlowCondensed-Bold.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "BarlowCondensed";
+  src: url("assets/fonts/Barlow_Condensed/BarlowCondensed-BoldItalic.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-weight: bold;
+  font-style: italic;
+}
 .blades-in-the-dark {
-  font-family: "Crimson Text", serif;
+  font-family: "BarlowCondensed", sans-serif;
+  font-size: 14px;
 }
 .blades-in-the-dark textarea {
   margin-top: 10px;
@@ -144,22 +217,26 @@
 .blades-in-the-dark .black-label {
   background-color: #191813;
   color: #EEEFFF;
-  font-size: 21px;
+  font-size: 18px;
   text-align: center;
   padding: 0px 5px;
   height: 30px;
   text-transform: capitalize;
-  font-family: Kirsty, serif;
+  font-family: BarlowCondensed, sans-serif;
+  font-weight: bold;
+  font-style: italic;
 }
 .blades-in-the-dark .gray-label {
   background-color: #999;
   color: #191813;
-  font-size: 21px;
+  font-size: 18px;
   text-align: center;
   padding: 0px 5px;
   height: 30px;
   text-transform: capitalize;
-  font-family: Kirsty, serif;
+  font-family: BarlowCondensed, sans-serif;
+  font-weight: bold;
+  font-style: italic;
 }
 .blades-in-the-dark .label-stripe {
   text-transform: uppercase;
@@ -1156,6 +1233,64 @@
 .blades-in-the-dark.actor.pc * form.actor-sheet {
   padding: 20px;
 }
+.blades-in-the-dark.actor.pc * input {
+  border: 0;
+}
+.blades-in-the-dark.actor.pc * .underportrait-line {
+  display: flex;
+  flex-direction: row;
+}
+.blades-in-the-dark.actor.pc * .headline {
+  display: flex;
+}
+.blades-in-the-dark.actor.pc * .headline .headline-left {
+  width: 255px;
+  margin-right: 4px;
+  text-align: right;
+}
+.blades-in-the-dark.actor.pc * .headline input {
+  height: 30px;
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+.blades-in-the-dark.actor.pc * .headline .name {
+  font-size: 60px;
+  height: 64px;
+}
+.blades-in-the-dark.actor.pc * .lookline {
+  display: flex;
+}
+.blades-in-the-dark.actor.pc * .lookline input {
+  height: 30px;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.blades-in-the-dark.actor.pc * .traitsline {
+  display: flex;
+}
+.blades-in-the-dark.actor.pc * .traitsline .fakeinput {
+  width: 172px;
+  height: 26px;
+  margin-right: 4px;
+  background-color: rgba(0, 0, 0, 0.05);
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px;
+}
+.blades-in-the-dark.actor.pc * .traitsline .detail {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+}
+.blades-in-the-dark.actor.pc * .synopsis {
+  height: 64px;
+  margin-top: 4px;
+  margin-bottom: 0px;
+  border: 0;
+  font-family: BarlowCondensed;
+}
 .blades-in-the-dark.actor.pc * .second-section {
   margin-bottom: 0px;
   margin-top: 10px;
@@ -1165,7 +1300,10 @@
   flex-direction: column;
 }
 .blades-in-the-dark.actor.pc * .overload-malfunction .black-label {
-  width: 100px;
+  width: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 .blades-in-the-dark.actor.pc * .overload-malfunction .overload {
   display: flex;
@@ -1248,6 +1386,10 @@
 .blades-in-the-dark.actor.pc * .overload-malfunction .malfunction input:checked + label {
   background-image: url("assets/pips/pipwide-orange.svg");
 }
+.blades-in-the-dark.actor.pc * .ec-header {
+  display: flex;
+  justify-content: space-between;
+}
 .blades-in-the-dark.actor.pc * .coins {
   display: flex;
   /* Hide the browser's default checkbox */
@@ -1318,11 +1460,19 @@
 .blades-in-the-dark.actor.pc * .attributes .stripe {
   background-color: #191813;
   color: #EEEFFF;
-  font-size: 17px;
+  font-size: 18px;
   padding-left: 5px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  font-style: italic;
 }
 .blades-in-the-dark.actor.pc * .attributes .attribute {
   margin-right: 5px;
+  width: 170px;
+}
+.blades-in-the-dark.actor.pc * .attributes *:last-child {
+  margin-right: 0px;
 }
 .blades-in-the-dark.actor.pc * .attributes .attribute-label,
 .blades-in-the-dark.actor.pc * .attributes .attribute-skill-label {
@@ -1337,8 +1487,8 @@
   display: flex;
   /* Hide the browser's default checkbox */
   position: absolute;
-  top: 0px;
-  right: 0px;
+  right: 5px;
+  top: 5px;
 }
 .blades-in-the-dark.actor.pc * .attributes .attributes-exp .stripe-tooth-body label {
   height: 20px;
@@ -1384,6 +1534,7 @@
   margin: 3px 0px;
   display: flex;
   /* Hide the browser's default checkbox */
+  font-style: italic;
 }
 .blades-in-the-dark.actor.pc * .attributes .attributes-container label {
   height: 20px;
@@ -1426,6 +1577,9 @@
 }
 .blades-in-the-dark.actor.pc * .attributes .attributes-container * {
   margin-right: 5px;
+}
+.blades-in-the-dark.actor.pc * .attributes .attributes-container *:last-child {
+  margin-left: 8px;
 }
 .blades-in-the-dark.actor.pc * .attributes .attributes-container .no-mastery {
   background-image: url("assets/pips/skill-off.svg") !important;

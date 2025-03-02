@@ -24,7 +24,8 @@ $hover-brightness: 0.8;
 
 //namespacing to avoid conflicts with other modules
 .blades-in-the-dark{
-  font-family: "Crimson Text", serif;
+  font-family: "BarlowCondensed", sans-serif;
+  font-size: 14px;
 
   @import 'import/general-styles.scss';
   @import 'import/clocks.scss';

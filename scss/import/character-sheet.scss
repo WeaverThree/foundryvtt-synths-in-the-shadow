@@ -22,7 +22,6 @@ $hover-brightness: 0.8;
 
 & * {
   .name-alias{
-
     img.portrait{
       max-width: 200px;
       max-height: 200px;
@@ -44,6 +43,77 @@ $hover-brightness: 0.8;
     }
   }
 
+  input {
+    border: 0;
+  }
+
+  .underportrait-line {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .headline {
+    display: flex;
+    
+    .headline-left {
+      width: 255px;
+      margin-right: 4px;
+      text-align: right;
+    }
+
+    input {
+      height: 30px;
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+    
+    .name {
+      font-size: 60px;
+      height: 64px;
+    }
+  }
+
+  .lookline {
+    display: flex;
+    
+    input {
+      height: 30px;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    
+  }
+
+  .traitsline {
+    display: flex;
+  
+
+    .fakeinput {
+      width:172px;
+      height: 26px;
+      margin-right:4px;
+      background-color: rgba(0,0,0,0.05);
+      font-weight: bold;
+      display:flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 4px;
+    }
+
+    .detail {
+      display:flex;
+      flex-direction: column;
+      flex-grow:2
+    }
+  }
+
+  .synopsis {
+    height: 64px;
+    margin-top:4px;
+    margin-bottom:0px;
+    border:0;
+    font-family: BarlowCondensed;
+  }
 
   .second-section {
     margin-bottom: 0px;
@@ -58,7 +128,10 @@ $hover-brightness: 0.8;
     flex-direction: column;
 
     .black-label {
-      width:100px;
+      width:66px;
+      display:flex;
+      align-items: center;
+      justify-content: flex-end;
     }
 
     // Overload
@@ -83,6 +156,11 @@ $hover-brightness: 0.8;
   $coin_size: 16px;
   $coin_margin: 3px;
   
+  .ec-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .coins {
     @include pipradio_hover($coin_size, $coin_size, "assets/pips/ec-base.svg", "assets/pips/ec-hot.svg", "assets/pips/ec-base-hover.svg", "assets/pips/ec-hot-hover.svg");
     flex-wrap: wrap;
@@ -119,12 +197,21 @@ $hover-brightness: 0.8;
     .stripe {
       background-color: $almost_black;
       color: $almost_white;
-      font-size: 17px;
+      font-size: 18px;
       padding-left: 5px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      font-style: italic;
     }
 
     .attribute {
       margin-right:5px;
+      width: 170px;
+    }
+
+    *:last-child {
+      margin-right: 0px;
     }
 
     .attribute-label,
@@ -140,8 +227,8 @@ $hover-brightness: 0.8;
       .stripe-tooth-body {
         @include pipradio_hover(10px, 20px, "assets/pips/w-pip-base.svg", "assets/pips/w-pip-blue.svg", "assets/pips/w-pip-base-hover.svg", "assets/pips/w-pip-blue-hover.svg");
         position: absolute;
-        top: 0px;
-        right: 0px;
+        right: 5px;
+        top: 5px;
       }
     }
 
@@ -149,8 +236,12 @@ $hover-brightness: 0.8;
       display: flex;
       margin: 3px 0px;
       @include pipradio_hover(20px, 20px, "assets/pips/skill-base.svg", "assets/pips/skill-black.svg", "assets/pips/skill-base-hover.svg", "assets/pips/skill-black-hover.svg");
+      font-style:italic;
       * {
         margin-right: 5px;
+      }
+      *:last-child {
+        margin-left: 8px;
       }
       .no-mastery {
         background-image: url("assets/pips/skill-off.svg") !important;
