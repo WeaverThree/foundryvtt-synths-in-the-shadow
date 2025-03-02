@@ -1,33 +1,33 @@
 <form class="{{cssClass}} actor-sheet" autocomplete="off">
 
-  <section id="character-{{_id}}-name-alias" class="flex-horizontal name-alias">
+  <section id="character-{{_id}}-header" class="flex-horizontal first-section">
 
-    <div class="grow-two">
+    <div class="portrait-area">
     <img src="{{img}}" data-edit="img" data-tooltip="{{name}}" class="portrait" />
 
     <div class="underportrait">
 
-    <div class="crew underportrait-line">
       <a class="item-add-popup" data-distinct="true" data-item-type="crew">
-        <span class="box-title"><b>Unit</b></span>
-        <span>
+    <div class="crew underportrait-line">
+        <div class="box-title"><b>Unit</b></div>
+        <div>
           {{#each system.crew as |item id|}} {{#unless (eq item.name undefined)}}
             {{item.name}}
           {{/unless}} {{/each}}
-        </span>
-      </a>
+        </div>
     </div>
+      </a>
 
-    <div class="class underportrait-line">
       <a class="item-add-popup" data-distinct="true" data-item-type="class">
-        <span class="box-title"><b>Playbook</b></span>
-        <span>
+    <div class="class underportrait-line">
+        <div class="box-title"><b>Playbook</b></div>
+        <div>
           {{#each items as |item id|}} {{#if (eq item.type "class")}}
             {{item.name}}
           {{/if}} {{/each}}
-        </span>
-      </a>
+        </div>
     </div>
+      </a>
     </div>
 
 

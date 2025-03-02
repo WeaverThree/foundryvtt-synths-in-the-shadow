@@ -1218,7 +1218,7 @@
    * Custom Radio Round
    */
 }
-.blades-in-the-dark.actor.pc * .name-alias img.portrait {
+.blades-in-the-dark.actor.pc * .first-section img.portrait {
   max-width: 200px;
   max-height: 200px;
   width: auto;
@@ -1236,9 +1236,14 @@
 .blades-in-the-dark.actor.pc * input {
   border: 0;
 }
+.blades-in-the-dark.actor.pc * .underportrait {
+  display: flex;
+  flex-direction: column;
+}
 .blades-in-the-dark.actor.pc * .underportrait-line {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 .blades-in-the-dark.actor.pc * .headline {
   display: flex;

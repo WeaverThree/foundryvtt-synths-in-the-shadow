@@ -21,7 +21,7 @@ $hover-brightness: 0.8;
 // MARK: Header
 
 & * {
-  .name-alias{
+  .first-section {
     img.portrait{
       max-width: 200px;
       max-height: 200px;
@@ -47,9 +47,15 @@ $hover-brightness: 0.8;
     border: 0;
   }
 
+  .underportrait {
+    display: flex;
+    flex-direction: column;
+  }
+  
   .underportrait-line {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
   }
 
   .headline {
