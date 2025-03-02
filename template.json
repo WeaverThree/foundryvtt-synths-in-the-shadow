@@ -1,6 +1,6 @@
 {
   "Actor": {
-  "types": ["agent", "npc", "unit", "\uD83D\uDD5B clock", "factions"],
+  "types": ["agent", "npc", "unit", "clock", "factions"],
   "agent": {
     "alias": "",
     "pronouns": "",
@@ -229,7 +229,7 @@
       "exp": 10
     }
   },
-  "\uD83D\uDD5B clock": {
+  "clock": {
     "name": "",
     "type": 4,
     "value": "0",

@@ -2,7 +2,7 @@
   "TYPES.Actor.agent": "Agent",
   "TYPES.Actor.npc": "NPC",
   "TYPES.Actor.unit": "Unit",
-  "TYPES.Actor.\uD83D\uDD5B clock": "\uD83D\uDD5B Clock",
+  "TYPES.Actor.clock": "\uD83D\uDD5B Clock",
   "TYPES.Actor.factions": "Faction Status",
   "TYPES.Item.item": "Item",
   "TYPES.Item.class": "Class",

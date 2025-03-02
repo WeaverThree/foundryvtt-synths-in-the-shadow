@@ -16,7 +16,7 @@ export class SitsActor extends Actor {
     switch (data.type) {
       case 'agent':
       case 'unit':
-      case '\uD83D\uDD5B clock':
+      case 'clock':
       case 'npc':
       case 'factions':
         data.prototypeToken.actorLink = true;
