@@ -3,6 +3,7 @@
   "types": ["character", "npc", "crew", "\uD83D\uDD5B clock", "factions"],
   "character": {
     "alias": "",
+    "pronouns": "",
     "look": "",
     "heritage": "",
     "background": "",
