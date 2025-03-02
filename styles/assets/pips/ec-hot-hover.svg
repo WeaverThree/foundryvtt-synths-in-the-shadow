@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 128 128"
+   version="1.1"
+   id="svg1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient20">
+      <stop
+         style="stop-color:#ebf052;stop-opacity:1;"
+         offset="0"
+         id="stop20" />
+      <stop
+         style="stop-color:#eb7300;stop-opacity:1;"
+         offset="1"
+         id="stop21" />
+    </linearGradient>
+    <radialGradient
+       xlink:href="#linearGradient20"
+       id="radialGradient22"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.6199768,0,0,1.5623046,-210.79212,-35.987491)"
+       cx="340"
+       cy="64"
+       fx="340"
+       fy="64"
+       r="59.482422" />
+  </defs>
+  <g
+     id="layer1"
+     style="display:none;stroke:none"
+     transform="translate(-414)">
+    <rect
+       style="font-variation-settings:normal;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.247843;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none"
+       id="rect22"
+       width="128"
+       height="128"
+       x="414"
+       y="0" />
+  </g>
+  <g
+     id="layer2"
+     transform="translate(-414)">
+    <g
+       id="g22"
+       transform="translate(138)">
+      <path
+         d="M 280.51758,4.5175781 V 25.798828 h 12.43359 v 11.279297 h -12.43359 v 21.28125 h 12.43359 v 11.28125 h -12.43359 v 21.28125 h 12.43359 v 11.279295 h -12.43359 v 21.28125 H 340 399.48242 V 102.20117 H 387.04883 V 90.921875 h 12.43359 v -21.28125 h -12.43359 v -11.28125 h 12.43359 V 37.078125 H 387.04883 V 25.798828 h 12.43359 V 4.5175781 H 340 Z"
+         id="path22"
+         style="fill:url(#radialGradient22);fill-opacity:1" />
+    </g>
+    <rect
+       style="font-variation-settings:normal;opacity:0.503333;mix-blend-mode:normal;vector-effect:none;fill:#666666;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none"
+       id="rect25"
+       width="81.403969"
+       height="81.403969"
+       x="437.29807"
+       y="23.298019" />
+  </g>
+</svg>

@@ -17,11 +17,8 @@ $hover-brightness: 0.8;
 // Imports
 @import 'mixin.scss';
 
-/*
- * General Styles
- * Cleaned out things that don't appear to apply to the character sheet, and exist in other, separated SCSS files.
- * Some things *might* be missing, but at a glance, everything looks to be in order.
- */
+
+// MARK: Header
 
 & * {
   .name-alias{
@@ -47,27 +44,18 @@ $hover-brightness: 0.8;
     }
   }
 
-  // Overload and Trauma
+
+  .second-section {
+    margin-bottom: 0px;
+    margin-top: 10px;
+  }
+
+  // MARK:Overload and Trauma
 
   .overload-malfunction {
 
-    // border-top: 3px solid $almost_black;
     display: flex;
     flex-direction: column;
-    margin-bottom: 0px;
-    margin-top: 10px;
-
-    // > * {
-    //  margin-right: 10px;
-
-    //  &:last-child {
-    //    margin-right: 0px;
-    //  }
-    // }
-
-    // &:last-child {
-    //   margin-right: 0px;
-    // }
 
     .black-label {
       width:100px;
@@ -89,13 +77,89 @@ $hover-brightness: 0.8;
 
   }
 
-  .character-overload {
-    label {
-      &[for$="-0"] {
-        margin-right: 0px;
+
+  // MARK: Coins
+
+  $coin_size: 16px;
+  $coin_margin: 3px;
+  
+  .coins {
+    @include pipradio_hover($coin_size, $coin_size, "assets/pips/ec-base.svg", "assets/pips/ec-hot.svg", "assets/pips/ec-base-hover.svg", "assets/pips/ec-hot-hover.svg");
+    flex-wrap: wrap;
+  
+    input ~ label {
+      margin-right: $coin_margin;
+      margin-bottom: $coin_margin;
+  
+      &[for$="0"] {
+        border-width: 2px;
+      }
+  
+      @include changeable($transition-period, $hover-brightness, $hover-opacity);
+    }
+  
+    &.coins-hands {
+      width: 38px;
+    }
+  
+    &.coins-stashed {
+      width: 190px;
+    }
+  
+  }
+
+
+  // MARK: Attributes
+
+  .attributes {
+
+    display: flex;
+    flex-direction: row;
+
+    .stripe {
+      background-color: $almost_black;
+      color: $almost_white;
+      font-size: 17px;
+      padding-left: 5px;
+    }
+
+    .attribute {
+      margin-right:5px;
+    }
+
+    .attribute-label,
+    .attribute-skill-label {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .attributes-exp {
+
+      position: relative;
+      margin-bottom: 10px;
+
+      .stripe-tooth-body {
+        @include pipradio_hover(10px, 20px, "assets/pips/w-pip-base.svg", "assets/pips/w-pip-blue.svg", "assets/pips/w-pip-base-hover.svg", "assets/pips/w-pip-blue-hover.svg");
+        position: absolute;
+        top: 0px;
+        right: 0px;
+      }
+    }
+
+    .attributes-container {
+      display: flex;
+      margin: 3px 0px;
+      @include pipradio_hover(20px, 20px, "assets/pips/skill-base.svg", "assets/pips/skill-black.svg", "assets/pips/skill-base-hover.svg", "assets/pips/skill-black-hover.svg");
+      * {
+        margin-right: 5px;
+      }
+      .no-mastery {
+        background-image: url("assets/pips/skill-off.svg") !important;
       }
     }
   }
+
+
+
 
   //Abilitiers and loadout
   .abilities, .loadout {
@@ -174,50 +238,7 @@ $hover-brightness: 0.8;
   }
 
 
-  .attributes {
-
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-
-    .stripe {
-      background-color: $almost_black;
-      color: $almost_white;
-      font-size: 17px;
-      padding-left: 5px;
-    }
-
-    .attribute-label,
-    .attribute-skill-label {
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-    .attribute-skill-label {
-      letter-spacing: 1px;
-    }
-    .attributes-exp {
-
-      position: relative;
-      margin-bottom: 10px;
-
-      .stripe-tooth-body {
-        @include pipradio_hover(10px, 20px, "assets/pips/w-pip-base.svg", "assets/pips/w-pip-blue.svg", "assets/pips/w-pip-base-hover.svg", "assets/pips/w-pip-blue-hover.svg");
-        position: absolute;
-        top: 0px;
-        right: 0px;
-      }
-    }
-
-    .attributes-container {
-      display: flex;
-      margin: 3px 0px;
-      @include custom_radio(15px, 15px);
-
-      * {
-        margin-right: 5px;
-      }
-    }
-  }
+ 
 
   // ITEM
   .item {
@@ -258,12 +279,5 @@ $hover-brightness: 0.8;
   .alias {
     margin-bottom: 10px;
   }
-
-  @import "coins.scss";
-
-
-
-
-
 
 }

@@ -1,8 +1,6 @@
 $coin_size: 15px;
 $coin_margin: 3px;
 
-@import 'coins.scss';
-
 .item {
 
   justify-content: space-between;
@@ -37,7 +35,7 @@ $coin_margin: 3px;
 }
 
 .name,
-.lair,
+.lair
 {
   margin-bottom: 10px;
 }

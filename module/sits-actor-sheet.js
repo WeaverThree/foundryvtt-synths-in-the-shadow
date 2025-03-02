@@ -13,7 +13,7 @@ export class SitsActorSheet extends SitsSheet {
 	  return foundry.utils.mergeObject(super.defaultOptions, {
   	  classes: ["blades-in-the-dark", "sheet", "actor", "pc"],
   	  template: "systems/synths-in-the-shadow/templates/actor-sheet.html",
-      width: 790,
+      width: 880,
       height: 890,
       tabs: [{navSelector: ".tabs", contentSelector: ".tab-content", initial: "abilities"}]
     });
