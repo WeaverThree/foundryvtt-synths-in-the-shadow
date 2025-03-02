@@ -77,10 +77,10 @@ export class SitsAgentSheet extends SitsSheet {
 
     sheetData.system.description = await TextEditor.enrichHTML(sheetData.system.description, {secrets: sheetData.owner, async: true});
 
-    // catch unmigrated actor data and apply the Mastery crew ability to attribute maxes
+    // catch unmigrated actor data and apply the Mastery unit ability to attribute maxes
     sheetData.system.attributes = this.actor.getComputedAttributes();
 	
-    //check for additional overload and trauma from crew sources
+    //check for additional overload and trauma from unit sources
     sheetData.system.overload.max = this.actor.getMaxOverload();
     sheetData.system.trauma.max = this.actor.getMaxTrauma();
 
@@ -117,8 +117,8 @@ export class SitsAgentSheet extends SitsSheet {
       case "npc":
         await BladesHelpers.addAcquaintance(this.actor, droppedEntityFull);
         break;
-	  case "crew":
-        await BladesHelpers.addCrew(this.actor, droppedEntityFull);
+	  case "unit":
+        await BladesHelpers.addUnit(this.actor, droppedEntityFull);
         break;
       case "item":
         break;
@@ -139,11 +139,11 @@ export class SitsAgentSheet extends SitsSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
-		// Remove Crew from agent sheet
-    html.find('.crew-delete').click(ev => {
+		// Remove Unit from agent sheet
+    html.find('.unit-delete').click(ev => {
 	  const element = $(ev.currentTarget).parents(".item");
-	  let crewId = element.data("itemId");
-	  BladesHelpers.removeCrew(this.actor, crewId);
+	  let unitId = element.data("itemId");
+	  BladesHelpers.removeUnit(this.actor, unitId);
     });
   }
 

@@ -5,17 +5,17 @@ import { BladesHelpers } from "./blades-helpers.js";
  * Extend the basic Actor
  * @extends {Actor}
  */
-export class SitsAgent extends Actor {
+export class SitsActor extends Actor {
 
   /** @override */
   static async create(data, options={}) {
 
     data.prototypeToken = data.prototypeToken || {};
 
-    // For Crew and agent set the Token to sync with charsheet.
+    // For Unit and Agent set the Token to sync with charsheet.
     switch (data.type) {
       case 'agent':
-      case 'crew':
+      case 'unit':
       case '\uD83D\uDD5B clock':
       case 'npc':
       case 'factions':
@@ -70,14 +70,14 @@ export class SitsAgent extends Actor {
 
     let attribute_label = BladesHelpers.getRollLabel(attribute_name);
 
-    // get crew tier info from agent sheet if available
+    // get unit tier info from agent sheet if available
     let current_tier = 0;
     try {
-      let current_crew = game.actors.get(this.system.crew[0].id);
-      current_tier = parseInt(current_crew.system.tier);
+      let current_unit = game.actors.get(this.system.unit[0].id);
+      current_tier = parseInt(current_unit.system.tier);
     }
     catch (error) {
-      console.warn("No Crew is attached to the Agent.");
+      console.warn("No Unit is attached to the Agent.");
       console.error(error);
     }
 
@@ -147,7 +147,7 @@ export class SitsAgent extends Actor {
           <div class="radio-group" style="display:flex;flex-direction:row;justify-content:space-between;">
             <label><input type="radio" id="acquireAsset" name="rollSelection"> ${game.i18n.localize("BITD.AcquireAsset")}</label>
             <span style="width:200px">
-              <label>${game.i18n.localize('BITD.CrewTier')}:</label>
+              <label>${game.i18n.localize('BITD.UnitTier')}:</label>
               <select id="tier" name="tier">
                 <option value="${current_tier}" selected disabled hidden>${current_tier}</option>
                 ${Array(5).fill().map((item, i) => `<option value="${i}">${i}</option>`).join('')}
@@ -346,30 +346,30 @@ export class SitsAgent extends Actor {
 
   getMaxOverload() {
     let max_overload = this.system.overload.max;
-    let crew = this.system.crew;
-    if (crew.length > 0) {
-      let crew_actor = game.actors.get(crew[0].id);
-      max_overload = max_overload + crew_actor.system.scoundrel.add_overload;
+    let unit = this.system.unit;
+    if (unit.length > 0) {
+      let unit_actor = game.actors.get(unit[0].id);
+      max_overload = max_overload + unit_actor.system.scoundrel.add_overload;
     }
     return max_overload;
   }
 
   getMaxTrauma() {
     let max_trauma = this.system.trauma.max;
-    let crew = this.system.crew;
-    if (crew.length > 0) {
-      let crew_actor = game.actors.get(crew[0].id);
-      max_trauma = max_trauma + crew_actor.system.scoundrel.add_trauma;
+    let unit = this.system.unit;
+    if (unit.length > 0) {
+      let unit_actor = game.actors.get(unit[0].id);
+      max_trauma = max_trauma + unit_actor.system.scoundrel.add_trauma;
     }
     return max_trauma;
   }
 
   getHasMastery(){
     let has_mastery = false;
-    let crew = this.system.crew;
-    if (crew.length > 0) {
-      let crew_actor = game.actors.get(crew[0].id);
-      has_mastery = crew_actor.system.scoundrel.mastery;
+    let unit = this.system.unit;
+    if (unit.length > 0) {
+      let unit_actor = game.actors.get(unit[0].id);
+      has_mastery = unit_actor.system.scoundrel.mastery;
     }
     return has_mastery
   }

@@ -10,7 +10,7 @@ export class BladesHelpers {
    */
   static removeDuplicatedItemType(item_data, actor) {
     let dupe_list = [];
-    let distinct_types = ["crew_type", "crew_reputation", "class", "vice", "background", "heritage", "prison"];
+    let distinct_types = ["unit_type", "unit_reputation", "class", "vice", "background", "heritage", "prison"];
     let allowed_types = ["item"];
     let should_be_distinct = distinct_types.includes(item_data.type);
     // If the Item has the exact same name - remove it from list.
@@ -88,14 +88,14 @@ export class BladesHelpers {
     let world_items = [];
     let compendium_items = [];
 
-    if(item_type === "npc" || item_type === "crew"){
+    if(item_type === "npc" || item_type === "unit"){
       world_items = game.actors.filter(e => e.type === item_type).map(e => {return e});
     }
     else{
       world_items = game.items.filter(e => e.type === item_type).map(e => {return e});
     }
 
-	if (item_type !="crew") {
+	if (item_type !="unit") {
     let pack = game.packs.find(e => e.metadata.name === item_type);
     let compendium_content = await pack.getDocuments();
     compendium_items = compendium_content.map(e => {return e});
@@ -284,8 +284,8 @@ export class BladesHelpers {
 	let playbook_acquaintances = [];
 	if (actor_type == "agent") {
 		playbook_acquaintances = all_acquaintances.filter(i => i.system.associated_class === selected_playbook);
-	} else if (actor_type == "crew") {
-		playbook_acquaintances = all_acquaintances.filter(i => i.system.associated_crew_type === selected_playbook);
+	} else if (actor_type == "unit") {
+		playbook_acquaintances = all_acquaintances.filter(i => i.system.associated_unit_type === selected_playbook);
 	}
 	return playbook_acquaintances;
 
@@ -302,33 +302,33 @@ export class BladesHelpers {
 	  i++;}
 	}
 	
-	// adds a crew to the agent
-	static async addCrew(agent, dropped_crew){
-		let current_crew = agent.system.crew;
-		let new_crew = {
-			id : dropped_crew.id,
-			name : dropped_crew.name,
-			description : dropped_crew.system.description,
-			img : dropped_crew.img
+	// adds a unit to the agent
+	static async addUnit(agent, dropped_unit){
+		let current_unit = agent.system.unit;
+		let new_unit = {
+			id : dropped_unit.id,
+			name : dropped_unit.name,
+			description : dropped_unit.system.description,
+			img : dropped_unit.img
 		};
 		
-		let unique_id =  !current_crew.some((oldAcq) => {
-			return oldAcq.id == dropped_crew.id;
+		let unique_id =  !current_unit.some((oldAcq) => {
+			return oldAcq.id == dropped_unit.id;
 		});
 		
 		if (unique_id) {
-			agent.update ({system: {crew : [new_crew]}});
+			agent.update ({system: {unit : [new_unit]}});
 
 		} 
 		else {
-			ui.notifications.info(game.i18n.localize("BITD.log.info.SameCrew"));
+			ui.notifications.info(game.i18n.localize("BITD.log.info.SameUnit"));
 		}
 	}
 	
-	// removes a crew from the agent
-	static async removeCrew(agent, crewId){
-    let current_crew = agent.system.crew;
-    let updated_crew = current_crew.filter(acq => acq._id !== crewId && acq.id !== crewId);
-	await agent.update({system: {crew : updated_crew}});
+	// removes a unit from the agent
+	static async removeUnit(agent, unitId){
+    let current_unit = agent.system.unit;
+    let updated_unit = current_unit.filter(acq => acq._id !== unitId && acq.id !== unitId);
+	await agent.update({system: {unit : updated_unit}});
   }
 }

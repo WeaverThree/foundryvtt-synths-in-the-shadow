@@ -1,7 +1,7 @@
 {
   "TYPES.Actor.agent": "Agent",
   "TYPES.Actor.npc": "NPC",
-  "TYPES.Actor.crew": "Crew",
+  "TYPES.Actor.unit": "Unit",
   "TYPES.Actor.\uD83D\uDD5B clock": "\uD83D\uDD5B Clock",
   "TYPES.Actor.factions": "Faction Status",
   "TYPES.Item.item": "Item",
@@ -10,10 +10,10 @@
   "TYPES.Item.heritage": "Maker",
   "TYPES.Item.background": "Build",
   "TYPES.Item.vice": "Deviance",
-  "TYPES.Item.crew_type": "Crew Type",
-  "TYPES.Item.crew_reputation": "Crew Reputation",
-  "TYPES.Item.crew_upgrade": "Crew Upgrade",
-  "TYPES.Item.crew_ability": "Crew Ability",
+  "TYPES.Item.unit_type": "Unit Type",
+  "TYPES.Item.unit_reputation": "Unit Reputation",
+  "TYPES.Item.unit_upgrade": "Unit Upgrade",
+  "TYPES.Item.unit_ability": "Unit Ability",
   "TYPES.Item.hunting_grounds": "Hunting Grounds",
   "TYPES.Item.prison": "Prison",
   "TYPES.Item.faction": "Faction",
@@ -90,8 +90,8 @@
   "BITD.Description": "Description",
   "BITD.Loadout": "Loadout",
   "BITD.Load": "Load",
-  "BITD.CrewType": "Crew Type",
-  "BITD.CrewTypeBox": "Click to choose a Crew Type",
+  "BITD.UnitType": "Unit Type",
+  "BITD.UnitTypeBox": "Click to choose a Unit Type",
   "BITD.FactionType": "Faction Type",
   "BITD.Price": "Price",
   "BITD.Logic": "Logic",
@@ -108,7 +108,7 @@
   "BITD.Flaws": "Flaws",
   "BITD.Scale": "Scale",
   "BITD.Quality": "Quality",
-  "BITD.AddAdditionalTypeOfGangText": "You can add an additional type to a gang or expert by spending two crew upgrades.<br>When a cohort performs actions for which its types apply, it uses its full quality rating. Otherwise, its quality is zero. A given cohort can have up to two types. Some crew upgrades will add the “Elite” feature to a gang, which gives them +1d when they roll for a given Type.",
+  "BITD.AddAdditionalTypeOfGangText": "You can add an additional type to a gang or expert by spending two unit upgrades.<br>When a cohort performs actions for which its types apply, it uses its full quality rating. Otherwise, its quality is zero. A given cohort can have up to two types. Some unit upgrades will add the “Elite” feature to a gang, which gives them +1d when they roll for a given Type.",
   "BITD.ClassExpClue1": "Every time you roll a desperate action, mark xp in that action's attribute.",
   "BITD.ClassExpClue2": "You expressed your beliefs, drives, heritage, or background.",
   "BITD.ClassExpClue3": "You struggled with issues from your vice or traumas during the session.",
@@ -119,9 +119,9 @@
   "BITD.Coin": "Energy Credits",
   "BITD.Coins": "Energy Credits",
   "BITD.Stash": "Savings",
-  "BITD.CrewReputation": "Crew Reputation",
+  "BITD.UnitReputation": "Unit Reputation",
   "BITD.DeityDescription": "Deity Description",
-  "BITD.CrewUpgrades": "Crew Upgrades",
+  "BITD.UnitUpgrades": "Unit Upgrades",
   "BITD.Hold": "Hold",
   "BITD.Weak": "Weak",
   "BITD.Strong": "Strong",
@@ -135,13 +135,13 @@
   "BITD.Cohorts": "Cohorts",
   "BITD.Notes": "Notes",
   "BITD.AllItems": "All Items",
-  "BITD.CrewXP": "Crew XP",
+  "BITD.UnitXP": "Unit XP",
   "BITD.XP": "XP",
   "BITD.AddXP": "Add XP",
   "BITD.MinusXP": "Minus XP",
   "BITD.AddXPClock": "Add XP Clock",
   "BITD.MinusXPClock": "Minus XP Clock",
-  "BITD.CrewExpClue1": "At the end of each session, for each item below, mark 1 xp (or instead mark 2xp if that item occurred multiple times).",
+  "BITD.UnitExpClue1": "At the end of each session, for each item below, mark 1 xp (or instead mark 2xp if that item occurred multiple times).",
   "BITD.SpecialAbilities": "Special Abilities",
   "BITD.Claimed": "Claimed",
 
@@ -269,7 +269,7 @@
 
   "BITD.Name": "Name",
   "BITD.CampaignName": "Campaign Name",
-  "BITD.CrewName": "Crew Name",
+  "BITD.UnitName": "Unit Name",
 
   "BITD.DangerousFriends": "Dangerous Friends",
   "BITD.EnemiesRivals": "Enemies and Rivals",
@@ -297,7 +297,7 @@
   "BITD.Engagement": "Engagement",
   "BITD.AcquireAsset": "Acquire Asset",
   "BITD.AcquireAssetExtra": "To raise the result beyond critical, you may spend <strong>2 coin</strong> per +1 Tier bonus.",
-  "BITD.CrewTier": "Crew Tier",
+  "BITD.UnitTier": "Unit Tier",
   "BITD.ExtraThreats": "Extra Threats",
   "BITD.Threats": "Threats",
 
@@ -351,7 +351,7 @@
   "BITD.log": {
     "info": {
       "SameNPC": "The dropped NPC is already an acquaintance of this agent.",
-      "SameCrew": "The dropped Crew is the current crew of this agent."
+      "SameUnit": "The dropped Unit is the current unit of this agent."
     },
     "warn": {
       "NoNPC": "This NPC does not exist in the World or in a Compendium."

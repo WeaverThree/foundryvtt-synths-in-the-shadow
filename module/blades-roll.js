@@ -5,7 +5,7 @@
  * @param {string} position
  * @param {string} effect
  */
-export async function bladesRoll(dice_amount, attribute_name = "", position = "risky", effect = "standard", note = "", current_overload, current_crew_tier) {
+export async function bladesRoll(dice_amount, attribute_name = "", position = "risky", effect = "standard", note = "", current_overload, current_unit_tier) {
 
   // ChatMessage.getSpeaker(controlledToken)
   let zeromode = false;
@@ -17,7 +17,7 @@ export async function bladesRoll(dice_amount, attribute_name = "", position = "r
 
 	// show 3d Dice so Nice if enabled
 	await r.evaluate();
-	await showChatRollMessage(r, zeromode, attribute_name, position, effect, note, current_overload, current_crew_tier);
+	await showChatRollMessage(r, zeromode, attribute_name, position, effect, note, current_overload, current_unit_tier);
 
 }
 
@@ -30,7 +30,7 @@ export async function bladesRoll(dice_amount, attribute_name = "", position = "r
  * @param {string} position
  * @param {string} effect
  */
-async function showChatRollMessage(r, zeromode, attribute_name = "", position = "", effect = "", note = "", current_overload, current_crew_tier) {
+async function showChatRollMessage(r, zeromode, attribute_name = "", position = "", effect = "", note = "", current_overload, current_unit_tier) {
   let speaker = ChatMessage.getSpeaker();
   let rolls = (r.terms)[0].results;
   let attribute_label = BladesHelpers.getRollLabel(attribute_name);
@@ -106,7 +106,7 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
   }
   // Check for Asset roll
   else if (attribute_name == 'BITD.AcquireAsset') {
-    let tier_quality = Number(current_crew_tier);
+    let tier_quality = Number(current_unit_tier);
     let status = String(roll_status);
     switch (status) {
       case "critical-success":
@@ -288,15 +288,15 @@ export async function simpleRollPopup() {
 		if (target_actor.type == "agent") {
 			current_overload = parseInt(target_actor.system.overload.value);
 			try {
-				let current_crew = game.actors.get(target_actor.system.crew[0].id);
-				current_tier = parseInt(current_crew.system.tier);
+				let current_unit = game.actors.get(target_actor.system.unit[0].id);
+				current_tier = parseInt(current_unit.system.tier);
 			}
 			catch (error) {
-				console.warn("No Crew is attached to the selected Token.");
+				console.warn("No Unit is attached to the selected Token.");
 				console.error(error);
 			}
 		}
-		if (target_actor.type == "crew") {
+		if (target_actor.type == "unit") {
 			current_tier = parseInt(target_actor.system.tier);
 		}
 		console.log("For the selected token, Overload is "+current_overload+" and Tier is "+current_tier);
@@ -344,7 +344,7 @@ export async function simpleRollPopup() {
           <div class="radio-group" style="display:flex;flex-direction:row;justify-content:space-between;">
             <label><input type="radio" id="acquireAsset" name="rollSelection"> ${game.i18n.localize("BITD.AcquireAsset")}</label>
             <span style="width:200px">
-              <label>${game.i18n.localize('BITD.CrewTier')}:</label>
+              <label>${game.i18n.localize('BITD.UnitTier')}:</label>
               <select style="width:100px;float:right" id="tier" name="tier">
 			  <option value="${current_tier}" selected disabled hidden>${current_tier}</option>
                 ${Array(5).fill().map((item, i) => `<option value="${i}">${i}</option>`).join('')}

@@ -7,11 +7,11 @@
 
     <div class="underportrait">
 
-      <a class="item-add-popup" data-distinct="true" data-item-type="crew">
-    <div class="crew underportrait-line">
+      <a class="item-add-popup" data-distinct="true" data-item-type="unit">
+    <div class="unit underportrait-line">
         <div class="box-title"><b>Unit</b></div>
         <div>
-          {{#each system.crew as |item id|}} {{#unless (eq item.name undefined)}}
+          {{#each system.unit as |item id|}} {{#unless (eq item.name undefined)}}
             {{item.name}}
           {{/unless}} {{/each}}
         </div>

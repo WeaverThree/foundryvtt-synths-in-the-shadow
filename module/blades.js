@@ -9,12 +9,12 @@ import { registerSystemSettings } from "./settings.js";
 import { preloadHandlebarsTemplates } from "./blades-templates.js";
 import { bladesRoll, simpleRollPopup } from "./blades-roll.js";
 import { BladesHelpers } from "./blades-helpers.js";
-import { SitsAgent } from "./sits-agent.js";
+import { SitsActor } from "./sits-actor.js";
 import { BladesItem } from "./blades-item.js";
 import { BladesItemSheet } from "./blades-item-sheet.js";
 import { SitsAgentSheet } from "./sits-agent-sheet.js";
 import { BladesActiveEffect } from "./blades-active-effect.js";
-import { BladesCrewSheet } from "./blades-crew-sheet.js";
+import { SitsUnitSheet } from "./sits-unit-sheet.js";
 import { BladesClockSheet } from "./blades-clock-sheet.js";
 import { BladesNPCSheet } from "./blades-npc-sheet.js";
 import { BladesFactionSheet } from "./blades-faction-sheet.js";
@@ -38,7 +38,7 @@ Hooks.once("init", async function() {
   game.system.traumas = [ "cold", "haunted", "obsessed", "paranoid", "reckless", "soft", "unstable", "vicious" ];
 
   CONFIG.Item.documentClass = BladesItem;
-  CONFIG.Actor.documentClass = SitsAgent;
+  CONFIG.Actor.documentClass = SitsActor;
   CONFIG.ActiveEffect.documentClass = BladesActiveEffect;
 
   // Register System Settings
@@ -47,7 +47,7 @@ Hooks.once("init", async function() {
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("blades", SitsAgentSheet, { types: ["agent"], makeDefault: true });
-  Actors.registerSheet("blades", BladesCrewSheet, { types: ["crew"], makeDefault: true });
+  Actors.registerSheet("blades", SitsUnitSheet, { types: ["unit"], makeDefault: true });
   Actors.registerSheet("blades", BladesFactionSheet, { types: ["factions"], makeDefault: true });
   Actors.registerSheet("blades", BladesClockSheet, { types: ["\uD83D\uDD5B clock"], makeDefault: true });
   Actors.registerSheet("blades", BladesNPCSheet, { types: ["npc"], makeDefault: true });
@@ -133,7 +133,7 @@ Hooks.once("init", async function() {
     return (a - 1);
   });
 
-	//Reputation and Turf Bar on Crew Sheet
+	//Reputation and Turf Bar on Unit Sheet
     Handlebars.registerHelper('repturf', (_id, turfs_amount, max_rep, options) => {
 
     let html = options.fn(this);
@@ -141,9 +141,9 @@ Hooks.once("init", async function() {
     for (let i = 1; i <= max_rep; i++) {
 
       if (i > max_rep - turfs_amount_int) {
-		  html += `<input disabled type="radio" id="crew-${_id}-reputation-${i}" name="system.reputation" value="${i} dtype="Radio"><label style="background-image: url('systems/synths-in-the-shadow/styles/assets/teeth/stresstooth-black.png')" class="radio-toggle" for="crew-${_id}-reputation-${i}"></label>`;
+		  html += `<input disabled type="radio" id="unit-${_id}-reputation-${i}" name="system.reputation" value="${i} dtype="Radio"><label style="background-image: url('systems/synths-in-the-shadow/styles/assets/teeth/stresstooth-black.png')" class="radio-toggle" for="unit-${_id}-reputation-${i}"></label>`;
 	  } else {
-	  html += `<input type="radio" id="crew-${_id}-reputation-${i}" name="system.reputation" value="${i}" dtype="Radio"><label class="radio-toggle" for="crew-${_id}-reputation-${i}"></label>`;
+	  html += `<input type="radio" id="unit-${_id}-reputation-${i}" name="system.reputation" value="${i}" dtype="Radio"><label class="radio-toggle" for="unit-${_id}-reputation-${i}"></label>`;
 	  }
 	}
 

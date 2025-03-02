@@ -5,13 +5,13 @@ import { BladesHelpers } from "./blades-helpers.js";
 /**
  * @extends {SitsSheet}
  */
-export class BladesCrewSheet extends SitsSheet {
+export class SitsUnitSheet extends SitsSheet {
 
   /** @override */
 	static get defaultOptions() {
 	  return foundry.utils.mergeObject(super.defaultOptions, {
-  	  classes: ["blades-in-the-dark", "sheet", "actor", "crew"],
-  	  template: "systems/synths-in-the-shadow/templates/crew-sheet.html",
+  	  classes: ["blades-in-the-dark", "sheet", "actor", "unit"],
+  	  template: "systems/synths-in-the-shadow/templates/actors/unit-sheet.html",
       width: 940,
       height: 940,
       tabs: [{navSelector: ".tabs", contentSelector: ".tab-content", initial: "turfs"}]
@@ -37,7 +37,7 @@ export class BladesCrewSheet extends SitsSheet {
 
     sheetData.items.forEach(item => {
 
-      if (item.type === "crew_type") {
+      if (item.type === "unit_type") {
         Object.entries(item.system.turfs).forEach(([key, turf]) => {
           if (turf.name === 'BITD.Turf') {
             turfs_amount += (turf.value === true) ? 1 : 0;
@@ -75,7 +75,7 @@ export class BladesCrewSheet extends SitsSheet {
         break;
       case "item":
         break;
-      case "crew_type":
+      case "unit_type":
         break;
       case "ability":
         break;
@@ -94,8 +94,8 @@ export class BladesCrewSheet extends SitsSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
-    // Add Crew Type
-    html.find(".crew-class").click(this._onItemAddClick.bind(this));
+    // Add Unit Type
+    html.find(".unit-class").click(this._onItemAddClick.bind(this));
 
     // Add a new Cohort
     html.find('.add-item').click(ev => {

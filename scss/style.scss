@@ -30,8 +30,8 @@ $hover-brightness: 0.8;
   @import 'import/general-styles.scss';
   @import 'import/clocks.scss';
 
-  &.crew.sheet{
-    @import 'import/crew-sheet.scss';
+  &.unit.sheet{
+    @import 'import/unit-sheet.scss';
   }
 
   &.actor.agent{

@@ -121,7 +121,7 @@ export class SitsSheet extends ActorSheet {
 	  const actor_type = this.actor.type;
 	  let item_type;
 	  if (actor_type=="agent") {item_type = "class";}
-		else if (actor_type=="crew") {item_type = "crew_type";}
+		else if (actor_type=="unit") {item_type = "unit_type";}
 	  const playbook = this.actor.items.filter(i=> i.type === item_type)[0]?.name;
 	  BladesHelpers.import_pb_contacts(this.actor, playbook);
 
@@ -237,9 +237,9 @@ export class SitsSheet extends ActorSheet {
       items_to_add.push(items.find(e => e._id === $(this).val()));
     });
 
-    if (item_type == "crew") {
+    if (item_type == "unit") {
 		let actor = this.actor;
-		await BladesHelpers.addCrew(actor,items_to_add[0]);
+		await BladesHelpers.addUnit(actor,items_to_add[0]);
 	}
 	else {
 		await Item.create(items_to_add, {parent: this.document});

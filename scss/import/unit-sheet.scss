@@ -51,8 +51,8 @@ nav{
 }
 
 
-// Crew Coins
-.crew-coins {
+// Unit Coins
+.unit-coins {
   @include custom_radio_square($coin_size);
   flex-wrap: wrap;
   max-width: 4 * ($coin_size + $coin_margin);
@@ -65,7 +65,7 @@ nav{
 
 
 // Reputation
-.crew-reputation {
+.unit-reputation {
   border-top: 3px solid $almost_black;
   @include pipradio(17px, 50px, "assets/teeth/stresstooth-halfgrey.png", "assets/teeth/stresstooth-red.png");
 
@@ -113,13 +113,13 @@ nav{
   }
 }
 
-.crew-hold {
+.unit-hold {
   border-top: 3px solid $almost_black;
   @include toothradio_single(17px, 50px, "assets/teeth/stresstooth-halfgrey.png", "assets/teeth/stresstooth-red.png");
   width: 221px;
 }
 
-.crew-tier {
+.unit-tier {
 
   background-color: $gray;
   height: 33px;
