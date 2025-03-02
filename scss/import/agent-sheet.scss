@@ -300,7 +300,7 @@ $hover-brightness: 0.8;
     display: flex;
 
     // Harm
-    .character-harm {
+    .harm {
 
       width: 100%;
 
@@ -319,12 +319,12 @@ $hover-brightness: 0.8;
     }
 
     // Clock
-    .character-health-clock {
+    .health-clock {
       margin: 0 auto;
       @include clock(4, 88);
     }
 
-    .character-armor-uses {
+    .armor-uses {
 
       div {
         display: flex;

@@ -1,6 +1,6 @@
 <form class="{{cssClass}} actor-sheet" autocomplete="off">
 
-  <section id="character-{{_id}}-header" class="flex-horizontal first-section">
+  <section id="agent-{{_id}}-header" class="flex-horizontal first-section">
 
     <div class="portrait-area">
     <img src="{{img}}" data-edit="img" data-tooltip="{{name}}" class="portrait" />
@@ -37,16 +37,16 @@
 
       <div class="headline">
         <div class="headline-left">
-          <input type="text" id="character-{{_id}}-alias" class="alias" name="system.alias" value="{{system.alias}}">
-          <input type="text" id="character-{{_id}}-pronouns" class="pronouns" name="pronouns" value="{{system.pronouns}}">
+          <input type="text" id="agent-{{_id}}-alias" class="alias" name="system.alias" value="{{system.alias}}">
+          <input type="text" id="agent-{{_id}}-pronouns" class="pronouns" name="pronouns" value="{{system.pronouns}}">
         </div>
-        <input type="text" id="character-{{_id}}-name" class="name" name="name" value="{{name}}" style="font-weight:bold">
+        <input type="text" id="agent-{{_id}}-name" class="name" name="name" value="{{name}}" style="font-weight:bold">
       </div>
       <div class="lookline">
-        <input type="text" id="character-{{_id}}-look" class="look" name="look" value="{{system.look}}">
+        <input type="text" id="agent-{{_id}}-look" class="look" name="look" value="{{system.look}}">
       </div>
 
-      <div id="character-{{_id}}-traits" class="flex-column">
+      <div id="agent-{{_id}}-traits" class="flex-column">
 
         <div class="traitsline">
 
@@ -63,7 +63,7 @@
 
           <div class="maker-detail detail">
             <span class="box-title">Detail</span>
-            <input type="text" id="character-{{_id}}-heritage-details" class="heritage-details" name="heritage-details" value="{{system.heritage-details}}">
+            <input type="text" id="agent-{{_id}}-heritage-details" class="heritage-details" name="heritage-details" value="{{system.heritage-details}}">
           </div>
 
         </div>
@@ -83,7 +83,7 @@
           
           <div class="build-detail detail">
             <span class="box-title">Detail</span>
-            <input type="text" id="character-{{_id}}-background-details" class="background-details" name="background-details" value="{{system.background-details}}">
+            <input type="text" id="agent-{{_id}}-background-details" class="background-details" name="background-details" value="{{system.background-details}}">
           </div>
 
         </div>
@@ -103,7 +103,7 @@
           
           <div class="deviance-detail detail">
             <span class="box-title">Detail</span>
-            <input type="text" id="character-{{_id}}-vice-details" class="vice-details" name="vice-details" value="{{system.vice-details}}">
+            <input type="text" id="agent-{{_id}}-vice-details" class="vice-details" name="vice-details" value="{{system.vice-details}}">
           </div>
 
         </div>
@@ -114,37 +114,37 @@
 </section>
 
 <section class="flex-horizontal">
-  <textarea type="text" id="character-{{_id}}-synopsis" class="synopsis" name="synopsis">{{system.synopsis}}</textarea>
+  <textarea type="text" id="agent-{{_id}}-synopsis" class="synopsis" name="synopsis">{{system.synopsis}}</textarea>
 </section>
 
 <section class="flex-horizontal second-section">
 
   {{!-- Overload and Trauma --}}
-  <div id="character-{{_id}}-overload-trauma" class="section overload-malfunction">
-    <div id="character-{{_id}}-overload" class="overload character-overload">
+  <div id="agent-{{_id}}-overload-trauma" class="section overload-malfunction">
+    <div id="agent-{{_id}}-overload" class="overload">
       {{#multiboxes system.overload.value}}
 
-      <input type="radio" id="character-{{_id}}-overload-0" name="system.overload.value" value="0" dtype="Radio">
-      <!--<label class="black-label" for="character-{{_id}}-overload-0">{{localize system.overload.name}}</label>-->
+      <input type="radio" id="agent-{{_id}}-overload-0" name="system.overload.value" value="0" dtype="Radio">
+      <!--<label class="black-label" for="agent-{{_id}}-overload-0">{{localize system.overload.name}}</label>-->
 	  <div class="black-label">{{localize system.overload.name}}</div>
 
       {{#times_from 1 system.overload.max}}
-        <input type="radio" id="character-{{../_id}}-overload-{{this}}" name="system.overload.value" value="{{this}}"
+        <input type="radio" id="agent-{{../_id}}-overload-{{this}}" name="system.overload.value" value="{{this}}"
                dtype="Radio">
-        <label class="radio-toggle" for="character-{{../_id}}-overload-{{this}}"></label>
+        <label class="radio-toggle" for="agent-{{../_id}}-overload-{{this}}"></label>
       {{/times_from}}
 
       {{/multiboxes}}
 
     </div>
 
-    <div id="character-{{_id}}-trauma-container" class="malfunction">
+    <div id="agent-{{_id}}-trauma-container" class="malfunction">
       {{#traumacounter system.trauma.list}}
         <div class="black-label">{{localize system.trauma.name}}</div>
-        <input type="radio" id="character-{{_id}}-trauma-counter-0" name="system.trauma.value" value="0">
+        <input type="radio" id="agent-{{_id}}-trauma-counter-0" name="system.trauma.value" value="0">
         {{#times_from 1 system.trauma.max}}
-          <input type="radio" id="character-{{../_id}}-trauma-counter-{{this}}" name="system.trauma.value" value="{{this}}" disabled>
-          <label for="character-{{../_id}}-trauma-counter-{{this}}"></label>
+          <input type="radio" id="agent-{{../_id}}-trauma-counter-{{this}}" name="system.trauma.value" value="{{this}}" disabled>
+          <label for="agent-{{../_id}}-trauma-counter-{{this}}"></label>
         {{/times_from}}
       {{/traumacounter}}
     </div>
@@ -158,8 +158,8 @@
 
 </section>
   {{!-- Harm, Healing and Armor --}}
-  <section id="character-{{_id}}-harm-armor" class="flex harm-armor">
-    <div id="character-{{_id}}-character-harm" class="character-harm">
+  <section id="agent-{{_id}}-harm-armor" class="flex harm-armor">
+    <div id="agent-{{_id}}-agent-harm" class="agent-harm">
       <table>
         <thead>
           <th class="black-white" colspan="4">{{localize "BITD.Harm"}}</th>
@@ -170,46 +170,46 @@
           <tr>
             <td>3</td>
             <td colspan="2">
-              <input type="text" id="character-{{_id}}-harm-3-1" name="system.harm.heavy.one" value="{{system.harm.heavy.one}}">
+              <input type="text" id="agent-{{_id}}-harm-3-1" name="system.harm.heavy.one" value="{{system.harm.heavy.one}}">
             </td>
             <td>{{localize "BITD.NeedHelp"}}</td>
             <td rowspan="3">
-              <div id="character-{{_id}}-health-clock" class="character-health-clock clocks-{{system.healing_clock.max}}">
+              <div id="agent-{{_id}}-health-clock" class="health-clock clocks-{{system.healing_clock.max}}">
 				{{{blades-clock "system.healing_clock.value" system.healing_clock.max system.healing_clock.value _id}}}
               </div>
             </td>
-            <td rowspan="3" id="character-{{_id}}-armor-uses" class="character-armor-uses">
+            <td rowspan="3" id="agent-{{_id}}-armor-uses" class="armor-uses">
               <div>
-                <label for="character-{{_id}}-armor-uses-armor">{{localize "BITD.Armor"}}</label>
-                <input id="character-{{_id}}-armor-uses-armor" type="checkbox" name="system.armor-uses.armor" {{checked system.armor-uses.armor}}>
+                <label for="agent-{{_id}}-armor-uses-armor">{{localize "BITD.Armor"}}</label>
+                <input id="agent-{{_id}}-armor-uses-armor" type="checkbox" name="system.armor-uses.armor" {{checked system.armor-uses.armor}}>
               </div>
               <div>
-                <label for="character-{{_id}}-armor-uses-heavy">{{localize "BITD.Heavy"}}</label>
-                <input id="character-{{_id}}-armor-uses-heavy" type="checkbox" name="system.armor-uses.heavy" {{checked system.armor-uses.heavy}}>
+                <label for="agent-{{_id}}-armor-uses-heavy">{{localize "BITD.Heavy"}}</label>
+                <input id="agent-{{_id}}-armor-uses-heavy" type="checkbox" name="system.armor-uses.heavy" {{checked system.armor-uses.heavy}}>
               </div>
               <div>
-                <label for="character-{{_id}}-armor-uses-special">{{localize "BITD.Special"}}</label>
-                <input id="character-{{_id}}-armor-uses-special" type="checkbox" name="system.armor-uses.special" {{checked system.armor-uses.special}}>
+                <label for="agent-{{_id}}-armor-uses-special">{{localize "BITD.Special"}}</label>
+                <input id="agent-{{_id}}-armor-uses-special" type="checkbox" name="system.armor-uses.special" {{checked system.armor-uses.special}}>
               </div>
             </td>
           </tr>
           <tr>
             <td>2</td>
             <td>
-              <input type="text" id="character-{{_id}}-harm-2-1" name="system.harm.medium.one" value="{{system.harm.medium.one}}">
+              <input type="text" id="agent-{{_id}}-harm-2-1" name="system.harm.medium.one" value="{{system.harm.medium.one}}">
             </td>
             <td>
-              <input type="text" id="character-{{_id}}-harm-2-2" name="system.harm.medium.two" value="{{system.harm.medium.two}}">
+              <input type="text" id="agent-{{_id}}-harm-2-2" name="system.harm.medium.two" value="{{system.harm.medium.two}}">
             </td>
             <td>-1D</td>
           </tr>
           <tr>
             <td>1</td>
             <td>
-              <input type="text" id="character-{{_id}}-harm-1-1" name="system.harm.light.one" value="{{system.harm.light.one}}">
+              <input type="text" id="agent-{{_id}}-harm-1-1" name="system.harm.light.one" value="{{system.harm.light.one}}">
             </td>
             <td>
-              <input type="text" id="character-{{_id}}-harm-1-2" name="system.harm.light.two" value="{{system.harm.light.two}}">
+              <input type="text" id="agent-{{_id}}-harm-1-2" name="system.harm.light.two" value="{{system.harm.light.two}}">
             </td>
             <td>{{localize "BITD.LessEffect"}}</td>
           </tr>
@@ -230,31 +230,30 @@
         <a class="item" data-tab="abilities">{{localize "BITD.Abilities"}}</a>
         <a class="item" data-tab="loadout">{{localize "BITD.Loadout"}}</a>
 		<a class="item" data-tab="contacts">{{localize 'BITD.Contacts'}}</a>
-        <a class="item" data-tab="character-notes">{{localize "BITD.Notes"}}</a>
+        <a class="item" data-tab="agent-notes">{{localize "BITD.Notes"}}</a>
         {{#if isGM}}
           <a class="item" data-tab="effects">{{localize "BITD.Effects"}}</a>
         {{/if}}
-        <a class="item" data-tab="all-character-items">{{localize "BITD.AllItems"}}</a>
+        <a class="item" data-tab="all-agent-items">{{localize "BITD.AllItems"}}</a>
       </nav>
 
-      <div id="character-{{_id}}-abilities" class="tab flex-vertical abilities" data-tab="abilities">
+      <div id="actor-{{_id}}-abilities" class="tab flex-vertical abilities" data-tab="abilities">
         <div class="label-stripe">
-          <p><label for="character-{{_id}}-experience-0">{{localize "BITD.Abilities"}}</label></p>
+          <p><label for="actor-{{_id}}-experience-0">{{localize "BITD.Abilities"}}</label></p>
           <p><a class="item-add-popup" data-item-type="ability" data-tooltip="{{localize 'BITD.AddAbility'}}"><i class="fas fa-plus-square"></i></a></p>
       
-		  <div id="character-{{_id}}-experience" class="teeth-experience">
-            <!--<label for="character-{{_id}}-experience-0"><i class="fab fa-creative-commons-zero nullifier"></i></label>-->
+		  <div id="actor-{{_id}}-experience" class="teeth-experience">
             {{#multiboxes system.experience}}
-            <input type="radio" id="character-{{_id}}-experience-0" name="system.experience" value="0" dtype="Radio">
+            <input type="radio" id="agent-{{_id}}-experience-0" name="system.experience" value="0" dtype="Radio">
             {{#times_from 1 system.experience_max}}
-            <input type="radio" id="character-{{_id}}-experience-{{this}}" name="system.experience" value="{{this}}" dtype="Radio">
-            <label class="radio-toggle" for="character-{{_id}}-experience-{{this}}"></label>
+            <input type="radio" id="agent-{{_id}}-experience-{{this}}" name="system.experience" value="{{this}}" dtype="Radio">
+            <label class="radio-toggle" for="agent-{{_id}}-experience-{{this}}"></label>
             {{/times_from}}
             {{/multiboxes}}
           </div>
         </div>
 
-        <div id="character-{{_id}}-abilities-list">
+        <div id="agent-{{_id}}-abilities-list">
           {{#each items as |item id|}}
           {{#if (eq item.type "ability")}}
             <div class="item flex-horizontal" data-item-id="{{item._id}}">
@@ -272,7 +271,7 @@
       </div>
 
       {{!-- Owned Items Tab --}}
-      <div id="character-{{_id}}-loadout" class="tab flex-vertical loadout" data-tab="loadout">
+      <div id="agent-{{_id}}-loadout" class="tab flex-vertical loadout" data-tab="loadout">
         <div class="label-stripe flex-horizontal">
            <p>{{localize "BITD.Loadout"}} <a class="item-add-popup" data-item-type="item" data-tooltip="{{localize 'BITD.AddItem'}}"><i class="fas fa-plus-square"></i></a></p>
            <p>{{system.loadout}}/{{localize system.load_level}} </p>
@@ -300,7 +299,7 @@
         </div>
       </div>
 
-      <div class="tab flex-vertical" data-tab="character-notes">
+      <div class="tab flex-vertical" data-tab="actor-notes">
         <div class="label-stripe">
           <p>{{localize "BITD.Notes"}}</p>
         </div>
@@ -308,7 +307,7 @@
       </div>
 
       {{!-- Contacts --}}
-	  <div id="character-{{_id}}-contacts" class="tab flex-vertical" data-tab="contacts">
+	  <div id="agent-{{_id}}-contacts" class="tab flex-vertical" data-tab="contacts">
         <div class="label-stripe flex-horizontal">
           <p>{{localize system.acquaintances_label}}</p>
 		  <p><a class="import-contacts" data-tooltip="{{localize 'BITD.ImportPlaybookContacts'}}"><i class="fa-solid fa-file-import"></i></a></p>
@@ -334,7 +333,7 @@
       </div>
 
       {{!-- Active Effects --}}
-      <div id="character-{{_id}}-effects" class="tab effects flex-vertical" data-tab="effects">
+      <div id="agent-{{_id}}-effects" class="tab effects flex-vertical" data-tab="effects">
         <div class="label-stripe">
           <p>{{localize "BITD.Effects"}}</p>
         </div>
@@ -342,7 +341,7 @@
       </div>
 
       {{!-- Full Item List --}}
-      <div class="tab grow-two flex-vertical" data-tab="all-character-items">
+      <div class="tab grow-two flex-vertical" data-tab="all-agent-items">
         <div class="label-stripe">
           <p><label>{{localize "BITD.AllItems"}}</label></p>
         </div>

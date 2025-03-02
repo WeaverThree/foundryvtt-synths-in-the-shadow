@@ -6,13 +6,13 @@ import { BladesHelpers } from "./blades-helpers.js";
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {SitsSheet}
  */
-export class SitsActorSheet extends SitsSheet {
+export class SitsAgentSheet extends SitsSheet {
 
   /** @override */
 	static get defaultOptions() {
 	  return foundry.utils.mergeObject(super.defaultOptions, {
-  	  classes: ["blades-in-the-dark", "sheet", "actor", "pc"],
-  	  template: "systems/synths-in-the-shadow/templates/actor-sheet.html",
+  	  classes: ["blades-in-the-dark", "sheet", "actor", "agent"],
+  	  template: "systems/synths-in-the-shadow/templates/actors/agent-sheet.html",
       width: 832,
       height: 890,
       tabs: [{navSelector: ".tabs", contentSelector: ".tab-content", initial: "abilities"}]
@@ -84,8 +84,8 @@ export class SitsActorSheet extends SitsSheet {
     sheetData.system.overload.max = this.actor.getMaxOverload();
     sheetData.system.trauma.max = this.actor.getMaxTrauma();
 
-	//check for healing minimums
-	sheetData.system.healing_clock.value = this.actor.getHealingMin();
+    //check for healing minimums
+    sheetData.system.healing_clock.value = this.actor.getHealingMin();
 
     return sheetData;
   }
@@ -94,7 +94,7 @@ export class SitsActorSheet extends SitsSheet {
   async _onDropItem(event, droppedItem) {
     await super._onDropItem(event, droppedItem);
     if (!this.actor.isOwner) {
-      ui.notifications.error(`You do not have sufficient permissions to edit this character. Please speak to your GM if you feel you have reached this message in error.`, {permanent: true});
+      ui.notifications.error(`You do not have sufficient permissions to edit this agent. Please speak to your GM if you feel you have reached this message in error.`, {permanent: true});
       return false;
     }
 	  await this.handleDrop(event, droppedItem);
@@ -104,7 +104,7 @@ export class SitsActorSheet extends SitsSheet {
   async _onDropActor(event, droppedActor){
     await super._onDropActor(event, droppedActor);
     if (!this.actor.isOwner) {
-      ui.notifications.error(`You do not have sufficient permissions to edit this character. Please speak to your GM if you feel you have reached this message in error.`, {permanent: true});
+      ui.notifications.error(`You do not have sufficient permissions to edit this agent. Please speak to your GM if you feel you have reached this message in error.`, {permanent: true});
       return false;
     }
     await this.handleDrop(event, droppedActor);
@@ -139,7 +139,7 @@ export class SitsActorSheet extends SitsSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
-		// Remove Crew from character sheet
+		// Remove Crew from agent sheet
     html.find('.crew-delete').click(ev => {
 	  const element = $(ev.currentTarget).parents(".item");
 	  let crewId = element.data("itemId");

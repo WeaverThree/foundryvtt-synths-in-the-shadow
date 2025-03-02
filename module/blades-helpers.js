@@ -121,7 +121,7 @@ export class BladesHelpers {
    */
   static getAttributeLabel(attribute_name) {
         let attribute_labels = {};
-        const attributes = game.model.Actor.character.attributes;
+        const attributes = game.model.Actor.agent.attributes;
 
         for (const att_name in attributes) {
           attribute_labels[att_name] = attributes[att_name].label;
@@ -142,7 +142,7 @@ export class BladesHelpers {
    */
   static getRollLabel(roll_name) {
     let attribute_labels = {};
-    const attributes = game.model.Actor.character.attributes;
+    const attributes = game.model.Actor.agent.attributes;
 
     for (const att_name in attributes) {
       if (att_name == roll_name) {
@@ -165,7 +165,7 @@ export class BladesHelpers {
    * @returns {Boolean}
    */
   static isAttributeAction(attribute_name) {
-    const attributes = game.model.Actor.character.attributes;
+    const attributes = game.model.Actor.agent.attributes;
 
     for (const att_name in attributes) {
       for (const skill_name in attributes[att_name].skills) {
@@ -185,7 +185,7 @@ export class BladesHelpers {
    * @returns {Boolean}
    */
   static isAttributeAttribute(attribute_name) {
-    const attributes = game.model.Actor.character.attributes;
+    const attributes = game.model.Actor.agent.attributes;
 
     return (attribute_name in attributes);
   }
@@ -224,9 +224,9 @@ export class BladesHelpers {
     return text;
 
   }
-  // adds an NPC to the character as an acquaintance of neutral standing
-  static async addAcquaintance(actor, acq){
-    let current_acquaintances = actor.system.acquaintances;
+  // adds an NPC to the agent as an acquaintance of neutral standing
+  static async addAcquaintance(agent, acq){
+    let current_acquaintances = agent.system.acquaintances;
     let acquaintance = {
       id : acq.id,
       name : acq.name,
@@ -237,7 +237,7 @@ export class BladesHelpers {
        return oldAcq.id == acq.id;
      });
      if(unique_id){
-       await actor.update({system: {acquaintances : current_acquaintances.concat([acquaintance])}});
+       await agent.update({system: {acquaintances : current_acquaintances.concat([acquaintance])}});
      }
      else{
        ui.notifications.info(game.i18n.localize("BITD.log.info.SameNPC"));
@@ -282,7 +282,7 @@ export class BladesHelpers {
   static async getPlaybookAcquaintances(actor_type, selected_playbook){
     let all_acquaintances = await this.getSourcedItemsByType('npc');
 	let playbook_acquaintances = [];
-	if (actor_type == "character") {
+	if (actor_type == "agent") {
 		playbook_acquaintances = all_acquaintances.filter(i => i.system.associated_class === selected_playbook);
 	} else if (actor_type == "crew") {
 		playbook_acquaintances = all_acquaintances.filter(i => i.system.associated_crew_type === selected_playbook);
@@ -302,9 +302,9 @@ export class BladesHelpers {
 	  i++;}
 	}
 	
-	// adds a crew to the character
-	static async addCrew(actor, dropped_crew){
-		let current_crew = actor.system.crew;
+	// adds a crew to the agent
+	static async addCrew(agent, dropped_crew){
+		let current_crew = agent.system.crew;
 		let new_crew = {
 			id : dropped_crew.id,
 			name : dropped_crew.name,
@@ -317,7 +317,7 @@ export class BladesHelpers {
 		});
 		
 		if (unique_id) {
-			actor.update ({system: {crew : [new_crew]}});
+			agent.update ({system: {crew : [new_crew]}});
 
 		} 
 		else {
@@ -325,10 +325,10 @@ export class BladesHelpers {
 		}
 	}
 	
-	// removes a crew from the character
-	static async removeCrew(actor, crewId){
-    let current_crew = actor.system.crew;
+	// removes a crew from the agent
+	static async removeCrew(agent, crewId){
+    let current_crew = agent.system.crew;
     let updated_crew = current_crew.filter(acq => acq._id !== crewId && acq.id !== crewId);
-	await actor.update({system: {crew : updated_crew}});
+	await agent.update({system: {crew : updated_crew}});
   }
 }

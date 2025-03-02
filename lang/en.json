@@ -1,5 +1,5 @@
 {
-  "TYPES.Actor.character": "Character",
+  "TYPES.Actor.agent": "Agent",
   "TYPES.Actor.npc": "NPC",
   "TYPES.Actor.crew": "Crew",
   "TYPES.Actor.\uD83D\uDD5B clock": "\uD83D\uDD5B Clock",
@@ -350,8 +350,8 @@
   
   "BITD.log": {
     "info": {
-      "SameNPC": "The dropped NPC is already an acquaintance of this character.",
-      "SameCrew": "The dropped Crew is the current crew of this character."
+      "SameNPC": "The dropped NPC is already an acquaintance of this agent.",
+      "SameCrew": "The dropped Crew is the current crew of this agent."
     },
     "warn": {
       "NoNPC": "This NPC does not exist in the World or in a Compendium."

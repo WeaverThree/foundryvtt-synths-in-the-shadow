@@ -5,20 +5,20 @@ import { BladesHelpers } from "./blades-helpers.js";
  * Extend the basic Actor
  * @extends {Actor}
  */
-export class SitsActor extends Actor {
+export class SitsAgent extends Actor {
 
   /** @override */
   static async create(data, options={}) {
 
     data.prototypeToken = data.prototypeToken || {};
 
-    // For Crew and Character set the Token to sync with charsheet.
+    // For Crew and agent set the Token to sync with charsheet.
     switch (data.type) {
-      case 'character':
+      case 'agent':
       case 'crew':
       case '\uD83D\uDD5B clock':
-	  case 'npc':
-	  case 'factions':
+      case 'npc':
+      case 'factions':
         data.prototypeToken.actorLink = true;
         break;
     }
@@ -68,17 +68,16 @@ export class SitsActor extends Actor {
 
   rollAttributePopup(attribute_name) {
 
-    // const roll = new Roll("1d20 + @abilities.wis.mod", actor.getRollData());
     let attribute_label = BladesHelpers.getRollLabel(attribute_name);
 
-    // get crew tier info from character sheet if available
+    // get crew tier info from agent sheet if available
     let current_tier = 0;
     try {
       let current_crew = game.actors.get(this.system.crew[0].id);
       current_tier = parseInt(current_crew.system.tier);
     }
     catch (error) {
-      console.warn("No Crew is attached to the Actor.");
+      console.warn("No Crew is attached to the Agent.");
       console.error(error);
     }
 

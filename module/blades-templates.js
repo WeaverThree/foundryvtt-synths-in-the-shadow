@@ -8,7 +8,7 @@ export const preloadHandlebarsTemplates = async function() {
   // Define template paths to load
   const templatePaths = [
 
-    // Actor Sheet Partials
+    // Agent Sheet Partials
     "systems/synths-in-the-shadow/templates/parts/coins.html",
     "systems/synths-in-the-shadow/templates/parts/attributes.html",
     "systems/synths-in-the-shadow/templates/parts/turf-list.html",

@@ -9,10 +9,10 @@ import { registerSystemSettings } from "./settings.js";
 import { preloadHandlebarsTemplates } from "./blades-templates.js";
 import { bladesRoll, simpleRollPopup } from "./blades-roll.js";
 import { BladesHelpers } from "./blades-helpers.js";
-import { SitsActor } from "./sits-actor.js";
+import { SitsAgent } from "./sits-agent.js";
 import { BladesItem } from "./blades-item.js";
 import { BladesItemSheet } from "./blades-item-sheet.js";
-import { SitsActorSheet } from "./sits-actor-sheet.js";
+import { SitsAgentSheet } from "./sits-agent-sheet.js";
 import { BladesActiveEffect } from "./blades-active-effect.js";
 import { BladesCrewSheet } from "./blades-crew-sheet.js";
 import { BladesClockSheet } from "./blades-clock-sheet.js";
@@ -38,7 +38,7 @@ Hooks.once("init", async function() {
   game.system.traumas = [ "cold", "haunted", "obsessed", "paranoid", "reckless", "soft", "unstable", "vicious" ];
 
   CONFIG.Item.documentClass = BladesItem;
-  CONFIG.Actor.documentClass = SitsActor;
+  CONFIG.Actor.documentClass = SitsAgent;
   CONFIG.ActiveEffect.documentClass = BladesActiveEffect;
 
   // Register System Settings
@@ -46,7 +46,7 @@ Hooks.once("init", async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("blades", SitsActorSheet, { types: ["character"], makeDefault: true });
+  Actors.registerSheet("blades", SitsAgentSheet, { types: ["agent"], makeDefault: true });
   Actors.registerSheet("blades", BladesCrewSheet, { types: ["crew"], makeDefault: true });
   Actors.registerSheet("blades", BladesFactionSheet, { types: ["factions"], makeDefault: true });
   Actors.registerSheet("blades", BladesClockSheet, { types: ["\uD83D\uDD5B clock"], makeDefault: true });

@@ -108,7 +108,7 @@ export class SitsSheet extends ActorSheet {
 	  }
     });
 	
-	// Remove Acquaintance from character sheet
+	// Remove Acquaintance from agent sheet
     html.find('.acquaintance-delete').click(ev => {
       //let acqId = ev.target.closest('.acquaintance').dataset.acquaintance; //used when <div class="acquaintance"
 	  const element = $(ev.currentTarget).parents(".item");
@@ -120,7 +120,7 @@ export class SitsSheet extends ActorSheet {
     html.find('.import-contacts').click(ev => {
 	  const actor_type = this.actor.type;
 	  let item_type;
-	  if (actor_type=="character") {item_type = "class";}
+	  if (actor_type=="agent") {item_type = "class";}
 		else if (actor_type=="crew") {item_type = "crew_type";}
 	  const playbook = this.actor.items.filter(i=> i.type === item_type)[0]?.name;
 	  BladesHelpers.import_pb_contacts(this.actor, playbook);

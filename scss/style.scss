@@ -34,8 +34,8 @@ $hover-brightness: 0.8;
     @import 'import/crew-sheet.scss';
   }
 
-  &.actor.pc{
-    @import 'import/character-sheet.scss';
+  &.actor.agent{
+    @import 'import/agent-sheet.scss';
   }
 
   &.actor.clock{

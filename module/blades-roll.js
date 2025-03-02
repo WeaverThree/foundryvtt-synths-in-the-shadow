@@ -285,7 +285,7 @@ export async function simpleRollPopup() {
 	let selected_tokens = canvas.tokens.controlled;
 	if (selected_tokens.length >0) {
 		let target_actor = game.actors.get(selected_tokens[0].document.actorId);
-		if (target_actor.type == "character") {
+		if (target_actor.type == "agent") {
 			current_overload = parseInt(target_actor.system.overload.value);
 			try {
 				let current_crew = game.actors.get(target_actor.system.crew[0].id);
