@@ -4,10 +4,10 @@
   "description": "Synths in the Shadow game system.",
   "version": "1.0.0",
   "compatibility": {
-    "minimum": 11,
-    "verified": "13.334"
+    "minimum": 12,
+    "verified": "12.331"
   },
-  "background": "systems/synths-in-the-shadow/images/BITD_title.webp",
+  "background": "",
   "url": "",
   "manifest": "",
   "download": "",
@@ -32,163 +32,9 @@
     }
   ],
   "packs": [
-    {
-      "name": "class",
-      "label": "Classes",
-      "system": "synths-in-the-shadow",
-      "path": "./packs/classes.db",
-      "banner": "systems/synths-in-the-shadow/images/compendium-banners/Doskvol_00.webp",
-      "type": "Item"
-    },
-    {
-      "name": "heritage",
-      "label": "Heritages",
-      "system": "synths-in-the-shadow",
-      "path": "./packs/heritages.db",
-      "banner": "systems/synths-in-the-shadow/images/compendium-banners/Doskvol_01.webp",
-      "type": "Item"
-    },
-    {
-      "name": "vice",
-      "label": "Vices",
-      "system": "synths-in-the-shadow",
-      "path": "./packs/vices.db",
-      "banner": "systems/synths-in-the-shadow/images/compendium-banners/Doskvol_02.webp",
-      "type": "Item"
-    },
-    {
-      "name": "prison",
-      "label": "Prisons",
-      "system": "synths-in-the-shadow",
-      "path": "./packs/prison.db",
-      "banner": "systems/synths-in-the-shadow/images/compendium-banners/Doskvol_03.webp",
-      "type": "Item"
-    },
-    {
-      "name": "background",
-      "label": "Backgrounds",
-      "system": "synths-in-the-shadow",
-      "path": "./packs/backgrounds.db",
-      "banner": "systems/synths-in-the-shadow/images/compendium-banners/Doskvol_04.webp",
-      "type": "Item"
-    },
-    {
-      "name": "item",
-      "label": "Items",
-      "system": "synths-in-the-shadow",
-      "path": "./packs/items.db",
-      "banner": "systems/synths-in-the-shadow/images/compendium-banners/Doskvol_05.webp",
-      "type": "Item"
-    },
-    {
-      "name": "ability",
-      "label": "Abilities",
-      "system": "synths-in-the-shadow",
-      "path": "./packs/abilities.db",
-      "banner": "systems/synths-in-the-shadow/images/compendium-banners/Doskvol_06.webp",
-      "type": "Item"
-    },
-    {
-      "name": "crew_reputation",
-      "label": "Crew Reputation",
-      "system": "synths-in-the-shadow",
-      "path": "./packs/crew_reputation.db",
-      "banner": "systems/synths-in-the-shadow/images/compendium-banners/Doskvol_07.webp",
-      "type": "Item"
-    },
-    {
-      "name": "crew_type",
-      "label": "Crew Types",
-      "system": "synths-in-the-shadow",
-      "path": "./packs/crew_types.db",
-      "banner": "systems/synths-in-the-shadow/images/compendium-banners/Doskvol_08.webp",
-      "type": "Item"
-    },
-    {
-      "name": "crew_upgrade",
-      "label": "Crew Upgrades",
-      "system": "synths-in-the-shadow",
-      "path": "./packs/crew_upgrades.db",
-      "banner": "systems/synths-in-the-shadow/images/compendium-banners/Doskvol_09.webp",
-      "type": "Item"
-    },
-    {
-      "name": "crew_ability",
-      "label": "Crew Abilities",
-      "system": "synths-in-the-shadow",
-      "path": "./packs/crew_abilities.db",
-      "banner": "systems/synths-in-the-shadow/images/compendium-banners/Doskvol_10.webp",
-      "type": "Item"
-    },
-    {
-      "name": "hunting_grounds",
-      "label": "Hunting Grounds",
-      "system": "synths-in-the-shadow",
-      "path": "./packs/hunting_grounds.db",
-      "banner": "systems/synths-in-the-shadow/images/compendium-banners/Doskvol_11.webp",
-      "type": "Item"
-    },
-	{
-      "name": "faction",
-      "label": "Factions",
-      "system": "synths-in-the-shadow",
-      "path": "./packs/factions.db",
-      "banner": "systems/synths-in-the-shadow/images/compendium-banners/Doskvol_12.webp",
-      "type": "Item"
-    },
-    {
-      "name": "npc",
-      "label": "NPCs",
-      "system": "synths-in-the-shadow",
-      "path": "./packs/npcs.db",
-      "banner": "systems/synths-in-the-shadow/images/compendium-banners/Doskvol_13.webp",
-      "type": "Actor"
-    },
-	{
-      "name": "entanglements",
-      "label": "Entanglements",
-      "system": "synths-in-the-shadow",
-      "path": "./packs/entanglements.db",
-      "banner": "systems/synths-in-the-shadow/images/compendium-banners/Doskvol_14.webp",
-      "type": "RollTable"
-    },
-	{
-      "name": "entanglements-journals",
-      "label": "Entanglements Journals",
-      "system": "synths-in-the-shadow",
-      "path": "./packs/entanglements-journals.db",
-      "banner": "systems/synths-in-the-shadow/images/compendium-banners/Doskvol_15.webp",
-      "type": "JournalEntry"
-    },
-	{
-      "name": "entanglements-macro",
-      "label": "Entanglements Macro",
-      "system": "synths-in-the-shadow",
-      "path": "./packs/entanglements-macro.db",
-      "banner": "systems/synths-in-the-shadow/images/compendium-banners/Doskvol_16.webp",
-      "type": "Macro"
-    }
+    
   ],
   "packFolders": [
-    {
-      "name": "Character Options",
-      "sorting": "m",
-      "packs": ["class", "ability", "item", "background", "heritage", "vice"]
-	},
-    {
-      "name": "Crew Options",
-      "sorting": "m",
-      "packs": ["crew_type", "crew_ability", "crew_upgrade", "prison", "crew_reputation", "hunting_grounds"]
-	},
-    {
-      "name": "Factions & NPCs",
-      "sorting": "m",
-      "packs": ["faction", "npc"]
-	},
-    {
-      "name": "Entanglements",
-      "sorting": "m",
-      "packs": ["entanglements-macro", "entanglements", "entanglements-journals"]
-	}
+
   ]
 }

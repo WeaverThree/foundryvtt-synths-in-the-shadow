@@ -1,2 +1,4 @@
 /.idea/*
+/.vscode
+/.vscode/*
 /blades-in-the-dark.lock
