@@ -72,11 +72,8 @@ export class SitsActorSheet extends SitsSheet {
       sheetData.system.load_level=load_level[loadout];
     }
 
-	if (game.settings.get('blades-in-the-dark', 'DeepCutLoad')) {
-		sheetData.system.load_levels = {"BITD.Discreet":"BITD.Discreet", "BITD.Conspicuous":"BITD.Conspicuous"};
-	} else {
 		sheetData.system.load_levels = {"BITD.Light":"BITD.Light", "BITD.Normal":"BITD.Normal", "BITD.Heavy":"BITD.Heavy"};
-	}
+	
 
     sheetData.system.description = await TextEditor.enrichHTML(sheetData.system.description, {secrets: sheetData.owner, async: true});
 

@@ -103,16 +103,16 @@
       <div id="character-{{_id}}-alias-box">
         <input type="text" id="character-{{_id}}-alias" class="alias" name="system.alias" value="{{system.alias}}">
       </div>
-
-      {{> "systems/synths-in-the-shadow/templates/parts/coins.html" actor=actor}}
 	  
     </div>
 
   </section>
 
+<section class="flex-horizontal">
+
   {{!-- Overload and Trauma --}}
-  <div id="character-{{_id}}-overload-trauma" class="section big-teeth-section">
-    <div id="character-{{_id}}-overload" class="big-teeth character-overload">
+  <div id="character-{{_id}}-overload-trauma" class="section overload-malfunction">
+    <div id="character-{{_id}}-overload" class="overload character-overload">
       {{#multiboxes system.overload.value}}
 
       <input type="radio" id="character-{{_id}}-overload-0" name="system.overload.value" value="0" dtype="Radio">
@@ -128,25 +128,25 @@
       {{/multiboxes}}
 
     </div>
-    <div id="character-{{_id}}-trauma-container" class="small-teeth-container">
-      {{#traumacounter system.trauma.list}}
-      <div id="character-{{_id}}-trauma" class="small-teeth-wrap">
-        <!--<label class="black-label" for="character-{{_id}}-trauma-counter-0">{{localize system.trauma.name}}</label>-->
-		<div class="black-label">{{localize system.trauma.name}}</div>
-        <div id="character-{{_id}}-trauma-teeth" class="small-teeth">
-          <input type="radio" id="character-{{_id}}-trauma-counter-0" name="system.trauma.value" value="0">
 
-          {{#times_from 1 system.trauma.max}}
-            <input type="radio" id="character-{{../_id}}-trauma-counter-{{this}}" name="system.trauma.value" value="{{this}}" disabled>
-            <label for="character-{{../_id}}-trauma-counter-{{this}}"></label>
-          {{/times_from}}
-        </div>
-      </div>
+    <div id="character-{{_id}}-trauma-container" class="malfunction">
+      {{#traumacounter system.trauma.list}}
+        <div class="black-label">{{localize system.trauma.name}}</div>
+        <input type="radio" id="character-{{_id}}-trauma-counter-0" name="system.trauma.value" value="0">
+        {{#times_from 1 system.trauma.max}}
+          <input type="radio" id="character-{{../_id}}-trauma-counter-{{this}}" name="system.trauma.value" value="{{this}}" disabled>
+          <label for="character-{{../_id}}-trauma-counter-{{this}}"></label>
+        {{/times_from}}
       {{/traumacounter}}
     </div>
 
+  {{> "systems/synths-in-the-shadow/templates/parts/coins.html" actor=actor}}
+
   </div>
 
+  {{!-- Attributes --}}
+  {{> "systems/synths-in-the-shadow/templates/parts/attributes.html" actor=actor}}
+</section>
   {{!-- Harm, Healing and Armor --}}
   <section id="character-{{_id}}-harm-armor" class="flex harm-armor">
     <div id="character-{{_id}}-character-harm" class="character-harm">
@@ -350,8 +350,7 @@
       </div>
 
     </div>
-    {{!-- Attributes --}}
-    {{> "systems/synths-in-the-shadow/templates/parts/attributes.html" actor=actor}}
+
   </section>
 
 </form>

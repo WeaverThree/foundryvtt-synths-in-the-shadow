@@ -49,49 +49,42 @@ $hover-brightness: 0.8;
 
   // Overload and Trauma
 
-  .big-teeth-section {
+  .overload-malfunction {
 
-    border-top: 3px solid $almost_black;
+    // border-top: 3px solid $almost_black;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-bottom: 0px;
     margin-top: 10px;
 
-    > * {
-      margin-right: 10px;
+    // > * {
+    //  margin-right: 10px;
 
-      &:last-child {
-        margin-right: 0px;
-      }
-    }
+    //  &:last-child {
+    //    margin-right: 0px;
+    //  }
+    // }
 
-    &:last-child {
-      margin-right: 0px;
+    // &:last-child {
+    //   margin-right: 0px;
+    // }
+
+    .black-label {
+      width:100px;
     }
 
     // Overload
-    .big-teeth {
-      @include pipradio_hover(14px, 28px, "assets/pips/pip-base.svg", "assets/pips/pip-red.svg", "assets/pips/pip-base-hover.svg", "assets/pips/pip-red-hover.svg");
+    .overload {
+      @include pipradio_hover(15px, 30px, "assets/pips/pip-base.svg", "assets/pips/pip-red.svg", "assets/pips/pip-base-hover.svg", "assets/pips/pip-red-hover.svg");
     }
 
-    /* Trauma */
-    .small-teeth-container {
-
-      .small-teeth-wrap {
-        @include toothradio(17px, 50px, "assets/teeth/shorttooth-grey.png", "assets/teeth/shorttooth-red.png", false);
-        flex-direction: column;
-
-        .small-teeth {
-          display: flex;
-          flex-direction: row;
-        }
+    // Trauma 
+    .malfunction {
+      .black-label {
+        height: 15px;
+        font-size: 13px;
       }
-    }
-
-    .trauma-list {
-      @include check_underscore();
-      justify-content: space-between;
-      align-items: flex-start;
+      @include pipradio(45px, 15px, "assets/pips/pipwide-base.svg", "assets/pips/pipwide-orange.svg", false);
     }
 
   }

@@ -69,7 +69,7 @@ nav{
 // Reputation
 .crew-reputation {
   border-top: 3px solid $almost_black;
-  @include toothradio(17px, 50px, "assets/teeth/stresstooth-halfgrey.png", "assets/teeth/stresstooth-red.png");
+  @include pipradio(17px, 50px, "assets/teeth/stresstooth-halfgrey.png", "assets/teeth/stresstooth-red.png");
 
   input:disabled + label {
     background-image: url(assets/teeth/stresstooth-black.png);
@@ -290,14 +290,14 @@ nav{
 
   // Overload
   .big-teeth {
-    @include toothradio(17px, 50px, "assets/teeth/stresstooth-halfgrey.png", "assets/teeth/stresstooth-red.png");
+    @include pipradio(17px, 50px, "assets/teeth/stresstooth-halfgrey.png", "assets/teeth/stresstooth-red.png");
   }
 
   /* Trauma */
   .small-teeth-container {
 
     .small-teeth-wrap {
-      @include toothradio(17px, 50px, "assets/teeth/shorttooth-grey.png", "assets/teeth/shorttooth-red.png", false);
+      @include pipradio(17px, 50px, "assets/teeth/shorttooth-grey.png", "assets/teeth/shorttooth-red.png", false);
       flex-direction: column;
 
       .small-teeth {

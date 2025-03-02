@@ -19,7 +19,7 @@
 /*
  * Toothradio. Some (eg trauma) are not changeable, hence the option.
  */
-@mixin toothradio($width, $height, $unchecked_background, $checked_background, $changeable: true) {
+@mixin pipradio($width, $height, $unchecked_background, $checked_background, $changeable: true) {
 
   display: flex;
 

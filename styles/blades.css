@@ -147,7 +147,7 @@
   font-size: 21px;
   text-align: center;
   padding: 0px 5px;
-  height: 30px !important;
+  height: 30px;
   text-transform: capitalize;
   font-family: Kirsty, serif;
 }
@@ -157,7 +157,7 @@
   font-size: 21px;
   text-align: center;
   padding: 0px 5px;
-  height: 30px !important;
+  height: 30px;
   text-transform: capitalize;
   font-family: Kirsty, serif;
 }
@@ -1210,136 +1210,95 @@
 .blades-in-the-dark.actor.pc * form.actor-sheet {
   padding: 20px;
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section {
-  border-top: 3px solid #191813;
+.blades-in-the-dark.actor.pc * .overload-malfunction {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-bottom: 0px;
   margin-top: 10px;
-  /* Trauma */
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section > * {
-  margin-right: 10px;
+.blades-in-the-dark.actor.pc * .overload-malfunction .black-label {
+  width: 100px;
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section > *:last-child {
-  margin-right: 0px;
-}
-.blades-in-the-dark.actor.pc * .big-teeth-section:last-child {
-  margin-right: 0px;
-}
-.blades-in-the-dark.actor.pc * .big-teeth-section .big-teeth {
+.blades-in-the-dark.actor.pc * .overload-malfunction .overload {
   display: flex;
   /* Hide the browser's default checkbox */
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section .big-teeth label {
-  height: 28px;
-  width: 14px;
+.blades-in-the-dark.actor.pc * .overload-malfunction .overload label {
+  height: 30px;
+  width: 15px;
   background-image: url("assets/pips/pip-red.svg");
   background-repeat: no-repeat;
   background-size: contain;
   margin-right: 0px;
   cursor: pointer;
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section .big-teeth label:last-of-type {
+.blades-in-the-dark.actor.pc * .overload-malfunction .overload label:last-of-type {
   margin-right: 0px;
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section .big-teeth label[for$="-0"] {
+.blades-in-the-dark.actor.pc * .overload-malfunction .overload label[for$="-0"] {
   width: auto;
   height: auto;
   background-image: none !important;
   color: #EEEFFF;
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section .big-teeth label[for$="-0"] i {
+.blades-in-the-dark.actor.pc * .overload-malfunction .overload label[for$="-0"] i {
   margin-top: 4px;
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section .big-teeth label:hover {
+.blades-in-the-dark.actor.pc * .overload-malfunction .overload label:hover {
   background-image: url("assets/pips/pip-red-hover.svg");
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section .big-teeth input {
+.blades-in-the-dark.actor.pc * .overload-malfunction .overload input {
   display: none;
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section .big-teeth input:checked ~ label {
+.blades-in-the-dark.actor.pc * .overload-malfunction .overload input:checked ~ label {
   background-image: url("assets/pips/pip-base.svg");
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section .big-teeth input:checked ~ label:hover {
+.blades-in-the-dark.actor.pc * .overload-malfunction .overload input:checked ~ label:hover {
   background-image: url("assets/pips/pip-base-hover.svg");
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section .big-teeth input:checked + label {
+.blades-in-the-dark.actor.pc * .overload-malfunction .overload input:checked + label {
   background-image: url("assets/pips/pip-red.svg");
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section .big-teeth input:checked + label:hover {
+.blades-in-the-dark.actor.pc * .overload-malfunction .overload input:checked + label:hover {
   background-image: url("assets/pips/pip-red-hover.svg");
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section .small-teeth-container .small-teeth-wrap {
+.blades-in-the-dark.actor.pc * .overload-malfunction .malfunction {
   display: flex;
   /* Hide the browser's default checkbox */
-  flex-direction: column;
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section .small-teeth-container .small-teeth-wrap label {
-  height: 50px;
-  width: 17px;
-  background-image: url("assets/teeth/shorttooth-red.png");
+.blades-in-the-dark.actor.pc * .overload-malfunction .malfunction .black-label {
+  height: 15px;
+  font-size: 13px;
+}
+.blades-in-the-dark.actor.pc * .overload-malfunction .malfunction label {
+  height: 15px;
+  width: 45px;
+  background-image: url("assets/pips/pipwide-orange.svg");
   background-repeat: no-repeat;
   background-size: contain;
   margin-right: 0px;
   cursor: not-allowed;
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section .small-teeth-container .small-teeth-wrap label:last-of-type {
+.blades-in-the-dark.actor.pc * .overload-malfunction .malfunction label:last-of-type {
   margin-right: 0px;
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section .small-teeth-container .small-teeth-wrap label[for$="-0"] {
+.blades-in-the-dark.actor.pc * .overload-malfunction .malfunction label[for$="-0"] {
   width: auto;
   height: auto;
   background-image: none !important;
   color: #EEEFFF;
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section .small-teeth-container .small-teeth-wrap label[for$="-0"] i {
+.blades-in-the-dark.actor.pc * .overload-malfunction .malfunction label[for$="-0"] i {
   margin-top: 4px;
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section .small-teeth-container .small-teeth-wrap input {
+.blades-in-the-dark.actor.pc * .overload-malfunction .malfunction input {
   display: none;
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section .small-teeth-container .small-teeth-wrap input:checked ~ label {
-  background-image: url("assets/teeth/shorttooth-grey.png");
+.blades-in-the-dark.actor.pc * .overload-malfunction .malfunction input:checked ~ label {
+  background-image: url("assets/pips/pipwide-base.svg");
 }
-.blades-in-the-dark.actor.pc * .big-teeth-section .small-teeth-container .small-teeth-wrap input:checked + label {
-  background-image: url("assets/teeth/shorttooth-red.png");
-}
-.blades-in-the-dark.actor.pc * .big-teeth-section .small-teeth-container .small-teeth-wrap .small-teeth {
-  display: flex;
-  flex-direction: row;
-}
-.blades-in-the-dark.actor.pc * .big-teeth-section .trauma-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-.blades-in-the-dark.actor.pc * .big-teeth-section .trauma-list label {
-  cursor: pointer;
-  font-size: 19px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  margin-right: 10px;
-  transition: filter 0.1s;
-  cursor: pointer;
-  /* Hide the browser's default checkbox */
-}
-.blades-in-the-dark.actor.pc * .big-teeth-section .trauma-list label:hover {
-  filter: brightness(0.8);
-  opacity: 0.9;
-}
-.blades-in-the-dark.actor.pc * .big-teeth-section .trauma-list label input {
-  display: none;
-}
-.blades-in-the-dark.actor.pc * .big-teeth-section .trauma-list label input:checked ~ .checkmark {
-  color: red;
-}
-.blades-in-the-dark.actor.pc * .big-teeth-section .trauma-list label .checkmark {
-  text-decoration: none;
-  font-weight: bold;
+.blades-in-the-dark.actor.pc * .overload-malfunction .malfunction input:checked + label {
+  background-image: url("assets/pips/pipwide-orange.svg");
 }
 .blades-in-the-dark.actor.pc * .character-overload label[for$="-0"] {
   margin-right: 0px;
