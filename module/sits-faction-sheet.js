@@ -4,12 +4,12 @@ import { SitsSheet } from "./sits-sheet.js";
 /**
  * @extends {SitsSheet}
  */
-export class BladesFactionSheet extends SitsSheet {
+export class SitsFactionSheet extends SitsSheet {
 
   /** @override */
 	static get defaultOptions() {
 	  return foundry.utils.mergeObject(super.defaultOptions, {
-  	  classes: ["blades-in-the-dark", "sheet", "actor", "faction"],
+  	  classes: ["synths-in-the-shadow", "sheet", "actor", "faction"],
   	  template: "systems/synths-in-the-shadow/templates/faction-sheet.html",
       width: 900,
       height: 'auto',

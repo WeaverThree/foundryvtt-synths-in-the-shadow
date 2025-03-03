@@ -1,5 +1,5 @@
-import { BladesActiveEffect } from "./blades-active-effect.js";
-import { BladesHelpers } from "./blades-helpers.js";
+import { SitsActiveEffect } from "./sits-active-effect.js";
+import { SitsHelpers } from "./sits-helpers.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -66,7 +66,7 @@ export class SitsSheet extends ActorSheet {
     });
 
     // manage active effects
-    html.find(".effect-control").click(ev => BladesActiveEffect.onManageActiveEffect(ev, this.actor));	
+    html.find(".effect-control").click(ev => SitsActiveEffect.onManageActiveEffect(ev, this.actor));	
 	
 	
 		// acquaintance status toggle
@@ -101,7 +101,7 @@ export class SitsSheet extends ActorSheet {
 		// if the Acquaintance is not in the world the if loop will trigger
 	  if (game.actors.get(element.data("itemId")) == undefined) {
 		  //send the UUID and this actor to a helper fuction
-		  BladesHelpers.importAcquaintance(this.actor, acqId);
+		  SitsHelpers.importAcquaintance(this.actor, acqId);
 	  } else {
       const actor = game.actors.get(element.data("itemId"));
       actor?.sheet.render(true);
@@ -113,7 +113,7 @@ export class SitsSheet extends ActorSheet {
       //let acqId = ev.target.closest('.acquaintance').dataset.acquaintance; //used when <div class="acquaintance"
 	  const element = $(ev.currentTarget).parents(".item");
 	  let acqId = element.data("itemId");
-	  BladesHelpers.removeAcquaintance(this.actor, acqId);
+	  SitsHelpers.removeAcquaintance(this.actor, acqId);
     });
 
 	  // Import Acquaintance by playbook
@@ -123,7 +123,7 @@ export class SitsSheet extends ActorSheet {
 	  if (actor_type=="agent") {item_type = "playbook";}
 		else if (actor_type=="unit") {item_type = "unit_type";}
 	  const playbook = this.actor.items.filter(i=> i.type === item_type)[0]?.name;
-	  BladesHelpers.import_pb_contacts(this.actor, playbook);
+	  SitsHelpers.import_pb_contacts(this.actor, playbook);
 
     });
 
@@ -181,7 +181,7 @@ export class SitsSheet extends ActorSheet {
       input_type = "radio";
     }
 
-    let items = await BladesHelpers.getAllItemsByType(item_type, game);
+    let items = await SitsHelpers.getAllItemsByType(item_type, game);
 
     let html = `<div class="items-to-add">`;
 
@@ -231,7 +231,7 @@ export class SitsSheet extends ActorSheet {
 
   async addItemsToSheet(item_type, el) {
 
-    let items = await BladesHelpers.getAllItemsByType(item_type, game);
+    let items = await SitsHelpers.getAllItemsByType(item_type, game);
     let items_to_add = [];
     el.find("input:checked").each(function() {
       items_to_add.push(items.find(e => e._id === $(this).val()));
@@ -239,7 +239,7 @@ export class SitsSheet extends ActorSheet {
 
     if (item_type == "unit") {
 		let actor = this.actor;
-		await BladesHelpers.addUnit(actor,items_to_add[0]);
+		await SitsHelpers.addUnit(actor,items_to_add[0]);
 	}
 	else {
 		await Item.create(items_to_add, {parent: this.document});
@@ -275,7 +275,7 @@ export class SitsSheet extends ActorSheet {
     else if (update_type == "hold") {
       update = {_id: item_id, system:{hold:{value: update_value}}};
     } else {
-      console.log("update attempted for type undefined in blades-sheet.js onUpdateBoxClick function");
+      console.log("update attempted for type undefined in sits-sheet.js onUpdateBoxClick function");
       return;
     };
 

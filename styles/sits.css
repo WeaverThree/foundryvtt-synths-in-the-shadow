@@ -157,64 +157,64 @@
   font-weight: bold;
   font-style: italic;
 }
-.blades-in-the-dark {
+.synths-in-the-shadow {
   font-family: "BarlowCondensed", sans-serif;
   font-size: 14px;
 }
-.blades-in-the-dark textarea {
+.synths-in-the-shadow textarea {
   margin-top: 10px;
   margin-bottom: 20px;
 }
-.blades-in-the-dark .debug-toggle {
+.synths-in-the-shadow .debug-toggle {
   opacity: 0.1;
 }
-.blades-in-the-dark .debug-toggle.on {
+.synths-in-the-shadow .debug-toggle.on {
   opacity: 0.75;
 }
-.blades-in-the-dark .rollable-text {
+.synths-in-the-shadow .rollable-text {
   transition: color 0.2s;
 }
-.blades-in-the-dark .rollable-text:hover {
+.synths-in-the-shadow .rollable-text:hover {
   cursor: pointer;
   color: red;
 }
-.blades-in-the-dark section {
+.synths-in-the-shadow section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.blades-in-the-dark section > *:not(.label-stripe) {
+.synths-in-the-shadow section > *:not(.label-stripe) {
   margin-right: 10px;
 }
-.blades-in-the-dark section > *:not(.label-stripe):last-child {
+.synths-in-the-shadow section > *:not(.label-stripe):last-child {
   margin-right: 0px;
 }
-.blades-in-the-dark section .grow-one {
+.synths-in-the-shadow section .grow-one {
   flex-grow: 1;
 }
-.blades-in-the-dark section .grow-two {
+.synths-in-the-shadow section .grow-two {
   flex-grow: 2;
 }
-.blades-in-the-dark section.experience {
+.synths-in-the-shadow section.experience {
   margin-bottom: 0px;
   justify-content: center;
 }
-.blades-in-the-dark .flex-horizontal {
+.synths-in-the-shadow .flex-horizontal {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.blades-in-the-dark .flex-vertical {
+.synths-in-the-shadow .flex-vertical {
   display: flex;
   flex-direction: column;
 }
-.blades-in-the-dark .tab[data-tab] {
+.synths-in-the-shadow .tab[data-tab] {
   display: none;
 }
-.blades-in-the-dark .tab[data-tab].active {
+.synths-in-the-shadow .tab[data-tab].active {
   display: block;
 }
-.blades-in-the-dark .black-label {
+.synths-in-the-shadow .black-label {
   background-color: #191813;
   color: #EEEFFF;
   font-size: 18px;
@@ -226,7 +226,7 @@
   font-weight: bold;
   font-style: italic;
 }
-.blades-in-the-dark .gray-label {
+.synths-in-the-shadow .gray-label {
   background-color: #999;
   color: #191813;
   font-size: 18px;
@@ -238,7 +238,7 @@
   font-weight: bold;
   font-style: italic;
 }
-.blades-in-the-dark .label-stripe {
+.synths-in-the-shadow .label-stripe {
   text-transform: uppercase;
   background-color: #191813;
   color: #EEEFFF;
@@ -249,7 +249,7 @@
   display: flex;
   font-weight: bold;
 }
-.blades-in-the-dark .label-stripe-gray {
+.synths-in-the-shadow .label-stripe-gray {
   text-transform: uppercase;
   background-color: #999;
   margin-bottom: 10px;
@@ -259,23 +259,23 @@
   display: flex;
   font-weight: bold;
 }
-.blades-in-the-dark .editor,
-.blades-in-the-dark .editor-content {
+.synths-in-the-shadow .editor,
+.synths-in-the-shadow .editor-content {
   min-height: 150px;
 }
-.blades-in-the-dark .description {
+.synths-in-the-shadow .description {
   font-style: italic;
 }
-.blades-in-the-dark i.nullifier {
+.synths-in-the-shadow i.nullifier {
   transition: filter 0.2s;
   cursor: pointer;
 }
-.blades-in-the-dark i.nullifier:hover {
+.synths-in-the-shadow i.nullifier:hover {
   filter: brightness(0.8);
   opacity: 0.9;
   color: red;
 }
-.blades-in-the-dark .loadout select {
+.synths-in-the-shadow .loadout select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -293,36 +293,36 @@
   color: white;
   text-align: right;
 }
-.blades-in-the-dark .loadout select option {
+.synths-in-the-shadow .loadout select option {
   color: white;
 }
-.blades-in-the-dark .loadout select:hover {
+.synths-in-the-shadow .loadout select:hover {
   color: red;
 }
-.blades-in-the-dark .abilities .item-name, .blades-in-the-dark .loadout .item-name, .blades-in-the-dark .faction-items .item-name {
+.synths-in-the-shadow .abilities .item-name, .synths-in-the-shadow .loadout .item-name, .synths-in-the-shadow .faction-items .item-name {
   width: 100px;
   margin-left: 10px;
 }
-.blades-in-the-dark .abilities .item-body, .blades-in-the-dark .loadout .item-body, .blades-in-the-dark .faction-items .item-body {
+.synths-in-the-shadow .abilities .item-body, .synths-in-the-shadow .loadout .item-body, .synths-in-the-shadow .faction-items .item-body {
   width: auto;
 }
-.blades-in-the-dark .abilities .item-description, .blades-in-the-dark .loadout .item-description, .blades-in-the-dark .faction-items .item-description {
+.synths-in-the-shadow .abilities .item-description, .synths-in-the-shadow .loadout .item-description, .synths-in-the-shadow .faction-items .item-description {
   width: 260px;
 }
-.blades-in-the-dark td {
+.synths-in-the-shadow td {
   padding: 5px;
 }
-.blades-in-the-dark {
+.synths-in-the-shadow {
   min-width: 420px;
   min-height: 320px;
 }
-.blades-in-the-dark .clock-zero-label {
+.synths-in-the-shadow .clock-zero-label {
   color: #191813;
 }
-.blades-in-the-dark .clocks.clocks-4 {
+.synths-in-the-shadow .clocks.clocks-4 {
   position: relative;
 }
-.blades-in-the-dark .clocks.clocks-4 .blades-clock {
+.synths-in-the-shadow .clocks.clocks-4 .sits-clock {
   position: relative;
   padding: 0;
   width: 200px;
@@ -332,7 +332,7 @@
   overflow: hidden;
   background-size: cover;
 }
-.blades-in-the-dark .clocks.clocks-4 .blades-clock label {
+.synths-in-the-shadow .clocks.clocks-4 .sits-clock label {
   overflow: hidden;
   position: absolute;
   top: -50%;
@@ -343,33 +343,33 @@
   transition: filter 0.1s;
   cursor: pointer;
 }
-.blades-in-the-dark .clocks.clocks-4 .blades-clock label:hover {
+.synths-in-the-shadow .clocks.clocks-4 .sits-clock label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.blades-in-the-dark .clocks.clocks-4 .blades-clock input {
+.synths-in-the-shadow .clocks.clocks-4 .sits-clock input {
   position: absolute;
   display: none;
 }
-.blades-in-the-dark .clocks.clocks-4 .blades-clock input[value="0"] {
+.synths-in-the-shadow .clocks.clocks-4 .sits-clock input[value="0"] {
   display: none;
 }
-.blades-in-the-dark .clocks.clocks-4 .blades-clock *:nth-child(3) {
+.synths-in-the-shadow .clocks.clocks-4 .sits-clock *:nth-child(3) {
   transform: rotate(0deg) skewY(180deg);
 }
-.blades-in-the-dark .clocks.clocks-4 .blades-clock *:nth-child(5) {
+.synths-in-the-shadow .clocks.clocks-4 .sits-clock *:nth-child(5) {
   transform: rotate(90deg) skewY(180deg);
 }
-.blades-in-the-dark .clocks.clocks-4 .blades-clock *:nth-child(7) {
+.synths-in-the-shadow .clocks.clocks-4 .sits-clock *:nth-child(7) {
   transform: rotate(180deg) skewY(180deg);
 }
-.blades-in-the-dark .clocks.clocks-4 .blades-clock *:nth-child(9) {
+.synths-in-the-shadow .clocks.clocks-4 .sits-clock *:nth-child(9) {
   transform: rotate(270deg) skewY(180deg);
 }
-.blades-in-the-dark .clocks.clocks-6 {
+.synths-in-the-shadow .clocks.clocks-6 {
   position: relative;
 }
-.blades-in-the-dark .clocks.clocks-6 .blades-clock {
+.synths-in-the-shadow .clocks.clocks-6 .sits-clock {
   position: relative;
   padding: 0;
   width: 200px;
@@ -379,7 +379,7 @@
   overflow: hidden;
   background-size: cover;
 }
-.blades-in-the-dark .clocks.clocks-6 .blades-clock label {
+.synths-in-the-shadow .clocks.clocks-6 .sits-clock label {
   overflow: hidden;
   position: absolute;
   top: -50%;
@@ -390,39 +390,39 @@
   transition: filter 0.1s;
   cursor: pointer;
 }
-.blades-in-the-dark .clocks.clocks-6 .blades-clock label:hover {
+.synths-in-the-shadow .clocks.clocks-6 .sits-clock label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.blades-in-the-dark .clocks.clocks-6 .blades-clock input {
+.synths-in-the-shadow .clocks.clocks-6 .sits-clock input {
   position: absolute;
   display: none;
 }
-.blades-in-the-dark .clocks.clocks-6 .blades-clock input[value="0"] {
+.synths-in-the-shadow .clocks.clocks-6 .sits-clock input[value="0"] {
   display: none;
 }
-.blades-in-the-dark .clocks.clocks-6 .blades-clock *:nth-child(3) {
+.synths-in-the-shadow .clocks.clocks-6 .sits-clock *:nth-child(3) {
   transform: rotate(0deg) skewY(150deg);
 }
-.blades-in-the-dark .clocks.clocks-6 .blades-clock *:nth-child(5) {
+.synths-in-the-shadow .clocks.clocks-6 .sits-clock *:nth-child(5) {
   transform: rotate(60deg) skewY(150deg);
 }
-.blades-in-the-dark .clocks.clocks-6 .blades-clock *:nth-child(7) {
+.synths-in-the-shadow .clocks.clocks-6 .sits-clock *:nth-child(7) {
   transform: rotate(120deg) skewY(150deg);
 }
-.blades-in-the-dark .clocks.clocks-6 .blades-clock *:nth-child(9) {
+.synths-in-the-shadow .clocks.clocks-6 .sits-clock *:nth-child(9) {
   transform: rotate(180deg) skewY(150deg);
 }
-.blades-in-the-dark .clocks.clocks-6 .blades-clock *:nth-child(11) {
+.synths-in-the-shadow .clocks.clocks-6 .sits-clock *:nth-child(11) {
   transform: rotate(240deg) skewY(150deg);
 }
-.blades-in-the-dark .clocks.clocks-6 .blades-clock *:nth-child(13) {
+.synths-in-the-shadow .clocks.clocks-6 .sits-clock *:nth-child(13) {
   transform: rotate(300deg) skewY(150deg);
 }
-.blades-in-the-dark .clocks.clocks-8 {
+.synths-in-the-shadow .clocks.clocks-8 {
   position: relative;
 }
-.blades-in-the-dark .clocks.clocks-8 .blades-clock {
+.synths-in-the-shadow .clocks.clocks-8 .sits-clock {
   position: relative;
   padding: 0;
   width: 200px;
@@ -432,7 +432,7 @@
   overflow: hidden;
   background-size: cover;
 }
-.blades-in-the-dark .clocks.clocks-8 .blades-clock label {
+.synths-in-the-shadow .clocks.clocks-8 .sits-clock label {
   overflow: hidden;
   position: absolute;
   top: -50%;
@@ -443,45 +443,45 @@
   transition: filter 0.1s;
   cursor: pointer;
 }
-.blades-in-the-dark .clocks.clocks-8 .blades-clock label:hover {
+.synths-in-the-shadow .clocks.clocks-8 .sits-clock label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.blades-in-the-dark .clocks.clocks-8 .blades-clock input {
+.synths-in-the-shadow .clocks.clocks-8 .sits-clock input {
   position: absolute;
   display: none;
 }
-.blades-in-the-dark .clocks.clocks-8 .blades-clock input[value="0"] {
+.synths-in-the-shadow .clocks.clocks-8 .sits-clock input[value="0"] {
   display: none;
 }
-.blades-in-the-dark .clocks.clocks-8 .blades-clock *:nth-child(3) {
+.synths-in-the-shadow .clocks.clocks-8 .sits-clock *:nth-child(3) {
   transform: rotate(0deg) skewY(135deg);
 }
-.blades-in-the-dark .clocks.clocks-8 .blades-clock *:nth-child(5) {
+.synths-in-the-shadow .clocks.clocks-8 .sits-clock *:nth-child(5) {
   transform: rotate(45deg) skewY(135deg);
 }
-.blades-in-the-dark .clocks.clocks-8 .blades-clock *:nth-child(7) {
+.synths-in-the-shadow .clocks.clocks-8 .sits-clock *:nth-child(7) {
   transform: rotate(90deg) skewY(135deg);
 }
-.blades-in-the-dark .clocks.clocks-8 .blades-clock *:nth-child(9) {
+.synths-in-the-shadow .clocks.clocks-8 .sits-clock *:nth-child(9) {
   transform: rotate(135deg) skewY(135deg);
 }
-.blades-in-the-dark .clocks.clocks-8 .blades-clock *:nth-child(11) {
+.synths-in-the-shadow .clocks.clocks-8 .sits-clock *:nth-child(11) {
   transform: rotate(180deg) skewY(135deg);
 }
-.blades-in-the-dark .clocks.clocks-8 .blades-clock *:nth-child(13) {
+.synths-in-the-shadow .clocks.clocks-8 .sits-clock *:nth-child(13) {
   transform: rotate(225deg) skewY(135deg);
 }
-.blades-in-the-dark .clocks.clocks-8 .blades-clock *:nth-child(15) {
+.synths-in-the-shadow .clocks.clocks-8 .sits-clock *:nth-child(15) {
   transform: rotate(270deg) skewY(135deg);
 }
-.blades-in-the-dark .clocks.clocks-8 .blades-clock *:nth-child(17) {
+.synths-in-the-shadow .clocks.clocks-8 .sits-clock *:nth-child(17) {
   transform: rotate(315deg) skewY(135deg);
 }
-.blades-in-the-dark .clocks.clocks-10 {
+.synths-in-the-shadow .clocks.clocks-10 {
   position: relative;
 }
-.blades-in-the-dark .clocks.clocks-10 .blades-clock {
+.synths-in-the-shadow .clocks.clocks-10 .sits-clock {
   position: relative;
   padding: 0;
   width: 200px;
@@ -491,7 +491,7 @@
   overflow: hidden;
   background-size: cover;
 }
-.blades-in-the-dark .clocks.clocks-10 .blades-clock label {
+.synths-in-the-shadow .clocks.clocks-10 .sits-clock label {
   overflow: hidden;
   position: absolute;
   top: -50%;
@@ -502,51 +502,51 @@
   transition: filter 0.1s;
   cursor: pointer;
 }
-.blades-in-the-dark .clocks.clocks-10 .blades-clock label:hover {
+.synths-in-the-shadow .clocks.clocks-10 .sits-clock label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.blades-in-the-dark .clocks.clocks-10 .blades-clock input {
+.synths-in-the-shadow .clocks.clocks-10 .sits-clock input {
   position: absolute;
   display: none;
 }
-.blades-in-the-dark .clocks.clocks-10 .blades-clock input[value="0"] {
+.synths-in-the-shadow .clocks.clocks-10 .sits-clock input[value="0"] {
   display: none;
 }
-.blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(3) {
+.synths-in-the-shadow .clocks.clocks-10 .sits-clock *:nth-child(3) {
   transform: rotate(0deg) skewY(126deg);
 }
-.blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(5) {
+.synths-in-the-shadow .clocks.clocks-10 .sits-clock *:nth-child(5) {
   transform: rotate(36deg) skewY(126deg);
 }
-.blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(7) {
+.synths-in-the-shadow .clocks.clocks-10 .sits-clock *:nth-child(7) {
   transform: rotate(72deg) skewY(126deg);
 }
-.blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(9) {
+.synths-in-the-shadow .clocks.clocks-10 .sits-clock *:nth-child(9) {
   transform: rotate(108deg) skewY(126deg);
 }
-.blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(11) {
+.synths-in-the-shadow .clocks.clocks-10 .sits-clock *:nth-child(11) {
   transform: rotate(144deg) skewY(126deg);
 }
-.blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(13) {
+.synths-in-the-shadow .clocks.clocks-10 .sits-clock *:nth-child(13) {
   transform: rotate(180deg) skewY(126deg);
 }
-.blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(15) {
+.synths-in-the-shadow .clocks.clocks-10 .sits-clock *:nth-child(15) {
   transform: rotate(216deg) skewY(126deg);
 }
-.blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(17) {
+.synths-in-the-shadow .clocks.clocks-10 .sits-clock *:nth-child(17) {
   transform: rotate(252deg) skewY(126deg);
 }
-.blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(19) {
+.synths-in-the-shadow .clocks.clocks-10 .sits-clock *:nth-child(19) {
   transform: rotate(288deg) skewY(126deg);
 }
-.blades-in-the-dark .clocks.clocks-10 .blades-clock *:nth-child(21) {
+.synths-in-the-shadow .clocks.clocks-10 .sits-clock *:nth-child(21) {
   transform: rotate(324deg) skewY(126deg);
 }
-.blades-in-the-dark .clocks.clocks-12 {
+.synths-in-the-shadow .clocks.clocks-12 {
   position: relative;
 }
-.blades-in-the-dark .clocks.clocks-12 .blades-clock {
+.synths-in-the-shadow .clocks.clocks-12 .sits-clock {
   position: relative;
   padding: 0;
   width: 200px;
@@ -556,7 +556,7 @@
   overflow: hidden;
   background-size: cover;
 }
-.blades-in-the-dark .clocks.clocks-12 .blades-clock label {
+.synths-in-the-shadow .clocks.clocks-12 .sits-clock label {
   overflow: hidden;
   position: absolute;
   top: -50%;
@@ -567,102 +567,102 @@
   transition: filter 0.1s;
   cursor: pointer;
 }
-.blades-in-the-dark .clocks.clocks-12 .blades-clock label:hover {
+.synths-in-the-shadow .clocks.clocks-12 .sits-clock label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.blades-in-the-dark .clocks.clocks-12 .blades-clock input {
+.synths-in-the-shadow .clocks.clocks-12 .sits-clock input {
   position: absolute;
   display: none;
 }
-.blades-in-the-dark .clocks.clocks-12 .blades-clock input[value="0"] {
+.synths-in-the-shadow .clocks.clocks-12 .sits-clock input[value="0"] {
   display: none;
 }
-.blades-in-the-dark .clocks.clocks-12 .blades-clock *:nth-child(3) {
+.synths-in-the-shadow .clocks.clocks-12 .sits-clock *:nth-child(3) {
   transform: rotate(0deg) skewY(120deg);
 }
-.blades-in-the-dark .clocks.clocks-12 .blades-clock *:nth-child(5) {
+.synths-in-the-shadow .clocks.clocks-12 .sits-clock *:nth-child(5) {
   transform: rotate(30deg) skewY(120deg);
 }
-.blades-in-the-dark .clocks.clocks-12 .blades-clock *:nth-child(7) {
+.synths-in-the-shadow .clocks.clocks-12 .sits-clock *:nth-child(7) {
   transform: rotate(60deg) skewY(120deg);
 }
-.blades-in-the-dark .clocks.clocks-12 .blades-clock *:nth-child(9) {
+.synths-in-the-shadow .clocks.clocks-12 .sits-clock *:nth-child(9) {
   transform: rotate(90deg) skewY(120deg);
 }
-.blades-in-the-dark .clocks.clocks-12 .blades-clock *:nth-child(11) {
+.synths-in-the-shadow .clocks.clocks-12 .sits-clock *:nth-child(11) {
   transform: rotate(120deg) skewY(120deg);
 }
-.blades-in-the-dark .clocks.clocks-12 .blades-clock *:nth-child(13) {
+.synths-in-the-shadow .clocks.clocks-12 .sits-clock *:nth-child(13) {
   transform: rotate(150deg) skewY(120deg);
 }
-.blades-in-the-dark .clocks.clocks-12 .blades-clock *:nth-child(15) {
+.synths-in-the-shadow .clocks.clocks-12 .sits-clock *:nth-child(15) {
   transform: rotate(180deg) skewY(120deg);
 }
-.blades-in-the-dark .clocks.clocks-12 .blades-clock *:nth-child(17) {
+.synths-in-the-shadow .clocks.clocks-12 .sits-clock *:nth-child(17) {
   transform: rotate(210deg) skewY(120deg);
 }
-.blades-in-the-dark .clocks.clocks-12 .blades-clock *:nth-child(19) {
+.synths-in-the-shadow .clocks.clocks-12 .sits-clock *:nth-child(19) {
   transform: rotate(240deg) skewY(120deg);
 }
-.blades-in-the-dark .clocks.clocks-12 .blades-clock *:nth-child(21) {
+.synths-in-the-shadow .clocks.clocks-12 .sits-clock *:nth-child(21) {
   transform: rotate(270deg) skewY(120deg);
 }
-.blades-in-the-dark .clocks.clocks-12 .blades-clock *:nth-child(23) {
+.synths-in-the-shadow .clocks.clocks-12 .sits-clock *:nth-child(23) {
   transform: rotate(300deg) skewY(120deg);
 }
-.blades-in-the-dark .clocks.clocks-12 .blades-clock *:nth-child(25) {
+.synths-in-the-shadow .clocks.clocks-12 .sits-clock *:nth-child(25) {
   transform: rotate(330deg) skewY(120deg);
 }
-.blades-in-the-dark .blades-clock-name-type > * {
+.synths-in-the-shadow .sits-clock-name-type > * {
   margin-bottom: 10px;
 }
-.blades-in-the-dark .blades-clock-name-type .blades-clock {
+.synths-in-the-shadow .sits-clock-name-type .sits-clock {
   margin: 10px auto;
 }
-.blades-in-the-dark.unit.sheet .item {
+.synths-in-the-shadow.unit.sheet .item {
   justify-content: space-between;
 }
-.blades-in-the-dark.unit.sheet .item .item-body {
+.synths-in-the-shadow.unit.sheet .item .item-body {
   margin-bottom: 10px;
 }
-.blades-in-the-dark.unit.sheet .item .item-body * {
+.synths-in-the-shadow.unit.sheet .item .item-body * {
   margin-right: 10px;
 }
-.blades-in-the-dark.unit.sheet .item .item-body .item-description {
+.synths-in-the-shadow.unit.sheet .item .item-body .item-description {
   font-style: italic;
   text-align: justify;
 }
-.blades-in-the-dark.unit.sheet .item div {
+.synths-in-the-shadow.unit.sheet .item div {
   flex-grow: 2;
 }
-.blades-in-the-dark.unit.sheet .item .item-control {
+.synths-in-the-shadow.unit.sheet .item .item-control {
   flex-grow: 1;
 }
-.blades-in-the-dark.unit.sheet .item .item-body,
-.blades-in-the-dark.unit.sheet .item .item-class-label {
+.synths-in-the-shadow.unit.sheet .item .item-body,
+.synths-in-the-shadow.unit.sheet .item .item-class-label {
   width: 100px;
 }
-.blades-in-the-dark.unit.sheet .item-class-label {
+.synths-in-the-shadow.unit.sheet .item-class-label {
   margin-bottom: 10px;
 }
-.blades-in-the-dark.unit.sheet .name,
-.blades-in-the-dark.unit.sheet .lair {
+.synths-in-the-shadow.unit.sheet .name,
+.synths-in-the-shadow.unit.sheet .lair {
   margin-bottom: 10px;
 }
-.blades-in-the-dark.unit.sheet form.actor-sheet {
+.synths-in-the-shadow.unit.sheet form.actor-sheet {
   padding: 20px;
 }
-.blades-in-the-dark.unit.sheet nav {
+.synths-in-the-shadow.unit.sheet nav {
   padding-bottom: 10px;
 }
-.blades-in-the-dark.unit.sheet .unit-coins {
+.synths-in-the-shadow.unit.sheet .unit-coins {
   display: flex;
   /* Hide the browser's default checkbox */
   flex-wrap: wrap;
   max-width: 72px;
 }
-.blades-in-the-dark.unit.sheet .unit-coins label {
+.synths-in-the-shadow.unit.sheet .unit-coins label {
   height: 15px;
   width: 15px;
   background-color: #DAA520;
@@ -671,32 +671,32 @@
   transition: filter 0.1s;
   cursor: pointer;
 }
-.blades-in-the-dark.unit.sheet .unit-coins label[for$="-0"] {
+.synths-in-the-shadow.unit.sheet .unit-coins label[for$="-0"] {
   margin-right: 0px;
 }
-.blades-in-the-dark.unit.sheet .unit-coins label:hover {
+.synths-in-the-shadow.unit.sheet .unit-coins label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.blades-in-the-dark.unit.sheet .unit-coins input {
+.synths-in-the-shadow.unit.sheet .unit-coins input {
   display: none;
 }
-.blades-in-the-dark.unit.sheet .unit-coins input:checked ~ label {
+.synths-in-the-shadow.unit.sheet .unit-coins input:checked ~ label {
   background-color: #EEEFFF;
 }
-.blades-in-the-dark.unit.sheet .unit-coins input:checked + label {
+.synths-in-the-shadow.unit.sheet .unit-coins input:checked + label {
   background-color: #DAA520;
 }
-.blades-in-the-dark.unit.sheet .unit-coins label {
+.synths-in-the-shadow.unit.sheet .unit-coins label {
   margin-right: 3px;
   margin-bottom: 3px;
 }
-.blades-in-the-dark.unit.sheet .unit-reputation {
+.synths-in-the-shadow.unit.sheet .unit-reputation {
   border-top: 3px solid #191813;
   display: flex;
   /* Hide the browser's default checkbox */
 }
-.blades-in-the-dark.unit.sheet .unit-reputation label {
+.synths-in-the-shadow.unit.sheet .unit-reputation label {
   height: 50px;
   width: 17px;
   background-image: url("assets/teeth/stresstooth-red.png");
@@ -706,55 +706,55 @@
   transition: filter 0.1s;
   cursor: pointer;
 }
-.blades-in-the-dark.unit.sheet .unit-reputation label:last-of-type {
+.synths-in-the-shadow.unit.sheet .unit-reputation label:last-of-type {
   margin-right: 0px;
 }
-.blades-in-the-dark.unit.sheet .unit-reputation label[for$="-0"] {
+.synths-in-the-shadow.unit.sheet .unit-reputation label[for$="-0"] {
   width: auto;
   height: auto;
   background-image: none !important;
   color: #EEEFFF;
 }
-.blades-in-the-dark.unit.sheet .unit-reputation label[for$="-0"] i {
+.synths-in-the-shadow.unit.sheet .unit-reputation label[for$="-0"] i {
   margin-top: 4px;
 }
-.blades-in-the-dark.unit.sheet .unit-reputation label:hover {
+.synths-in-the-shadow.unit.sheet .unit-reputation label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.blades-in-the-dark.unit.sheet .unit-reputation input {
+.synths-in-the-shadow.unit.sheet .unit-reputation input {
   display: none;
 }
-.blades-in-the-dark.unit.sheet .unit-reputation input:checked ~ label {
+.synths-in-the-shadow.unit.sheet .unit-reputation input:checked ~ label {
   background-image: url("assets/teeth/stresstooth-halfgrey.png");
 }
-.blades-in-the-dark.unit.sheet .unit-reputation input:checked + label {
+.synths-in-the-shadow.unit.sheet .unit-reputation input:checked + label {
   background-image: url("assets/teeth/stresstooth-red.png");
 }
-.blades-in-the-dark.unit.sheet .unit-reputation input:disabled + label {
+.synths-in-the-shadow.unit.sheet .unit-reputation input:disabled + label {
   background-image: url(assets/teeth/stresstooth-black.png);
 }
-.blades-in-the-dark.unit.sheet .turf-container {
+.synths-in-the-shadow.unit.sheet .turf-container {
   overflow-x: scroll;
   overflow-y: clip;
 }
-.blades-in-the-dark.unit.sheet .turf-list {
+.synths-in-the-shadow.unit.sheet .turf-list {
   display: flex;
   flex-direction: column;
   width: 855px;
 }
-.blades-in-the-dark.unit.sheet .turf-list .turf-row {
+.synths-in-the-shadow.unit.sheet .turf-list .turf-row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.blades-in-the-dark.unit.sheet .turf-list .turf-row *:first-child {
+.synths-in-the-shadow.unit.sheet .turf-list .turf-row *:first-child {
   margin-left: 0px;
 }
-.blades-in-the-dark.unit.sheet .turf-list .turf-row *:last-child {
+.synths-in-the-shadow.unit.sheet .turf-list .turf-row *:last-child {
   margin-right: 0px;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-non-editable .turf-block {
+.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block {
   transition: filter 0.1s;
   cursor: pointer;
   width: 130px;
@@ -764,45 +764,45 @@
   margin: 20px;
   flex-grow: initial;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-non-editable .turf-block:hover {
+.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-non-editable .turf-block.turf-selected .connector {
+.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block.turf-selected .connector {
   background-color: #999;
   z-index: 1;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-non-editable .turf-block .connector {
+.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .connector {
   position: absolute;
   display: block;
   background-color: #bbb;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-non-editable .turf-block .connector.right, .blades-in-the-dark.unit.sheet .turf-list.section-non-editable .turf-block .connector.left {
+.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .connector.right, .synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .connector.left {
   width: 40px;
   height: 20px;
   top: 40px;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-non-editable .turf-block .connector.left {
+.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .connector.left {
   left: -40px;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-non-editable .turf-block .connector.right {
+.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .connector.right {
   left: 130px;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-non-editable .turf-block .connector.top, .blades-in-the-dark.unit.sheet .turf-list.section-non-editable .turf-block .connector.bottom {
+.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .connector.top, .synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .connector.bottom {
   height: 40px;
   width: 20px;
   left: 55px;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-non-editable .turf-block .connector.top {
+.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .connector.top {
   top: -40px;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-non-editable .turf-block .connector.bottom {
+.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .connector.bottom {
   top: 100px;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-non-editable .turf-block.turf-selected {
+.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block.turf-selected {
   background-color: #999;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-non-editable .turf-block .turf-description {
+.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .turf-description {
   border: none;
   background: none;
   resize: none;
@@ -811,21 +811,21 @@
   min-height: auto;
   font-size: 12px;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-non-editable .turf-block .turf-name {
+.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .turf-name {
   border: none;
   border-radius: 0px;
   text-align: center;
   font-weight: bold;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-non-editable .turf-block input[type=checkbox] {
+.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block input[type=checkbox] {
   transform: scale(1);
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-non-editable .turf-block .turf-control.turf-select {
+.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .turf-control.turf-select {
   position: absolute;
   top: -7px;
   left: -7px;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-editable .turf-block {
+.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block {
   transition: filter 0.1s;
   cursor: pointer;
   width: 130px;
@@ -835,45 +835,45 @@
   margin: 20px;
   flex-grow: initial;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-editable .turf-block:hover {
+.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-editable .turf-block.turf-selected .connector {
+.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block.turf-selected .connector {
   background-color: #999;
   z-index: 1;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-editable .turf-block .connector {
+.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .connector {
   position: absolute;
   display: block;
   background-color: #bbb;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-editable .turf-block .connector.right, .blades-in-the-dark.unit.sheet .turf-list.section-editable .turf-block .connector.left {
+.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .connector.right, .synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .connector.left {
   width: 40px;
   height: 25px;
   top: 50px;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-editable .turf-block .connector.left {
+.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .connector.left {
   left: -40px;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-editable .turf-block .connector.right {
+.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .connector.right {
   left: 130px;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-editable .turf-block .connector.top, .blades-in-the-dark.unit.sheet .turf-list.section-editable .turf-block .connector.bottom {
+.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .connector.top, .synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .connector.bottom {
   height: 40px;
   width: 25px;
   left: 52.5px;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-editable .turf-block .connector.top {
+.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .connector.top {
   top: -40px;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-editable .turf-block .connector.bottom {
+.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .connector.bottom {
   top: 125px;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-editable .turf-block.turf-selected {
+.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block.turf-selected {
   background-color: #999;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-editable .turf-block .turf-description {
+.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .turf-description {
   border: none;
   background: none;
   resize: none;
@@ -882,35 +882,35 @@
   min-height: auto;
   font-size: 12px;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-editable .turf-block .turf-name {
+.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .turf-name {
   border: none;
   border-radius: 0px;
   text-align: center;
   font-weight: bold;
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-editable .turf-block input[type=checkbox] {
+.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block input[type=checkbox] {
   transform: scale(1);
 }
-.blades-in-the-dark.unit.sheet .turf-list.section-editable .turf-block .turf-control.turf-select {
+.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .turf-control.turf-select {
   position: absolute;
   top: -7px;
   left: -7px;
 }
-.blades-in-the-dark.unit.sheet .unit-hold {
+.synths-in-the-shadow.unit.sheet .unit-hold {
   border-top: 3px solid #191813;
   display: flex;
   /* Hide the browser's default checkbox */
   width: 221px;
 }
-.blades-in-the-dark.unit.sheet .unit-hold label {
+.synths-in-the-shadow.unit.sheet .unit-hold label {
   transition: filter 0.1s;
   cursor: pointer;
 }
-.blades-in-the-dark.unit.sheet .unit-hold label:hover {
+.synths-in-the-shadow.unit.sheet .unit-hold label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.blades-in-the-dark.unit.sheet .unit-hold label {
+.synths-in-the-shadow.unit.sheet .unit-hold label {
   height: 50px;
   width: 17px;
   background-image: url("assets/teeth/stresstooth-halfgrey.png");
@@ -918,16 +918,16 @@
   background-size: contain;
   margin-right: 5px;
 }
-.blades-in-the-dark.unit.sheet .unit-hold label:last-of-type {
+.synths-in-the-shadow.unit.sheet .unit-hold label:last-of-type {
   margin-right: 0px;
 }
-.blades-in-the-dark.unit.sheet .unit-hold input {
+.synths-in-the-shadow.unit.sheet .unit-hold input {
   display: none;
 }
-.blades-in-the-dark.unit.sheet .unit-hold input:checked + label {
+.synths-in-the-shadow.unit.sheet .unit-hold input:checked + label {
   background-image: url("assets/teeth/stresstooth-red.png");
 }
-.blades-in-the-dark.unit.sheet .unit-tier {
+.synths-in-the-shadow.unit.sheet .unit-tier {
   background-color: #999;
   height: 33px;
   width: 145px;
@@ -937,15 +937,15 @@
   display: flex;
   /* Hide the browser's default checkbox */
 }
-.blades-in-the-dark.unit.sheet .unit-tier label {
+.synths-in-the-shadow.unit.sheet .unit-tier label {
   transition: filter 0.1s;
   cursor: pointer;
 }
-.blades-in-the-dark.unit.sheet .unit-tier label:hover {
+.synths-in-the-shadow.unit.sheet .unit-tier label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.blades-in-the-dark.unit.sheet .unit-tier label:not([for$="-0"]) {
+.synths-in-the-shadow.unit.sheet .unit-tier label:not([for$="-0"]) {
   height: 18px;
   width: 18px;
   background-color: #191813;
@@ -953,84 +953,84 @@
   border: 2px solid #191813;
   border-radius: 9px;
 }
-.blades-in-the-dark.unit.sheet .unit-tier input {
+.synths-in-the-shadow.unit.sheet .unit-tier input {
   display: none;
 }
-.blades-in-the-dark.unit.sheet .unit-tier input:checked ~ label:not([for$="-0"]) {
+.synths-in-the-shadow.unit.sheet .unit-tier input:checked ~ label:not([for$="-0"]) {
   border-color: gray;
   background-color: #EEEFFF;
 }
-.blades-in-the-dark.unit.sheet .unit-tier input:checked + label:not([for$="-0"]) {
+.synths-in-the-shadow.unit.sheet .unit-tier input:checked + label:not([for$="-0"]) {
   background-color: #191813;
   border-color: #191813;
 }
-.blades-in-the-dark.unit.sheet .unit-tier > * {
+.synths-in-the-shadow.unit.sheet .unit-tier > * {
   margin-right: 5px;
 }
-.blades-in-the-dark.unit.sheet .heat-wanted .small-teeth {
+.synths-in-the-shadow.unit.sheet .heat-wanted .small-teeth {
   height: 20px;
 }
-.blades-in-the-dark.unit.sheet .heat-wanted .small-teeth label {
+.synths-in-the-shadow.unit.sheet .heat-wanted .small-teeth label {
   height: 100%;
   width: 100%;
   cursor: default;
 }
-.blades-in-the-dark.unit.sheet .experience-clues-container {
+.synths-in-the-shadow.unit.sheet .experience-clues-container {
   width: 340px;
   font-size: 12px;
 }
-.blades-in-the-dark.unit.sheet .experience-clues-container .experience-clues-description {
+.synths-in-the-shadow.unit.sheet .experience-clues-container .experience-clues-description {
   font-weight: bold;
 }
-.blades-in-the-dark.unit.sheet .experience-clues-container .experience-clues {
+.synths-in-the-shadow.unit.sheet .experience-clues-container .experience-clues {
   font-style: italic;
 }
-.blades-in-the-dark.unit.sheet .edgeflaw input {
+.synths-in-the-shadow.unit.sheet .edgeflaw input {
   display: none;
 }
-.blades-in-the-dark.unit.sheet .edgeflaw input:checked + label {
+.synths-in-the-shadow.unit.sheet .edgeflaw input:checked + label {
   color: red;
 }
-.blades-in-the-dark.unit.sheet .gang-expert-type-selector .gang-type-boxes {
+.synths-in-the-shadow.unit.sheet .gang-expert-type-selector .gang-type-boxes {
   flex-wrap: wrap;
 }
-.blades-in-the-dark.unit.sheet .cohorts {
+.synths-in-the-shadow.unit.sheet .cohorts {
   flex-wrap: wrap;
 }
-.blades-in-the-dark.unit.sheet .cohorts .cohort-block-wrapper {
+.synths-in-the-shadow.unit.sheet .cohorts .cohort-block-wrapper {
   width: 400px;
 }
-.blades-in-the-dark.unit.sheet .cohorts .label-stripe {
+.synths-in-the-shadow.unit.sheet .cohorts .label-stripe {
   align-items: center;
   cursor: pointer;
   margin-bottom: 0px;
   padding-top: 2px;
   padding-bottom: 2px;
 }
-.blades-in-the-dark.unit.sheet .cohorts .item-control {
+.synths-in-the-shadow.unit.sheet .cohorts .item-control {
   flex-grow: 0;
 }
-.blades-in-the-dark.unit.sheet .cohorts .cohort-body img {
+.synths-in-the-shadow.unit.sheet .cohorts .cohort-body img {
   border: 2px solid #191813;
   width: 1.75rem;
   height: 1.75rem;
   border-top: none;
 }
-.blades-in-the-dark.unit.sheet .cohorts .cohort-body > div {
+.synths-in-the-shadow.unit.sheet .cohorts .cohort-body > div {
   margin-bottom: 10px;
 }
-.blades-in-the-dark.unit.sheet .cohorts .cohort-block-harm {
+.synths-in-the-shadow.unit.sheet .cohorts .cohort-block-harm {
   justify-content: space-around;
 }
-.blades-in-the-dark.unit.sheet .cohorts .cohort-block-harm input[type=radio] {
+.synths-in-the-shadow.unit.sheet .cohorts .cohort-block-harm input[type=radio] {
   display: none;
 }
-.blades-in-the-dark.unit.sheet .cohorts .cohort-block-harm input[type=radio]:checked + label {
+.synths-in-the-shadow.unit.sheet .cohorts .cohort-block-harm input[type=radio]:checked + label {
   color: #EEEFFF;
   font-weight: bold;
   background-color: #191813;
 }
-.blades-in-the-dark.unit.sheet .cohorts .cohort-block-harm label {
+.synths-in-the-shadow.unit.sheet .cohorts .cohort-block-harm label {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1041,7 +1041,7 @@
   padding: 0 5px;
   text-align: center;
 }
-.blades-in-the-dark.unit.sheet .class-name {
+.synths-in-the-shadow.unit.sheet .playbook-name {
   width: 512px;
   height: 120px;
   display: flex;
@@ -1051,36 +1051,36 @@
   text-transform: uppercase;
   border: 3px solid #191813;
 }
-.blades-in-the-dark.unit.sheet .class-name .big-name {
+.synths-in-the-shadow.unit.sheet .playbook-name .big-name {
   font-weight: bold;
   font-family: Kirsty, serif;
 }
-.blades-in-the-dark.unit.sheet .class-name .big-description {
+.synths-in-the-shadow.unit.sheet .playbook-name .big-description {
   font-size: 20px;
   font-family: "Crimson Text", serif;
   color: #191813;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section {
+.synths-in-the-shadow.unit.sheet .big-teeth-section {
   border-top: 3px solid #191813;
   display: flex;
   flex-direction: row;
   margin-bottom: 0px;
   /* Malfunction */
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section > * {
+.synths-in-the-shadow.unit.sheet .big-teeth-section > * {
   margin-right: 10px;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section > *:last-child {
+.synths-in-the-shadow.unit.sheet .big-teeth-section > *:last-child {
   margin-right: 0px;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section:last-child {
+.synths-in-the-shadow.unit.sheet .big-teeth-section:last-child {
   margin-right: 0px;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .big-teeth {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .big-teeth {
   display: flex;
   /* Hide the browser's default checkbox */
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .big-teeth label {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .big-teeth label {
   height: 50px;
   width: 17px;
   background-image: url("assets/teeth/stresstooth-red.png");
@@ -1090,37 +1090,37 @@
   transition: filter 0.1s;
   cursor: pointer;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .big-teeth label:last-of-type {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .big-teeth label:last-of-type {
   margin-right: 0px;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .big-teeth label[for$="-0"] {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .big-teeth label[for$="-0"] {
   width: auto;
   height: auto;
   background-image: none !important;
   color: #EEEFFF;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .big-teeth label[for$="-0"] i {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .big-teeth label[for$="-0"] i {
   margin-top: 4px;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .big-teeth label:hover {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .big-teeth label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .big-teeth input {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .big-teeth input {
   display: none;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .big-teeth input:checked ~ label {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .big-teeth input:checked ~ label {
   background-image: url("assets/teeth/stresstooth-halfgrey.png");
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .big-teeth input:checked + label {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .big-teeth input:checked + label {
   background-image: url("assets/teeth/stresstooth-red.png");
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap {
   display: flex;
   /* Hide the browser's default checkbox */
   flex-direction: column;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap label {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap label {
   height: 50px;
   width: 17px;
   background-image: url("assets/teeth/shorttooth-red.png");
@@ -1129,38 +1129,38 @@
   margin-right: 0px;
   cursor: not-allowed;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap label:last-of-type {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap label:last-of-type {
   margin-right: 0px;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap label[for$="-0"] {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap label[for$="-0"] {
   width: auto;
   height: auto;
   background-image: none !important;
   color: #EEEFFF;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap label[for$="-0"] i {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap label[for$="-0"] i {
   margin-top: 4px;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap input {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap input {
   display: none;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap input:checked ~ label {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap input:checked ~ label {
   background-image: url("assets/teeth/shorttooth-grey.png");
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap input:checked + label {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap input:checked + label {
   background-image: url("assets/teeth/shorttooth-red.png");
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap .small-teeth {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap .small-teeth {
   display: flex;
   flex-direction: row;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .malfunction-list {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .malfunction-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .malfunction-list label {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .malfunction-list label {
   cursor: pointer;
   font-size: 19px;
   -webkit-user-select: none;
@@ -1172,24 +1172,24 @@
   cursor: pointer;
   /* Hide the browser's default checkbox */
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .malfunction-list label:hover {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .malfunction-list label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .malfunction-list label input {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .malfunction-list label input {
   display: none;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .malfunction-list label input:checked ~ .checkmark {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .malfunction-list label input:checked ~ .checkmark {
   color: red;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .malfunction-list label .checkmark {
+.synths-in-the-shadow.unit.sheet .big-teeth-section .malfunction-list label .checkmark {
   text-decoration: none;
   font-weight: bold;
 }
-.blades-in-the-dark.unit.sheet header {
+.synths-in-the-shadow.unit.sheet header {
   margin-bottom: 10px;
 }
-.blades-in-the-dark.actor.agent {
+.synths-in-the-shadow.actor.agent {
   /*
   *  Elements that can be changed will hint this by dimming and fading a little on hover
   */
@@ -1218,62 +1218,62 @@
    * Custom Radio Round
    */
 }
-.blades-in-the-dark.actor.agent * .first-section img.portrait {
+.synths-in-the-shadow.actor.agent * .first-section img.portrait {
   max-width: 200px;
   max-height: 200px;
   width: auto;
   height: auto;
 }
-.blades-in-the-dark.actor.agent * .tab[data-tab] {
+.synths-in-the-shadow.actor.agent * .tab[data-tab] {
   display: none;
 }
-.blades-in-the-dark.actor.agent * .tab[data-tab].active {
+.synths-in-the-shadow.actor.agent * .tab[data-tab].active {
   display: block;
 }
-.blades-in-the-dark.actor.agent * form.actor-sheet {
+.synths-in-the-shadow.actor.agent * form.actor-sheet {
   padding: 20px;
 }
-.blades-in-the-dark.actor.agent * input {
+.synths-in-the-shadow.actor.agent * input {
   border: 0;
 }
-.blades-in-the-dark.actor.agent * .underportrait {
+.synths-in-the-shadow.actor.agent * .underportrait {
   display: flex;
   flex-direction: column;
 }
-.blades-in-the-dark.actor.agent * .underportrait-line {
+.synths-in-the-shadow.actor.agent * .underportrait-line {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.blades-in-the-dark.actor.agent * .headline {
+.synths-in-the-shadow.actor.agent * .headline {
   display: flex;
 }
-.blades-in-the-dark.actor.agent * .headline .headline-left {
+.synths-in-the-shadow.actor.agent * .headline .headline-left {
   width: 255px;
   margin-right: 4px;
   text-align: right;
 }
-.blades-in-the-dark.actor.agent * .headline input {
+.synths-in-the-shadow.actor.agent * .headline input {
   height: 30px;
   font-size: 28px;
   margin-bottom: 4px;
 }
-.blades-in-the-dark.actor.agent * .headline .name {
+.synths-in-the-shadow.actor.agent * .headline .name {
   font-size: 60px;
   height: 64px;
 }
-.blades-in-the-dark.actor.agent * .lookline {
+.synths-in-the-shadow.actor.agent * .lookline {
   display: flex;
 }
-.blades-in-the-dark.actor.agent * .lookline input {
+.synths-in-the-shadow.actor.agent * .lookline input {
   height: 30px;
   font-size: 14px;
   margin-bottom: 4px;
 }
-.blades-in-the-dark.actor.agent * .traitsline {
+.synths-in-the-shadow.actor.agent * .traitsline {
   display: flex;
 }
-.blades-in-the-dark.actor.agent * .traitsline .fakeinput {
+.synths-in-the-shadow.actor.agent * .traitsline .fakeinput {
   width: 172px;
   height: 26px;
   margin-right: 4px;
@@ -1284,37 +1284,37 @@
   align-items: center;
   padding: 4px;
 }
-.blades-in-the-dark.actor.agent * .traitsline .detail {
+.synths-in-the-shadow.actor.agent * .traitsline .detail {
   display: flex;
   flex-direction: column;
   flex-grow: 2;
 }
-.blades-in-the-dark.actor.agent * .synopsis {
+.synths-in-the-shadow.actor.agent * .synopsis {
   height: 64px;
   margin-top: 4px;
   margin-bottom: 0px;
   border: 0;
   font-family: BarlowCondensed;
 }
-.blades-in-the-dark.actor.agent * .second-section {
+.synths-in-the-shadow.actor.agent * .second-section {
   margin-bottom: 0px;
   margin-top: 10px;
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction {
+.synths-in-the-shadow.actor.agent * .overload-malfunction {
   display: flex;
   flex-direction: column;
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .black-label {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .black-label {
   width: 66px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .overload {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .overload {
   display: flex;
   /* Hide the browser's default checkbox */
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .overload label {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .overload label {
   height: 30px;
   width: 15px;
   background-image: url("assets/pips/pip-red.svg");
@@ -1323,45 +1323,45 @@
   margin-right: 0px;
   cursor: pointer;
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .overload label:last-of-type {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .overload label:last-of-type {
   margin-right: 0px;
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .overload label[for$="-0"] {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .overload label[for$="-0"] {
   width: auto;
   height: auto;
   background-image: none !important;
   color: #EEEFFF;
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .overload label[for$="-0"] i {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .overload label[for$="-0"] i {
   margin-top: 4px;
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .overload label:hover {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .overload label:hover {
   background-image: url("assets/pips/pip-red-hover.svg");
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .overload input {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .overload input {
   display: none;
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .overload input:checked ~ label {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .overload input:checked ~ label {
   background-image: url("assets/pips/pip-base.svg");
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .overload input:checked ~ label:hover {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .overload input:checked ~ label:hover {
   background-image: url("assets/pips/pip-base-hover.svg");
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .overload input:checked + label {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .overload input:checked + label {
   background-image: url("assets/pips/pip-red.svg");
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .overload input:checked + label:hover {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .overload input:checked + label:hover {
   background-image: url("assets/pips/pip-red-hover.svg");
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .malfunction {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .malfunction {
   display: flex;
   /* Hide the browser's default checkbox */
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .malfunction .black-label {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .malfunction .black-label {
   height: 15px;
   font-size: 13px;
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .malfunction label {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .malfunction label {
   height: 15px;
   width: 45px;
   background-image: url("assets/pips/pipwide-orange.svg");
@@ -1370,37 +1370,37 @@
   margin-right: 0px;
   cursor: not-allowed;
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .malfunction label:last-of-type {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .malfunction label:last-of-type {
   margin-right: 0px;
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .malfunction label[for$="-0"] {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .malfunction label[for$="-0"] {
   width: auto;
   height: auto;
   background-image: none !important;
   color: #EEEFFF;
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .malfunction label[for$="-0"] i {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .malfunction label[for$="-0"] i {
   margin-top: 4px;
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .malfunction input {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .malfunction input {
   display: none;
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .malfunction input:checked ~ label {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .malfunction input:checked ~ label {
   background-image: url("assets/pips/pipwide-base.svg");
 }
-.blades-in-the-dark.actor.agent * .overload-malfunction .malfunction input:checked + label {
+.synths-in-the-shadow.actor.agent * .overload-malfunction .malfunction input:checked + label {
   background-image: url("assets/pips/pipwide-orange.svg");
 }
-.blades-in-the-dark.actor.agent * .ec-header {
+.synths-in-the-shadow.actor.agent * .ec-header {
   display: flex;
   justify-content: space-between;
 }
-.blades-in-the-dark.actor.agent * .coins {
+.synths-in-the-shadow.actor.agent * .coins {
   display: flex;
   /* Hide the browser's default checkbox */
   flex-wrap: wrap;
 }
-.blades-in-the-dark.actor.agent * .coins label {
+.synths-in-the-shadow.actor.agent * .coins label {
   height: 16px;
   width: 16px;
   background-image: url("assets/pips/ec-hot.svg");
@@ -1409,60 +1409,60 @@
   margin-right: 0px;
   cursor: pointer;
 }
-.blades-in-the-dark.actor.agent * .coins label:last-of-type {
+.synths-in-the-shadow.actor.agent * .coins label:last-of-type {
   margin-right: 0px;
 }
-.blades-in-the-dark.actor.agent * .coins label[for$="-0"] {
+.synths-in-the-shadow.actor.agent * .coins label[for$="-0"] {
   width: auto;
   height: auto;
   background-image: none !important;
   color: #EEEFFF;
 }
-.blades-in-the-dark.actor.agent * .coins label[for$="-0"] i {
+.synths-in-the-shadow.actor.agent * .coins label[for$="-0"] i {
   margin-top: 4px;
 }
-.blades-in-the-dark.actor.agent * .coins label:hover {
+.synths-in-the-shadow.actor.agent * .coins label:hover {
   background-image: url("assets/pips/ec-hot-hover.svg");
 }
-.blades-in-the-dark.actor.agent * .coins input {
+.synths-in-the-shadow.actor.agent * .coins input {
   display: none;
 }
-.blades-in-the-dark.actor.agent * .coins input:checked ~ label {
+.synths-in-the-shadow.actor.agent * .coins input:checked ~ label {
   background-image: url("assets/pips/ec-base.svg");
 }
-.blades-in-the-dark.actor.agent * .coins input:checked ~ label:hover {
+.synths-in-the-shadow.actor.agent * .coins input:checked ~ label:hover {
   background-image: url("assets/pips/ec-base-hover.svg");
 }
-.blades-in-the-dark.actor.agent * .coins input:checked + label {
+.synths-in-the-shadow.actor.agent * .coins input:checked + label {
   background-image: url("assets/pips/ec-hot.svg");
 }
-.blades-in-the-dark.actor.agent * .coins input:checked + label:hover {
+.synths-in-the-shadow.actor.agent * .coins input:checked + label:hover {
   background-image: url("assets/pips/ec-hot-hover.svg");
 }
-.blades-in-the-dark.actor.agent * .coins input ~ label {
+.synths-in-the-shadow.actor.agent * .coins input ~ label {
   margin-right: 3px;
   margin-bottom: 3px;
   transition: filter 0.2s;
   cursor: pointer;
 }
-.blades-in-the-dark.actor.agent * .coins input ~ label[for$="0"] {
+.synths-in-the-shadow.actor.agent * .coins input ~ label[for$="0"] {
   border-width: 2px;
 }
-.blades-in-the-dark.actor.agent * .coins input ~ label:hover {
+.synths-in-the-shadow.actor.agent * .coins input ~ label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.blades-in-the-dark.actor.agent * .coins.coins-hands {
+.synths-in-the-shadow.actor.agent * .coins.coins-hands {
   width: 38px;
 }
-.blades-in-the-dark.actor.agent * .coins.coins-stashed {
+.synths-in-the-shadow.actor.agent * .coins.coins-stashed {
   width: 190px;
 }
-.blades-in-the-dark.actor.agent * .attributes {
+.synths-in-the-shadow.actor.agent * .attributes {
   display: flex;
   flex-direction: row;
 }
-.blades-in-the-dark.actor.agent * .attributes .stripe {
+.synths-in-the-shadow.actor.agent * .attributes .stripe {
   background-color: #191813;
   color: #EEEFFF;
   font-size: 18px;
@@ -1472,30 +1472,30 @@
   align-items: center;
   font-style: italic;
 }
-.blades-in-the-dark.actor.agent * .attributes .attribute {
+.synths-in-the-shadow.actor.agent * .attributes .attribute {
   margin-right: 5px;
   width: 170px;
 }
-.blades-in-the-dark.actor.agent * .attributes *:last-child {
+.synths-in-the-shadow.actor.agent * .attributes *:last-child {
   margin-right: 0px;
 }
-.blades-in-the-dark.actor.agent * .attributes .attribute-label,
-.blades-in-the-dark.actor.agent * .attributes .attribute-skill-label {
+.synths-in-the-shadow.actor.agent * .attributes .attribute-label,
+.synths-in-the-shadow.actor.agent * .attributes .attribute-skill-label {
   font-weight: bold;
   text-transform: uppercase;
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-exp {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp {
   position: relative;
   margin-bottom: 10px;
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-exp .stripe-tooth-body {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body {
   display: flex;
   /* Hide the browser's default checkbox */
   position: absolute;
   right: 5px;
   top: 5px;
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-exp .stripe-tooth-body label {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body label {
   height: 20px;
   width: 10px;
   background-image: url("assets/pips/w-pip-blue.svg");
@@ -1504,44 +1504,44 @@
   margin-right: 0px;
   cursor: pointer;
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-exp .stripe-tooth-body label:last-of-type {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body label:last-of-type {
   margin-right: 0px;
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-exp .stripe-tooth-body label[for$="-0"] {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body label[for$="-0"] {
   width: auto;
   height: auto;
   background-image: none !important;
   color: #EEEFFF;
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-exp .stripe-tooth-body label[for$="-0"] i {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body label[for$="-0"] i {
   margin-top: 4px;
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-exp .stripe-tooth-body label:hover {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body label:hover {
   background-image: url("assets/pips/w-pip-blue-hover.svg");
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-exp .stripe-tooth-body input {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body input {
   display: none;
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-exp .stripe-tooth-body input:checked ~ label {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body input:checked ~ label {
   background-image: url("assets/pips/w-pip-base.svg");
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-exp .stripe-tooth-body input:checked ~ label:hover {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body input:checked ~ label:hover {
   background-image: url("assets/pips/w-pip-base-hover.svg");
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-exp .stripe-tooth-body input:checked + label {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body input:checked + label {
   background-image: url("assets/pips/w-pip-blue.svg");
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-exp .stripe-tooth-body input:checked + label:hover {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body input:checked + label:hover {
   background-image: url("assets/pips/w-pip-blue-hover.svg");
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-container {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-container {
   display: flex;
   margin: 3px 0px;
   display: flex;
   /* Hide the browser's default checkbox */
   font-style: italic;
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-container label {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-container label {
   height: 20px;
   width: 20px;
   background-image: url("assets/pips/skill-black.svg");
@@ -1550,68 +1550,68 @@
   margin-right: 0px;
   cursor: pointer;
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-container label:last-of-type {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-container label:last-of-type {
   margin-right: 0px;
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-container label[for$="-0"] {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-container label[for$="-0"] {
   width: auto;
   height: auto;
   background-image: none !important;
   color: #EEEFFF;
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-container label[for$="-0"] i {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-container label[for$="-0"] i {
   margin-top: 4px;
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-container label:hover {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-container label:hover {
   background-image: url("assets/pips/skill-black-hover.svg");
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-container input {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-container input {
   display: none;
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-container input:checked ~ label {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-container input:checked ~ label {
   background-image: url("assets/pips/skill-base.svg");
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-container input:checked ~ label:hover {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-container input:checked ~ label:hover {
   background-image: url("assets/pips/skill-base-hover.svg");
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-container input:checked + label {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-container input:checked + label {
   background-image: url("assets/pips/skill-black.svg");
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-container input:checked + label:hover {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-container input:checked + label:hover {
   background-image: url("assets/pips/skill-black-hover.svg");
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-container * {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-container * {
   margin-right: 5px;
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-container *:last-child {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-container *:last-child {
   margin-left: 8px;
 }
-.blades-in-the-dark.actor.agent * .attributes .attributes-container .no-mastery {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-container .no-mastery {
   background-image: url("assets/pips/skill-off.svg") !important;
 }
-.blades-in-the-dark.actor.agent * .abilities .item-name, .blades-in-the-dark.actor.agent * .loadout .item-name {
+.synths-in-the-shadow.actor.agent * .abilities .item-name, .synths-in-the-shadow.actor.agent * .loadout .item-name {
   width: 100px;
 }
-.blades-in-the-dark.actor.agent * .abilities .item-body, .blades-in-the-dark.actor.agent * .loadout .item-body {
+.synths-in-the-shadow.actor.agent * .abilities .item-body, .synths-in-the-shadow.actor.agent * .loadout .item-body {
   width: auto;
 }
-.blades-in-the-dark.actor.agent * .abilities .item-description, .blades-in-the-dark.actor.agent * .loadout .item-description {
+.synths-in-the-shadow.actor.agent * .abilities .item-description, .synths-in-the-shadow.actor.agent * .loadout .item-description {
   width: 260px;
 }
-.blades-in-the-dark.actor.agent * .abilities .label-stripe p:first-child {
+.synths-in-the-shadow.actor.agent * .abilities .label-stripe p:first-child {
   margin-right: 10px;
 }
-.blades-in-the-dark.actor.agent * .loadout .item-add-popup {
+.synths-in-the-shadow.actor.agent * .loadout .item-add-popup {
   margin-left: 10px;
 }
-.blades-in-the-dark.actor.agent * .teeth-experience {
+.synths-in-the-shadow.actor.agent * .teeth-experience {
   display: flex;
   /* Hide the browser's default checkbox */
   position: absolute;
   top: 0px;
   right: 10px;
 }
-.blades-in-the-dark.actor.agent * .teeth-experience label {
+.synths-in-the-shadow.actor.agent * .teeth-experience label {
   height: 20px;
   width: 10px;
   background-image: url("assets/pips/w-pip-blue.svg");
@@ -1620,57 +1620,57 @@
   margin-right: 0px;
   cursor: pointer;
 }
-.blades-in-the-dark.actor.agent * .teeth-experience label:last-of-type {
+.synths-in-the-shadow.actor.agent * .teeth-experience label:last-of-type {
   margin-right: 0px;
 }
-.blades-in-the-dark.actor.agent * .teeth-experience label[for$="-0"] {
+.synths-in-the-shadow.actor.agent * .teeth-experience label[for$="-0"] {
   width: auto;
   height: auto;
   background-image: none !important;
   color: #EEEFFF;
 }
-.blades-in-the-dark.actor.agent * .teeth-experience label[for$="-0"] i {
+.synths-in-the-shadow.actor.agent * .teeth-experience label[for$="-0"] i {
   margin-top: 4px;
 }
-.blades-in-the-dark.actor.agent * .teeth-experience label:hover {
+.synths-in-the-shadow.actor.agent * .teeth-experience label:hover {
   background-image: url("assets/pips/w-pip-blue-hover.svg");
 }
-.blades-in-the-dark.actor.agent * .teeth-experience input {
+.synths-in-the-shadow.actor.agent * .teeth-experience input {
   display: none;
 }
-.blades-in-the-dark.actor.agent * .teeth-experience input:checked ~ label {
+.synths-in-the-shadow.actor.agent * .teeth-experience input:checked ~ label {
   background-image: url("assets/pips/w-pip-base.svg");
 }
-.blades-in-the-dark.actor.agent * .teeth-experience input:checked ~ label:hover {
+.synths-in-the-shadow.actor.agent * .teeth-experience input:checked ~ label:hover {
   background-image: url("assets/pips/w-pip-base-hover.svg");
 }
-.blades-in-the-dark.actor.agent * .teeth-experience input:checked + label {
+.synths-in-the-shadow.actor.agent * .teeth-experience input:checked + label {
   background-image: url("assets/pips/w-pip-blue.svg");
 }
-.blades-in-the-dark.actor.agent * .teeth-experience input:checked + label:hover {
+.synths-in-the-shadow.actor.agent * .teeth-experience input:checked + label:hover {
   background-image: url("assets/pips/w-pip-blue-hover.svg");
 }
-.blades-in-the-dark.actor.agent * .damage-armor {
+.synths-in-the-shadow.actor.agent * .damage-armor {
   display: flex;
 }
-.blades-in-the-dark.actor.agent * .damage-armor .damage {
+.synths-in-the-shadow.actor.agent * .damage-armor .damage {
   width: 100%;
 }
-.blades-in-the-dark.actor.agent * .damage-armor .damage table {
+.synths-in-the-shadow.actor.agent * .damage-armor .damage table {
   width: 100%;
 }
-.blades-in-the-dark.actor.agent * .damage-armor .damage table th {
+.synths-in-the-shadow.actor.agent * .damage-armor .damage table th {
   background-color: #191813;
   color: #EEEFFF;
 }
-.blades-in-the-dark.actor.agent * .damage-armor .damage table input[type=text] {
+.synths-in-the-shadow.actor.agent * .damage-armor .damage table input[type=text] {
   width: 100%;
 }
-.blades-in-the-dark.actor.agent * .damage-armor .repair_clock {
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock {
   margin: 0 auto;
   position: relative;
 }
-.blades-in-the-dark.actor.agent * .damage-armor .repair_clock .blades-clock {
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock {
   position: relative;
   padding: 0;
   width: 88px;
@@ -1680,7 +1680,7 @@
   overflow: hidden;
   background-size: cover;
 }
-.blades-in-the-dark.actor.agent * .damage-armor .repair_clock .blades-clock label {
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock label {
   overflow: hidden;
   position: absolute;
   top: -50%;
@@ -1691,89 +1691,89 @@
   transition: filter 0.1s;
   cursor: pointer;
 }
-.blades-in-the-dark.actor.agent * .damage-armor .repair_clock .blades-clock label:hover {
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.blades-in-the-dark.actor.agent * .damage-armor .repair_clock .blades-clock input {
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock input {
   position: absolute;
   display: none;
 }
-.blades-in-the-dark.actor.agent * .damage-armor .repair_clock .blades-clock input[value="0"] {
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock input[value="0"] {
   display: none;
 }
-.blades-in-the-dark.actor.agent * .damage-armor .repair_clock .blades-clock *:nth-child(3) {
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock *:nth-child(3) {
   transform: rotate(0deg) skewY(180deg);
 }
-.blades-in-the-dark.actor.agent * .damage-armor .repair_clock .blades-clock *:nth-child(5) {
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock *:nth-child(5) {
   transform: rotate(90deg) skewY(180deg);
 }
-.blades-in-the-dark.actor.agent * .damage-armor .repair_clock .blades-clock *:nth-child(7) {
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock *:nth-child(7) {
   transform: rotate(180deg) skewY(180deg);
 }
-.blades-in-the-dark.actor.agent * .damage-armor .repair_clock .blades-clock *:nth-child(9) {
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock *:nth-child(9) {
   transform: rotate(270deg) skewY(180deg);
 }
-.blades-in-the-dark.actor.agent * .damage-armor .armor_uses div {
+.synths-in-the-shadow.actor.agent * .damage-armor .armor_uses div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.blades-in-the-dark.actor.agent * .item {
+.synths-in-the-shadow.actor.agent * .item {
   justify-content: space-between;
 }
-.blades-in-the-dark.actor.agent * .item .item-body {
+.synths-in-the-shadow.actor.agent * .item .item-body {
   margin-bottom: 10px;
 }
-.blades-in-the-dark.actor.agent * .item .item-body * {
+.synths-in-the-shadow.actor.agent * .item .item-body * {
   margin-right: 10px;
 }
-.blades-in-the-dark.actor.agent * .item .item-body .item-description {
+.synths-in-the-shadow.actor.agent * .item .item-body .item-description {
   font-style: italic;
   text-align: justify;
 }
-.blades-in-the-dark.actor.agent * .item div {
+.synths-in-the-shadow.actor.agent * .item div {
   flex-grow: 2;
 }
-.blades-in-the-dark.actor.agent * .item .item-control {
+.synths-in-the-shadow.actor.agent * .item .item-control {
   flex-grow: 1;
 }
-.blades-in-the-dark.actor.agent * .item .item-body,
-.blades-in-the-dark.actor.agent * .item .item-class-label {
+.synths-in-the-shadow.actor.agent * .item .item-body,
+.synths-in-the-shadow.actor.agent * .item .item-class-label {
   width: 100px;
 }
-.blades-in-the-dark.actor.agent * .item-class-label {
+.synths-in-the-shadow.actor.agent * .item-class-label {
   margin-bottom: 10px;
 }
-.blades-in-the-dark.actor.agent * .name,
-.blades-in-the-dark.actor.agent * .lair,
-.blades-in-the-dark.actor.agent * .alias {
+.synths-in-the-shadow.actor.agent * .name,
+.synths-in-the-shadow.actor.agent * .lair,
+.synths-in-the-shadow.actor.agent * .alias {
   margin-bottom: 10px;
 }
-.blades-in-the-dark.item.sheet .item {
+.synths-in-the-shadow.item.sheet .item {
   justify-content: space-between;
 }
-.blades-in-the-dark.item.sheet .item .item-body {
+.synths-in-the-shadow.item.sheet .item .item-body {
   margin-bottom: 10px;
 }
-.blades-in-the-dark.item.sheet .item .item-body * {
+.synths-in-the-shadow.item.sheet .item .item-body * {
   margin-right: 10px;
 }
-.blades-in-the-dark.item.sheet .item .item-body .item-description {
+.synths-in-the-shadow.item.sheet .item .item-body .item-description {
   font-style: italic;
   text-align: justify;
 }
-.blades-in-the-dark.item.sheet .item div {
+.synths-in-the-shadow.item.sheet .item div {
   flex-grow: 2;
 }
-.blades-in-the-dark.item.sheet .item .item-control {
+.synths-in-the-shadow.item.sheet .item .item-control {
   flex-grow: 1;
 }
-.blades-in-the-dark.item.sheet .item .item-body,
-.blades-in-the-dark.item.sheet .item .item-class-label {
+.synths-in-the-shadow.item.sheet .item .item-body,
+.synths-in-the-shadow.item.sheet .item .item-class-label {
   width: 100px;
 }
-.blades-in-the-dark.item.sheet .item-class-label {
+.synths-in-the-shadow.item.sheet .item-class-label {
   margin-bottom: 10px;
 }
 
@@ -1820,21 +1820,21 @@
   font-weight: bold;
 }
 
-.blades-die-tooltip .die {
+.sits-die-tooltip .die {
   font-weight: bold;
   text-transform: capitalize;
   font-size: large;
 }
-.blades-die-tooltip .die.critical-success {
+.sits-die-tooltip .die.critical-success {
   color: #12a012;
 }
-.blades-die-tooltip .die.success {
+.sits-die-tooltip .die.success {
   color: #008000;
 }
-.blades-die-tooltip .die.partial-success {
+.sits-die-tooltip .die.partial-success {
   color: #04578f;
 }
-.blades-die-tooltip .die.failure {
+.sits-die-tooltip .die.failure {
   color: red;
 }
 
@@ -1867,4 +1867,4 @@
   visibility: visible;
 }
 
-/*# sourceMappingURL=blades.css.map */
+/*# sourceMappingURL=sits.css.map */

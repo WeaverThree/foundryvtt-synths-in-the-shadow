@@ -1,4 +1,4 @@
-export class BladesHelpers {
+export class SitsHelpers {
 
   /**
    * Identifies duplicate items by type and returns a array of item ids to remove
@@ -253,7 +253,7 @@ export class BladesHelpers {
    static async importAcquaintance(actor, acqId){
 		//try to import from a compendium
    try{
-		let new_actor = await game.actors.importFromCompendium(game.packs.get("blades-in-the-dark.npc"),acqId);
+		let new_actor = await game.actors.importFromCompendium(game.packs.get("synths-in-the-shadow.npc"),acqId);
 		//get the UUID of newly created actor
 		let new_id = new_actor.id; console.log(new_id);
 		//get array index of Acquaintance being updated

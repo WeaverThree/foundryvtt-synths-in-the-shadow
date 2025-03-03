@@ -19,10 +19,10 @@
     { "name": "Dez384" }
   ],
   "esmodules": [
-    "module/blades.js"
+    "module/sits.js"
   ],
   "styles": [
-    "styles/blades.css"
+    "styles/sits.css"
   ],
   "languages": [
     {

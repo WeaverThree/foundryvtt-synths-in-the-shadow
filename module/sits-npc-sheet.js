@@ -4,12 +4,12 @@ import { SitsSheet } from "./sits-sheet.js";
 /**
  * @extends {SitsSheet}
  */
-export class BladesNPCSheet extends SitsSheet {
+export class SitsNPCSheet extends SitsSheet {
 
   /** @override */
 	static get defaultOptions() {
 	  return foundry.utils.mergeObject(super.defaultOptions, {
-  	  classes: ["blades-in-the-dark", "sheet", "actor"],
+  	  classes: ["synths-in-the-shadow", "sheet", "actor"],
   	  template: "systems/synths-in-the-shadow/templates/npc-sheet.html",
       width: 900,
       height: 'auto',

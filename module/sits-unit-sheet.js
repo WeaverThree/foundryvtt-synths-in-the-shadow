@@ -1,6 +1,6 @@
 import { SitsSheet } from "./sits-sheet.js";
-import { BladesActiveEffect } from "./blades-active-effect.js";
-import { BladesHelpers } from "./blades-helpers.js";
+import { SitsActiveEffect } from "./sits-active-effect.js";
+import { SitsHelpers } from "./sits-helpers.js";
 
 /**
  * @extends {SitsSheet}
@@ -10,7 +10,7 @@ export class SitsUnitSheet extends SitsSheet {
   /** @override */
 	static get defaultOptions() {
 	  return foundry.utils.mergeObject(super.defaultOptions, {
-  	  classes: ["blades-in-the-dark", "sheet", "actor", "unit"],
+  	  classes: ["synths-in-the-shadow", "sheet", "actor", "unit"],
   	  template: "systems/synths-in-the-shadow/templates/actors/unit-sheet.html",
       width: 940,
       height: 940,
@@ -29,7 +29,7 @@ export class SitsUnitSheet extends SitsSheet {
     sheetData.isGM = game.user.isGM;
 	
     // Prepare active effects
-    sheetData.effects = BladesActiveEffect.prepareActiveEffectCategories(this.actor.effects);
+    sheetData.effects = SitsActiveEffect.prepareActiveEffectCategories(this.actor.effects);
 
     // Calculate Turfs amount.
     let turfs_amount = 0;
@@ -71,7 +71,7 @@ export class SitsUnitSheet extends SitsSheet {
     let droppedEntityFull = await fromUuid(droppedEntity.uuid);
     switch (droppedEntityFull.type) {
       case "npc":
-        await BladesHelpers.addAcquaintance(this.actor, droppedEntityFull);
+        await SitsHelpers.addAcquaintance(this.actor, droppedEntityFull);
         break;
       case "item":
         break;
@@ -99,7 +99,7 @@ export class SitsUnitSheet extends SitsSheet {
 
     // Add a new Cohort
     html.find('.add-item').click(ev => {
-      BladesHelpers._addOwnedItem(ev, this.actor);
+      SitsHelpers._addOwnedItem(ev, this.actor);
     });
 
     // Toggle Turf

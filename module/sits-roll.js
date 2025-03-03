@@ -5,7 +5,7 @@
  * @param {string} position
  * @param {string} effect
  */
-export async function bladesRoll(dice_amount, attribute_name = "", position = "risky", effect = "standard", note = "", current_overload, current_unit_tier) {
+export async function sitsRoll(dice_amount, attribute_name = "", position = "risky", effect = "standard", note = "", current_overload, current_unit_tier) {
 
   // ChatMessage.getSpeaker(controlledToken)
   let zeromode = false;
@@ -33,10 +33,10 @@ export async function bladesRoll(dice_amount, attribute_name = "", position = "r
 async function showChatRollMessage(r, zeromode, attribute_name = "", position = "", effect = "", note = "", current_overload, current_unit_tier) {
   let speaker = ChatMessage.getSpeaker();
   let rolls = (r.terms)[0].results;
-  let attribute_label = BladesHelpers.getRollLabel(attribute_name);
+  let attribute_label = SitsHelpers.getRollLabel(attribute_name);
 
   // Retrieve Roll status.
-  let roll_status = getBladesRollStatus(rolls, zeromode);
+  let roll_status = getsitsRollStatus(rolls, zeromode);
 
   let result;
   
@@ -48,7 +48,7 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
     method.label = CONFIG.Dice.fulfillment.methods[method.type].label;
   }
 
-   else if (BladesHelpers.isAttributeAction(attribute_name)) {
+   else if (SitsHelpers.isAttributeAction(attribute_name)) {
     let position_localize = '';
     switch (position) {
       case 'controlled':
@@ -78,14 +78,14 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
     result = await renderTemplate("systems/synths-in-the-shadow/templates/chat/action-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, position: position, position_localize: position_localize, effect: effect, effect_localize: effect_localize, note: note});
   }
   // Check for Resistance roll
-  else if (BladesHelpers.isAttributeAttribute(attribute_name)) {
-    let overload = getBladesRollOverload(rolls, zeromode);
+  else if (SitsHelpers.isAttributeAttribute(attribute_name)) {
+    let overload = getsitsRollOverload(rolls, zeromode);
     let filepath = "systems/synths-in-the-shadow/templates/chat/resistance-roll.html";
     result = await renderTemplate(filepath, {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, overload: overload, note: note});
   }
   // Check for Indugle Deviance roll
   else if (attribute_name == 'SITS.Deviance') {
-    let clear_overload = getBladesRollDeviance(rolls, zeromode);
+    let clear_overload = getsitsRollDeviance(rolls, zeromode);
 
     if (current_overload - clear_overload >= 0) {
       roll_status = "success";
@@ -159,7 +159,7 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
  * @param {Array} rolls
  * @param {Boolean} zeromode
  */
-export function getBladesRollStatus(rolls, zeromode = false) {
+export function getsitsRollStatus(rolls, zeromode = false) {
 
   // Sort roll values from lowest to highest.
   let sorted_rolls = rolls.map(i => i.result).sort();
@@ -214,7 +214,7 @@ export function getBladesRollStatus(rolls, zeromode = false) {
  * @param {Array} rolls
  * @param {Boolean} zeromode
  */
-export function getBladesRollOverload(rolls, zeromode = false) {
+export function getsitsRollOverload(rolls, zeromode = false) {
 
   var overload = 6;
 
@@ -258,7 +258,7 @@ export function getBladesRollOverload(rolls, zeromode = false) {
  * @param {Array} rolls
  * @param {Boolean} zeromode
  */
-export function getBladesRollDeviance(rolls, zeromode = false) {
+export function getsitsRollDeviance(rolls, zeromode = false) {
   // Sort roll values from lowest to highest.
   let sorted_rolls = rolls.map(i => i.result).sort();
   let use_die;
@@ -373,21 +373,21 @@ export async function simpleRollPopup() {
             if (input[i].checked) {
               switch (input[i].id) {
                 case 'gatherInfo':
-                  await bladesRoll(diceQty,"BITD.GatherInformation","","",note,"");
+                  await sitsRoll(diceQty,"BITD.GatherInformation","","",note,"");
                   break;
                 case 'engagement':
-                  await bladesRoll(diceQty,"BITD.Engagement","","",note,"");
+                  await sitsRoll(diceQty,"BITD.Engagement","","",note,"");
                   break;
                 case 'indulgeDeviance':
-                  await bladesRoll(diceQty,"BITD.Deviance","","",note,overload);
+                  await sitsRoll(diceQty,"BITD.Deviance","","",note,overload);
                   break;
                 case 'acquireAsset':
 				  diceQty = diceQty + tier; console.log(diceQty);
-                  await bladesRoll(diceQty,"BITD.AcquireAsset","","",note,"",tier);
+                  await sitsRoll(diceQty,"BITD.AcquireAsset","","",note,"",tier);
                   break;
 
                 default:
-                  await bladesRoll(diceQty,"","","",note,"");
+                  await sitsRoll(diceQty,"","","",note,"");
                   break;
               }
               break;

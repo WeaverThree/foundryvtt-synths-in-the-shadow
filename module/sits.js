@@ -6,53 +6,53 @@
 
 // Import Modules
 import { registerSystemSettings } from "./settings.js";
-import { preloadHandlebarsTemplates } from "./blades-templates.js";
-import { bladesRoll, simpleRollPopup } from "./blades-roll.js";
-import { BladesHelpers } from "./blades-helpers.js";
+import { preloadHandlebarsTemplates } from "./sits-templates.js";
+import { sitsRoll, simpleRollPopup } from "./sits-roll.js";
+import { SitsHelpers } from "./sits-helpers.js";
 import { SitsActor } from "./sits-actor.js";
-import { BladesItem } from "./blades-item.js";
-import { BladesItemSheet } from "./blades-item-sheet.js";
+import { SitsItem } from "./sits-item.js";
+import { SitsItemSheet } from "./sits-item-sheet.js";
 import { SitsAgentSheet } from "./sits-agent-sheet.js";
-import { BladesActiveEffect } from "./blades-active-effect.js";
+import { SitsActiveEffect } from "./sits-active-effect.js";
 import { SitsUnitSheet } from "./sits-unit-sheet.js";
-import { BladesClockSheet } from "./blades-clock-sheet.js";
-import { BladesNPCSheet } from "./blades-npc-sheet.js";
-import { BladesFactionSheet } from "./blades-faction-sheet.js";
+import { SitsClockSheet } from "./sits-clock-sheet.js";
+import { SitsNPCSheet } from "./sits-npc-sheet.js";
+import { SitsFactionSheet } from "./sits-faction-sheet.js";
 
-window.BladesHelpers = BladesHelpers;
+window.SitsHelpers = SitsHelpers;
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
 Hooks.once("init", async function() {
-  console.log(`Initializing Blades In the Dark System`);
+  console.log(`Initializing Synths in the Shadow System`);
 
-  game.blades = {
-    dice: bladesRoll,
+  game.sits = {
+    dice: sitsRoll,
 	roller: simpleRollPopup
   };
-  game.system.bladesClocks = {
+  game.system.sitsClocks = {
     sizes: [ 4, 6, 8, 10, 12 ]
   };
 
   game.system.malfunctions = [ "cold", "haunted", "obsessed", "paranoid", "reckless", "soft", "unstable", "vicious" ];
 
-  CONFIG.Item.documentClass = BladesItem;
+  CONFIG.Item.documentClass = SitsItem;
   CONFIG.Actor.documentClass = SitsActor;
-  CONFIG.ActiveEffect.documentClass = BladesActiveEffect;
+  CONFIG.ActiveEffect.documentClass = SitsActiveEffect;
 
   // Register System Settings
   registerSystemSettings();
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("blades", SitsAgentSheet, { types: ["agent"], makeDefault: true });
-  Actors.registerSheet("blades", SitsUnitSheet, { types: ["unit"], makeDefault: true });
-  Actors.registerSheet("blades", BladesFactionSheet, { types: ["factions"], makeDefault: true });
-  Actors.registerSheet("blades", BladesClockSheet, { types: ["clock"], makeDefault: true });
-  Actors.registerSheet("blades", BladesNPCSheet, { types: ["npc"], makeDefault: true });
+  Actors.registerSheet("sits", SitsAgentSheet, { types: ["agent"], makeDefault: true });
+  Actors.registerSheet("sits", SitsUnitSheet, { types: ["unit"], makeDefault: true });
+  Actors.registerSheet("sits", SitsFactionSheet, { types: ["factions"], makeDefault: true });
+  Actors.registerSheet("sits", SitsClockSheet, { types: ["clock"], makeDefault: true });
+  Actors.registerSheet("sits", SitsNPCSheet, { types: ["npc"], makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("blades", BladesItemSheet, {makeDefault: true});
+  Items.registerSheet("sits", SitsItemSheet, {makeDefault: true});
   await preloadHandlebarsTemplates();
 
   Actors.registeredSheets.forEach(element => console.log(element.Actor.name));
@@ -237,10 +237,10 @@ Hooks.once("init", async function() {
 
 
   /**
-   * Create appropriate Blades clock
+   * Create appropriate Sits clock
    */
   // Clocks in color for Clock Actors
-  Handlebars.registerHelper('blades-clock-color', function(parameter_name, type, color, current_value, uniq_id) {
+  Handlebars.registerHelper('sits-clock-color', function(parameter_name, type, color, current_value, uniq_id) {
 
     let html = '';
 
@@ -257,7 +257,7 @@ Hooks.once("init", async function() {
 
     // Label for 0
     html += `<label class="clock-zero-label" for="clock-0-${uniq_id}}"><i class="fab fa-creative-commons-zero nullifier"></i></label>`;
-    html += `<div id="blades-clock-${uniq_id}" class="blades-clock clock-${type} clock-${type}-${current_value}" style="background-image:url('systems/synths-in-the-shadow/themes/${color}/${type}clock_${current_value}.svg');">`;
+    html += `<div id="sits-clock-${uniq_id}" class="sits-clock clock-${type} clock-${type}-${current_value}" style="background-image:url('systems/synths-in-the-shadow/themes/${color}/${type}clock_${current_value}.svg');">`;
 
     let zero_checked = (parseInt(current_value) === 0) ? 'checked' : '';
     html += `<input type="radio" value="0" id="clock-0-${uniq_id}}" data-dType="String" name="${parameter_name}" ${zero_checked}>`;
@@ -274,7 +274,7 @@ Hooks.once("init", async function() {
     return html;
   });
   // Clocks in black for clocks embedded in sheets
-  Handlebars.registerHelper('blades-clock', function(parameter_name, type, current_value, uniq_id) {
+  Handlebars.registerHelper('sits-clock', function(parameter_name, type, current_value, uniq_id) {
 
     let html = '';
 
@@ -287,7 +287,7 @@ Hooks.once("init", async function() {
     }
 
     // Label for 0
-    html += `<div id="blades-clock-${uniq_id}" class="blades-clock clock-${type} clock-${type}-${current_value}" style="background-image:url('systems/synths-in-the-shadow/themes/black/${type}clock_${current_value}.svg');">`;
+    html += `<div id="sits-clock-${uniq_id}" class="sits-clock clock-${type} clock-${type}-${current_value}" style="background-image:url('systems/synths-in-the-shadow/themes/black/${type}clock_${current_value}.svg');">`;
 
     let zero_checked = (parseInt(current_value) === 0) ? 'checked' : '';
     html += `<input type="radio" value="0" id="clock-0-${uniq_id}}" data-dType="String" name="${parameter_name}" ${zero_checked}>`;
@@ -305,12 +305,12 @@ Hooks.once("init", async function() {
   });
   
   Handlebars.registerHelper('pc', function( string ) {
-    return BladesHelpers.getProperCase( string );
+    return SitsHelpers.getProperCase( string );
   });
   
   // check for game settings
   Handlebars.registerHelper('getSetting', function( string ) {
-	  return (game.settings.get('blades-in-the-dark', string));
+	  return (game.settings.get('synths-in-the-shadow', string));
 
   });
 });

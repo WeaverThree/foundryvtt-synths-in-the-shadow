@@ -14,7 +14,7 @@ export const registerSystemSettings = function() {
   /*
   if (foundry.utils.isNewerVersion(game.version, 12)) {
 
-    game.settings.register('blades-in-the-dark', 'ActionRoll', {
+    game.settings.register('synths-in-the-shadow', 'ActionRoll', {
 	name: game.i18n.localize('BITD.Settings.Action.Name'),
 	hint: game.i18n.localize('BITD.Settings.Action.Hint'),
 	config: true,

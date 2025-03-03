@@ -3,15 +3,15 @@
  * @extends {ItemSheet}
  */
 import {onManageActiveEffect, prepareActiveEffectCategories} from "./effects.js";
-import { BladesActiveEffect } from "./blades-active-effect.js";
+import { SitsActiveEffect } from "./sits-active-effect.js";
 
-export class BladesItemSheet extends ItemSheet {
+export class SitsItemSheet extends ItemSheet {
 
   /** @override */
 	static get defaultOptions() {
 
 	  return foundry.utils.mergeObject(super.defaultOptions, {
-			classes: ["blades-in-the-dark", "sheet", "item"],
+			classes: ["synths-in-the-shadow", "sheet", "item"],
 			width: 560,
 			height: 'auto',
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}]
@@ -44,7 +44,7 @@ export class BladesItemSheet extends ItemSheet {
 
     html.find(".effect-control").click(ev => {
       if ( this.item.isOwned ) return ui.notifications.warn(game.i18n.localize("BITD.EffectWarning"))
-      BladesActiveEffect.onManageActiveEffect(ev, this.item)
+      SitsActiveEffect.onManageActiveEffect(ev, this.item)
     });
   }
 

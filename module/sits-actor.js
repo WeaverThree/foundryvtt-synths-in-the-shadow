@@ -1,5 +1,5 @@
-import { bladesRoll } from "./blades-roll.js";
-import { BladesHelpers } from "./blades-helpers.js";
+import { sitsRoll } from "./sits-roll.js";
+import { SitsHelpers } from "./sits-helpers.js";
 
 /**
  * Extend the basic Actor
@@ -65,7 +65,7 @@ export class SitsActor extends Actor {
 
   rollAttributePopup(attribute_name) {
 
-    let attribute_label = BladesHelpers.getRollLabel(attribute_name);
+    let attribute_label = SitsHelpers.getRollLabel(attribute_name);
 
     // get unit tier info from agent sheet if available
     let current_tier = 0;
@@ -87,7 +87,7 @@ export class SitsActor extends Actor {
               ${this.createListOfDiceMods(-3,+3,0)}
             </select>
           </div>`;
-    if (BladesHelpers.isAttributeAction(attribute_name)) {
+    if (SitsHelpers.isAttributeAction(attribute_name)) {
       content += `
         <fieldset class="form-group" style="display:block;justify-content:space-between;">
           <legend>Roll Types</legend>
@@ -179,7 +179,7 @@ export class SitsActor extends Actor {
             let action_dice_amount = this.getRollData().dice_amount[attribute_name] + modifier;
             let deviance_dice_amount = this.getRollData().dice_amount['BITD.Deviance'] + modifier;
             let overload = parseInt(this.system.overload.value);
-            if (BladesHelpers.isAttributeAction(attribute_name)) {
+            if (SitsHelpers.isAttributeAction(attribute_name)) {
               let input = html.find("input");
               for (let i = 0; i < input.length; i++){
                 if (input[i].checked) {
@@ -190,22 +190,22 @@ export class SitsActor extends Actor {
                       await this.rollAttribute(attribute_name, modifier, position, effect, note);
                       break;
                     case 'fortune':
-                      await bladesRoll(action_dice_amount,"BITD.Fortune","","",note,"");
+                      await sitsRoll(action_dice_amount,"BITD.Fortune","","",note,"");
                       break;
                     case 'gatherInfo':
-                      await bladesRoll(action_dice_amount,"BITD.GatherInformation","","",note,"");
+                      await sitsRoll(action_dice_amount,"BITD.GatherInformation","","",note,"");
                       break;
                     case 'indulgeDeviance':
-                      await bladesRoll(deviance_dice_amount,"BITD.Deviance","","",note,overload);
+                      await sitsRoll(deviance_dice_amount,"BITD.Deviance","","",note,overload);
                       break;
                     case 'engagement':
                       let engagement_dice_amount = Number(html.find('[name="qty"]')[0].value);
-                      await bladesRoll(engagement_dice_amount,"BITD.Engagement","","",note,"");
+                      await sitsRoll(engagement_dice_amount,"BITD.Engagement","","",note,"");
                       break;
                     case 'acquireAsset':
                       let tier = html.find('[name="tier"]')[0].value;
                       let asset_dice_amount = parseInt(tier) + modifier;
-                      await bladesRoll(asset_dice_amount,"BITD.AcquireAsset","","",note,"",tier);
+                      await sitsRoll(asset_dice_amount,"BITD.AcquireAsset","","",note,"",tier);
                       break;                  
                     default:
                       await this.rollAttribute(attribute_name, modifier, position, effect, note);
@@ -243,7 +243,7 @@ export class SitsActor extends Actor {
     }
     dice_amount += additional_dice_amount;
 
-    await bladesRoll(dice_amount, attribute_name, position, effect, note, this.system.overload.value);
+    await sitsRoll(dice_amount, attribute_name, position, effect, note, this.system.overload.value);
   }
 
 

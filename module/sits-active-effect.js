@@ -1,11 +1,11 @@
-import { BladesHelpers } from "./blades-helpers.js";
+import { SitsHelpers } from "./sits-helpers.js";
 
 /**
  * Extend the base ActiveEffect class to implement system-specific logic.
  * @extends {ActiveEffect}
  */
 
-export class BladesActiveEffect extends ActiveEffect {
+export class SitsActiveEffect extends ActiveEffect {
   /**
    * Is this active effect currently suppressed?
    * @type {boolean}
@@ -17,7 +17,7 @@ export class BladesActiveEffect extends ActiveEffect {
   apply(actor, change) {
     if ( this.isSuppressed ) return null;
     //this allows for math and actor data references in the change values. Probably not necessary for
-    // blades, but it was simple, and you never know what users will do. Probably ruin everything.
+    // sits, but it was simple, and you never know what users will do. Probably ruin everything.
     change.value = Roll.replaceFormulaData(change.value, actor.system);
     try {
       change.value = Roll.safeEval(change.value).toString();

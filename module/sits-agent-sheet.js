@@ -1,6 +1,6 @@
 import { SitsSheet } from "./sits-sheet.js";
-import { BladesActiveEffect } from "./blades-active-effect.js";
-import { BladesHelpers } from "./blades-helpers.js";
+import { SitsActiveEffect } from "./sits-active-effect.js";
+import { SitsHelpers } from "./sits-helpers.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -11,7 +11,7 @@ export class SitsAgentSheet extends SitsSheet {
   /** @override */
 	static get defaultOptions() {
 	  return foundry.utils.mergeObject(super.defaultOptions, {
-  	  classes: ["blades-in-the-dark", "sheet", "actor", "agent"],
+  	  classes: ["synths-in-the-shadow", "sheet", "actor", "agent"],
   	  template: "systems/synths-in-the-shadow/templates/actors/agent-sheet.html",
       width: 832,
       height: 890,
@@ -30,7 +30,7 @@ export class SitsAgentSheet extends SitsSheet {
     sheetData.isGM = game.user.isGM;
 
     // Prepare active effects
-    sheetData.effects = BladesActiveEffect.prepareActiveEffectCategories(this.actor.effects);
+    sheetData.effects = SitsActiveEffect.prepareActiveEffectCategories(this.actor.effects);
 
     // Calculate Load
     let loadout = 0;
@@ -115,10 +115,10 @@ export class SitsAgentSheet extends SitsSheet {
     let droppedEntityFull = await fromUuid(droppedEntity.uuid);
     switch (droppedEntityFull.type) {
       case "npc":
-        await BladesHelpers.addAcquaintance(this.actor, droppedEntityFull);
+        await SitsHelpers.addAcquaintance(this.actor, droppedEntityFull);
         break;
       case "unit":
-        await BladesHelpers.addUnit(this.actor, droppedEntityFull);
+        await SitsHelpers.addUnit(this.actor, droppedEntityFull);
         break;
       case "item":
         break;
@@ -143,7 +143,7 @@ export class SitsAgentSheet extends SitsSheet {
     html.find('.unit-delete').click(ev => {
 	  const element = $(ev.currentTarget).parents(".item");
 	  let unitId = element.data("itemId");
-	  BladesHelpers.removeUnit(this.actor, unitId);
+	  SitsHelpers.removeUnit(this.actor, unitId);
     });
   }
 

@@ -1,10 +1,10 @@
-import { BladesHelpers } from "./blades-helpers.js";
+import { SitsHelpers } from "./sits-helpers.js";
 
 /**
  * Extend the basic Item
  * @extends {Item}
  */
-export class BladesItem extends Item {
+export class SitsItem extends Item {
 
   /** @override */
   async _preCreate( data, options, user ) {
@@ -14,7 +14,7 @@ export class BladesItem extends Item {
     if( user.id === game.user.id ) {
       let actor = this.parent ? this.parent : null;
       if( actor?.documentName === "Actor" ) {
-        removeItems = BladesHelpers.removeDuplicatedItemType( data, actor );
+        removeItems = SitsHelpers.removeDuplicatedItemType( data, actor );
       }
       if( removeItems.length !== 0 ) {
         await actor.deleteEmbeddedDocuments( "Item", removeItems );
@@ -42,8 +42,8 @@ export class BladesItem extends Item {
       if( item_data.goal_1_clock_max === 0 ){ this.system.goal_1_clock_max = 4 }
       if( !item_data.goal_2_clock_value ){ this.system.goal_2_clock_value = 0 }
       if( item_data.goal_2_clock_max === 0 ){ this.system.goal_2_clock_max = 4 }
-      this.system.size_list_1 = BladesHelpers.createListOfClockSizes( game.system.bladesClocks.sizes, this.system.goal_1_clock_max, parseInt( this.system.goal_1_clock_max ) );
-      this.system.size_list_2 = BladesHelpers.createListOfClockSizes( game.system.bladesClocks.sizes, this.system.goal_2_clock_max, parseInt( this.system.goal_2_clock_max ) );
+      this.system.size_list_1 = SitsHelpers.createListOfClockSizes( game.system.sitsClocks.sizes, this.system.goal_1_clock_max, parseInt( this.system.goal_1_clock_max ) );
+      this.system.size_list_2 = SitsHelpers.createListOfClockSizes( game.system.sitsClocks.sizes, this.system.goal_2_clock_max, parseInt( this.system.goal_2_clock_max ) );
     }
 
   }

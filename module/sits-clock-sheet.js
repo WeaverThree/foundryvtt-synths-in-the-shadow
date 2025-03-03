@@ -5,12 +5,12 @@ import { SitsSheet } from "./sits-sheet.js";
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {SitsSheet}
  */
-export class BladesClockSheet extends SitsSheet {
+export class SitsClockSheet extends SitsSheet {
 
   /** @override */
 	static get defaultOptions() {
 	  return foundry.utils.mergeObject(super.defaultOptions, {
-  	  classes: ["blades-in-the-dark", "sheet", "actor", "clock"],
+  	  classes: ["synths-in-the-shadow", "sheet", "actor", "clock"],
   	  template: "systems/synths-in-the-shadow/templates/actors/clock-sheet.html",
       width: 360,
       height: 400,
