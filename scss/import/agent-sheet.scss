@@ -9,6 +9,11 @@ $green: #008000;
 $light_green: #12a012;
 $blue: #04578f;
 
+$main-bg: #010e38;
+$main-fg: #CCC;
+$header-bg: #0704b6;
+$header-fg: #1d1d1d;
+
 // Transition period for sheet parts that hint what they can do
 $transition-period: 0.2s;
 $hover-opacity: 0.9;
@@ -158,36 +163,38 @@ $hover-brightness: 0.8;
 
 
   // MARK: Coins
-
-  $coin_size: 16px;
-  $coin_margin: 3px;
   
-  .ec-header {
+  .energy_credits-header {
     display: flex;
     justify-content: space-between;
+    font-weight: bold;
+    font-style: italic;
   }
 
-  .coins {
-    @include pipradio_hover($coin_size, $coin_size, "assets/pips/ec-base.svg", "assets/pips/ec-hot.svg", "assets/pips/ec-base-hover.svg", "assets/pips/ec-hot-hover.svg");
+  .energy_credits {
+ 
+    display:flex;
     flex-wrap: wrap;
+    justify-content: space-between;
   
-    input ~ label {
-      margin-right: $coin_margin;
-      margin-bottom: $coin_margin;
-  
-      &[for$="0"] {
-        border-width: 2px;
+    .energy_credits-pips {
+      @include pipradio_hover(16px, 16px, "assets/pips/ec-base.svg", "assets/pips/ec-hot.svg", "assets/pips/ec-base-hover.svg", "assets/pips/ec-hot-hover.svg");
+      flex-wrap: wrap;
+      align-content: flex-start;
+      
+      input ~ label {
+        margin-right: 3px;
+        margin-bottom: 3px;
       }
-  
-      @include changeable($transition-period, $hover-brightness, $hover-opacity);
+
     }
-  
-    &.coins-hands {
+
+    .on_hand {
       width: 38px;
     }
   
-    &.coins-stashed {
-      width: 190px;
+    .savings {
+      width: 152px;
     }
   
   }
@@ -256,6 +263,84 @@ $hover-brightness: 0.8;
   }
 
 
+  .damage-armor {
+
+    display: flex;
+
+    // Harm
+
+    width: 100%;
+
+    table {
+      width: 100%;
+      background-color: transparent !important;
+      border-bottom: 0px;
+      
+      thead {
+        background-color: $almost_black;
+        color: $almost_white;
+        font-size: 18px;
+        height: 30px;
+        align-items: center;
+        justify-content: center;
+        font-style: italic;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+     
+      tbody:before {
+        // stupid workaround
+        line-height: 6px;
+        content: "\200C";
+        display: block;
+      }
+
+      input[type="text"] {
+        width: 100%;
+      }
+    }
+    
+    tr {
+
+      background-color: transparent !important;
+
+      td:first-child {
+        text-align: center;
+        padding-left: 8px;
+      }
+    }
+
+    // Clock
+    .repair_clock {
+      margin: 0 auto;
+      @include clock(4, 88);
+    }
+
+    .armor_uses {
+
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+
+
+
+  .tabs {
+    background-color: $almost_black;
+    color: $almost_white;
+    font-size: 18px;
+    height: 30px;
+    align-items: center;
+    justify-content: space-around;
+    font-style: italic;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
 
 
   //Abilitiers and loadout
@@ -294,48 +379,6 @@ $hover-brightness: 0.8;
     top: 0px;
     right: 10px;
   }
-
-  .damage-armor {
-
-    display: flex;
-
-    // Harm
-    .damage {
-
-      width: 100%;
-
-      table {
-        width: 100%;
-
-        th {
-          background-color: $almost_black;
-          color: $almost_white;
-        }
-
-        input[type="text"] {
-          width: 100%;
-        }
-      }
-    }
-
-    // Clock
-    .repair_clock {
-      margin: 0 auto;
-      @include clock(4, 88);
-    }
-
-    .armor_uses {
-
-      div {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-    }
-  }
-
-
- 
 
   // ITEM
   .item {

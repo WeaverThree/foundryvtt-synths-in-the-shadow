@@ -52,9 +52,21 @@ section {
   justify-content: space-between;
 }
 
+.flex-horizontal-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .flex-vertical {
   display: flex;
   flex-direction: column;
+}
+
+.flex-vertical-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .tab[data-tab]{

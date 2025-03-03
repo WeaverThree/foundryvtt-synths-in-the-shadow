@@ -3,37 +3,36 @@
   <section id="agent-{{_id}}-header" class="flex-horizontal first-section">
 
     <div class="portrait-area">
-    <img src="{{img}}" data-edit="img" data-tooltip="{{name}}" class="portrait" />
+      <img src="{{img}}" data-edit="img" data-tooltip="{{name}}" class="portrait" />
 
-    <div class="underportrait">
+      <div class="underportrait">
 
-      <a class="item-add-popup" data-distinct="true" data-item-type="unit">
-    <div class="unit underportrait-line">
-        <div class="box-title"><b>Unit</b></div>
-        <div>
-          {{#each system.unit as |item id|}} {{#unless (eq item.name undefined)}}
-            {{item.name}}
-          {{/unless}} {{/each}}
-        </div>
+        <a class="item-add-popup" data-distinct="true" data-item-type="unit">
+          <div class="unit underportrait-line">
+            <div class="box-title"><b>Unit</b></div>
+            <div>
+              {{#each system.unit as |item id|}} {{#unless (eq item.name undefined)}}
+                {{item.name}}
+              {{/unless}} {{/each}}
+            </div>
+          </div>
+        </a>
+
+        <a class="item-add-popup" data-distinct="true" data-item-type="playbook">
+          <div class="playbook underportrait-line">
+            <div class="box-title"><b>Playbook</b></div>
+            <div>
+              {{#each items as |item id|}} {{#if (eq item.type "playbook")}}
+                {{item.name}}
+              {{/if}} {{/each}}
+            </div>
+          </div>
+        </a>
+      </div>
+
     </div>
-      </a>
 
-      <a class="item-add-popup" data-distinct="true" data-item-type="class">
-    <div class="playbook underportrait-line">
-        <div class="box-title"><b>Playbook</b></div>
-        <div>
-          {{#each items as |item id|}} {{#if (eq item.type "class")}}
-            {{item.name}}
-          {{/if}} {{/each}}
-        </div>
-    </div>
-      </a>
-    </div>
-
-
-    </div>
-
-      <div id="description">
+    <div id="description"> {{!-- MARK: Description --}}
 
       <div class="headline">
         <div class="headline-left">
@@ -51,32 +50,31 @@
         <div class="traitsline">
 
           <a class="item-add-popup" data-distinct="true" data-item-type="maker">
-          <div class="maker">
-            <span class="box-title">{{localize "SITD.Build"}}</span>
-              <div class="fakeinput">
-              {{#each items as |item id|}} {{#if (eq item.type "maker")}}
-                {{item.name}}
-              {{/if}} {{/each}}
-              </div>
-          </div>
+            <div class="maker">
+              <span class="box-title">{{localize "SITS.Maker"}}</span>
+                <div class="fakeinput">
+                  {{#each items as |item id|}} {{#if (eq item.type "maker")}}
+                    {{item.name}}
+                  {{/if}} {{/each}}
+                </div>
+            </div>
           </a>
 
           <div class="maker-detail detail">
-            <span class="box-title">Detail</span>
+            <span class="box-title">{{localize "SITS.Detail"}}</span>
             <input type="text" id="agent-{{_id}}-build_details" class="maker_details" name="build_details" value="{{system.build_details}}">
           </div>
 
         </div>
         
         <div class="traitsline">
-
           <div class="build">
             <a class="item-add-popup" data-distinct="true" data-item-type="build">
               <span class="box-title">{{localize "SITS.Build"}}</span>
               <div class="fakeinput">
-              {{#each items as |item id|}} {{#if (eq item.type "build")}}
-                {{item.name}}
-              {{/if}} {{/each}}
+                {{#each items as |item id|}} {{#if (eq item.type "build")}}
+                  {{item.name}}
+                {{/if}} {{/each}}
               </div>
             </a>
           </div>
@@ -85,18 +83,16 @@
             <span class="box-title">{{localize "SITS.Detail"}}</span>
             <input type="text" id="agent-{{_id}}-build_details" class="build_details" name="build_details" value="{{system.build_details}}">
           </div>
-
         </div>
 
         <div class="traitsline">
-
           <div class="deviance">
             <a class="item-add-popup" data-distinct="true" data-item-type="deviance">
               <span class="box-title">{{localize "SITS.Deviance"}}</span>
               <div class="fakeinput">
-              {{#each items as |item id|}} {{#if (eq item.type "deviance")}}
-                {{item.name}}
-              {{/if}} {{/each}}
+                {{#each items as |item id|}} {{#if (eq item.type "deviance")}}
+                  {{item.name}}
+                {{/if}} {{/each}}
               </div>
             </a>
           </div>
@@ -105,65 +101,154 @@
             <span class="box-title">{{localize "SITS.Detail"}}</span>
             <input type="text" id="agent-{{_id}}-deviance_details" class="deviance_details" name="deviance_details" value="{{system.deviance_details}}">
           </div>
-
         </div>
 
       </div>
+    </div> {{!-- end description --}}
+
+  </section>
+
+  <section class="flex-horizontal first-section-addendum">
+    <textarea type="text" id="agent-{{_id}}-synopsis" class="synopsis" name="synopsis">{{system.synopsis}}</textarea>
+  </section>
+
+  <section class="flex-horizontal second-section">
+
+    {{!-- MARK: OVER/MAL/COIN --}}
+    <div id="agent-{{_id}}-overload-malfunction" class="section overload-malfunction">
+    
+      <div id="agent-{{_id}}-overload" class="overload">
+        {{#multiboxes system.overload.value}}
+
+          <input type="radio" id="agent-{{_id}}-overload-0" name="system.overload.value" value="0" dtype="Radio">
+          <div class="black-label">{{localize "SITS.Overload"}}</div>
+
+          {{#times_from 1 system.overload.max}}
+            <input type="radio" id="agent-{{../_id}}-overload-{{this}}" name="system.overload.value" value="{{this}}" dtype="Radio">
+            <label class="radio-toggle" for="agent-{{../_id}}-overload-{{this}}"></label>
+          {{/times_from}}
+
+        {{/multiboxes}}
+      </div>
+
+      <div id="agent-{{_id}}-malfunction-container" class="malfunction">
+        {{#malfunctioncounter system.malfunction.list}}
+
+          <div class="black-label">{{localize system.malfunction.name}}</div>
+          <input type="radio" id="agent-{{_id}}-malfunction-counter-0" name="system.malfunction.value" value="0">
+
+          {{#times_from 1 system.malfunction.max}}
+            <input type="radio" id="agent-{{../_id}}-malfunction-counter-{{this}}" name="system.malfunction.value" value="{{this}}" disabled>
+            <label for="agent-{{../_id}}-malfunction-counter-{{this}}"></label>
+          {{/times_from}}
+          
+        {{/malfunctioncounter}}
+      </div>
+
+      <div class="energy_credits-header">
+        <div>{{localize "SITS.Energy Credits"}}</div>
+        <div>{{localize "SITS.Savings"}}</div>
+      </div>
+
+      <div id="agent-{{_id}}-energy_credits" class="energy_credits">
+
+        <div id="agent-{{_id}}-on_hand" class="on_hand energy_credits-pips">
+          {{#multiboxes system.energy_credits.on_hand}}
+            <input type="radio" id="energy_credits-{{_id}}-on_hand-0" name="system.energy_credits.on_hand" value="0" checked="checked">
+            {{#times_from 1 system.energy_credits.max_hand}}
+              <input type="radio" id="energy_credits-{{../_id}}-on_hand-{{this}}" name="system.energy_credits.on_hand" value="{{this}}">
+              <label class="radio-toggle" for="energy_credits-{{../_id}}-on_hand-{{this}}"></label>
+              {{/times_from}}
+            </span>
+          {{/multiboxes}}
+        </div>
+
+        <div id="energy_credits-{{_id}}-energy_credits-savings" class="savings energy_credits-pips">
+          {{#multiboxes system.energy_credits.savings}}
+            <input type="radio" id="energy_credits-{{_id}}-savings-0" name="system.energy_credits.savings" value="0" checked="checked">
+            {{#times_from 1 system.energy_credits.max_stash}}
+              <input type="radio" id="energy_credits-{{../_id}}-savings-{{this}}" name="system.energy_credits.savings" value="{{this}}">
+              <label class="radio-toggle" for="energy_credits-{{../_id}}-savings-{{this}}"></label>
+            {{/times_from}}
+          {{/multiboxes}} 
+        </div>
+
+      </div>
+
+    </div> {{!-- End Overload/Malfunction/Coins --}}
+
+    {{!-- MARK: Attributes --}}
+    <div id="agent-{{_id}}-attributes" class="attributes">
+
+      {{#each system.attributes as |attribute attribute_name|}}
+        
+        <div id="agent-{{../_id}}-attributes-{{attribute_name}}" class="attribute">
+        
+          <div id="agent-{{../_id}}-attributes-{{attribute_name}}-title" class="attributes-exp">
+            <div class="stripe">
+              <a class="attribute-label roll-die-attribute rollable-text" data-roll-attribute="{{attribute_name}}">
+                {{localize attribute.label}}
+              </a>
+            </div>
+            <div class="stripe-tooth-body">
+              {{#multiboxes attribute.exp}}
+                <input type="radio" id="{{../_id}}-{{attribute_name}}-exp-0"
+                        name="system.attributes.{{attribute_name}}.exp" value="0" checked="checked">
+                {{#times_from 1 attribute.exp_max}}
+                  <input type="radio" id="{{../../_id}}-{{attribute_name}}-exp-{{this}}"
+                          name="system.attributes.{{attribute_name}}.exp" value="{{this}}">
+                  <label class="radio-toggle" for="{{../../_id}}-{{attribute_name}}-exp-{{this}}"></label>
+                {{/times_from}}
+              {{/multiboxes}}
+            </div>
+          </div>
+    
+
+          {{!-- Skills --}}
+          {{#each attribute.skills as |skill skill_name|}}
+
+            <div class="flex-horizontal">
+              <div class="attributes-container">
+                {{#multiboxes skill.value}}
+                  <input {{#if (lteq 0 (oneless skill.min))}}disabled {{/if}}
+                          type="radio" id="attributes-{{../../../_id}}-{{skill_name}}-0" data-dtype="Number"
+                          name="system.attributes.{{attribute_name}}.skills.{{skill_name}}.value" value="0">
+                  {{#times_from 1 skill.max}}
+                    <input {{#if (lteq this (oneless skill.min))}}disabled {{/if}}
+                            type="radio" id="attributes-{{../../../_id}}-{{skill_name}}-{{this}}" data-dtype="Number"
+                            name="system.attributes.{{attribute_name}}.skills.{{skill_name}}.value" value="{{this}}">
+                    <label {{#if (and (gt skill.min 0) (lteq this skill.min))}} data-tooltip="{{localize "BITD.DisabledByAE"}}"{{/if}}
+                            {{#if (lteq this (oneless skill.min))}} style="filter: unset; opacity: unset; cursor: unset;"{{/if}}
+                            class="radio-toggle" for="attributes-{{../../../_id}}-{{skill_name}}-{{this}}"></label>
+                  {{/times_from}}
+            
+                  {{#if (eq skill.max 3)}}
+                    <input type="radio" id="attributes-{{../../../_id}}-{{skill_name}}-{{this}}" data-dtype="Number"
+                            name="system.attributes.{{attribute_name}}.skills.{{skill_name}}.value" value="{{this}}">
+                    <label data-tooltip="{{localize "BITD.NoMastery"}}" class="no-mastery"></label>
+                  {{/if}}
+
+                  <div class="attribute-skill-label roll-die-attribute rollable-text" data-roll-attribute="{{skill_name}}">
+                    {{localize skill.label}}
+                  </div>
+                {{/multiboxes}}
+              </div>
+            </div>
+          {{/each}} {{!-- End each skill --}}
+        </div>
+      {{/each}} {{!-- End each attribute --}}
     </div>
 
-</section>
+  </section>
 
-<section class="flex-horizontal">
-  <textarea type="text" id="agent-{{_id}}-synopsis" class="synopsis" name="synopsis">{{system.synopsis}}</textarea>
-</section>
-
-<section class="flex-horizontal second-section">
-
-  {{!-- Overload and Malfunction --}}
-  <div id="agent-{{_id}}-overload-malfunction" class="section overload-malfunction">
-    <div id="agent-{{_id}}-overload" class="overload">
-      {{#multiboxes system.overload.value}}
-
-      <input type="radio" id="agent-{{_id}}-overload-0" name="system.overload.value" value="0" dtype="Radio">
-      <div class="black-label">{{localize "SITS.Overload"}}</div>
-
-      {{#times_from 1 system.overload.max}}
-        <input type="radio" id="agent-{{../_id}}-overload-{{this}}" name="system.overload.value" value="{{this}}"
-               dtype="Radio">
-        <label class="radio-toggle" for="agent-{{../_id}}-overload-{{this}}"></label>
-      {{/times_from}}
-
-      {{/multiboxes}}
-
-    </div>
-
-    <div id="agent-{{_id}}-malfunction-container" class="malfunction">
-      {{#malfunctioncounter system.malfunction.list}}
-        <div class="black-label">{{localize system.malfunction.name}}</div>
-        <input type="radio" id="agent-{{_id}}-malfunction-counter-0" name="system.malfunction.value" value="0">
-        {{#times_from 1 system.malfunction.max}}
-          <input type="radio" id="agent-{{../_id}}-malfunction-counter-{{this}}" name="system.malfunction.value" value="{{this}}" disabled>
-          <label for="agent-{{../_id}}-malfunction-counter-{{this}}"></label>
-        {{/times_from}}
-      {{/malfunctioncounter}}
-    </div>
-
-  {{> "systems/synths-in-the-shadow/templates/parts/coins.html" actor=actor}}
-
-  </div>
-
-  {{!-- Attributes --}}
-  {{> "systems/synths-in-the-shadow/templates/parts/attributes.html" actor=actor}}
-
-</section>
-  {{!-- Damage, Repair and Armor --}}damage
-  <section id="agent-{{_id}}-damage-armor" class="flex damage-armor">
-    <div id="agent-{{_id}}-agent-damage" class="agent-damage">
+  {{!-- Damage, Repair and Armor --}}
+  <section id="agent-{{_id}}-damage-armor" class="flex third-section">
+    <div id="agent-{{_id}}-agent-damage" class="flex-horizontal damage-armor">
       <table>
         <thead>
-          <th class="black-white" colspan="4">{{localize "SITS.Damage"}}</th>
-          <th class="black-white"><label>{{localize "SITS.Repair"}}</label></th>
-          <th class="black-white">{{localize "SITS.Armor"}}</th>
+          <th colspan="4">{{localize "SITS.Damage"}}</th>
+          <th>{{localize "SITS.Repair"}}</th>
+          <th>{{localize "SITS.Armor"}}</th>
         </thead>
         <tbody>
           <tr>
@@ -171,10 +256,10 @@
             <td colspan="2">
               <input type="text" id="agent-{{_id}}-damage-3-1" name="system.damage.heavy.one" value="{{system.damage.heavy.one}}">
             </td>
-            <td>{{localize "BITD.NeedHelp"}}</td>
+            <td>{{localize "SITS.MoreEffect"}}</td>
             <td rowspan="3">
-              <div id="agent-{{_id}}-repair_clock" class="repair_clock clocks-{{system.repair_clock.max}}">
-              {{{sits-clock "system.repair_clock.value" system.repair_clock.max system.repair_clock.value _id}}}
+              <div id="agent-{{_id}}-repair_clock" class="flex-horizontal-center repair_clock clocks-{{system.repair_clock.max}}">
+                {{{sits-clock "system.repair_clock.value" system.repair_clock.max system.repair_clock.value _id}}}
               </div>
             </td>
             <td rowspan="3" id="agent-{{_id}}-armor_uses" class="armor_uses">
@@ -200,7 +285,7 @@
             <td>
               <input type="text" id="agent-{{_id}}-damage-2-2" name="system.damage.medium.two" value="{{system.damage.medium.two}}">
             </td>
-            <td>-1D</td>
+            <td>{{localize "SITS.PlusOneDie"}}</td>
           </tr>
           <tr>
             <td>1</td>
@@ -210,7 +295,7 @@
             <td>
               <input type="text" id="agent-{{_id}}-damage-1-2" name="system.damage.light.two" value="{{system.damage.light.two}}">
             </td>
-            <td>{{localize "BITD.LessEffect"}}</td>
+            <td></td>
           </tr>
         </tbody>
       </table>
@@ -219,36 +304,38 @@
 
 
 
+    </div>
+  </section>
 
-  <section class="flex-horizontal">
+ <section class="flex-horizontal fourth-section">
 
     <div class="tab-content flex-vertical grow-two">
 
       {{!-- Nav menu --}}
       <nav class="tabs flex-horizontal">
-        <a class="item" data-tab="abilities">{{localize "BITD.Abilities"}}</a>
-        <a class="item" data-tab="loadout">{{localize "BITD.Loadout"}}</a>
-		<a class="item" data-tab="contacts">{{localize 'BITD.Contacts'}}</a>
-        <a class="item" data-tab="agent-notes">{{localize "BITD.Notes"}}</a>
+        <a class="item" data-tab="mainpage">{{localize "SITS.AbilitiesLoadoutContacts"}}</a>
+        <a class="item" data-tab="agent-notes">{{localize "SITS.Notes"}}</a>
         {{#if isGM}}
-          <a class="item" data-tab="effects">{{localize "BITD.Effects"}}</a>
+          <a class="item" data-tab="effects">{{localize "SITS.Effects"}}</a>
         {{/if}}
-        <a class="item" data-tab="all-agent-items">{{localize "BITD.AllItems"}}</a>
+        <a class="item" data-tab="all-agent-items">{{localize "SITS.AllItems"}}</a>
       </nav>
 
-      <div id="actor-{{_id}}-abilities" class="tab flex-vertical abilities" data-tab="abilities">
+
+
+      <div id="actor-{{_id}}-abilities" class="tab flex-vertical abilities" data-tab="mainpage">
         <div class="label-stripe">
           <p><label for="actor-{{_id}}-experience-0">{{localize "BITD.Abilities"}}</label></p>
           <p><a class="item-add-popup" data-item-type="ability" data-tooltip="{{localize 'BITD.AddAbility'}}"><i class="fas fa-plus-square"></i></a></p>
-      
-		  <div id="actor-{{_id}}-experience" class="teeth-experience">
-            {{#multiboxes system.experience}}
-            <input type="radio" id="agent-{{_id}}-experience-0" name="system.experience" value="0" dtype="Radio">
-            {{#times_from 1 system.experience_max}}
-            <input type="radio" id="agent-{{_id}}-experience-{{this}}" name="system.experience" value="{{this}}" dtype="Radio">
-            <label class="radio-toggle" for="agent-{{_id}}-experience-{{this}}"></label>
-            {{/times_from}}
-            {{/multiboxes}}
+
+            <div id="actor-{{_id}}-experience" class="teeth-experience">
+              {{#multiboxes system.experience}}
+              <input type="radio" id="agent-{{_id}}-experience-0" name="system.experience" value="0" dtype="Radio">
+              {{#times_from 1 system.experience_max}}
+              <input type="radio" id="agent-{{_id}}-experience-{{this}}" name="system.experience" value="{{this}}" dtype="Radio">
+              <label class="radio-toggle" for="agent-{{_id}}-experience-{{this}}"></label>
+              {{/times_from}}
+              {{/multiboxes}}
           </div>
         </div>
 
@@ -267,42 +354,50 @@
           {{/each}}
           <div class="item-class-label"><a class="item-add-popup" data-item-type="ability">{{localize "BITD.AddAbility"}}</a></div>
         </div>
-      </div>
+      
 
-      <div class="tab flex-vertical" data-tab="actor-notes">
-        <div class="label-stripe">
-          <p>{{localize "BITD.Notes"}}</p>
-        </div>
-        <textarea rows="13" name="system.description">{{{system.description}}}</textarea>
-      </div>
-
-      {{!-- Contacts --}}
-	  <div id="agent-{{_id}}-contacts" class="tab flex-vertical" data-tab="contacts">
+        {{!-- Contacts --}}
         <div class="label-stripe flex-horizontal">
           <p>{{localize "SITS.Contacts"}}</p>
-		  <p><a class="import-contacts" data-tooltip="{{localize 'BITD.ImportPlaybookContacts'}}"><i class="fa-solid fa-file-import"></i></a></p>
+          <p><a class="import-contacts" data-tooltip="{{localize 'BITD.ImportPlaybookContacts'}}"><i class="fa-solid fa-file-import"></i></a></p>
         </div>
-              {{#if system.contacts}}
-              {{#each system.contacts as |item id|}}
-              <div class="item flex-horizontal" data-item-id="{{item.id}}" data-item-type="{{item.type}}">
-                 <div class="contact" data-contact="{{this.id}}">
-                  <i data-contact="{{this.id}}" class="standing-toggle fas
-                    {{#if (eq this.standing "friend" )}} fa-caret-up green-icon
-                    {{else if (eq this.standing "rival")}} fa-caret-down red-icon
-                    {{else}}fa-minus
-                    {{/if}}"></i>
-                    <class="standing-toggle"><a class="open-friend"><strong>{{this.name}}</strong></a>, {{this.description_short}}
-				 </div>
-				 <a class="contact-delete" data-tooltip="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
-			  </div>
-			  {{/each}}
-            {{/if}}
+        {{#if system.contacts}}
+        {{#each system.contacts as |item id|}}
+          <div class="item flex-horizontal" data-item-id="{{item.id}}" data-item-type="{{item.type}}">
+            <div class="contact" data-contact="{{this.id}}">
+              <i data-contact="{{this.id}}" class="standing-toggle fas
+              {{#if (eq this.standing "friend" )}} fa-caret-up green-icon
+              {{else if (eq this.standing "rival")}} fa-caret-down red-icon
+              {{else}}fa-minus
+              {{/if}}"></i>
+              <class="standing-toggle"><a class="open-friend"><strong>{{this.name}}</strong></a>, {{this.description_short}}
+            </div>
+            <a class="contact-delete" data-tooltip="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
+          </div>
+        {{/each}}
+        {{/if}}
       </div>
+
+
+
+
+
+    <div class="tab flex-vertical" data-tab="agent-notes">
+      <div class="label-stripe">
+        <p>{{localize "SITS.Notes"}}</p>
+      </div>
+      <textarea rows="13" name="system.description">{{{system.description}}}</textarea>
+    </div>
+
+
+
+
+   
 
       {{!-- Active Effects --}}
       <div id="agent-{{_id}}-effects" class="tab effects flex-vertical" data-tab="effects">
         <div class="label-stripe">
-          <p>{{localize "BITD.Effects"}}</p>
+          <p>{{localize "SITS.Effects"}}</p>
         </div>
         {{> "systems/synths-in-the-shadow/templates/parts/active-effects.html"}}
       </div>
@@ -310,7 +405,7 @@
       {{!-- Full Item List --}}
       <div class="tab grow-two flex-vertical" data-tab="all-agent-items">
         <div class="label-stripe">
-          <p><label>{{localize "BITD.AllItems"}}</label></p>
+          <p><label>{{localize "SITS.AllItems"}}</label></p>
         </div>
         {{#each items as |item id|}}
         <div class="item flex-horizontal" data-item-id="{{item._id}}">

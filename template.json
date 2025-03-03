@@ -14,7 +14,7 @@
     "synopsis": "",
     "flaw": "",
     "playbook": "",
-    "unit": "",
+    "unit": [],
     "contacts": [],
     "overload": {
       "value": 0,
@@ -48,7 +48,8 @@
       "on_hand": 0,
       "savings": 0,
       "max_hand": 4,
-      "max_overflow": 4,
+      "start_overflow": 5,
+      "max_overflow": 8,
       "max_stash": 32
     },
     "special_abilities": [],
@@ -86,26 +87,26 @@
           "exp_max": 6,
           "label": "SITS.AttribProcessing",
           "skills": {
-            "hunt": {
-              "label": "SITS.AttribHunt",
-              "value": 0,
-              "max": 3,
-              "min": 0
-            },
             "analyze": {
               "label": "SITS.AttribAnalyze",
               "value": 0,
               "max": 3,
               "min": 0
             },
-            "scan": {
-              "label": "SITS.AttribScan",
+            "engineer": {
+              "label": "SITS.AttribEngineer",
               "value": 0,
               "max": 3,
               "min": 0
             },
-            "engineer": {
-              "label": "SITS.AttribEngineer",
+            "hunt": {
+              "label": "SITS.AttribHunt",
+              "value": 0,
+              "max": 3,
+              "min": 0
+            },
+            "scan": {
+              "label": "SITS.AttribScan",
               "value": 0,
               "max": 3,
               "min": 0
@@ -117,14 +118,8 @@
           "exp_max": 6,
           "label": "SITS.AttribPower",
           "skills": {
-            "manipulate": {
-              "label": "SITS.AttribManipulate",
-              "value": 0,
-              "max": 3,
-              "min": 0
-            },
-            "infiltrate": {
-              "label": "SITS.AttribInfiltrate",
+            "blast": {
+              "label": "SITS.AttribBlast",
               "value": 0,
               "max": 3,
               "min": 0
@@ -135,8 +130,14 @@
               "max": 3,
               "min": 0
             },
-            "blast": {
-              "label": "SITS.AttribBlast",
+            "infiltrate": {
+              "label": "SITS.AttribInfiltrate",
+              "value": 0,
+              "max": 3,
+              "min": 0
+            },
+            "manipulate": {
+              "label": "SITS.AttribManipulate",
               "value": 0,
               "max": 3,
               "min": 0
@@ -148,14 +149,14 @@
           "exp_max": 6,
           "label": "SITS.AttribResolution",
           "skills": {
-            "hack": {
-              "label": "SITS.AttribHack",
+            "command": {
+              "label": "SITS.AttribCommand",
               "value": 0,
               "max": 3,
               "min": 0
             },
-            "command": {
-              "label": "SITS.AttribCommand",
+            "hack": {
+              "label": "SITS.AttribHack",
               "value": 0,
               "max": 3,
               "min": 0

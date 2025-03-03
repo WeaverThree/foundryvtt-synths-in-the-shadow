@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 *  Elements that can be changed will hint this by dimming and fading a little on hover
 */
@@ -204,9 +205,19 @@
   flex-direction: row;
   justify-content: space-between;
 }
+.synths-in-the-shadow .flex-horizontal-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 .synths-in-the-shadow .flex-vertical {
   display: flex;
   flex-direction: column;
+}
+.synths-in-the-shadow .flex-vertical-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .synths-in-the-shadow .tab[data-tab] {
   display: none;
@@ -1391,16 +1402,24 @@
 .synths-in-the-shadow.actor.agent * .overload-malfunction .malfunction input:checked + label {
   background-image: url("assets/pips/pipwide-orange.svg");
 }
-.synths-in-the-shadow.actor.agent * .ec-header {
+.synths-in-the-shadow.actor.agent * .energy_credits-header {
   display: flex;
   justify-content: space-between;
+  font-weight: bold;
+  font-style: italic;
 }
-.synths-in-the-shadow.actor.agent * .coins {
+.synths-in-the-shadow.actor.agent * .energy_credits {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.synths-in-the-shadow.actor.agent * .energy_credits .energy_credits-pips {
   display: flex;
   /* Hide the browser's default checkbox */
   flex-wrap: wrap;
+  align-content: flex-start;
 }
-.synths-in-the-shadow.actor.agent * .coins label {
+.synths-in-the-shadow.actor.agent * .energy_credits .energy_credits-pips label {
   height: 16px;
   width: 16px;
   background-image: url("assets/pips/ec-hot.svg");
@@ -1409,54 +1428,45 @@
   margin-right: 0px;
   cursor: pointer;
 }
-.synths-in-the-shadow.actor.agent * .coins label:last-of-type {
+.synths-in-the-shadow.actor.agent * .energy_credits .energy_credits-pips label:last-of-type {
   margin-right: 0px;
 }
-.synths-in-the-shadow.actor.agent * .coins label[for$="-0"] {
+.synths-in-the-shadow.actor.agent * .energy_credits .energy_credits-pips label[for$="-0"] {
   width: auto;
   height: auto;
   background-image: none !important;
   color: #EEEFFF;
 }
-.synths-in-the-shadow.actor.agent * .coins label[for$="-0"] i {
+.synths-in-the-shadow.actor.agent * .energy_credits .energy_credits-pips label[for$="-0"] i {
   margin-top: 4px;
 }
-.synths-in-the-shadow.actor.agent * .coins label:hover {
+.synths-in-the-shadow.actor.agent * .energy_credits .energy_credits-pips label:hover {
   background-image: url("assets/pips/ec-hot-hover.svg");
 }
-.synths-in-the-shadow.actor.agent * .coins input {
+.synths-in-the-shadow.actor.agent * .energy_credits .energy_credits-pips input {
   display: none;
 }
-.synths-in-the-shadow.actor.agent * .coins input:checked ~ label {
+.synths-in-the-shadow.actor.agent * .energy_credits .energy_credits-pips input:checked ~ label {
   background-image: url("assets/pips/ec-base.svg");
 }
-.synths-in-the-shadow.actor.agent * .coins input:checked ~ label:hover {
+.synths-in-the-shadow.actor.agent * .energy_credits .energy_credits-pips input:checked ~ label:hover {
   background-image: url("assets/pips/ec-base-hover.svg");
 }
-.synths-in-the-shadow.actor.agent * .coins input:checked + label {
+.synths-in-the-shadow.actor.agent * .energy_credits .energy_credits-pips input:checked + label {
   background-image: url("assets/pips/ec-hot.svg");
 }
-.synths-in-the-shadow.actor.agent * .coins input:checked + label:hover {
+.synths-in-the-shadow.actor.agent * .energy_credits .energy_credits-pips input:checked + label:hover {
   background-image: url("assets/pips/ec-hot-hover.svg");
 }
-.synths-in-the-shadow.actor.agent * .coins input ~ label {
+.synths-in-the-shadow.actor.agent * .energy_credits .energy_credits-pips input ~ label {
   margin-right: 3px;
   margin-bottom: 3px;
-  transition: filter 0.2s;
-  cursor: pointer;
 }
-.synths-in-the-shadow.actor.agent * .coins input ~ label[for$="0"] {
-  border-width: 2px;
-}
-.synths-in-the-shadow.actor.agent * .coins input ~ label:hover {
-  filter: brightness(0.8);
-  opacity: 0.9;
-}
-.synths-in-the-shadow.actor.agent * .coins.coins-hands {
+.synths-in-the-shadow.actor.agent * .energy_credits .on_hand {
   width: 38px;
 }
-.synths-in-the-shadow.actor.agent * .coins.coins-stashed {
-  width: 190px;
+.synths-in-the-shadow.actor.agent * .energy_credits .savings {
+  width: 152px;
 }
 .synths-in-the-shadow.actor.agent * .attributes {
   display: flex;
@@ -1589,6 +1599,107 @@
 .synths-in-the-shadow.actor.agent * .attributes .attributes-container .no-mastery {
   background-image: url("assets/pips/skill-off.svg") !important;
 }
+.synths-in-the-shadow.actor.agent * .damage-armor {
+  display: flex;
+  width: 100%;
+}
+.synths-in-the-shadow.actor.agent * .damage-armor table {
+  width: 100%;
+  background-color: transparent !important;
+  border-bottom: 0px;
+}
+.synths-in-the-shadow.actor.agent * .damage-armor table thead {
+  background-color: #191813;
+  color: #EEEFFF;
+  font-size: 18px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.synths-in-the-shadow.actor.agent * .damage-armor table tbody:before {
+  line-height: 4px;
+  content: "‌";
+  display: block;
+}
+.synths-in-the-shadow.actor.agent * .damage-armor table input[type=text] {
+  width: 100%;
+}
+.synths-in-the-shadow.actor.agent * .damage-armor tr {
+  background-color: transparent !important;
+}
+.synths-in-the-shadow.actor.agent * .damage-armor tr td:first-child {
+  text-align: center;
+  padding-left: 8px;
+}
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock {
+  margin: 0 auto;
+  position: relative;
+}
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock {
+  position: relative;
+  padding: 0;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  list-style: none;
+  overflow: hidden;
+  background-size: cover;
+}
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock label {
+  overflow: hidden;
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  transform-origin: 0% 100%;
+  transition: filter 0.1s;
+  cursor: pointer;
+}
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock label:hover {
+  filter: brightness(0.8);
+  opacity: 0.9;
+}
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock input {
+  position: absolute;
+  display: none;
+}
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock input[value="0"] {
+  display: none;
+}
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock *:nth-child(3) {
+  transform: rotate(0deg) skewY(180deg);
+}
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock *:nth-child(5) {
+  transform: rotate(90deg) skewY(180deg);
+}
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock *:nth-child(7) {
+  transform: rotate(180deg) skewY(180deg);
+}
+.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock *:nth-child(9) {
+  transform: rotate(270deg) skewY(180deg);
+}
+.synths-in-the-shadow.actor.agent * .damage-armor .armor_uses div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.synths-in-the-shadow.actor.agent * .tabs {
+  background-color: #191813;
+  color: #EEEFFF;
+  font-size: 18px;
+  height: 30px;
+  align-items: center;
+  justify-content: space-around;
+  font-style: italic;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
 .synths-in-the-shadow.actor.agent * .abilities .item-name, .synths-in-the-shadow.actor.agent * .loadout .item-name {
   width: 100px;
 }
@@ -1649,75 +1760,6 @@
 }
 .synths-in-the-shadow.actor.agent * .teeth-experience input:checked + label:hover {
   background-image: url("assets/pips/w-pip-blue-hover.svg");
-}
-.synths-in-the-shadow.actor.agent * .damage-armor {
-  display: flex;
-}
-.synths-in-the-shadow.actor.agent * .damage-armor .damage {
-  width: 100%;
-}
-.synths-in-the-shadow.actor.agent * .damage-armor .damage table {
-  width: 100%;
-}
-.synths-in-the-shadow.actor.agent * .damage-armor .damage table th {
-  background-color: #191813;
-  color: #EEEFFF;
-}
-.synths-in-the-shadow.actor.agent * .damage-armor .damage table input[type=text] {
-  width: 100%;
-}
-.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock {
-  margin: 0 auto;
-  position: relative;
-}
-.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock {
-  position: relative;
-  padding: 0;
-  width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  list-style: none;
-  overflow: hidden;
-  background-size: cover;
-}
-.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock label {
-  overflow: hidden;
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 100%;
-  height: 100%;
-  transform-origin: 0% 100%;
-  transition: filter 0.1s;
-  cursor: pointer;
-}
-.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock label:hover {
-  filter: brightness(0.8);
-  opacity: 0.9;
-}
-.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock input {
-  position: absolute;
-  display: none;
-}
-.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock input[value="0"] {
-  display: none;
-}
-.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock *:nth-child(3) {
-  transform: rotate(0deg) skewY(180deg);
-}
-.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock *:nth-child(5) {
-  transform: rotate(90deg) skewY(180deg);
-}
-.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock *:nth-child(7) {
-  transform: rotate(180deg) skewY(180deg);
-}
-.synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock *:nth-child(9) {
-  transform: rotate(270deg) skewY(180deg);
-}
-.synths-in-the-shadow.actor.agent * .damage-armor .armor_uses div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 .synths-in-the-shadow.actor.agent * .item {
   justify-content: space-between;

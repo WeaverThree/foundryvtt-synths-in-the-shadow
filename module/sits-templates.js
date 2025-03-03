@@ -9,8 +9,6 @@ export const preloadHandlebarsTemplates = async function() {
   const templatePaths = [
 
     // Agent Sheet Partials
-    "systems/synths-in-the-shadow/templates/parts/coins.html",
-    "systems/synths-in-the-shadow/templates/parts/attributes.html",
     "systems/synths-in-the-shadow/templates/parts/turf-list.html",
     "systems/synths-in-the-shadow/templates/parts/cohort-block.html",
     "systems/synths-in-the-shadow/templates/parts/factions.html",

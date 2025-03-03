@@ -95,7 +95,8 @@ export class SitsHelpers {
       world_items = game.items.filter(e => e.type === item_type).map(e => {return e});
     }
 
-	if (item_type !="unit") {
+	if (false /*item_type !="unit"*/) {
+    // FIXME: Does not work with no compendiums
     let pack = game.packs.find(e => e.metadata.name === item_type);
     let compendium_content = await pack.getDocuments();
     compendium_items = compendium_content.map(e => {return e});
