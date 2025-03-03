@@ -34,7 +34,7 @@
      id="layer1"
      transform="translate(-2048)">
     <path
-       style="fill:#ffdd55;stroke:none"
+       style="fill:#ffdd55;fill-opacity:1;stroke:none"
        d="M 1300,222.19771 V 13.585824 L 1542.4142,256.00002 1333.8023,256 Z M 1333.8023,256 h 208.6119 L 1300,498.4142 1300,289.8023 Z M 1300,289.80229 V 498.41418 L 1057.5858,255.99998 1266.1977,256 Z M 1266.1977,256 H 1057.5858 L 1300,13.5858 l 0,208.6119 z"
        id="path23"
        transform="translate(1004,1.3698214e-5)" />
@@ -43,7 +43,7 @@
      id="layer2"
      transform="translate(-2048)">
     <rect
-       style="fill:none;stroke:#000000;stroke-width:12;stroke-dasharray:none"
+       style="fill:none;stroke:#ffffff;stroke-width:12;stroke-dasharray:none"
        id="rect18"
        width="342.82541"
        height="342.82541"
@@ -51,7 +51,7 @@
        y="-1619.5674"
        transform="rotate(45)" />
     <rect
-       style="fill:none;stroke:#000000;stroke-width:12;stroke-dasharray:none"
+       style="fill:none;stroke:#ffffff;stroke-width:12;stroke-dasharray:none"
        id="rect19"
        width="47.803635"
        height="47.803635"
@@ -59,7 +59,7 @@
        y="-1472.0564"
        transform="rotate(45)" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:12;stroke-dasharray:none"
+       style="fill:none;stroke:#ffffff;stroke-width:12;stroke-dasharray:none"
        d="M 256,209.25963 V 33.447236 M 209.25963,256 H 33.447236 M 256,302.74037 V 478.55276 M 302.74037,256 h 175.81239"
        id="path19"
        transform="translate(2048)" />

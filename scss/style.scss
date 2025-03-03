@@ -10,6 +10,15 @@ $green: #008000;
 $light_green: #12a012;
 $blue: #04578f;
 
+$link_glow: #001fff;
+$damage-color: #ff9c9c;
+
+$main-bg: #010e38;
+$main-fg: #dadada;
+$header-bg: #9f9dfc;
+$header-fg: #080808;
+
+
 // Transition period for sheet parts that hint what they can do
 $transition-period: 0.2s;
 $hover-opacity: 0.9;
@@ -26,6 +35,14 @@ $hover-brightness: 0.8;
 .synths-in-the-shadow{
   font-family: "BarlowCondensed", sans-serif;
   font-size: 14px;
+
+  .window-content {
+    background-color: $main-bg;
+    color: $main-fg;
+    background-image: url("assets/scanlines_bkg.png");
+  }
+
+
 
   @import 'import/general-styles.scss';
   @import 'import/clocks.scss';

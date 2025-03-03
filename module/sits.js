@@ -287,7 +287,7 @@ Hooks.once("init", async function() {
     }
 
     // Label for 0
-    html += `<div id="sits-clock-${uniq_id}" class="sits-clock clock-${type} clock-${type}-${current_value}" style="background-image:url('systems/synths-in-the-shadow/themes/black/${type}clock_${current_value}.svg');">`;
+    html += `<div id="sits-clock-${uniq_id}" class="sits-clock clock-${type} clock-${type}-${current_value}" style="background-image:url('systems/synths-in-the-shadow/themes/white/${type}clock_${current_value}.svg');">`;
 
     let zero_checked = (parseInt(current_value) === 0) ? 'checked' : '';
     html += `<input type="radio" value="0" id="clock-0-${uniq_id}}" data-dType="String" name="${parameter_name}" ${zero_checked}>`;

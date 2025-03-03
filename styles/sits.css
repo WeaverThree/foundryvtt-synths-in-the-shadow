@@ -162,6 +162,11 @@
   font-family: "BarlowCondensed", sans-serif;
   font-size: 14px;
 }
+.synths-in-the-shadow .window-content {
+  background-color: #010e38;
+  color: #dadada;
+  background-image: url("assets/scanlines_bkg.png");
+}
 .synths-in-the-shadow textarea {
   margin-top: 10px;
   margin-bottom: 20px;
@@ -226,8 +231,8 @@
   display: block;
 }
 .synths-in-the-shadow .black-label {
-  background-color: #191813;
-  color: #EEEFFF;
+  background-color: #9f9dfc;
+  color: #080808;
   font-size: 18px;
   text-align: center;
   padding: 0px 5px;
@@ -236,6 +241,9 @@
   font-family: BarlowCondensed, sans-serif;
   font-weight: bold;
   font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 .synths-in-the-shadow .gray-label {
   background-color: #999;
@@ -247,6 +255,15 @@
   text-transform: capitalize;
   font-family: BarlowCondensed, sans-serif;
   font-weight: bold;
+  font-style: italic;
+}
+.synths-in-the-shadow .stripe {
+  background-color: #9f9dfc;
+  color: #080808;
+  font-size: 18px;
+  height: 30px;
+  display: flex;
+  align-items: center;
   font-style: italic;
 }
 .synths-in-the-shadow .label-stripe {
@@ -285,6 +302,21 @@
   filter: brightness(0.8);
   opacity: 0.9;
   color: red;
+}
+.synths-in-the-shadow .tabs {
+  background-color: #9f9dfc;
+  color: #080808;
+  font-size: 18px;
+  height: 30px;
+  align-items: center;
+  justify-content: space-around;
+  font-style: italic;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.synths-in-the-shadow .tabs > [data-tab].active {
+  text-shadow: 0 0 10px #001fff;
 }
 .synths-in-the-shadow .loadout select {
   appearance: none;
@@ -1246,6 +1278,12 @@
 }
 .synths-in-the-shadow.actor.agent * input {
   border: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #dadada;
+}
+.synths-in-the-shadow.actor.agent * textarea {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #dadada;
 }
 .synths-in-the-shadow.actor.agent * .underportrait {
   display: flex;
@@ -1288,7 +1326,7 @@
   width: 172px;
   height: 26px;
   margin-right: 4px;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(255, 255, 255, 0.1);
   font-weight: bold;
   display: flex;
   flex-direction: row;
@@ -1317,9 +1355,6 @@
 }
 .synths-in-the-shadow.actor.agent * .overload-malfunction .black-label {
   width: 66px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
 }
 .synths-in-the-shadow.actor.agent * .overload-malfunction .overload {
   display: flex;
@@ -1328,7 +1363,7 @@
 .synths-in-the-shadow.actor.agent * .overload-malfunction .overload label {
   height: 30px;
   width: 15px;
-  background-image: url("assets/pips/pip-red.svg");
+  background-image: url("assets/pips/w-pip-red.svg");
   background-repeat: no-repeat;
   background-size: contain;
   margin-right: 0px;
@@ -1347,22 +1382,22 @@
   margin-top: 4px;
 }
 .synths-in-the-shadow.actor.agent * .overload-malfunction .overload label:hover {
-  background-image: url("assets/pips/pip-red-hover.svg");
+  background-image: url("assets/pips/w-pip-red-hover.svg");
 }
 .synths-in-the-shadow.actor.agent * .overload-malfunction .overload input {
   display: none;
 }
 .synths-in-the-shadow.actor.agent * .overload-malfunction .overload input:checked ~ label {
-  background-image: url("assets/pips/pip-base.svg");
+  background-image: url("assets/pips/w-pip-base.svg");
 }
 .synths-in-the-shadow.actor.agent * .overload-malfunction .overload input:checked ~ label:hover {
-  background-image: url("assets/pips/pip-base-hover.svg");
+  background-image: url("assets/pips/w-pip-base-hover.svg");
 }
 .synths-in-the-shadow.actor.agent * .overload-malfunction .overload input:checked + label {
-  background-image: url("assets/pips/pip-red.svg");
+  background-image: url("assets/pips/w-pip-red.svg");
 }
 .synths-in-the-shadow.actor.agent * .overload-malfunction .overload input:checked + label:hover {
-  background-image: url("assets/pips/pip-red-hover.svg");
+  background-image: url("assets/pips/w-pip-red-hover.svg");
 }
 .synths-in-the-shadow.actor.agent * .overload-malfunction .malfunction {
   display: flex;
@@ -1375,7 +1410,7 @@
 .synths-in-the-shadow.actor.agent * .overload-malfunction .malfunction label {
   height: 15px;
   width: 45px;
-  background-image: url("assets/pips/pipwide-orange.svg");
+  background-image: url("assets/pips/w-pipwide-orange.svg");
   background-repeat: no-repeat;
   background-size: contain;
   margin-right: 0px;
@@ -1397,10 +1432,10 @@
   display: none;
 }
 .synths-in-the-shadow.actor.agent * .overload-malfunction .malfunction input:checked ~ label {
-  background-image: url("assets/pips/pipwide-base.svg");
+  background-image: url("assets/pips/w-pipwide-base.svg");
 }
 .synths-in-the-shadow.actor.agent * .overload-malfunction .malfunction input:checked + label {
-  background-image: url("assets/pips/pipwide-orange.svg");
+  background-image: url("assets/pips/w-pipwide-orange.svg");
 }
 .synths-in-the-shadow.actor.agent * .energy_credits-header {
   display: flex;
@@ -1447,10 +1482,10 @@
   display: none;
 }
 .synths-in-the-shadow.actor.agent * .energy_credits .energy_credits-pips input:checked ~ label {
-  background-image: url("assets/pips/ec-base.svg");
+  background-image: url("assets/pips/w-ec-base.svg");
 }
 .synths-in-the-shadow.actor.agent * .energy_credits .energy_credits-pips input:checked ~ label:hover {
-  background-image: url("assets/pips/ec-base-hover.svg");
+  background-image: url("assets/pips/w-ec-base-hover.svg");
 }
 .synths-in-the-shadow.actor.agent * .energy_credits .energy_credits-pips input:checked + label {
   background-image: url("assets/pips/ec-hot.svg");
@@ -1473,14 +1508,7 @@
   flex-direction: row;
 }
 .synths-in-the-shadow.actor.agent * .attributes .stripe {
-  background-color: #191813;
-  color: #EEEFFF;
-  font-size: 18px;
   padding-left: 5px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  font-style: italic;
 }
 .synths-in-the-shadow.actor.agent * .attributes .attribute {
   margin-right: 5px;
@@ -1508,7 +1536,7 @@
 .synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body label {
   height: 20px;
   width: 10px;
-  background-image: url("assets/pips/w-pip-blue.svg");
+  background-image: url("assets/pips/pip-blue.svg");
   background-repeat: no-repeat;
   background-size: contain;
   margin-right: 0px;
@@ -1527,22 +1555,22 @@
   margin-top: 4px;
 }
 .synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body label:hover {
-  background-image: url("assets/pips/w-pip-blue-hover.svg");
+  background-image: url("assets/pips/pip-blue-hover.svg");
 }
 .synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body input {
   display: none;
 }
 .synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body input:checked ~ label {
-  background-image: url("assets/pips/w-pip-base.svg");
+  background-image: url("assets/pips/pip-base.svg");
 }
 .synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body input:checked ~ label:hover {
-  background-image: url("assets/pips/w-pip-base-hover.svg");
+  background-image: url("assets/pips/pip-base-hover.svg");
 }
 .synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body input:checked + label {
-  background-image: url("assets/pips/w-pip-blue.svg");
+  background-image: url("assets/pips/pip-blue.svg");
 }
 .synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body input:checked + label:hover {
-  background-image: url("assets/pips/w-pip-blue-hover.svg");
+  background-image: url("assets/pips/pip-blue-hover.svg");
 }
 .synths-in-the-shadow.actor.agent * .attributes .attributes-container {
   display: flex;
@@ -1554,7 +1582,7 @@
 .synths-in-the-shadow.actor.agent * .attributes .attributes-container label {
   height: 20px;
   width: 20px;
-  background-image: url("assets/pips/skill-black.svg");
+  background-image: url("assets/pips/w-skill-black.svg");
   background-repeat: no-repeat;
   background-size: contain;
   margin-right: 0px;
@@ -1573,22 +1601,22 @@
   margin-top: 4px;
 }
 .synths-in-the-shadow.actor.agent * .attributes .attributes-container label:hover {
-  background-image: url("assets/pips/skill-black-hover.svg");
+  background-image: url("assets/pips/w-skill-black-hover.svg");
 }
 .synths-in-the-shadow.actor.agent * .attributes .attributes-container input {
   display: none;
 }
 .synths-in-the-shadow.actor.agent * .attributes .attributes-container input:checked ~ label {
-  background-image: url("assets/pips/skill-base.svg");
+  background-image: url("assets/pips/w-skill-base.svg");
 }
 .synths-in-the-shadow.actor.agent * .attributes .attributes-container input:checked ~ label:hover {
-  background-image: url("assets/pips/skill-base-hover.svg");
+  background-image: url("assets/pips/w-skill-base-hover.svg");
 }
 .synths-in-the-shadow.actor.agent * .attributes .attributes-container input:checked + label {
-  background-image: url("assets/pips/skill-black.svg");
+  background-image: url("assets/pips/w-skill-black.svg");
 }
 .synths-in-the-shadow.actor.agent * .attributes .attributes-container input:checked + label:hover {
-  background-image: url("assets/pips/skill-black-hover.svg");
+  background-image: url("assets/pips/w-skill-black-hover.svg");
 }
 .synths-in-the-shadow.actor.agent * .attributes .attributes-container * {
   margin-right: 5px;
@@ -1606,11 +1634,11 @@
 .synths-in-the-shadow.actor.agent * .damage-armor table {
   width: 100%;
   background-color: transparent !important;
-  border-bottom: 0px;
+  border: 0;
 }
 .synths-in-the-shadow.actor.agent * .damage-armor table thead {
-  background-color: #191813;
-  color: #EEEFFF;
+  background-color: #9f9dfc;
+  color: #080808;
   font-size: 18px;
   height: 30px;
   align-items: center;
@@ -1618,14 +1646,17 @@
   font-style: italic;
   text-transform: uppercase;
   font-weight: bold;
+  text-shadow: none;
+  border: 0;
 }
 .synths-in-the-shadow.actor.agent * .damage-armor table tbody:before {
-  line-height: 4px;
+  line-height: 6px;
   content: "‌";
   display: block;
 }
 .synths-in-the-shadow.actor.agent * .damage-armor table input[type=text] {
   width: 100%;
+  color: #ff9c9c;
 }
 .synths-in-the-shadow.actor.agent * .damage-armor tr {
   background-color: transparent !important;
@@ -1633,6 +1664,11 @@
 .synths-in-the-shadow.actor.agent * .damage-armor tr td:first-child {
   text-align: center;
   padding-left: 8px;
+}
+.synths-in-the-shadow.actor.agent * .damage-armor tr td {
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
 }
 .synths-in-the-shadow.actor.agent * .damage-armor .repair_clock {
   margin: 0 auto;
@@ -1682,23 +1718,43 @@
 .synths-in-the-shadow.actor.agent * .damage-armor .repair_clock .sits-clock *:nth-child(9) {
   transform: rotate(270deg) skewY(180deg);
 }
+.synths-in-the-shadow.actor.agent * .damage-armor .armor_uses {
+  /* Hide the browser's default checkbox */
+}
 .synths-in-the-shadow.actor.agent * .damage-armor .armor_uses div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-}
-.synths-in-the-shadow.actor.agent * .tabs {
-  background-color: #191813;
-  color: #EEEFFF;
-  font-size: 18px;
-  height: 30px;
-  align-items: center;
-  justify-content: space-around;
-  font-style: italic;
-  text-transform: uppercase;
   font-weight: bold;
-  margin-bottom: 4px;
+  font-style: italic;
+}
+.synths-in-the-shadow.actor.agent * .damage-armor .armor_uses label {
+  height: 32px;
+  width: 32px;
+  background-image: url("assets/pips/armor-armed-hot.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 0px;
+  cursor: pointer;
+}
+.synths-in-the-shadow.actor.agent * .damage-armor .armor_uses label:hover {
+  background-image: url("assets/pips/armor-armed-hot-hover.svg");
+}
+.synths-in-the-shadow.actor.agent * .damage-armor .armor_uses input {
+  display: none;
+}
+.synths-in-the-shadow.actor.agent * .damage-armor .armor_uses input + label {
+  background-image: url("assets/pips/armor-armed.svg");
+}
+.synths-in-the-shadow.actor.agent * .damage-armor .armor_uses input + label:hover {
+  background-image: url("assets/pips/armor-armed-hover.svg");
+}
+.synths-in-the-shadow.actor.agent * .damage-armor .armor_uses input:checked + label {
+  background-image: url("assets/pips/armor-armed-hot.svg");
+}
+.synths-in-the-shadow.actor.agent * .damage-armor .armor_uses input:checked + label:hover {
+  background-image: url("assets/pips/armor-armed-hot-hover.svg");
 }
 .synths-in-the-shadow.actor.agent * .abilities .item-name, .synths-in-the-shadow.actor.agent * .loadout .item-name {
   width: 100px;

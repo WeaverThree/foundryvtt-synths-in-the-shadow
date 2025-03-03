@@ -76,8 +76,8 @@ section {
   }
 }
 .black-label {
-  background-color: $almost_black;
-  color: $almost_white;
+  background-color: $header-bg;
+  color: $header-fg;
   font-size: 18px;
   text-align: center;
   padding: 0px 5px;
@@ -86,6 +86,10 @@ section {
   font-family: BarlowCondensed, sans-serif;
   font-weight: bold;
   font-style: italic;
+
+  display:flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .gray-label {
@@ -101,6 +105,15 @@ section {
   font-style: italic;
 }
 
+.stripe {
+  background-color: $header-bg;
+  color: $header-fg;
+  font-size: 18px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  font-style: italic;
+}
 
 .label-stripe {
   text-transform: uppercase;
@@ -139,6 +152,24 @@ i {
     @include changeable($transition-period, $hover-brightness, $hover-opacity, $red);
   }
 }
+
+.tabs {
+  background-color: $header-bg;
+  color: $header-fg;
+  font-size: 18px;
+  height: 30px;
+  align-items: center;
+  justify-content: space-around;
+  font-style: italic;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 4px;
+
+  & > [data-tab].active {
+    text-shadow: 0 0 10px $link_glow;
+  }
+}
+
 
 .loadout {
   select {

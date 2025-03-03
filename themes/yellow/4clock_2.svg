@@ -41,7 +41,7 @@
      id="layer1"
      transform="translate(-1024)">
     <path
-       style="fill:#ffdd55;stroke:none"
+       style="fill:#ffdd55;fill-opacity:1;stroke:none"
        d="M 1300,222.19771 V 13.585824 L 1542.4142,256.00002 1333.8023,256 Z M 1333.8023,256 h 208.6119 L 1300,498.4142 l 0,-208.6119 z"
        id="path11"
        transform="translate(-20)" />
@@ -50,7 +50,7 @@
      id="layer2"
      transform="translate(-1024)">
     <rect
-       style="fill:none;stroke:#000000;stroke-width:12;stroke-dasharray:none"
+       style="fill:none;stroke:#ffffff;stroke-width:12;stroke-dasharray:none"
        id="rect12"
        width="342.82541"
        height="342.82541"
@@ -58,7 +58,7 @@
        y="-895.49005"
        transform="rotate(45)" />
     <rect
-       style="fill:none;stroke:#000000;stroke-width:12;stroke-dasharray:none"
+       style="fill:none;stroke:#ffffff;stroke-width:12;stroke-dasharray:none"
        id="rect13"
        width="47.803635"
        height="47.803635"
@@ -66,7 +66,7 @@
        y="-747.97913"
        transform="rotate(45)" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:12;stroke-dasharray:none"
+       style="fill:none;stroke:#ffffff;stroke-width:12;stroke-dasharray:none"
        d="M 256,209.25963 V 33.447236 M 209.25963,256 H 33.447236 M 256,302.74037 V 478.55276 M 302.74037,256 h 175.81239"
        id="path13"
        transform="translate(1024)" />

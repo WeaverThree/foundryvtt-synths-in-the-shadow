@@ -264,16 +264,19 @@
             </td>
             <td rowspan="3" id="agent-{{_id}}-armor_uses" class="armor_uses">
               <div>
-                <label for="agent-{{_id}}-armor_uses-basic">{{localize "SITS.Basic"}}</label>
-                <input id="agent-{{_id}}-armor_uses-basic" type="checkbox" name="system.armor_uses.basic" {{checked system.armor_uses.basic}}>
+                {{localize "SITS.Basic"}}
+                <input id="agent-{{_id}}-armor_uses-basic" type="checkbox" name="system.armor_uses.basic" class="check" {{checked system.armor_uses.basic}}>
+                <label for="agent-{{_id}}-armor_uses-basic" class="radio_toggle"></label>
               </div>
               <div>
-                <label for="agent-{{_id}}-armor_uses-heavy">{{localize "SITS.Heavy"}}</label>
-                <input id="agent-{{_id}}-armor_uses-heavy" type="checkbox" name="system.armor_uses.heavy" {{checked system.armor_uses.heavy}}>
+                {{localize "SITS.Heavy"}}
+                <input id="agent-{{_id}}-armor_uses-heavy" type="checkbox" name="system.armor_uses.heavy" class="check" {{checked system.armor_uses.heavy}}>
+                <label for="agent-{{_id}}-armor_uses-heavy" class="radio_toggle"></label>
               </div>
               <div>
-                <label for="agent-{{_id}}-armor_uses-special">{{localize "SITS.Special"}}</label>
-                <input id="agent-{{_id}}-armor_uses-special" type="checkbox" name="system.armor_uses.special" {{checked system.armor_uses.special}}>
+                {{localize "SITS.Special"}}
+                <input id="agent-{{_id}}-armor_uses-special" type="checkbox" name="system.armor_uses.special" class="check" {{checked system.armor_uses.special}}>
+                <label for="agent-{{_id}}-armor_uses-special" class="radio_toggle"></label>
               </div>
             </td>
           </tr>

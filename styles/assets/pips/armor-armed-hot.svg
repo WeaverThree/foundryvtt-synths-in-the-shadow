@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 128 128"
+   version="1.1"
+   id="svg1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient19">
+      <stop
+         style="stop-color:#f0ee52;stop-opacity:1;"
+         offset="0"
+         id="stop18" />
+      <stop
+         style="stop-color:#eb4d00;stop-opacity:1;"
+         offset="1"
+         id="stop19" />
+    </linearGradient>
+    <radialGradient
+       xlink:href="#linearGradient19"
+       id="radialGradient2"
+       cx="340"
+       cy="84.415665"
+       fx="340"
+       fy="84.415665"
+       r="46.539322"
+       gradientTransform="matrix(1,0,0,0.87457197,-11.959454,8.0273942)"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       xlink:href="#linearGradient19"
+       id="radialGradient19"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.87457197,11.959454,8.0273942)"
+       cx="340"
+       cy="84.415665"
+       fx="340"
+       fy="84.415665"
+       r="46.539322" />
+  </defs>
+  <g
+     id="layer1"
+     style="display:none;stroke:none"
+     transform="translate(-276)">
+    <rect
+       style="font-variation-settings:normal;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.247843;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none"
+       id="rect8"
+       width="128"
+       height="128"
+       x="276"
+       y="0" />
+  </g>
+  <g
+     id="layer2"
+     transform="translate(-276)">
+    <path
+       style="opacity:1;fill:url(#radialGradient19);stroke:none;stroke-width:5;-inkscape-stroke:none"
+       d="m 398.49851,23.298828 c -19.78554,0 -29.28463,15.058937 -44.68945,16.203125 l -7.25,9.898438 23.5293,22.638671 -21.70703,22.4375 6.67773,10.224608 h 20.22656 c 13.57675,-14.484067 21.31485,-30.764275 23.21289,-48.841795 z"
+       id="path19" />
+    <path
+       style="opacity:1;fill:url(#radialGradient2);stroke:none;stroke-width:5;-inkscape-stroke:none"
+       d="m 281.50149,23.298828 v 32.560547 c 1.89804,18.07752 9.63614,34.357728 23.21289,48.841795 h 16.86914 l -7.31055,-11.195311 20.56836,-21.263671 -22.78711,-21.925782 8.6543,-11.818359 C 308.27484,34.864287 298.83783,23.298828 281.50149,23.298828 Z"
+       id="path1" />
+  </g>
+</svg>

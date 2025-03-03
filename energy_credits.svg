@@ -28,8 +28,8 @@
      inkscape:document-units="px"
      borderlayer="true"
      inkscape:zoom="1.4841815"
-     inkscape:cx="664.00235"
-     inkscape:cy="93.9912"
+     inkscape:cx="282.64737"
+     inkscape:cy="-27.96154"
      inkscape:window-width="2257"
      inkscape:window-height="1269"
      inkscape:window-x="0"
@@ -236,7 +236,7 @@
      inkscape:label="bkg"
      inkscape:groupmode="layer"
      id="layer1"
-     style="display:inline;stroke:none">
+     style="display:none;stroke:none">
     <rect
        style="font-variation-settings:normal;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.247843;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none"
        id="rect7"
