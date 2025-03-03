@@ -37,12 +37,12 @@
       <div class="headline">
         <div class="headline-left">
           <input type="text" id="agent-{{_id}}-model" class="model" name="system.model" value="{{system.model}}">
-          <input type="text" id="agent-{{_id}}-pronouns" class="pronouns" name="pronouns" value="{{system.pronouns}}">
+          <input type="text" id="agent-{{_id}}-pronouns" class="pronouns" name="system.pronouns" value="{{system.pronouns}}">
         </div>
         <input type="text" id="agent-{{_id}}-name" class="name" name="name" value="{{name}}" style="font-weight:bold">
       </div>
       <div class="lookline">
-        <input type="text" id="agent-{{_id}}-look" class="look" name="look" value="{{system.look}}">
+        <input type="text" id="agent-{{_id}}-look" class="look" name="system.look" value="{{system.look}}">
       </div>
 
       <div id="agent-{{_id}}-traits" class="flex-column">
@@ -62,7 +62,7 @@
 
           <div class="maker-detail detail">
             <span class="box-title">{{localize "SITS.Detail"}}</span>
-            <input type="text" id="agent-{{_id}}-build_details" class="maker_details" name="build_details" value="{{system.build_details}}">
+            <input type="text" id="agent-{{_id}}-maker_details" class="maker_details" name="system.maker_details" value="{{system.maker_details}}">
           </div>
 
         </div>
@@ -81,7 +81,7 @@
           
           <div class="build-detail detail">
             <span class="box-title">{{localize "SITS.Detail"}}</span>
-            <input type="text" id="agent-{{_id}}-build_details" class="build_details" name="build_details" value="{{system.build_details}}">
+            <input type="text" id="agent-{{_id}}-build_details" class="build_details" name="system.build_details" value="{{system.build_details}}">
           </div>
         </div>
 
@@ -99,7 +99,7 @@
           
           <div class="deviance-detail detail">
             <span class="box-title">{{localize "SITS.Detail"}}</span>
-            <input type="text" id="agent-{{_id}}-deviance_details" class="deviance_details" name="deviance_details" value="{{system.deviance_details}}">
+            <input type="text" id="agent-{{_id}}-deviance_details" class="deviance_details" name="system.deviance_details" value="{{system.deviance_details}}">
           </div>
         </div>
 
@@ -109,7 +109,7 @@
   </section>
 
   <section class="flex-horizontal first-section-addendum">
-    <textarea type="text" id="agent-{{_id}}-synopsis" class="synopsis" name="synopsis">{{system.synopsis}}</textarea>
+    <textarea type="text" id="agent-{{_id}}-synopsis" class="synopsis" name="system.synopsis">{{system.synopsis}}</textarea>
   </section>
 
   <section class="flex-horizontal second-section">
