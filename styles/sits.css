@@ -224,6 +224,21 @@
   flex-direction: column;
   justify-content: center;
 }
+.synths-in-the-shadow input {
+  border: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #dadada;
+}
+.synths-in-the-shadow input::placeholder {
+  color: #b4937d;
+}
+.synths-in-the-shadow textarea {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #dadada;
+}
+.synths-in-the-shadow textarea::placeholder {
+  color: #b4937d;
+}
 .synths-in-the-shadow .tab[data-tab] {
   display: none;
 }
@@ -1275,15 +1290,6 @@
 }
 .synths-in-the-shadow.actor.agent * form.actor-sheet {
   padding: 20px;
-}
-.synths-in-the-shadow.actor.agent * input {
-  border: 0;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #dadada;
-}
-.synths-in-the-shadow.actor.agent * textarea {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #dadada;
 }
 .synths-in-the-shadow.actor.agent * .underportrait {
   display: flex;

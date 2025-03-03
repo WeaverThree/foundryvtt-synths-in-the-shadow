@@ -36,13 +36,13 @@
 
       <div class="headline">
         <div class="headline-left">
-          <input type="text" id="agent-{{_id}}-model" class="model" name="system.model" value="{{system.model}}">
-          <input type="text" id="agent-{{_id}}-pronouns" class="pronouns" name="system.pronouns" value="{{system.pronouns}}">
+          <input type="text" id="agent-{{_id}}-model" class="model" name="system.model" value="{{system.model}}" placeholder="[{{localize 'SITS.Model'}}]">
+          <input type="text" id="agent-{{_id}}-pronouns" class="pronouns" name="system.pronouns" value="{{system.pronouns}}" placeholder="[{{localize 'SITS.Pronouns'}}]">
         </div>
         <input type="text" id="agent-{{_id}}-name" class="name" name="name" value="{{name}}" style="font-weight:bold">
       </div>
       <div class="lookline">
-        <input type="text" id="agent-{{_id}}-look" class="look" name="system.look" value="{{system.look}}">
+        <input type="text" id="agent-{{_id}}-look" class="look" name="system.look" value="{{system.look}}" placeholder="[{{localize 'SITS.LookPlaceholder'}}]">
       </div>
 
       <div id="agent-{{_id}}-traits" class="flex-column">
@@ -109,7 +109,7 @@
   </section>
 
   <section class="flex-horizontal first-section-addendum">
-    <textarea type="text" id="agent-{{_id}}-synopsis" class="synopsis" name="system.synopsis">{{system.synopsis}}</textarea>
+    <textarea type="text" id="agent-{{_id}}-synopsis" class="synopsis" name="system.synopsis" placeholder="[{{localize 'SITS.SynopsisPlaceholder'}}]">{{system.synopsis}}</textarea>
   </section>
 
   <section class="flex-horizontal second-section">

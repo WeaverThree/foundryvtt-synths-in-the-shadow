@@ -69,6 +69,25 @@ section {
   justify-content: center;
 }
 
+input {
+  border: 0;
+  background-color: $input-bg;
+  color: $main-fg;
+}
+
+input::placeholder {
+  color: $placeholder-fg;
+}
+
+textarea {
+  background-color: $input-bg;
+  color: $main-fg;
+}
+
+textarea::placeholder {
+  color: $placeholder-fg;
+}
+
 .tab[data-tab]{
   display: none;
   &.active{
