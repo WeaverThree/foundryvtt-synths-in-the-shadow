@@ -43,13 +43,10 @@ export class SitsActor extends Actor {
 
     // Calculate Dice to throw.
     let dice_amount = {};
-    dice_amount['BITD.Vice'] = 4;
+    dice_amount['BITD.Deviance'] = 4;
 
     for (var attribute_name in this.system.attributes) {
-      //dice_amount[attribute_name] = 0;
-	  dice_amount[attribute_name] = this.system.attributes[attribute_name].bonus;
       for (var skill_name in this.system.attributes[attribute_name].skills) {
-       // dice_amount[skill_name] = parseInt(this.system.attributes[attribute_name].skills[skill_name]['value'][0])
         dice_amount[skill_name] = parseInt(this.system.attributes[attribute_name].skills[skill_name]['value'])
 
         // We add a +1d for every skill higher than 0.
@@ -57,8 +54,8 @@ export class SitsActor extends Actor {
           dice_amount[attribute_name]++;
         }
       }
-      // Vice dice roll uses lowest attribute dice amount
-      dice_amount['BITD.Vice'] = Math.min(dice_amount['insight'],dice_amount['prowess'],dice_amount['resolve']);
+      // Deviance dice roll uses lowest attribute dice amount
+      dice_amount['BITD.Deviance'] = Math.min(dice_amount['processing'],dice_amount['power'],dice_amount['resolution']);
     }
 
     return dice_amount;
@@ -132,7 +129,7 @@ export class SitsActor extends Actor {
           </div>
           <div class="radio-group">
             <label>
-              <input type="radio" id="indulgeVice" name="rollSelection"> ${game.i18n.localize("BITD.IndulgeVice")}
+              <input type="radio" id="indulgeDeviance" name="rollSelection"> ${game.i18n.localize("BITD.IndulgeDeviance")}
             </label>
           </div>
           <div class="radio-group" style="display:flex;flex-direction:row;justify-content:space-between;">
@@ -180,7 +177,7 @@ export class SitsActor extends Actor {
 			let modifier = parseInt(html.find('[name="mod"]')[0].value);
             let note = html.find('[name="note"]')[0].value;
             let action_dice_amount = this.getRollData().dice_amount[attribute_name] + modifier;
-            let vice_dice_amount = this.getRollData().dice_amount['BITD.Vice'] + modifier;
+            let deviance_dice_amount = this.getRollData().dice_amount['BITD.Deviance'] + modifier;
             let overload = parseInt(this.system.overload.value);
             if (BladesHelpers.isAttributeAction(attribute_name)) {
               let input = html.find("input");
@@ -198,8 +195,8 @@ export class SitsActor extends Actor {
                     case 'gatherInfo':
                       await bladesRoll(action_dice_amount,"BITD.GatherInformation","","",note,"");
                       break;
-                    case 'indulgeVice':
-                      await bladesRoll(vice_dice_amount,"BITD.Vice","","",note,overload);
+                    case 'indulgeDeviance':
+                      await bladesRoll(deviance_dice_amount,"BITD.Deviance","","",note,overload);
                       break;
                     case 'engagement':
                       let engagement_dice_amount = Number(html.find('[name="qty"]')[0].value);
@@ -349,19 +346,19 @@ export class SitsActor extends Actor {
     let unit = this.system.unit;
     if (unit.length > 0) {
       let unit_actor = game.actors.get(unit[0].id);
-      max_overload = max_overload + unit_actor.system.scoundrel.add_overload;
+      max_overload = max_overload + unit_actor.system.agent_mod.add_overload;
     }
     return max_overload;
   }
 
-  getMaxTrauma() {
-    let max_trauma = this.system.trauma.max;
+  getMaxMalfunction() {
+    let max_malfunction = this.system.malfunction.max;
     let unit = this.system.unit;
     if (unit.length > 0) {
       let unit_actor = game.actors.get(unit[0].id);
-      max_trauma = max_trauma + unit_actor.system.scoundrel.add_trauma;
+      max_malfunction = max_malfunction + unit_actor.system.agent_mod.add_malfunction;
     }
-    return max_trauma;
+    return max_malfunction;
   }
 
   getHasMastery(){
@@ -369,15 +366,15 @@ export class SitsActor extends Actor {
     let unit = this.system.unit;
     if (unit.length > 0) {
       let unit_actor = game.actors.get(unit[0].id);
-      has_mastery = unit_actor.system.scoundrel.mastery;
+      has_mastery = unit_actor.system.agent_mod.mastery;
     }
     return has_mastery
   }
   
-  getHealingMin(){
-	let current_healing = parseInt(this.system.healing_clock.value);
-	if (current_healing < this.system.healing_clock.min) {
-		current_healing = this.system.healing_clock.min;
+  getRepairMin(){
+	let current_healing = parseInt(this.system.repair_clock.value);
+	if (current_healing < this.system.repair_clock.min) {
+		current_healing = this.system.repair_clock.min;
 	}
 	return current_healing;
   }

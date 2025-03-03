@@ -2,7 +2,7 @@
 *  Elements that can be changed will hint this by dimming and fading a little on hover
 */
 /*
- * Toothradio. Some (eg trauma) are not changeable, hence the option.
+ * Toothradio. Some (eg malfunction) are not changeable, hence the option.
  */
 /*
  * Custom Radio
@@ -1065,7 +1065,7 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 0px;
-  /* Trauma */
+  /* Malfunction */
 }
 .blades-in-the-dark.unit.sheet .big-teeth-section > * {
   margin-right: 10px;
@@ -1154,13 +1154,13 @@
   display: flex;
   flex-direction: row;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .trauma-list {
+.blades-in-the-dark.unit.sheet .big-teeth-section .malfunction-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .trauma-list label {
+.blades-in-the-dark.unit.sheet .big-teeth-section .malfunction-list label {
   cursor: pointer;
   font-size: 19px;
   -webkit-user-select: none;
@@ -1172,17 +1172,17 @@
   cursor: pointer;
   /* Hide the browser's default checkbox */
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .trauma-list label:hover {
+.blades-in-the-dark.unit.sheet .big-teeth-section .malfunction-list label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .trauma-list label input {
+.blades-in-the-dark.unit.sheet .big-teeth-section .malfunction-list label input {
   display: none;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .trauma-list label input:checked ~ .checkmark {
+.blades-in-the-dark.unit.sheet .big-teeth-section .malfunction-list label input:checked ~ .checkmark {
   color: red;
 }
-.blades-in-the-dark.unit.sheet .big-teeth-section .trauma-list label .checkmark {
+.blades-in-the-dark.unit.sheet .big-teeth-section .malfunction-list label .checkmark {
   text-decoration: none;
   font-weight: bold;
 }
@@ -1194,7 +1194,7 @@
   *  Elements that can be changed will hint this by dimming and fading a little on hover
   */
   /*
-   * Toothradio. Some (eg trauma) are not changeable, hence the option.
+   * Toothradio. Some (eg malfunction) are not changeable, hence the option.
    */
   /*
    * Custom Radio
@@ -1650,27 +1650,27 @@
 .blades-in-the-dark.actor.agent * .teeth-experience input:checked + label:hover {
   background-image: url("assets/pips/w-pip-blue-hover.svg");
 }
-.blades-in-the-dark.actor.agent * .harm-armor {
+.blades-in-the-dark.actor.agent * .damage-armor {
   display: flex;
 }
-.blades-in-the-dark.actor.agent * .harm-armor .harm {
+.blades-in-the-dark.actor.agent * .damage-armor .damage {
   width: 100%;
 }
-.blades-in-the-dark.actor.agent * .harm-armor .harm table {
+.blades-in-the-dark.actor.agent * .damage-armor .damage table {
   width: 100%;
 }
-.blades-in-the-dark.actor.agent * .harm-armor .harm table th {
+.blades-in-the-dark.actor.agent * .damage-armor .damage table th {
   background-color: #191813;
   color: #EEEFFF;
 }
-.blades-in-the-dark.actor.agent * .harm-armor .harm table input[type=text] {
+.blades-in-the-dark.actor.agent * .damage-armor .damage table input[type=text] {
   width: 100%;
 }
-.blades-in-the-dark.actor.agent * .harm-armor .health-clock {
+.blades-in-the-dark.actor.agent * .damage-armor .repair_clock {
   margin: 0 auto;
   position: relative;
 }
-.blades-in-the-dark.actor.agent * .harm-armor .health-clock .blades-clock {
+.blades-in-the-dark.actor.agent * .damage-armor .repair_clock .blades-clock {
   position: relative;
   padding: 0;
   width: 88px;
@@ -1680,7 +1680,7 @@
   overflow: hidden;
   background-size: cover;
 }
-.blades-in-the-dark.actor.agent * .harm-armor .health-clock .blades-clock label {
+.blades-in-the-dark.actor.agent * .damage-armor .repair_clock .blades-clock label {
   overflow: hidden;
   position: absolute;
   top: -50%;
@@ -1691,30 +1691,30 @@
   transition: filter 0.1s;
   cursor: pointer;
 }
-.blades-in-the-dark.actor.agent * .harm-armor .health-clock .blades-clock label:hover {
+.blades-in-the-dark.actor.agent * .damage-armor .repair_clock .blades-clock label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.blades-in-the-dark.actor.agent * .harm-armor .health-clock .blades-clock input {
+.blades-in-the-dark.actor.agent * .damage-armor .repair_clock .blades-clock input {
   position: absolute;
   display: none;
 }
-.blades-in-the-dark.actor.agent * .harm-armor .health-clock .blades-clock input[value="0"] {
+.blades-in-the-dark.actor.agent * .damage-armor .repair_clock .blades-clock input[value="0"] {
   display: none;
 }
-.blades-in-the-dark.actor.agent * .harm-armor .health-clock .blades-clock *:nth-child(3) {
+.blades-in-the-dark.actor.agent * .damage-armor .repair_clock .blades-clock *:nth-child(3) {
   transform: rotate(0deg) skewY(180deg);
 }
-.blades-in-the-dark.actor.agent * .harm-armor .health-clock .blades-clock *:nth-child(5) {
+.blades-in-the-dark.actor.agent * .damage-armor .repair_clock .blades-clock *:nth-child(5) {
   transform: rotate(90deg) skewY(180deg);
 }
-.blades-in-the-dark.actor.agent * .harm-armor .health-clock .blades-clock *:nth-child(7) {
+.blades-in-the-dark.actor.agent * .damage-armor .repair_clock .blades-clock *:nth-child(7) {
   transform: rotate(180deg) skewY(180deg);
 }
-.blades-in-the-dark.actor.agent * .harm-armor .health-clock .blades-clock *:nth-child(9) {
+.blades-in-the-dark.actor.agent * .damage-armor .repair_clock .blades-clock *:nth-child(9) {
   transform: rotate(270deg) skewY(180deg);
 }
-.blades-in-the-dark.actor.agent * .harm-armor .armor-uses div {
+.blades-in-the-dark.actor.agent * .damage-armor .armor_uses div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

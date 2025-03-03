@@ -2,61 +2,64 @@
   "Actor": {
   "types": ["agent", "npc", "unit", "clock", "factions"],
   "agent": {
-    "alias": "",
+    "model": "",
     "pronouns": "",
     "look": "",
-    "heritage": "",
-    "background": "",
-    "background-details": "",
-    "vice": "",
-    "vice-purveyor": "",
+    "maker": "",
+    "maker_details": "",
+    "build": "",
+    "build_details": "",
+    "deviance": "",
+    "deviance_details": "",
+    "synopsis": "",
+    "flaw": "",
     "playbook": "",
-    "unit": [],
-    "acquaintances": [],
-    "acquaintances_label": "BITD.Acquaintances",
+    "unit": "",
+    "contacts": [],
     "overload": {
-      "value": [0],
-      "max": 9,
-      "max_default": 9,
+      "value": 0,
+      "max": 12,
+      "max_default": 12,
       "name_default": "SITS.Overload",
       "name": "SITS.Overload"
     },
-    "trauma": {
+    "malfunction": {
       "max": 4,
       "max_default": 4,
-      "value": [0],
-      "name": "BITD.Trauma",
-      "name_default": "BITD.Trauma",
-      "options": ["BITD.TraumaCold", "BITD.TraumaHaunted", "BITD.TraumaObsessed", "BITD.TraumaParanoid", "BITD.TraumaReckless", "BITD.TraumaSoft", "BITD.TraumaUnstable", "BITD.TraumaVicious"],
+      "value": 0,
+      "name": "SITS.Malfunction",
+      "name_default": "SITS.Malfunction",
+      "options": [
+            "SITS.MalfunctionCold", "SITS.MalfunctionHaunted", "SITS.MalfunctionObsessed", "SITS.MalfunctionParanoid",
+            "SITS.MalfunctionReckless", "SITS.MalfunctionSoft", "SITS.MalfunctionUnstable", "SITS.MalfunctionVicious"
+      ],
       "list": []
     },
-    "healing-clock": [0],
-    "healing_clock": {
-      "value": [0],
+    "repair_clock": {
+      "value": 0,
       "max": 4,
       "min": 0
     },
-    "experience": [0],
-    "experience_max": 8,
-    "experience_clues": ["BITD.ClassExpClue3", "BITD.ClassExpClue2"],
-    "exp_clock": {
-      "value": 0,
-      "number": 0,
-      "size": 6,
-      "color": "black"
-	  },
-    "coins": [0],
-    "coins_stashed": [0],
-    "coins_max": {
-      "hand": 4,
-      "stash": 40
+    "playbook_xp": {
+      "current": 0,
+      "max": 8
+    },
+    "energy_credits": {
+      "on_hand": 0,
+      "savings": 0,
+      "max_hand": 4,
+      "max_overflow": 4,
+      "max_stash": 32
     },
     "special_abilities": [],
-    "loadout": 0,
-    "load_level": "",
-    "selected_load_level": "",
-    "base_max_load": 0,
-    "harm": {
+    "capacity": {
+      "current": 0,
+      "selected": "",
+      "max_light": 3,
+      "max_normal": 5,
+      "max_heavy": 7
+    },
+    "damage": {
         "light": {
           "one": "",
           "two": ""
@@ -72,102 +75,99 @@
           "one": ""
         }
     },
-    "armor-uses": {
-      "armor": 0,
-      "heavy": 0,
-      "special": 0
+    "armor_uses": {
+      "basic": false,
+      "heavy": false,
+      "special": false
     },
     "attributes": {
-        "insight": {
+        "processing": {
           "exp": 0,
           "exp_max": 6,
-          "bonus": 0,
-          "label": "BITD.SkillsInsight",
+          "label": "SITS.AttribProcessing",
           "skills": {
             "hunt": {
-              "label": "BITD.SkillsHunt",
+              "label": "SITS.AttribHunt",
               "value": 0,
               "max": 3,
               "min": 0
             },
-            "study": {
-              "label": "BITD.SkillsStudy",
+            "analyze": {
+              "label": "SITS.AttribAnalyze",
               "value": 0,
               "max": 3,
               "min": 0
             },
-            "survey": {
-              "label": "BITD.SkillsSurvey",
+            "scan": {
+              "label": "SITS.AttribScan",
               "value": 0,
               "max": 3,
               "min": 0
             },
-            "tinker": {
-              "label": "BITD.SkillsTinker",
+            "engineer": {
+              "label": "SITS.AttribEngineer",
               "value": 0,
               "max": 3,
               "min": 0
             }
           }
         },
-        "prowess": {
+        "power": {
           "exp": 0,
           "exp_max": 6,
-          "bonus": 0,
-          "label": "BITD.SkillsProwess",
+          "label": "SITS.AttribPower",
           "skills": {
-            "finesse": {
-              "label": "BITD.SkillsFinesse",
+            "manipulate": {
+              "label": "SITS.AttribManipulate",
               "value": 0,
               "max": 3,
               "min": 0
             },
-            "prowl": {
-              "label": "BITD.SkillsProwl",
+            "infiltrate": {
+              "label": "SITS.AttribInfiltrate",
               "value": 0,
               "max": 3,
               "min": 0
             },
-            "skirmish": {
-              "label": "BITD.SkillsSkirmish",
+            "clash": {
+              "label": "SITS.AttribClash",
               "value": 0,
               "max": 3,
               "min": 0
             },
-            "wreck": {
-              "label": "BITD.SkillsWreck",
+            "blast": {
+              "label": "SITS.AttribBlast",
               "value": 0,
               "max": 3,
               "min": 0
             }
           }
         },
-        "resolve": {
+        "resolution": {
           "exp": 0,
           "exp_max": 6,
-          "bonus": 0,
-          "label": "BITD.SkillsResolve",
+          "label": "SITS.AttribResolution",
           "skills": {
-            "attune": {
-              "label": "BITD.SkillsAttune",
+            "hack": {
+              "label": "SITS.AttribHack",
               "value": 0,
               "max": 3,
               "min": 0
             },
             "command": {
-              "label": "BITD.SkillsCommand",
+              "label": "SITS.AttribCommand",
               "value": 0,
               "max": 3,
               "min": 0
             },
-            "consort": {
-              "label": "BITD.SkillsConsort",
+            "network": {
+              "label": "SITS.AttribNetwork",
               "value": 0,
               "max": 3,
               "min": 0
             },
             "sway": {
-              "label": "BITD.SkillsSway",
+              "label": "SITS.AttribSway",
               "value": 0,
               "max": 3,
               "min": 0
@@ -216,8 +216,8 @@
     "acquaintances_label": "BITD.Contacts",
     "hunting_grounds": [],
     "hunting_grounds_label": "BITD.HuntingGrounds",
-    "scoundrel": {
-      "add_trauma": 0,
+    "agent_mod": {
+      "add_malfunction": 0,
       "add_overload": 0,
       "mastery": false
     },
@@ -249,17 +249,17 @@
     }
   },
   "Item": {
-    "types": ["faction", "item", "class", "ability", "heritage", "background", "vice", "hunting_grounds", "unit_upgrade", "cohort", "unit_type", "unit_reputation", "unit_upgrade", "unit_ability", "prison"],
+    "types": ["faction", "item", "playbook", "ability", "maker", "build", "deviance", "hunting_grounds", "unit_upgrade", "cohort", "unit_type", "unit_reputation", "unit_upgrade", "unit_ability", "prison"],
     "templates": {
       "default": {
         "description": ""
       },
       "ability": {
         "description": "",
-        "class": "",
+        "playbook": "",
         "price": 1,
         "purchased": false,
-        "class_default": false
+        "playbook_default": false
       },
       "logic": {
         "logic": ""
@@ -331,41 +331,41 @@
     },
     "item": {
     "templates": ["default", "logic", "activatedEffect"],
-    "class": "",
+    "playbook": "",
     "load": 0,
     "uses": 1,
     "additional_info": "",
     "equipped" : false,
     "num_available": 1
   },
-  "class": {
+  "playbook": {
     "templates": ["default", "logic", "activatedEffect"],
     "experience_clues": [],
     "base_skills": {
       "hunt": [0],
-      "study": [0],
-      "survey": [0],
-      "tinker": [0],
-      "finesse": [0],
-      "prowl": [0],
-      "skirmish": [0],
-      "wreck": [0],
-      "attune": [0],
+      "analyze": [0],
+      "scan": [0],
+      "engineer": [0],
+      "manipulate": [0],
+      "infiltrate": [0],
+      "clash": [0],
+      "blast": [0],
+      "hack": [0],
       "command": [0],
-      "consort": [0],
+      "network": [0],
       "sway": [0]
     }
   },
   "ability": {
     "templates": ["ability", "logic", "activatedEffect"]
   },
-  "heritage": {
+  "maker": {
     "templates": ["default", "activatedEffect"]
   },
-  "background": {
+  "build": {
     "templates": ["default", "activatedEffect"]
   },
-  "vice": {
+  "deviance": {
     "templates": ["default", "activatedEffect"]
   },
   "hunting_grounds": {

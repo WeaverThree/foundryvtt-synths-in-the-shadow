@@ -44,7 +44,7 @@ export class SitsAgentSheet extends SitsSheet {
       loadout = 11;
     }
 
-    sheetData.system.loadout = loadout;
+    sheetData.system.capacity.current = loadout;
 
     // Encumbrance Levels
     let load_level;
@@ -67,9 +67,9 @@ export class SitsAgentSheet extends SitsSheet {
 
     //set encumbrance level
     if (mule_present) {
-      sheetData.system.load_level=mule_level[loadout];
+      sheetData.system.capacity.current=mule_level[loadout];
     } else {
-      sheetData.system.load_level=load_level[loadout];
+      sheetData.system.capacity.current=load_level[loadout];
     }
 
 		sheetData.system.load_levels = {"BITD.Light":"BITD.Light", "BITD.Normal":"BITD.Normal", "BITD.Heavy":"BITD.Heavy"};
@@ -80,12 +80,12 @@ export class SitsAgentSheet extends SitsSheet {
     // catch unmigrated actor data and apply the Mastery unit ability to attribute maxes
     sheetData.system.attributes = this.actor.getComputedAttributes();
 	
-    //check for additional overload and trauma from unit sources
+    //check for additional overload and malfunction from unit sources
     sheetData.system.overload.max = this.actor.getMaxOverload();
-    sheetData.system.trauma.max = this.actor.getMaxTrauma();
+    sheetData.system.malfunction.max = this.actor.getMaxMalfunction();
 
     //check for healing minimums
-    sheetData.system.healing_clock.value = this.actor.getHealingMin();
+    sheetData.system.repair_clock.value = this.actor.getRepairMin();
 
     return sheetData;
   }
@@ -117,14 +117,14 @@ export class SitsAgentSheet extends SitsSheet {
       case "npc":
         await BladesHelpers.addAcquaintance(this.actor, droppedEntityFull);
         break;
-	  case "unit":
+      case "unit":
         await BladesHelpers.addUnit(this.actor, droppedEntityFull);
         break;
       case "item":
         break;
       case "ability":
         break;
-      case "class":
+      case "playbook":
         break ;
       default:
         break;

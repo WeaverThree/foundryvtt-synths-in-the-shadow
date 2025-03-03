@@ -35,7 +35,7 @@ Hooks.once("init", async function() {
     sizes: [ 4, 6, 8, 10, 12 ]
   };
 
-  game.system.traumas = [ "cold", "haunted", "obsessed", "paranoid", "reckless", "soft", "unstable", "vicious" ];
+  game.system.malfunctions = [ "cold", "haunted", "obsessed", "paranoid", "reckless", "soft", "unstable", "vicious" ];
 
   CONFIG.Item.documentClass = BladesItem;
   CONFIG.Actor.documentClass = SitsActor;
@@ -95,14 +95,14 @@ Hooks.once("init", async function() {
     return html;
   });
 
-  // Trauma Counter
-  Handlebars.registerHelper('traumacounter', function(selected, options) {
+  // Malfunction Counter
+  Handlebars.registerHelper('malfunctioncounter', function(selected, options) {
 
     let html = options.fn(this);
 
     var count = 0;
-    for (const trauma in selected) {
-      if (selected[trauma] === true) {
+    for (const malfunction in selected) {
+      if (selected[malfunction] === true) {
         count++;
       }
     }
@@ -287,7 +287,6 @@ Hooks.once("init", async function() {
     }
 
     // Label for 0
-    html += `<label class="clock-zero-label" for="clock-0-${uniq_id}}"><i class="fab fa-creative-commons-zero nullifier"></i></label>`;
     html += `<div id="blades-clock-${uniq_id}" class="blades-clock clock-${type} clock-${type}-${current_value}" style="background-image:url('systems/synths-in-the-shadow/themes/black/${type}clock_${current_value}.svg');">`;
 
     let zero_checked = (parseInt(current_value) === 0) ? 'checked' : '';

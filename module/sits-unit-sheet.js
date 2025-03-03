@@ -79,7 +79,7 @@ export class SitsUnitSheet extends SitsSheet {
         break;
       case "ability":
         break;
-      case "class":
+      case "playbook":
         break ;
       default:
         break;
@@ -95,7 +95,7 @@ export class SitsUnitSheet extends SitsSheet {
     if (!this.options.editable) return;
 
     // Add Unit Type
-    html.find(".unit-class").click(this._onItemAddClick.bind(this));
+    html.find(".unit-playbook").click(this._onItemAddClick.bind(this));
 
     // Add a new Cohort
     html.find('.add-item').click(ev => {

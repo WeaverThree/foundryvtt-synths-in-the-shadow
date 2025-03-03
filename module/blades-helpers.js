@@ -10,7 +10,7 @@ export class BladesHelpers {
    */
   static removeDuplicatedItemType(item_data, actor) {
     let dupe_list = [];
-    let distinct_types = ["unit_type", "unit_reputation", "class", "vice", "background", "heritage", "prison"];
+    let distinct_types = ["unit_type", "unit_reputation", "playbook", "deviance", "maker", "build", "prison"];
     let allowed_types = ["item"];
     let should_be_distinct = distinct_types.includes(item_data.type);
     // If the Item has the exact same name - remove it from list.
@@ -283,7 +283,7 @@ export class BladesHelpers {
     let all_acquaintances = await this.getSourcedItemsByType('npc');
 	let playbook_acquaintances = [];
 	if (actor_type == "agent") {
-		playbook_acquaintances = all_acquaintances.filter(i => i.system.associated_class === selected_playbook);
+		playbook_acquaintances = all_acquaintances.filter(i => i.system.playbook === selected_playbook);
 	} else if (actor_type == "unit") {
 		playbook_acquaintances = all_acquaintances.filter(i => i.system.associated_unit_type === selected_playbook);
 	}

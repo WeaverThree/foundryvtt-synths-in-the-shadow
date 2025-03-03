@@ -83,9 +83,9 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
     let filepath = "systems/synths-in-the-shadow/templates/chat/resistance-roll.html";
     result = await renderTemplate(filepath, {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, overload: overload, note: note});
   }
-  // Check for Indugle Vice roll
-  else if (attribute_name == 'BITD.Vice') {
-    let clear_overload = getBladesRollVice(rolls, zeromode);
+  // Check for Indugle Deviance roll
+  else if (attribute_name == 'SITS.Deviance') {
+    let clear_overload = getBladesRollDeviance(rolls, zeromode);
 
     if (current_overload - clear_overload >= 0) {
       roll_status = "success";
@@ -94,7 +94,7 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
       clear_overload = current_overload;
     }
 
-    result = await renderTemplate("systems/synths-in-the-shadow/templates/chat/vice-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, clear_overload: clear_overload, note: note});
+    result = await renderTemplate("systems/synths-in-the-shadow/templates/chat/deviance-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, clear_overload: clear_overload, note: note});
   }
   // Check for Gather Information roll
   else if (attribute_name == 'BITD.GatherInformation') {
@@ -254,11 +254,11 @@ export function getBladesRollOverload(rolls, zeromode = false) {
 }
 
 /**
- * Get overload cleared with a Vice Roll.
+ * Get overload cleared with a Deviance Roll.
  * @param {Array} rolls
  * @param {Boolean} zeromode
  */
-export function getBladesRollVice(rolls, zeromode = false) {
+export function getBladesRollDeviance(rolls, zeromode = false) {
   // Sort roll values from lowest to highest.
   let sorted_rolls = rolls.map(i => i.result).sort();
   let use_die;
@@ -332,7 +332,7 @@ export async function simpleRollPopup() {
             </label>
           </div>
           <div class="radio-group" style="display:flex;flex-direction:row;justify-content:space-between;">
-            <label><input type="radio" id="indulgeVice" name="rollSelection"> ${game.i18n.localize("BITD.IndulgeVice")}</label>
+            <label><input type="radio" id="indulgeDeviance" name="rollSelection"> ${game.i18n.localize("BITD.IndulgeDeviance")}</label>
             <span style="width:200px">
               <label>${game.i18n.localize('BITD.Overload')}:</label>
               <select style="width:100px;float:right" id="overload" name="overload">
@@ -378,8 +378,8 @@ export async function simpleRollPopup() {
                 case 'engagement':
                   await bladesRoll(diceQty,"BITD.Engagement","","",note,"");
                   break;
-                case 'indulgeVice':
-                  await bladesRoll(diceQty,"BITD.Vice","","",note,overload);
+                case 'indulgeDeviance':
+                  await bladesRoll(diceQty,"BITD.Deviance","","",note,overload);
                   break;
                 case 'acquireAsset':
 				  diceQty = diceQty + tier; console.log(diceQty);

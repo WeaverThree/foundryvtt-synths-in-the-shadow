@@ -126,7 +126,7 @@ $hover-brightness: 0.8;
     margin-top: 10px;
   }
 
-  // MARK:Overload and Trauma
+  // MARK:Overload and Malfunction
 
   .overload-malfunction {
 
@@ -145,7 +145,7 @@ $hover-brightness: 0.8;
       @include pipradio_hover(15px, 30px, "assets/pips/pip-base.svg", "assets/pips/pip-red.svg", "assets/pips/pip-base-hover.svg", "assets/pips/pip-red-hover.svg");
     }
 
-    // Trauma 
+    // Malfunction 
     .malfunction {
       .black-label {
         height: 15px;
@@ -295,12 +295,12 @@ $hover-brightness: 0.8;
     right: 10px;
   }
 
-  .harm-armor {
+  .damage-armor {
 
     display: flex;
 
     // Harm
-    .harm {
+    .damage {
 
       width: 100%;
 
@@ -319,12 +319,12 @@ $hover-brightness: 0.8;
     }
 
     // Clock
-    .health-clock {
+    .repair_clock {
       margin: 0 auto;
       @include clock(4, 88);
     }
 
-    .armor-uses {
+    .armor_uses {
 
       div {
         display: flex;
