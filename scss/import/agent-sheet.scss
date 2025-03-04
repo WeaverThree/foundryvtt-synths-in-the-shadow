@@ -147,6 +147,9 @@ $hover-brightness: 0.8;
         font-size: 13px;
       }
       @include pipradio(45px, 15px, "assets/pips/w-pipwide-base.svg", "assets/pips/w-pipwide-orange.svg", false);
+      label {
+        cursor: pointer !important;
+      }
     }
 
   }

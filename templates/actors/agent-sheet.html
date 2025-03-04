@@ -131,19 +131,21 @@
         {{/multiboxes}}
       </div>
 
-      <div id="agent-{{_id}}-malfunction-container" class="malfunction">
-        {{#malfunctioncounter system.malfunction.list}}
+      <a class="malfunction-checklist-popup">
+        <div id="agent-{{_id}}-malfunction-container" class="malfunction">
+          {{#malfunctioncounter system.malfunction.list}}
 
-          <div class="black-label">{{localize system.malfunction.name}}</div>
-          <input type="radio" id="agent-{{_id}}-malfunction-counter-0" name="system.malfunction.value" value="0">
+            <div class="black-label">{{localize system.malfunction.name}}</div>
+            <input type="radio" id="agent-{{_id}}-malfunction-counter-0" name="system.malfunction.value" value="0">
 
-          {{#times_from 1 system.malfunction.max}}
-            <input type="radio" id="agent-{{../_id}}-malfunction-counter-{{this}}" name="system.malfunction.value" value="{{this}}" disabled>
-            <label for="agent-{{../_id}}-malfunction-counter-{{this}}"></label>
-          {{/times_from}}
-          
-        {{/malfunctioncounter}}
-      </div>
+            {{#times_from 1 system.malfunction.max}}
+              <input type="radio" id="agent-{{../_id}}-malfunction-counter-{{this}}" name="system.malfunction.value" value="{{this}}" disabled>
+              <label for="agent-{{../_id}}-malfunction-counter-{{this}}"></label>
+            {{/times_from}}
+            
+          {{/malfunctioncounter}}
+        </div>
+      </a>
 
       <div class="energy_credits-header">
         <div>{{localize "SITS.Energy Credits"}}</div>

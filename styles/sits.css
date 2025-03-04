@@ -1443,6 +1443,9 @@
 .synths-in-the-shadow.actor.agent * .overload-malfunction .malfunction input:checked + label {
   background-image: url("assets/pips/w-pipwide-orange.svg");
 }
+.synths-in-the-shadow.actor.agent * .overload-malfunction .malfunction label {
+  cursor: pointer !important;
+}
 .synths-in-the-shadow.actor.agent * .energy_credits-header {
   display: flex;
   justify-content: space-between;
@@ -1881,6 +1884,12 @@
   margin-bottom: 10px;
 }
 
+.dialog .window-content {
+  background-color: #010e38;
+  color: #dadada;
+  background-image: url("assets/scanlines_bkg.png");
+}
+
 .chat-label {
   background-color: #191813;
   font-family: Kirsty, serif;
@@ -1969,6 +1978,32 @@
 }
 .items-to-add .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+.dialog .window-content {
+  background-color: #010e38;
+  color: #dadada;
+  background-image: url("assets/scanlines_bkg.png");
+}
+.dialog .window-content .dialog-buttons button {
+  background-color: #9f9dfc;
+  color: #080808;
+  border: 2px groove #9f9dfc;
+}
+.dialog .flex-horizontal-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.dialog .malfunction-checklist {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+.dialog .malfunction-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 /*# sourceMappingURL=sits.css.map */

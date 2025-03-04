@@ -100,14 +100,7 @@ Hooks.once("init", async function() {
 
     let html = options.fn(this);
 
-    var count = 0;
-    for (const malfunction in selected) {
-      if (selected[malfunction] === true) {
-        count++;
-      }
-    }
-
-    //if (count > 4) count = 4;
+    var count = selected.length;
 
     const rgx = new RegExp(' value=\"' + count + '\"');
     return html.replace(rgx, "$& checked");
