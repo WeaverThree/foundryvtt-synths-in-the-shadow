@@ -49,6 +49,30 @@
       color: $header-fg;
       border: 2px groove $header-bg;
     }
+
+    input {
+      border: 0;
+      background-color: $input-bg;
+      color: $main-fg;
+    }
+
+    input::placeholder {
+      color: $placeholder-fg;
+    }
+
+    textarea {
+      background-color: $input-bg;
+      color: $main-fg;
+    }
+
+    textarea::placeholder {
+      color: $placeholder-fg;
+    }
+
+    select {
+      background-color: $header-bg;
+      color: $header-fg;
+    }
   }
 
 

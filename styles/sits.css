@@ -1314,7 +1314,7 @@
   margin-bottom: 4px;
 }
 .synths-in-the-shadow.actor.agent * .headline .name {
-  font-size: 60px;
+  font-size: 50px;
   height: 64px;
 }
 .synths-in-the-shadow.actor.agent * .lookline {
@@ -1884,12 +1884,6 @@
   margin-bottom: 10px;
 }
 
-.dialog .window-content {
-  background-color: #010e38;
-  color: #dadada;
-  background-image: url("assets/scanlines_bkg.png");
-}
-
 .chat-label {
   background-color: #191813;
   font-family: Kirsty, serif;
@@ -1990,6 +1984,25 @@
   color: #080808;
   border: 2px groove #9f9dfc;
 }
+.dialog .window-content input {
+  border: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #dadada;
+}
+.dialog .window-content input::placeholder {
+  color: #b4937d;
+}
+.dialog .window-content textarea {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #dadada;
+}
+.dialog .window-content textarea::placeholder {
+  color: #b4937d;
+}
+.dialog .window-content select {
+  background-color: #9f9dfc;
+  color: #080808;
+}
 .dialog .flex-horizontal-center {
   display: flex;
   flex-direction: row;
@@ -1998,7 +2011,6 @@
 .dialog .malfunction-checklist {
   display: flex;
   flex-direction: column;
-  width: 200px;
 }
 .dialog .malfunction-row {
   display: flex;
