@@ -12,6 +12,22 @@ export class SitsActor extends Actor {
 
     data.prototypeToken = data.prototypeToken || {};
 
+      // For Unit and Agent set the Token to sync with charsheet.
+      switch (data.type) {
+        case 'agent':
+          this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/icons/agent.svg";
+          break;
+        case 'unit':
+          this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/icons/unit.svg";
+          break;
+        case 'factions':
+          this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/scales.svg";
+          break;
+        case 'clock':
+        case 'npc':
+          break;
+      }
+
     // For Unit and Agent set the Token to sync with charsheet.
     switch (data.type) {
       case 'agent':

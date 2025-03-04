@@ -10,7 +10,7 @@ export class SitsNPCSheet extends SitsSheet {
 	static get defaultOptions() {
 	  return foundry.utils.mergeObject(super.defaultOptions, {
   	  classes: ["synths-in-the-shadow", "sheet", "actor"],
-  	  template: "systems/synths-in-the-shadow/templates/npc-sheet.html",
+  	  template: "systems/synths-in-the-shadow/templates/actors/npc-sheet.html",
       width: 900,
       height: 'auto',
       tabs: [{navSelector: ".tabs", contentSelector: ".tab-content"}]

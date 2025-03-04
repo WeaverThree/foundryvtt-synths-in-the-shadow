@@ -10,7 +10,7 @@ export class SitsFactionSheet extends SitsSheet {
 	static get defaultOptions() {
 	  return foundry.utils.mergeObject(super.defaultOptions, {
   	  classes: ["synths-in-the-shadow", "sheet", "actor", "faction"],
-  	  template: "systems/synths-in-the-shadow/templates/faction-sheet.html",
+  	  template: "systems/synths-in-the-shadow/templates/actors/faction-sheet.html",
       width: 900,
       height: 'auto',
       tabs: [{navSelector: ".tabs", contentSelector: ".tab-content"}]
