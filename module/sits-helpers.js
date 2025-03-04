@@ -10,7 +10,7 @@ export class SitsHelpers {
    */
   static removeDuplicatedItemType(item_data, actor) {
     let dupe_list = [];
-    let distinct_types = ["unit_type", "unit_reputation", "playbook", "deviance", "maker", "build", "prison"];
+    let distinct_types = ["unit_type", "unit_reputation", "playbook", "deviance", "maker", "build"];
     let allowed_types = ["item"];
     let should_be_distinct = distinct_types.includes(item_data.type);
     // If the Item has the exact same name - remove it from list.

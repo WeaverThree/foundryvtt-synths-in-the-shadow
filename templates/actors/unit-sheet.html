@@ -207,7 +207,6 @@
         <a class="item" data-tab="abilities">{{localize "BITD.Abilities"}}</a>
         <a class="item" data-tab="contacts">{{localize "BITD.Contacts"}}</a>
         <a class="item" data-tab="cohorts">{{localize "BITD.Cohorts"}}</a>
-        <a class="item" data-tab="prison">{{localize "BITD.Prison"}}</a>
         <a class="item" data-tab="notes">{{localize "BITD.Notes"}}</a>
         <a class="item" data-tab="all-items">{{localize "BITD.AllItems"}}</a>
 		{{#if isGM}}
@@ -346,21 +345,6 @@
           {{/if}}
         {{/each}}
       </div>
-    </div>
-	
-    {{!-- Prison --}}
-    <div id="unit-{{_id}}-prison" class="tab" data-tab="prison">
-      <div class="label-stripe flex-horizontal">
-        <p><label>{{localize "BITD.Prison"}}</label></p>
-		<p><a class="item-add-popup" data-distinct="true" data-item-type="prison"><i class="fas fa-plus-square"></i></a></p>
-      </div>
-      {{#each items as |item id|}}
-      {{#if (eq item.type "prison")}}
-      <div class="item" data-item-id="{{item._id}}">
-      {{> "systems/synths-in-the-shadow/templates/parts/turf-list.html" _id=../_id turfs_data=item.system.turfs can_edit=false not_prison=false}}
-      </div>
-      {{/if}}
-      {{/each}}
     </div>
 
     {{!-- Notes --}}

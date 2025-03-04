@@ -15,7 +15,6 @@
   "TYPES.Item.unit_upgrade": "Unit Upgrade",
   "TYPES.Item.unit_ability": "Unit Ability",
   "TYPES.Item.hunting_grounds": "Hunting Grounds",
-  "TYPES.Item.prison": "Prison",
   "TYPES.Item.faction": "Faction",
   "TYPES.Item.cohort": "Cohort",
   "SITS.Maker": "Maker",
@@ -292,7 +291,6 @@
   "BITD.SacredSites": "Sacred Sites",
   "BITD.SalesTerritory": "Sales Territory",
   "BITD.CargoTypes": "Cargo Types",
-  "BITD.Prison": "Prison",
 
   "BITD.ActionRoll": "Action",
   "BITD.IndulgeVice": "Indulge Vice",
