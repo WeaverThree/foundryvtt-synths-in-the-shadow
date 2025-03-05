@@ -305,6 +305,9 @@ export class SitsHelpers {
 	
 	// adds a unit to the agent
 	static async addUnit(agent, dropped_unit){
+    if (!dropped_unit) {
+      return;
+    }
 		let current_unit = agent.system.unit;
 		let new_unit = {
 			id : dropped_unit.id,
