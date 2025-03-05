@@ -13,11 +13,11 @@ import { SitsActor } from "./sits-actor.js";
 import { SitsItem } from "./sits-item.js";
 import { SitsItemSheet } from "./sits-item-sheet.js";
 import { SitsAgentSheet } from "./sits-agent-sheet.js";
-import { SitsActiveEffect } from "./sits-active-effect.js";
+import { SitsFactionSheet } from "./sits-faction-sheet.js";
 import { SitsUnitSheet } from "./sits-unit-sheet.js";
 import { SitsClockSheet } from "./sits-clock-sheet.js";
 import { SitsNPCSheet } from "./sits-npc-sheet.js";
-import { SitsFactionSheet } from "./sits-faction-sheet.js";
+import { SitsActiveEffect } from "./sits-active-effect.js";
 
 window.SitsHelpers = SitsHelpers;
 
@@ -48,9 +48,9 @@ Hooks.once("init", async function() {
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("sits", SitsAgentSheet, { types: ["agent"], makeDefault: true });
   Actors.registerSheet("sits", SitsUnitSheet, { types: ["unit"], makeDefault: true });
-  Actors.registerSheet("sits", SitsFactionSheet, { types: ["factions"], makeDefault: true });
   Actors.registerSheet("sits", SitsClockSheet, { types: ["clock"], makeDefault: true });
   Actors.registerSheet("sits", SitsNPCSheet, { types: ["npc"], makeDefault: true });
+  Actors.registerSheet("sits", SitsFactionSheet, { types: ["faction"], makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("sits", SitsItemSheet, {makeDefault: true});
   await preloadHandlebarsTemplates();

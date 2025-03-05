@@ -3,7 +3,7 @@
   "TYPES.Actor.npc": "NPC",
   "TYPES.Actor.unit": "Unit",
   "TYPES.Actor.clock": "\uD83D\uDD5B Clock",
-  "TYPES.Actor.factions": "Faction Status",
+  "TYPES.Actor.faction": "Faction",
   "TYPES.Item.item": "Item",
   "TYPES.Item.playbook": "Playbook",
   "TYPES.Item.ability": "Ability",
@@ -16,7 +16,6 @@
   "TYPES.Item.unit_upgrade": "Unit Upgrade",
   "TYPES.Item.unit_ability": "Unit Ability",
   "TYPES.Item.hunting_grounds": "Hunting Grounds",
-  "TYPES.Item.faction": "Faction",
 
   "SITS.Maker": "Maker",
   "SITS.Build": "Build",
@@ -285,6 +284,21 @@
     "Red": "Red",
     "White": "White",
     "Yellow": "Yellow"
+  },
+
+  "SITS.Rank": {
+    "0": "E Low",
+    "1": "E High",
+    "2": "D Low",
+    "3": "D High",
+    "4": "C Low",
+    "5": "C High",
+    "6": "B Low",
+    "7": "B High",
+    "8": "A Low",
+    "9": "A High",
+    "10": "S Low",
+    "11": "S High"
   },
   
   "BITD.log": {

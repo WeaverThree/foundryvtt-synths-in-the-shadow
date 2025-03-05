@@ -27,9 +27,6 @@ export class SitsItem extends Item {
 
     // For Unit and Agent set the Token to sync with charsheet.
     switch (data.type) {
-      case 'faction':
-        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/icons/agent.svg";
-        break;
       case 'item':
         this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/icons/unit.svg";
         break;
@@ -83,16 +80,7 @@ export class SitsItem extends Item {
     super.prepareData();
 
     const item_data = this.system;
-
-    if (this.type === "faction") {
-      if( !item_data.goal_1_clock_value ){ this.system.goal_1_clock_value = 0 }
-      if( item_data.goal_1_clock_max === 0 ){ this.system.goal_1_clock_max = 4 }
-      if( !item_data.goal_2_clock_value ){ this.system.goal_2_clock_value = 0 }
-      if( item_data.goal_2_clock_max === 0 ){ this.system.goal_2_clock_max = 4 }
-      this.system.size_list_1 = SitsHelpers.createListOfClockSizes( game.system.sitsClocks.sizes, this.system.goal_1_clock_max, parseInt( this.system.goal_1_clock_max ) );
-      this.system.size_list_2 = SitsHelpers.createListOfClockSizes( game.system.sitsClocks.sizes, this.system.goal_2_clock_max, parseInt( this.system.goal_2_clock_max ) );
-    }
-
+    
   }
 
   async sendToChat() {

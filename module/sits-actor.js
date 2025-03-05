@@ -20,13 +20,14 @@ export class SitsActor extends Actor {
         case 'unit':
           this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/icons/unit.svg";
           break;
-        case 'factions':
-          this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/scales.svg";
-          break;
         case 'npc':
           this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/robber-mask.svg";
           break;
+        case 'faction':
+          this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/flying-flag.svg";
+          break;
         case 'clock':
+          this.DEFAULT_ICON = "systems/synths-in-the-shadow/themes/white/4clock_0.svg";
           break;
       }
 
@@ -36,7 +37,7 @@ export class SitsActor extends Actor {
       case 'unit':
       case 'clock':
       case 'npc':
-      case 'factions':
+      case 'faction':
         data.prototypeToken.actorLink = true;
         break;
     }

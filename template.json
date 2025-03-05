@@ -1,220 +1,218 @@
 {
   "Actor": {
-  "types": ["agent", "npc", "unit", "clock", "factions"],
-  "agent": {
-    "model": "",
-    "pronouns": "",
-    "look": "",
-    "maker_details": "",
-    "build_details": "",
-    "deviance_details": "",
-    "synopsis": "",
+    "types": ["agent", "npc", "unit", "clock", "faction"],
+    "agent": {
+      "model": "",
+      "pronouns": "",
+      "look": "",
+      "maker_details": "",
+      "build_details": "",
+      "deviance_details": "",
+      "synopsis": "",
+      "unit": {
+        "id": ""
+      },
+      "contacts": [],
+      "overload": {
+        "value": 0,
+        "max_default": 12
+      },
+      "malfunction": {
+        "max_default": 4,
+        "list": []
+      },
+      "repair_clock": {
+        "value": 0,
+        "max": 4
+      },
+      "playbook_xp": {
+        "value": 0,
+        "max": 8
+      },
+      "energy_credits": {
+        "on_hand": 0,
+        "savings": 0,
+        "max_hand": 4,
+        "start_overflow": 5,
+        "max_overflow": 8,
+        "max_stash": 32
+      },
+      "capacity": {
+        "value": 0,
+        "selected": "",
+        "default_light": 3,
+        "default_normal": 5,
+        "default_heavy": 7
+      },
+      "damage": {
+          "light": {
+            "one": "",
+            "two": ""
+          },
+          "medium": {
+            "one": "",
+            "two": ""
+          },
+          "heavy": {
+            "one": ""
+          },
+          "deadly": {
+            "one": ""
+          }
+      },
+      "armor_uses": {
+        "basic": false,
+        "heavy": false,
+        "special": false
+      },
+      "attributes": {
+          "processing": {
+            "exp": 0,
+            "exp_max": 6,
+            "label": "SITS.AttribProcessing",
+            "skills": {
+              "analyze": {
+                "label": "SITS.AttribAnalyze",
+                "value": 0,
+                "max_default": 3
+              },
+              "engineer": {
+                "label": "SITS.AttribEngineer",
+                "value": 0,
+                "max_default": 3
+              },
+              "hunt": {
+                "label": "SITS.AttribHunt",
+                "value": 0,
+                "max_default": 3
+              },
+              "scan": {
+                "label": "SITS.AttribScan",
+                "value": 0,
+                "max_default": 3
+              }
+            }
+          },
+          "power": {
+            "exp": 0,
+            "exp_max": 6,
+            "label": "SITS.AttribPower",
+            "skills": {
+              "blast": {
+                "label": "SITS.AttribBlast",
+                "value": 0,
+                "max_default": 3
+              },
+              "clash": {
+                "label": "SITS.AttribClash",
+                "value": 0,
+                "max_default": 3
+              },
+              "infiltrate": {
+                "label": "SITS.AttribInfiltrate",
+                "value": 0,
+                "max_default": 3
+              },
+              "manipulate": {
+                "label": "SITS.AttribManipulate",
+                "value": 0,
+                "max_default": 3
+              }
+            }
+          },
+          "resolution": {
+            "exp": 0,
+            "exp_max": 6,
+            "label": "SITS.AttribResolution",
+            "skills": {
+              "command": {
+                "label": "SITS.AttribCommand",
+                "value": 0,
+                "max_default": 3
+              },
+              "hack": {
+                "label": "SITS.AttribHack",
+                "value": 0,
+                "max_default": 3
+              },
+              "network": {
+                "label": "SITS.AttribNetwork",
+                "value": 0,
+                "max_default": 3
+              },
+              "sway": {
+                "label": "SITS.AttribSway",
+                "value": 0,
+                "max_default": 3
+              }
+            }
+          }
+      }
+    },
+
+
     "unit": {
-      "id": ""
+      "name": "",
+      "reputation": [0],
+      "lair": "",
+      "tier": "",
+      "deity": "",
+      "rep2": {
+        "value": "",
+        "visible": false,
+        "label": "BITD.Description"
+      },
+      "hold": ["strong"],
+      "experience": [0],
+      "exp_clock": {
+        "value": 0,
+        "number": 0,
+        "size": 6,
+        "color": "black"
+      },
+      "hold_types": ["weak", "strong"],
+      "coins": {
+        "max": 4,
+        "value": [0]
+      },
+      "vault": {
+        "value": [0],
+        "max": 0
+      },
+      "turf": {
+        "descriptions": [],
+        "max": 6,
+        "bonus": 0
+      },
+      "features": [],
+      "heat": [0],
+      "wanted": [0],
+      "acquaintances": [],
+      "acquaintances_label": "BITD.Contacts",
+      "hunting_grounds": [],
+      "hunting_grounds_label": "BITD.HuntingGrounds",
+      "agent_mod": {
+        "add_malfunction": 0,
+        "add_overload": 0,
+        "mastery": false
+      },
+      "max": {
+        "heat": 9,
+        "tier": 4,
+        "wanted": 4,
+        "rep": 12,
+        "exp": 10
+      }
     },
-    "contacts": [],
-    "overload": {
-      "value": 0,
-      "max_default": 12
-    },
-    "malfunction": {
-      "max_default": 4,
-      "list": []
-    },
-    "repair_clock": {
-      "value": 0,
-      "max": 4
-    },
-    "playbook_xp": {
-      "value": 0,
-      "max": 8
-    },
-    "energy_credits": {
-      "on_hand": 0,
-      "savings": 0,
-      "max_hand": 4,
-      "start_overflow": 5,
-      "max_overflow": 8,
-      "max_stash": 32
-    },
-    "capacity": {
-      "value": 0,
-      "selected": "",
-      "default_light": 3,
-      "default_normal": 5,
-      "default_heavy": 7
-    },
-    "damage": {
-        "light": {
-          "one": "",
-          "two": ""
-        },
-        "medium": {
-          "one": "",
-          "two": ""
-        },
-        "heavy": {
-          "one": ""
-        },
-        "deadly": {
-          "one": ""
-        }
-    },
-    "armor_uses": {
-      "basic": false,
-      "heavy": false,
-      "special": false
-    },
-    "attributes": {
-        "processing": {
-          "exp": 0,
-          "exp_max": 6,
-          "label": "SITS.AttribProcessing",
-          "skills": {
-            "analyze": {
-              "label": "SITS.AttribAnalyze",
-              "value": 0,
-              "max_default": 3
-            },
-            "engineer": {
-              "label": "SITS.AttribEngineer",
-              "value": 0,
-              "max_default": 3
-            },
-            "hunt": {
-              "label": "SITS.AttribHunt",
-              "value": 0,
-              "max_default": 3
-            },
-            "scan": {
-              "label": "SITS.AttribScan",
-              "value": 0,
-              "max_default": 3
-            }
-          }
-        },
-        "power": {
-          "exp": 0,
-          "exp_max": 6,
-          "label": "SITS.AttribPower",
-          "skills": {
-            "blast": {
-              "label": "SITS.AttribBlast",
-              "value": 0,
-              "max_default": 3
-            },
-            "clash": {
-              "label": "SITS.AttribClash",
-              "value": 0,
-              "max_default": 3
-            },
-            "infiltrate": {
-              "label": "SITS.AttribInfiltrate",
-              "value": 0,
-              "max_default": 3
-            },
-            "manipulate": {
-              "label": "SITS.AttribManipulate",
-              "value": 0,
-              "max_default": 3
-            }
-          }
-        },
-        "resolution": {
-          "exp": 0,
-          "exp_max": 6,
-          "label": "SITS.AttribResolution",
-          "skills": {
-            "command": {
-              "label": "SITS.AttribCommand",
-              "value": 0,
-              "max_default": 3
-            },
-            "hack": {
-              "label": "SITS.AttribHack",
-              "value": 0,
-              "max_default": 3
-            },
-            "network": {
-              "label": "SITS.AttribNetwork",
-              "value": 0,
-              "max_default": 3
-            },
-            "sway": {
-              "label": "SITS.AttribSway",
-              "value": 0,
-              "max_default": 3
-            }
-          }
-        }
-    }
-  },
 
 
-
-  
-  "unit": {
-    "name": "",
-    "reputation": [0],
-    "lair": "",
-    "tier": "",
-    "deity": "",
-    "rep2": {
-      "value": "",
-      "visible": false,
-      "label": "BITD.Description"
+    "clock": {
+      "name": "",
+      "type": 4,
+      "value": "0",
+      "owner": ""
     },
-    "hold": ["strong"],
-    "experience": [0],
-    "exp_clock": {
-      "value": 0,
-      "number": 0,
-      "size": 6,
-      "color": "black"
-	  },
-    "hold_types": ["weak", "strong"],
-    "coins": {
-      "max": 4,
-      "value": [0]
-    },
-    "vault": {
-      "value": [0],
-      "max": 0
-    },
-    "turf": {
-      "descriptions": [],
-      "max": 6,
-      "bonus": 0
-    },
-    "features": [],
-    "heat": [0],
-    "wanted": [0],
-    "acquaintances": [],
-    "acquaintances_label": "BITD.Contacts",
-    "hunting_grounds": [],
-    "hunting_grounds_label": "BITD.HuntingGrounds",
-    "agent_mod": {
-      "add_malfunction": 0,
-      "add_overload": 0,
-      "mastery": false
-    },
-    "max": {
-      "heat": 9,
-      "tier": 4,
-      "wanted": 4,
-      "rep": 12,
-      "exp": 10
-    }
-  },
-  "clock": {
-    "name": "",
-    "type": 4,
-    "value": "0",
-    "owner": ""
-  },
-    "factions": {
-	"name": ""
-    },
+    
     "npc": {
       "name": "",
       "description_short": "",
@@ -223,12 +221,36 @@
       "associated_faction": "",
       "associated_unit_playbook": "",
       "notes": ""
+    },
+
+    "faction": {
+      "templates": ["default"],
+      "type": "",
+      "tier": 0,
+      "goal_1": "",
+      "goal_1_clock_max": 4,
+      "goal_2": "",
+      "goal_2_clock_max": 4,
+      "turf": "",
+      "assets": "",
+      "quirks": "",
+      "notables": "",
+      "allies": "",
+      "enemies": "",
+      "situation": "",
+      "goal_clock": 0,
+      "notes": "",
+      "rank": {
+        "value": 0,
+        "min": 0,
+        "max": 11
+      }
     }
   },
 
 
   "Item": {
-    "types": ["faction", "item", "playbook", "ability", "maker", "build", "deviance", "hunting_grounds", "unit_upgrade", "unit_playbook", "unit_reputation", "unit_upgrade", "unit_ability", "malfunction"],
+    "types": ["item", "playbook", "ability", "maker", "build", "deviance", "hunting_grounds", "unit_upgrade", "unit_playbook", "unit_reputation", "unit_upgrade", "unit_ability", "malfunction"],
     "templates": {
       "default": {
         "description": ""
@@ -276,187 +298,156 @@
         "amount": null
       }
     },
-    "faction": {
-      "templates": ["default"],
-      "type": "",
-      "tier": 0,
-      "goal_1": "",
-      "goal_1_clock_max": 0,
-      "goal_2": "",
-      "goal_2_clock_max": 0,
-      "turf": "",
-      "assets": "",
-      "quirks": "",
-      "notables": "",
-      "allies": "",
-      "enemies": "",
-      "situation": "",
-      "goal_clock": 0,
-      "notes": "",
-      "hold": {
-        "value": [1],
-        "max": 2,
-        "max_default": 2,
-        "name_default": "BITD.Hold",
-        "name": "BITD.Hold"
-      },
-      "status": {
-        "value": [4],
-        "max": 7,
-        "max_default": 7,
-        "name_default": "BITD.Status",
-        "name": "BITD.Status"
+   
+    "item": {
+      "templates": ["default", "logic", "activatedEffect"],
+      "playbook": "",
+      "load": 0,
+      "uses": 1,
+      "additional_info": "",
+      "equipped" : false,
+      "num_available": 1
+    },
+    "playbook": {
+      "templates": ["default", "logic", "activatedEffect"],
+      "experience_clues": [],
+      "base_skills": {
+        "hunt": [0],
+        "analyze": [0],
+        "scan": [0],
+        "engineer": [0],
+        "manipulate": [0],
+        "infiltrate": [0],
+        "clash": [0],
+        "blast": [0],
+        "hack": [0],
+        "command": [0],
+        "network": [0],
+        "sway": [0]
       }
     },
-    "item": {
-    "templates": ["default", "logic", "activatedEffect"],
-    "playbook": "",
-    "load": 0,
-    "uses": 1,
-    "additional_info": "",
-    "equipped" : false,
-    "num_available": 1
-  },
-  "playbook": {
-    "templates": ["default", "logic", "activatedEffect"],
-    "experience_clues": [],
-    "base_skills": {
-      "hunt": [0],
-      "analyze": [0],
-      "scan": [0],
-      "engineer": [0],
-      "manipulate": [0],
-      "infiltrate": [0],
-      "clash": [0],
-      "blast": [0],
-      "hack": [0],
-      "command": [0],
-      "network": [0],
-      "sway": [0]
-    }
-  },
-  "ability": {
-    "templates": ["ability", "logic", "activatedEffect"]
-  },
-  "maker": {
-    "templates": ["default", "activatedEffect"]
-  },
-  "build": {
-    "templates": ["default", "activatedEffect"]
-  },
-  "deviance": {
-    "templates": ["default", "activatedEffect"]
-  },
-  "hunting_grounds": {
-    "templates": ["default", "activatedEffect"],
-        "class": ""
-  },
-  "unit_reputation": {
-    "templates": ["default"]
-  },
-  "unit_upgrade": {
-    "templates": ["ability", "logic", "activatedEffect"],
-    "unit_playbook": ""
-  },
-  "unit_ability": {
-    "templates": ["ability", "activatedEffect"]
-  },
-  "unit_playbook": {
-    "templates": ["activatedEffect"],
-    "description": "",
-    "experience_clues": "",
-    "turfs": {
-      "1": {
-        "name": "",
-        "value": "",
-        "description": "",
-        "connects": []
-      },
-      "2": {
-        "name": "",
-        "value": "",
-        "description": "",
-        "connects": []
-      },
-      "3": {
-        "name": "",
-        "value": "",
-        "description": "",
-        "connects": []
-      },
-      "4": {
-        "name": "",
-        "value": "",
-        "description": "",
-        "connects": []
-      },
-      "5": {
-        "name": "",
-        "value": "",
-        "description": "",
-        "connects": []
-      },
-      "6": {
-        "name": "",
-        "value": "",
-        "description": "",
-        "connects": []
-      },
-      "7": {
-        "name": "",
-        "value": "",
-        "description": "",
-        "connects": []
-      },
-      "8": {
-        "name": "BITD.Lair",
-        "value": 1,
-        "description": "",
-        "connects": []
-      },
-      "9": {
-        "name": "",
-        "value": "",
-        "description": "",
-        "connects": []
-      },
-      "10": {
-        "name": "",
-        "value": "",
-        "description": "",
-        "connects": []
-      },
-      "11": {
-        "name": "",
-        "value": "",
-        "description": "",
-        "connects": []
-      },
-      "12": {
-        "name": "",
-        "value": "",
-        "description": "",
-        "connects": []
-      },
-      "13": {
-        "name": "",
-        "value": "",
-        "description": "",
-        "connects": []
-      },
-      "14": {
-        "name": "",
-        "value": "",
-        "description": "",
-        "connects": []
-      },
-      "15": {
-        "name": "",
-        "value": "",
-        "description": "",
-        "connects": []
+    "ability": {
+      "templates": ["ability", "logic", "activatedEffect"]
+    },
+    "maker": {
+      "templates": ["default", "activatedEffect"]
+    },
+    "build": {
+      "templates": ["default", "activatedEffect"]
+    },
+    "deviance": {
+      "templates": ["default", "activatedEffect"]
+    },
+    "hunting_grounds": {
+      "templates": ["default", "activatedEffect"],
+          "class": ""
+    },
+    "unit_reputation": {
+      "templates": ["default"]
+    },
+    "unit_upgrade": {
+      "templates": ["ability", "logic", "activatedEffect"],
+      "unit_playbook": ""
+    },
+    "unit_ability": {
+      "templates": ["ability", "activatedEffect"]
+    },
+    "unit_playbook": {
+      "templates": ["activatedEffect"],
+      "description": "",
+      "experience_clues": "",
+      "turfs": {
+        "1": {
+          "name": "",
+          "value": "",
+          "description": "",
+          "connects": []
+        },
+        "2": {
+          "name": "",
+          "value": "",
+          "description": "",
+          "connects": []
+        },
+        "3": {
+          "name": "",
+          "value": "",
+          "description": "",
+          "connects": []
+        },
+        "4": {
+          "name": "",
+          "value": "",
+          "description": "",
+          "connects": []
+        },
+        "5": {
+          "name": "",
+          "value": "",
+          "description": "",
+          "connects": []
+        },
+        "6": {
+          "name": "",
+          "value": "",
+          "description": "",
+          "connects": []
+        },
+        "7": {
+          "name": "",
+          "value": "",
+          "description": "",
+          "connects": []
+        },
+        "8": {
+          "name": "BITD.Lair",
+          "value": 1,
+          "description": "",
+          "connects": []
+        },
+        "9": {
+          "name": "",
+          "value": "",
+          "description": "",
+          "connects": []
+        },
+        "10": {
+          "name": "",
+          "value": "",
+          "description": "",
+          "connects": []
+        },
+        "11": {
+          "name": "",
+          "value": "",
+          "description": "",
+          "connects": []
+        },
+        "12": {
+          "name": "",
+          "value": "",
+          "description": "",
+          "connects": []
+        },
+        "13": {
+          "name": "",
+          "value": "",
+          "description": "",
+          "connects": []
+        },
+        "14": {
+          "name": "",
+          "value": "",
+          "description": "",
+          "connects": []
+        },
+        "15": {
+          "name": "",
+          "value": "",
+          "description": "",
+          "connects": []
+        }
       }
     }
   }
-}
 }
