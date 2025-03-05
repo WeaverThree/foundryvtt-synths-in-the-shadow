@@ -43,6 +43,58 @@ export class SitsActor extends Actor {
   }
 
   /** @override */
+  prepareDerivedData() {
+
+    const actorData = this;
+    const systemData = actorData.system;
+
+    if (actorData.type === 'agent') {
+      console.log("Prepare Data for Agent");
+      let unit = game.actors.get(systemData.unit.id);
+      if (unit) {
+        console.log("Unit Exists");
+        systemData.unit.name = unit.name;
+        systemData.unit.description = unit.system.description;
+        systemData.unit.img = unit.img;
+      }
+      else {
+        console.log("Unit not exist");
+      }
+      
+    
+      for (const a in systemData.attributes) {
+        for (const s in systemData.attributes[a].skills)
+        {
+          let skill = systemData.attributes[a].skills[s];
+          skill.max = skill.max_default;
+          if (unit && unit.system.agent_mod.mastery) {
+            skill.max += 1;
+          }
+          skill.min = 0;
+        }
+      }
+
+      let overload = systemData.overload;
+      let malfunction = systemData.malfunction;
+      overload.max = overload.max_default
+      malfunction.max = malfunction.max_default;
+    
+      if (unit) {
+        overload.max += unit.system.agent_mod.add_overload;
+        malfunction.max += unit.system.agent_mod.add_malfunction;
+      }
+  
+      systemData.repair_clock.min = 0;
+
+      let capacity = systemData.capacity;
+      capacity.light = capacity.default_light;
+      capacity.normal = capacity.default_normal;
+      capacity.heavy = capacity.default_heavy;
+
+    }
+  }
+
+  /** @override */
   getRollData() {
     const rollData = super.getRollData();
 
@@ -330,39 +382,15 @@ export class SitsActor extends Actor {
   }
 
   /* -------------------------------------------- */
-  getComputedAttributes() {
-    let attributes = this.system.attributes;
-    for( const a in attributes ) {
-      for( const s in attributes[a].skills ) {
-        if( attributes[a].skills[s].max === undefined || attributes[a].skills[s].max === 4){
-          attributes[a].skills[s].max = 3;
-        }
-		
-		//include Active Effect alterations to skill minimums
-        if( attributes[a].skills[s].value <= attributes[a].skills[s].min ) { 
-          attributes[a].skills[s].value = attributes[a].skills[s].min;
-        }
-      }
-    }
-    //check for mastery
-    if (this.getHasMastery()) {
-      for( const b in attributes ) {
-        for( const t in attributes[b].skills ) {
-          if (attributes[b].skills[t].max === 3) {
-            attributes[b].skills[t].max = 4;
-          }
-        }
-      }
-    }
-    return attributes;
-  }
-
+  
   getMaxOverload() {
     let max_overload = this.system.overload.max;
-    let unit = this.system.unit;
-    if (unit.length > 0) {
-      let unit_actor = game.actors.get(unit[0].id);
-      max_overload = max_overload + unit_actor.system.agent_mod.add_overload;
+    let unit = this.system.unit; 
+    if (unit) {
+      let unit_actor = game.actors.get(unit.id);
+      if (unit_actor) {
+        max_overload = max_overload + unit_actor.system.agent_mod.add_overload;
+      }
     }
     return max_overload;
   }
@@ -370,9 +398,11 @@ export class SitsActor extends Actor {
   getMaxMalfunction() {
     let max_malfunction = this.system.malfunction.max;
     let unit = this.system.unit;
-    if (unit.length > 0) {
-      let unit_actor = game.actors.get(unit[0].id);
-      max_malfunction = max_malfunction + unit_actor.system.agent_mod.add_malfunction;
+    if (unit) {
+      let unit_actor = game.actors.get(unit.id);
+      if (unit_actor) {
+        max_malfunction = max_malfunction + unit_actor.system.agent_mod.add_malfunction;
+      }
     }
     return max_malfunction;
   }
@@ -380,9 +410,11 @@ export class SitsActor extends Actor {
   getHasMastery(){
     let has_mastery = false;
     let unit = this.system.unit;
-    if (unit.length > 0) {
-      let unit_actor = game.actors.get(unit[0].id);
-      has_mastery = unit_actor.system.agent_mod.mastery;
+    if (unit) {
+      let unit_actor = game.actors.get(unit.id);
+      if (unit_actor) {
+        has_mastery = unit_actor.system.agent_mod.mastery;
+      }
     }
     return has_mastery
   }
@@ -395,5 +427,5 @@ export class SitsActor extends Actor {
 	return current_healing;
   }
 
-	
+
 }

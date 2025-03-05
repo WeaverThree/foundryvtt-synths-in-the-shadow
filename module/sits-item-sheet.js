@@ -23,7 +23,7 @@ export class SitsItemSheet extends ItemSheet {
   /** @override */
   get template() {
     const path = "systems/synths-in-the-shadow/templates/items";
-    let simple_item_types = ["maker", "build", "deviance", "unit_reputation"];
+    let simple_item_types = ["maker", "build", "deviance", "malfunction",  "unit_reputation"];
     let template_name = `${this.item.type}`;
 
     if (simple_item_types.indexOf(this.item.type) >= 0) {

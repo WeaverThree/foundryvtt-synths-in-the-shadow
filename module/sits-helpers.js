@@ -313,23 +313,15 @@ export class SitsHelpers {
 			img : dropped_unit.img
 		};
 		
-		let unique_id =  !current_unit.some((oldAcq) => {
-			return oldAcq.id == dropped_unit.id;
-		});
-		
-		if (unique_id) {
-			agent.update ({system: {unit : [new_unit]}});
-
-		} 
-		else {
+		if (!current_unit || new_unit.id !== current_unit.id) {
+			agent.update ({system: {unit: {id: new_unit.id}}});
+    }	else {
 			ui.notifications.info(game.i18n.localize("BITD.log.info.SameUnit"));
 		}
 	}
 	
 	// removes a unit from the agent
-	static async removeUnit(agent, unitId){
-    let current_unit = agent.system.unit;
-    let updated_unit = current_unit.filter(acq => acq._id !== unitId && acq.id !== unitId);
-	await agent.update({system: {unit : updated_unit}});
+	static async removeUnit(agent){
+    await agent.update({system: {unit: {id: ""}}});
   }
 }

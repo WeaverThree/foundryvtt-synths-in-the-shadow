@@ -101,7 +101,7 @@ textarea::placeholder {
   text-align: center;
   padding: 0px 5px;
   height: 30px;
-  text-transform: capitalize;
+  text-transform: uppercase;
   font-family: BarlowCondensed, sans-serif;
   font-weight: bold;
   font-style: italic;
@@ -118,7 +118,7 @@ textarea::placeholder {
   text-align: center;
   padding: 0px 5px;
   height: 30px;
-  text-transform: capitalize;
+  text-transform: uppercase;
   font-family: BarlowCondensed, sans-serif;
   font-weight: bold;
   font-style: italic;
@@ -132,6 +132,24 @@ textarea::placeholder {
   display: flex;
   align-items: center;
   font-style: italic;
+  font-weight: bold;
+}
+
+.subhead-stripe {
+  background-color: $header-bg;
+  color: $header-fg;
+  font-size: 14px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  font-style: italic;
+  font-weight: bold;
+  display:flex;
+  justify-content: center;
+  margin-left: 8px;
+  margin-right: 8px;
+  text-transform: uppercase;
+
 }
 
 .label-stripe {

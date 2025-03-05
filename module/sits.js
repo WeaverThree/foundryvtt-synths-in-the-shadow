@@ -96,11 +96,11 @@ Hooks.once("init", async function() {
   });
 
   // Malfunction Counter
-  Handlebars.registerHelper('malfunctioncounter', function(selected, options) {
+  Handlebars.registerHelper('malfunctioncounter', function(itemlist, options) {
 
     let html = options.fn(this);
 
-    var count = selected.length;
+    var count = itemlist.reduce((n,item) => item.type === 'malfunction' ? n+1 : n, 0);
 
     const rgx = new RegExp(' value=\"' + count + '\"');
     return html.replace(rgx, "$& checked");

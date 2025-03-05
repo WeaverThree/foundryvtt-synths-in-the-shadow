@@ -5,43 +5,28 @@
     "model": "",
     "pronouns": "",
     "look": "",
-    "maker": "",
     "maker_details": "",
-    "build": "",
     "build_details": "",
-    "deviance": "",
     "deviance_details": "",
     "synopsis": "",
-    "flaw": "",
-    "playbook": "",
-    "unit": [],
+    "unit": {
+      "id": ""
+    },
     "contacts": [],
     "overload": {
       "value": 0,
-      "max": 12,
-      "max_default": 12,
-      "name_default": "SITS.Overload",
-      "name": "SITS.Overload"
+      "max_default": 12
     },
     "malfunction": {
-      "max": 4,
       "max_default": 4,
-      "value": 0,
-      "name": "SITS.Malfunction",
-      "name_default": "SITS.Malfunction",
-      "options": [
-            "SITS.MalfunctionCold", "SITS.MalfunctionHaunted", "SITS.MalfunctionObsessed", "SITS.MalfunctionParanoid",
-            "SITS.MalfunctionReckless", "SITS.MalfunctionSoft", "SITS.MalfunctionUnstable", "SITS.MalfunctionVicious"
-      ],
       "list": []
     },
     "repair_clock": {
       "value": 0,
-      "max": 4,
-      "min": 0
+      "max": 4
     },
     "playbook_xp": {
-      "current": 0,
+      "value": 0,
       "max": 8
     },
     "energy_credits": {
@@ -52,13 +37,12 @@
       "max_overflow": 8,
       "max_stash": 32
     },
-    "special_abilities": [],
     "capacity": {
-      "current": 0,
+      "value": 0,
       "selected": "",
-      "max_light": 3,
-      "max_normal": 5,
-      "max_heavy": 7
+      "default_light": 3,
+      "default_normal": 5,
+      "default_heavy": 7
     },
     "damage": {
         "light": {
@@ -90,26 +74,22 @@
             "analyze": {
               "label": "SITS.AttribAnalyze",
               "value": 0,
-              "max": 3,
-              "min": 0
+              "max_default": 3
             },
             "engineer": {
               "label": "SITS.AttribEngineer",
               "value": 0,
-              "max": 3,
-              "min": 0
+              "max_default": 3
             },
             "hunt": {
               "label": "SITS.AttribHunt",
               "value": 0,
-              "max": 3,
-              "min": 0
+              "max_default": 3
             },
             "scan": {
               "label": "SITS.AttribScan",
               "value": 0,
-              "max": 3,
-              "min": 0
+              "max_default": 3
             }
           }
         },
@@ -121,26 +101,22 @@
             "blast": {
               "label": "SITS.AttribBlast",
               "value": 0,
-              "max": 3,
-              "min": 0
+              "max_default": 3
             },
             "clash": {
               "label": "SITS.AttribClash",
               "value": 0,
-              "max": 3,
-              "min": 0
+              "max_default": 3
             },
             "infiltrate": {
               "label": "SITS.AttribInfiltrate",
               "value": 0,
-              "max": 3,
-              "min": 0
+              "max_default": 3
             },
             "manipulate": {
               "label": "SITS.AttribManipulate",
               "value": 0,
-              "max": 3,
-              "min": 0
+              "max_default": 3
             }
           }
         },
@@ -152,31 +128,31 @@
             "command": {
               "label": "SITS.AttribCommand",
               "value": 0,
-              "max": 3,
-              "min": 0
+              "max_default": 3
             },
             "hack": {
               "label": "SITS.AttribHack",
               "value": 0,
-              "max": 3,
-              "min": 0
+              "max_default": 3
             },
             "network": {
               "label": "SITS.AttribNetwork",
               "value": 0,
-              "max": 3,
-              "min": 0
+              "max_default": 3
             },
             "sway": {
               "label": "SITS.AttribSway",
               "value": 0,
-              "max": 3,
-              "min": 0
+              "max_default": 3
             }
           }
         }
     }
   },
+
+
+
+  
   "unit": {
     "name": "",
     "reputation": [0],
@@ -249,8 +225,10 @@
       "notes": ""
     }
   },
+
+
   "Item": {
-    "types": ["faction", "item", "playbook", "ability", "maker", "build", "deviance", "hunting_grounds", "unit_upgrade", "cohort", "unit_type", "unit_reputation", "unit_upgrade", "unit_ability"],
+    "types": ["faction", "item", "playbook", "ability", "maker", "build", "deviance", "hunting_grounds", "unit_upgrade", "cohort", "unit_type", "unit_reputation", "unit_upgrade", "unit_ability", "malfunction"],
     "templates": {
       "default": {
         "description": ""

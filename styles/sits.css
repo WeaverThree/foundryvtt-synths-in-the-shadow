@@ -252,7 +252,7 @@
   text-align: center;
   padding: 0px 5px;
   height: 30px;
-  text-transform: capitalize;
+  text-transform: uppercase;
   font-family: BarlowCondensed, sans-serif;
   font-weight: bold;
   font-style: italic;
@@ -267,7 +267,7 @@
   text-align: center;
   padding: 0px 5px;
   height: 30px;
-  text-transform: capitalize;
+  text-transform: uppercase;
   font-family: BarlowCondensed, sans-serif;
   font-weight: bold;
   font-style: italic;
@@ -280,6 +280,22 @@
   display: flex;
   align-items: center;
   font-style: italic;
+  font-weight: bold;
+}
+.synths-in-the-shadow .subhead-stripe {
+  background-color: #9f9dfc;
+  color: #080808;
+  font-size: 14px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  font-style: italic;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  margin-left: 8px;
+  margin-right: 8px;
+  text-transform: uppercase;
 }
 .synths-in-the-shadow .label-stripe {
   text-transform: uppercase;
@@ -1280,7 +1296,7 @@
   max-width: 200px;
   max-height: 200px;
   width: auto;
-  height: auto;
+  height: 200px;
 }
 .synths-in-the-shadow.actor.agent * .tab[data-tab] {
   display: none;
