@@ -1,6 +1,6 @@
 <form class="{{cssClass}} actor-sheet" autocomplete="off">
 
-  <section id="agent-{{_id}}-header" class="flex-horizontal first-section">
+  <section id="agent-{{_id}}-header" class="flex-horizontal">
 
     <div class="portrait-area">
       <img src="{{img}}" data-edit="img" data-tooltip="{{name}}" class="portrait" />
@@ -129,7 +129,7 @@
         <div id="agent-{{_id}}-malfunction-container" class="malfunction">
           {{#malfunctioncounter items}}
 
-            <div class="black-label">{{localize SITS.Malfunction}}</div>
+            <div class="black-label">{{localize 'SITS.Malfunction'}}</div>
             <input type="radio" id="agent-{{_id}}-malfunction-counter-0" name="system.malfunction.value" value="0">
 
             {{#times_from 1 system.malfunction.max}}

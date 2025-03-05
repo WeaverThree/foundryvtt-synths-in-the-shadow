@@ -23,14 +23,13 @@ $hover-brightness: 0.8;
 // MARK: Header
 
 & * {
-  .first-section {
-    img.portrait{
-      max-width: 200px;
-      max-height: 200px;
-      width: auto;
-      height: 200px;
-    }
+  .portrait{
+    max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: 200px;
   }
+  
 
   .tab[data-tab]{
     display: none;
@@ -58,9 +57,10 @@ $hover-brightness: 0.8;
 
   .headline {
     display: flex;
+    margin-left: -2px; // Brute-fix oddness
     
     .headline-left {
-      width: 255px;
+      width: 246px;
       margin-right: 4px;
       text-align: right;
     }
@@ -78,6 +78,7 @@ $hover-brightness: 0.8;
   }
 
   .lookline {
+    margin-right: -2px;
     display: flex;
     
     input {
@@ -90,7 +91,7 @@ $hover-brightness: 0.8;
 
   .traitsline {
     display: flex;
-  
+    margin-right: -2px; // Brute-fix oddness
 
     .fakeinput {
       width:172px;
@@ -112,6 +113,7 @@ $hover-brightness: 0.8;
   }
 
   .synopsis {
+    margin-right: -2px; // Brute-fix oddness
     height: 64px;
     margin-top:4px;
     margin-bottom:0px;
@@ -132,16 +134,20 @@ $hover-brightness: 0.8;
     flex-direction: column;
 
     .black-label {
-      width:66px;
+      width:76px;
     }
 
     // Overload
     .overload {
+      width: 301px;
+      background-color: $main-bg;
       @include pipradio_hover(15px, 30px, "assets/pips/w-pip-base.svg", "assets/pips/w-pip-red.svg", "assets/pips/w-pip-base-hover.svg", "assets/pips/w-pip-red-hover.svg");
     }
 
     // Malfunction 
     .malfunction {
+      width: 301px;
+      background-color: $main-bg;
       .black-label {
         height: 15px;
         font-size: 13px;
@@ -165,7 +171,6 @@ $hover-brightness: 0.8;
   }
 
   .energy_credits {
- 
     display:flex;
     flex-wrap: wrap;
     justify-content: space-between;

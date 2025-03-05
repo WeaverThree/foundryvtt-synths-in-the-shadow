@@ -1292,7 +1292,7 @@
    * Custom Radio Round
    */
 }
-.synths-in-the-shadow.actor.agent * .first-section img.portrait {
+.synths-in-the-shadow.actor.agent * .portrait {
   max-width: 200px;
   max-height: 200px;
   width: auto;
@@ -1318,9 +1318,10 @@
 }
 .synths-in-the-shadow.actor.agent * .headline {
   display: flex;
+  margin-left: -2px;
 }
 .synths-in-the-shadow.actor.agent * .headline .headline-left {
-  width: 255px;
+  width: 246px;
   margin-right: 4px;
   text-align: right;
 }
@@ -1334,6 +1335,7 @@
   height: 64px;
 }
 .synths-in-the-shadow.actor.agent * .lookline {
+  margin-right: -2px;
   display: flex;
 }
 .synths-in-the-shadow.actor.agent * .lookline input {
@@ -1343,6 +1345,7 @@
 }
 .synths-in-the-shadow.actor.agent * .traitsline {
   display: flex;
+  margin-right: -2px;
 }
 .synths-in-the-shadow.actor.agent * .traitsline .fakeinput {
   width: 172px;
@@ -1361,6 +1364,7 @@
   flex-grow: 2;
 }
 .synths-in-the-shadow.actor.agent * .synopsis {
+  margin-right: -2px;
   height: 64px;
   margin-top: 4px;
   margin-bottom: 0px;
@@ -1376,9 +1380,11 @@
   flex-direction: column;
 }
 .synths-in-the-shadow.actor.agent * .overload-malfunction .black-label {
-  width: 66px;
+  width: 76px;
 }
 .synths-in-the-shadow.actor.agent * .overload-malfunction .overload {
+  width: 301px;
+  background-color: #010e38;
   display: flex;
   /* Hide the browser's default checkbox */
 }
@@ -1422,6 +1428,8 @@
   background-image: url("assets/pips/w-pip-red-hover.svg");
 }
 .synths-in-the-shadow.actor.agent * .overload-malfunction .malfunction {
+  width: 301px;
+  background-color: #010e38;
   display: flex;
   /* Hide the browser's default checkbox */
 }

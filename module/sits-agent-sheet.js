@@ -13,7 +13,7 @@ export class SitsAgentSheet extends SitsSheet {
 	  return foundry.utils.mergeObject(super.defaultOptions, {
   	  classes: ["synths-in-the-shadow", "sheet", "actor", "agent"],
   	  template: "systems/synths-in-the-shadow/templates/actors/agent-sheet.html",
-      width: 832,
+      width: 888,
       height: 890,
       tabs: [{navSelector: ".tabs", contentSelector: ".tab-content", initial: "abilities"}]
     });
