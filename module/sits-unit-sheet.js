@@ -37,7 +37,7 @@ export class SitsUnitSheet extends SitsSheet {
 
     sheetData.items.forEach(item => {
 
-      if (item.type === "unit_type") {
+      if (item.type === "unit_playbook") {
         Object.entries(item.system.turfs).forEach(([key, turf]) => {
           if (turf.name === 'BITD.Turf') {
             turfs_amount += (turf.value === true) ? 1 : 0;
@@ -75,7 +75,7 @@ export class SitsUnitSheet extends SitsSheet {
         break;
       case "item":
         break;
-      case "unit_type":
+      case "unit_playbook":
         break;
       case "ability":
         break;
@@ -97,11 +97,6 @@ export class SitsUnitSheet extends SitsSheet {
     // Add Unit Type
     html.find(".unit-playbook").click(this._onItemAddClick.bind(this));
 
-    // Add a new Cohort
-    html.find('.add-item').click(ev => {
-      SitsHelpers._addOwnedItem(ev, this.actor);
-    });
-
     // Toggle Turf
     html.find('.turf-select').click( async ev => {
       const element = $(ev.currentTarget).parents(".item");
@@ -114,19 +109,6 @@ export class SitsUnitSheet extends SitsSheet {
       await this.actor.updateEmbeddedDocuments('Item', [{
         _id: item_id,
         [turf_checkbox_name]: !turf_current_status}]);
-      this.render(false);
-    });
-
-    // Cohort Block Harm handler
-    html.find('.cohort-block-harm input[type="radio"]').change( async ev => {
-      const element = $(ev.currentTarget).parents(".item");
-
-      let item_id = element.data("itemId")
-      let harm_id = $(ev.currentTarget).val();
-
-      await this.actor.updateEmbeddedDocuments('Item', [{
-        _id: item_id,
-        "system.harm": [harm_id]}]);
       this.render(false);
     });
 

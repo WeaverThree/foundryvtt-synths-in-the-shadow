@@ -22,6 +22,59 @@ export class SitsItem extends Item {
     }
   }
 
+  /** @override */
+  static async create(data, options={}) {
+
+    // For Unit and Agent set the Token to sync with charsheet.
+    switch (data.type) {
+      case 'faction':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/icons/agent.svg";
+        break;
+      case 'item':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/icons/unit.svg";
+        break;
+      case 'playbook':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/scales.svg";
+        break;
+      case 'ability':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/robber-mask.svg";
+        break;
+      case 'maker':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/icons/agent.svg";
+        break;
+      case 'build':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/icons/unit.svg";
+        break;
+      case 'deviance':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/scales.svg";
+        break;
+      case 'hunting_grounds':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/robber-mask.svg";
+        break;
+      case 'unit_upgrade':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/icons/agent.svg";
+        break;
+      case 'unit_playbook':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/icons/unit.svg";
+        break;
+      case 'unit_reputation':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/scales.svg";
+        break;
+      case 'unit_upgrade':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/robber-mask.svg";
+        break;
+      case 'unit_ability':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/robber-mask.svg";
+        break;
+      case 'malfunction':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/robber-mask.svg";
+        break;
+    }
+
+    return super.create(data, options);
+
+  }
+
   /* -------------------------------------------- */
 
   /* override */
@@ -30,12 +83,6 @@ export class SitsItem extends Item {
     super.prepareData();
 
     const item_data = this.system;
-
-    if (this.type === "cohort") {
-
-      this._prepareCohort(item_data);
-
-    }
 
     if (this.type === "faction") {
       if( !item_data.goal_1_clock_value ){ this.system.goal_1_clock_value = 0 }
@@ -47,34 +94,6 @@ export class SitsItem extends Item {
     }
 
   }
-
-  /**
-   * Prepares Cohort data
-   *
-   * @param {object} data
-   */
-  _prepareCohort(item_data) {
-
-    let quality = 0;
-    let scale = 0;
-
-    // Adds Scale and Quality
-    if (this.actor?.system) {
-      switch (item_data.cohort) {
-        case "Gang":
-          scale = parseInt(this.actor.system.tier);
-          quality = parseInt(this.actor.system.tier);
-          break;
-        case "Expert":
-          scale = 0;
-          quality = parseInt(this.actor.system.tier) + 1;
-          break;
-      }
-    }
-
-    this.system.scale = scale;
-    this.system.quality = quality;
-}
 
   async sendToChat() {
     const itemData = this.toObject();

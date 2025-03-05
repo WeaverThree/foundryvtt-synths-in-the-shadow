@@ -10,7 +10,6 @@ export const preloadHandlebarsTemplates = async function() {
 
     // Agent Sheet Partials
     "systems/synths-in-the-shadow/templates/parts/turf-list.html",
-    "systems/synths-in-the-shadow/templates/parts/cohort-block.html",
     "systems/synths-in-the-shadow/templates/parts/factions.html",
     "systems/synths-in-the-shadow/templates/parts/active-effects.html",
   ];

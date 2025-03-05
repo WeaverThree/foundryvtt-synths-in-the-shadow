@@ -1297,6 +1297,7 @@
   max-height: 200px;
   width: auto;
   height: 200px;
+  border: 1px solid #dadada;
 }
 .synths-in-the-shadow.actor.agent * .tab[data-tab] {
   display: none;

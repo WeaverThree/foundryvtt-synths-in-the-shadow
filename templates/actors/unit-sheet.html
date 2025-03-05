@@ -174,9 +174,9 @@
 
     <div class="flex-vertical">
 	  <div class="flex-horizontal">
-        <div id="unit-{{_id}}-class" class="class-name unit-class flex-vertical" data-tooltip="{{localize "BITD.UnitTypeBox"}}" data-distinct="true" data-item-type="unit_type">
+        <div id="unit-{{_id}}-class" class="class-name unit-class flex-vertical" data-tooltip="{{localize "BITD.UnitTypeBox"}}" data-distinct="true" data-item-type="unit_playbook">
           {{#each items as |item id|}}
-          {{#if (eq item.type "unit_type")}}
+          {{#if (eq item.type "unit_playbook")}}
           <div class="big-name">{{item.name}}</div>
           <div class="big-description">{{{item.system.description}}}</div>
           {{/if}}
@@ -206,7 +206,6 @@
         <a class="item" data-tab="upgrades">{{localize "BITD.Upgrades"}}</a>
         <a class="item" data-tab="abilities">{{localize "BITD.Abilities"}}</a>
         <a class="item" data-tab="contacts">{{localize "BITD.Contacts"}}</a>
-        <a class="item" data-tab="cohorts">{{localize "BITD.Cohorts"}}</a>
         <a class="item" data-tab="notes">{{localize "BITD.Notes"}}</a>
         <a class="item" data-tab="all-items">{{localize "BITD.AllItems"}}</a>
 		{{#if isGM}}
@@ -236,7 +235,7 @@
         <div class="experience-clues-description">{{localize "BITD.UnitExpClue1"}}</div>
         <div class="experience-clues">
           {{#each items as |item id|}}
-          {{#if (eq item.type "unit_type")}}
+          {{#if (eq item.type "unit_playbook")}}
           {{html text=item.system.experience_clues}}
           {{/if}}
           {{/each}}
@@ -255,7 +254,7 @@
         <p><label>{{localize "BITD.Claims"}}</label></p>
       </div>
       {{#each items as |item id|}}
-      {{#if (eq item.type "unit_type")}}
+      {{#if (eq item.type "unit_playbook")}}
       <div class="item" data-item-id="{{item._id}}">
       {{> "systems/synths-in-the-shadow/templates/parts/turf-list.html" _id=../_id turfs_data=item.system.turfs can_edit=false not_prison=true}}
       </div>
@@ -329,23 +328,6 @@
 			  {{/each}}
             {{/if}}
       </div>
-
-    {{!-- Cohorts --}}
-    <div id="unit-{{_id}}-cohorts" class="unit-cohorts tab grow-two flex-vertical" data-tab="cohorts">
-      <div class="label-stripe flex-horizontal">
-        <p>{{localize "BITD.Cohorts"}}</p>
-        <p><a class="add-item" data-item-type="cohort"><i class="fas fa-plus-square"></i></a></p>
-      </div>
-      <div class="cohorts flex-horizontal">
-        {{#each items as |item id|}}
-          {{#if (eq item.type "cohort")}}
-
-            {{> "systems/synths-in-the-shadow/templates/parts/cohort-block.html" item=item}}
-
-          {{/if}}
-        {{/each}}
-      </div>
-    </div>
 
     {{!-- Notes --}}
     <div id="unit-{{_id}}-notes" class="notes tab grow-two flex-vertical" data-tab="notes">

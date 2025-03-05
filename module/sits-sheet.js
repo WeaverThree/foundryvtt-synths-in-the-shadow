@@ -122,7 +122,7 @@ export class SitsSheet extends ActorSheet {
 	  const actor_type = this.actor.type;
 	  let item_type;
 	  if (actor_type=="agent") {item_type = "playbook";}
-		else if (actor_type=="unit") {item_type = "unit_type";}
+		else if (actor_type=="unit") {item_type = "unit_playbook";}
 	  const playbook = this.actor.items.filter(i=> i.type === item_type)[0]?.name;
 	  SitsHelpers.import_pb_contacts(this.actor, playbook);
 

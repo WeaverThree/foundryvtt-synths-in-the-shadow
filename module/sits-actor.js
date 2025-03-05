@@ -23,8 +23,10 @@ export class SitsActor extends Actor {
         case 'factions':
           this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/scales.svg";
           break;
-        case 'clock':
         case 'npc':
+          this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/robber-mask.svg";
+          break;
+        case 'clock':
           break;
       }
 
