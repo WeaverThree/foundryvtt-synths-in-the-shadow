@@ -28,44 +28,39 @@ export class SitsItem extends Item {
     // For Unit and Agent set the Token to sync with charsheet.
     switch (data.type) {
       case 'item':
-        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/icons/unit.svg";
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/abstract-021.svg";
         break;
       case 'playbook':
-        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/scales.svg";
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/folded-paper.svg";
         break;
       case 'ability':
-        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/robber-mask.svg";
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/processor.svg";
         break;
       case 'maker':
-        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/icons/agent.svg";
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/abstract-017.svg";
         break;
       case 'build':
-        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/icons/unit.svg";
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/vitruvian-man.svg";
         break;
       case 'deviance':
-        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/scales.svg";
-        break;
-      case 'hunting_grounds':
-        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/robber-mask.svg";
-        break;
-      case 'unit_upgrade':
-        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/icons/agent.svg";
-        break;
-      case 'unit_playbook':
-        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/icons/unit.svg";
-        break;
-      case 'unit_reputation':
-        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/scales.svg";
-        break;
-      case 'unit_upgrade':
-        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/robber-mask.svg";
-        break;
-      case 'unit_ability':
-        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/robber-mask.svg";
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/techno-heart.svg";
         break;
       case 'malfunction':
-        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/robber-mask.svg";
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/unstable-orb.svg";
         break;
+      case 'unit_upgrade':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/team-upgrade.svg";
+        break;
+      case 'unit_playbook':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/crossed-bones.svg";
+        break;
+      case 'unit_reputation':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/abstract-070.svg";
+        break;
+      case 'unit_ability':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/team-idea.svg";
+        break;
+      
     }
 
     return super.create(data, options);

@@ -182,23 +182,7 @@
           {{/if}}
           {{/each}}
         </div>
-	  <div class="hunting-ground flex-column">
-	    <div class="hunting-ground-label">
-		  <a class="item-add-popup" data-item-type="hunting_grounds"><u>{{localize system.hunting_grounds_label}}</u></a>
-		</div>
-		{{#each items as |item id|}}
-        {{#if (eq item.type "hunting_grounds")}}
-          <div class="item flex-horizontal" data-item-id="{{item._id}}">
-            <div class="item-body item-sheet-open flex-horizontal">
-              <img src="{{item.img}}" data-tooltip="{{item.name}}" width="20" height="20"/>
-              <div class="item-name">{{item.name}}</div>
-            </div>
-            <a class="item-control item-delete" data-tooltip="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
-            <a class="item-control item-post" data-tooltip="{{localize 'BITD.TitlePostItem'}}"><i class="fas fa-comment"></i></a>
-          </div>
-        {{/if}}
-        {{/each}}
-	  </div>
+
 	  
 	  </div>
       <nav class="tabs flex-horizontal" style="padding-top: 8px">

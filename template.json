@@ -189,8 +189,6 @@
       "wanted": [0],
       "acquaintances": [],
       "acquaintances_label": "BITD.Contacts",
-      "hunting_grounds": [],
-      "hunting_grounds_label": "BITD.HuntingGrounds",
       "agent_mod": {
         "add_malfunction": 0,
         "add_overload": 0,
@@ -250,7 +248,7 @@
 
 
   "Item": {
-    "types": ["item", "playbook", "ability", "maker", "build", "deviance", "hunting_grounds", "unit_upgrade", "unit_playbook", "unit_reputation", "unit_upgrade", "unit_ability", "malfunction"],
+    "types": ["item", "playbook", "ability", "maker", "build", "deviance", "unit_upgrade", "unit_playbook", "unit_reputation", "unit_upgrade", "unit_ability", "malfunction"],
     "templates": {
       "default": {
         "description": ""
@@ -337,10 +335,6 @@
     },
     "deviance": {
       "templates": ["default", "activatedEffect"]
-    },
-    "hunting_grounds": {
-      "templates": ["default", "activatedEffect"],
-          "class": ""
     },
     "unit_reputation": {
       "templates": ["default"]
