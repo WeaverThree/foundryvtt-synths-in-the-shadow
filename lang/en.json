@@ -51,6 +51,7 @@
   "BITD.Loadout": "Loadout",
   "BITD.Load": "Load",
   "SITS.SpecialItems": "Special Items",
+  "SITS.LoadoutCapacity": "Loadout Capacity",
   
   "BITD.System": "System",
   "BITD.Systems": "Systems",
@@ -85,8 +86,20 @@
   "BITD.Price": "Price",
   "BITD.Logic": "Logic",
   "BITD.ExpClues": "Exp Clues",
-  "BITD.AbilityPrice": "Ability Price",
-  "BITD.AbilityPlaybook": "Ability Playbook",
+  
+  
+  "SITS.AbilityPurchased": "Ability Levels Purchased",
+  "SITS.AbilityMaxPurchase": "Ability Levels Available",
+  "SITS.AbilityPlaybook": "Associated Playbook",
+  "SITS.UseTargetField": "Use Target Field",
+  "SITS.Target": "Target",
+  
+  "SITS.ItemCapacity": "Capacity Use",
+  "SITS.ItemInPlay": "In Play",
+  "SITS.ItemPlaybook": "Associated Playbook",
+  "SITS.ItemCategory": "Item Category",
+
+  
   "BITD.Information": "Information",
   "BITD.GangType": "Gang Type",
   "BITD.ExpertType": "Expert Type",

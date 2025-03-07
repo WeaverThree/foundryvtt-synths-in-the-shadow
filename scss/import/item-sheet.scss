@@ -1,33 +1,15 @@
+
+.sheet-header { // why won't this work inside .item???
+  img {
+    border: 0;
+  }
+}
+
 // ITEM
-.item {
-
-  justify-content: space-between;
-
-  .item-body {
-
-    margin-bottom: 10px;
-    * {
-      margin-right: 10px;
-    }
-
-    .item-description {
-      font-style: italic;
-      text-align: justify;
-    }
-  }
-
-  div {
-    flex-grow: 2;
-  }
-  .item-control {
-    flex-grow: 1;
-  }
-  .item-body,
-  .item-class-label {
-    width: 100px;
+.item-body {
+  input[type="text"] {
+    margin-left:1px; 
   }
 }
 
-.item-class-label {
-  margin-bottom: 10px;
-}
+

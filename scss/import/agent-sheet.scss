@@ -169,6 +169,7 @@ $hover-brightness: 0.8;
     justify-content: space-between;
     font-weight: bold;
     font-style: italic;
+    margin-right: 4px;
   }
 
   .energy_credits {
@@ -229,7 +230,7 @@ $hover-brightness: 0.8;
       position: relative;
       margin-bottom: 10px;
 
-      .stripe-tooth-body {
+      .experience-pips {
         @include pipradio_hover(10px, 20px, "assets/pips/pip-base.svg", "assets/pips/pip-blue.svg", "assets/pips/pip-base-hover.svg", "assets/pips/pip-blue-hover.svg");
         position: absolute;
         right: 5px;
@@ -335,43 +336,97 @@ $hover-brightness: 0.8;
     }
   }
 
-
-
-  //Abilitiers and loadout
-  .abilities, .loadout {
-    .item-name {
-      width: 100px;
-    }
-    .item-body {
-      width: auto;
-    }
-    .item-description {
-      width: 260px;
+  .tabs {
+    margin-bottom:0px;
+    .experience-pips {
+      @include pipradio_hover(10px, 20px, "assets/pips/pip-base.svg", "assets/pips/pip-blue.svg", "assets/pips/pip-base-hover.svg", "assets/pips/pip-blue-hover.svg");
+      margin-left: -15px;  
+      margin-right: -40px;
     }
   }
 
-  // Abilities
+   // Abilities
   .abilities {
-    .label-stripe {
-      p:first-child {
-        margin-right: 10px;
+   
+    backdrop-filter: saturate(0.2);
+
+    table {
+      // width: 100%;
+      background-color: transparent !important;
+      border: 0;
+      margin-top:0;
+      width:500px;
+    }
+    
+    tr {
+      border-bottom: 1px solid $table-lines;
+      background-color: transparent !important;
+    }
+
+    tr:last-child {
+      border-bottom: 0;
+    }
+
+    .checks {
+      div {
+        @include pipradio_hover(20px, 20px, "assets/pips/w-skill-base.svg", "assets/pips/w-skill-black.svg", "assets/pips/w-skill-base-hover.svg", "assets/pips/w-skill-black-hover.svg");
+        display:flex;
+        flex-direction: column;
       }
     }
+
+    .ability-title {
+      font-weight: bold;
+      width: 87px;
+    }
+
+    .ability-target {
+      width:100px;
+      float:right;
+      margin-top:12px;
+    }
+
   }
 
   // Loadout
   .loadout {
-    .item-add-popup {
-      margin-left: 10px;
-    }
-  }
 
-  // Experience teeth
-  .teeth-experience {
-    @include pipradio_hover(10px, 20px, "assets/pips/w-pip-base.svg", "assets/pips/w-pip-blue.svg", "assets/pips/w-pip-base-hover.svg", "assets/pips/w-pip-blue-hover.svg");
-    position: absolute;
-    top: 0px;
-    right: 10px;
+    select {
+      border: 0;
+      background-color: transparent;
+      color: $header-fg;
+      font-family: "BarlowCondensed", sans-serif;
+      font-size: 14px;
+      height: 14px;
+      margin-top: 0px;
+      margin-bottom: 4px;
+      option {
+        color: black;
+      }
+    }
+
+    .loadout-playbook {
+      backdrop-filter: saturate(0.2);
+    }
+
+
+    .loadout-playbook, .loadout-generic {    
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+
+      @include pipcheck_hover(20px, 20px, "assets/pips/item-check-base.svg", "assets/pips/item-check-hot.svg", "assets/pips/item-check-hover.svg", "assets/pips/item-check-hot-hover.svg");
+
+      .cap-0 {
+        font-style:italic;
+        @include pipcheck_hover(20px, 20px, "assets/pips/item-check-zero.svg", "assets/pips/item-check-zero-hot.svg", "assets/pips/item-check-zero-hover.svg", "assets/pips/item-check-zero-hot-hover.svg");
+      }
+    }
   }
 
   // ITEM

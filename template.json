@@ -1,6 +1,8 @@
 {
   "Actor": {
     "types": ["agent", "npc", "unit", "clock", "faction"],
+
+
     "agent": {
       "model": "",
       "pronouns": "",
@@ -12,18 +14,12 @@
       "unit": {
         "id": ""
       },
-      "contacts": [],
       "overload": {
         "value": 0,
         "max_default": 12
       },
       "malfunction": {
-        "max_default": 4,
-        "list": []
-      },
-      "repair_clock": {
-        "value": 0,
-        "max": 4
+        "max_default": 4
       },
       "playbook_xp": {
         "value": 0,
@@ -37,117 +33,122 @@
         "max_overflow": 8,
         "max_stash": 32
       },
-      "capacity": {
-        "value": 0,
-        "selected": "",
-        "default_light": 3,
-        "default_normal": 5,
-        "default_heavy": 7
+      "attributes": {
+        "processing": {
+          "exp": 0,
+          "exp_max": 6,
+          "label": "SITS.AttribProcessing",
+          "skills": {
+            "analyze": {
+              "label": "SITS.AttribAnalyze",
+              "value": 0,
+              "max_default": 3
+            },
+            "engineer": {
+              "label": "SITS.AttribEngineer",
+              "value": 0,
+              "max_default": 3
+            },
+            "hunt": {
+              "label": "SITS.AttribHunt",
+              "value": 0,
+              "max_default": 3
+            },
+            "scan": {
+              "label": "SITS.AttribScan",
+              "value": 0,
+              "max_default": 3
+            }
+          }
+        },
+        "power": {
+          "exp": 0,
+          "exp_max": 6,
+          "label": "SITS.AttribPower",
+          "skills": {
+            "blast": {
+              "label": "SITS.AttribBlast",
+              "value": 0,
+              "max_default": 3
+            },
+            "clash": {
+              "label": "SITS.AttribClash",
+              "value": 0,
+              "max_default": 3
+            },
+            "infiltrate": {
+              "label": "SITS.AttribInfiltrate",
+              "value": 0,
+              "max_default": 3
+            },
+            "manipulate": {
+              "label": "SITS.AttribManipulate",
+              "value": 0,
+              "max_default": 3
+            }
+          }
+        },
+        "resolution": {
+          "exp": 0,
+          "exp_max": 6,
+          "label": "SITS.AttribResolution",
+          "skills": {
+            "command": {
+              "label": "SITS.AttribCommand",
+              "value": 0,
+              "max_default": 3
+            },
+            "hack": {
+              "label": "SITS.AttribHack",
+              "value": 0,
+              "max_default": 3
+            },
+            "network": {
+              "label": "SITS.AttribNetwork",
+              "value": 0,
+              "max_default": 3
+            },
+            "sway": {
+              "label": "SITS.AttribSway",
+              "value": 0,
+              "max_default": 3
+            }
+          }
+        }
       },
       "damage": {
-          "light": {
-            "one": "",
-            "two": ""
-          },
-          "medium": {
-            "one": "",
-            "two": ""
-          },
-          "heavy": {
-            "one": ""
-          },
-          "deadly": {
-            "one": ""
-          }
+        "light": {
+          "one": "",
+          "two": ""
+        },
+        "medium": {
+          "one": "",
+          "two": ""
+        },
+        "heavy": {
+          "one": ""
+        },
+        "deadly": {
+          "one": ""
+        }
+      },
+      "repair_clock": {
+        "value": 0,
+        "max": 4
       },
       "armor_uses": {
         "basic": false,
         "heavy": false,
         "special": false
       },
-      "attributes": {
-          "processing": {
-            "exp": 0,
-            "exp_max": 6,
-            "label": "SITS.AttribProcessing",
-            "skills": {
-              "analyze": {
-                "label": "SITS.AttribAnalyze",
-                "value": 0,
-                "max_default": 3
-              },
-              "engineer": {
-                "label": "SITS.AttribEngineer",
-                "value": 0,
-                "max_default": 3
-              },
-              "hunt": {
-                "label": "SITS.AttribHunt",
-                "value": 0,
-                "max_default": 3
-              },
-              "scan": {
-                "label": "SITS.AttribScan",
-                "value": 0,
-                "max_default": 3
-              }
-            }
-          },
-          "power": {
-            "exp": 0,
-            "exp_max": 6,
-            "label": "SITS.AttribPower",
-            "skills": {
-              "blast": {
-                "label": "SITS.AttribBlast",
-                "value": 0,
-                "max_default": 3
-              },
-              "clash": {
-                "label": "SITS.AttribClash",
-                "value": 0,
-                "max_default": 3
-              },
-              "infiltrate": {
-                "label": "SITS.AttribInfiltrate",
-                "value": 0,
-                "max_default": 3
-              },
-              "manipulate": {
-                "label": "SITS.AttribManipulate",
-                "value": 0,
-                "max_default": 3
-              }
-            }
-          },
-          "resolution": {
-            "exp": 0,
-            "exp_max": 6,
-            "label": "SITS.AttribResolution",
-            "skills": {
-              "command": {
-                "label": "SITS.AttribCommand",
-                "value": 0,
-                "max_default": 3
-              },
-              "hack": {
-                "label": "SITS.AttribHack",
-                "value": 0,
-                "max_default": 3
-              },
-              "network": {
-                "label": "SITS.AttribNetwork",
-                "value": 0,
-                "max_default": 3
-              },
-              "sway": {
-                "label": "SITS.AttribSway",
-                "value": 0,
-                "max_default": 3
-              }
-            }
-          }
-      }
+      "capacity": {
+        "selected": "light",
+        "options": ["light", "medium", "heavy"],
+        "default_light": 3,
+        "default_normal": 5,
+        "default_heavy": 7
+      },
+      "contacts": []
     },
 
 
@@ -249,6 +250,7 @@
 
   "Item": {
     "types": ["item", "playbook", "ability", "maker", "build", "deviance", "unit_upgrade", "unit_playbook", "unit_reputation", "unit_upgrade", "unit_ability", "malfunction"],
+
     "templates": {
       "default": {
         "description": ""
@@ -256,14 +258,18 @@
       "ability": {
         "description": "",
         "playbook": "",
-        "price": 1,
-        "purchased": false,
-        "playbook_default": false
+        "purchased": {
+          "value": 0,
+          "max": 1
+        },
+        "target": "",
+        "use_target": false
       },
       "logic": {
         "logic": ""
       }
     },
+
     "activatedEffect": {
       "activation": {
         "type": "",
@@ -300,12 +306,12 @@
     "item": {
       "templates": ["default", "logic", "activatedEffect"],
       "playbook": "",
-      "load": 0,
-      "uses": 1,
-      "additional_info": "",
-      "equipped" : false,
-      "num_available": 1
+      "category": "",
+      "capacity": 1,
+      "inplay" : false
     },
+
+
     "playbook": {
       "templates": ["default", "logic", "activatedEffect"],
       "experience_clues": [],
@@ -324,9 +330,13 @@
         "sway": [0]
       }
     },
+
+
     "ability": {
       "templates": ["ability", "logic", "activatedEffect"]
     },
+
+
     "maker": {
       "templates": ["default", "activatedEffect"]
     },
@@ -336,6 +346,8 @@
     "deviance": {
       "templates": ["default", "activatedEffect"]
     },
+
+
     "unit_reputation": {
       "templates": ["default"]
     },

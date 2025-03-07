@@ -1,25 +1,41 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <header class="sheet-header">
-        <img src="{{img}}" data-edit="img" title="{{name}}"/>
-        <div class="header-fields">
-            <h1 class="charname"><input name="name" type="text" value="{{name}}" placeholder="{{localize 'BITD.Name'}}"/></h1>
-        </div>
-    </header>
+  <header class="sheet-header">
+      <img src="{{img}}" data-edit="img" title="{{name}}"/>
+      <div class="header-fields">
+          <h1 class="charname"><input name="name" type="text" value="{{name}}" placeholder="{{localize 'BITD.Name'}}"/></h1>
+      </div>
+  </header>
 
-    {{!-- Sheet Body --}}
-    <section class="sheet-body flex">
-      {{editor system.description target="system.description" button=true editable=editable}}
-    </section>
-    <div class="flex-vertical">
-      <label class="label-stripe">{{localize "BITD.AbilityPrice"}}</label>
-      <input id="ability-price" type="text" name="system.price" value="{{system.price}}" placeholder="{{localize 'BITD.AbilityPrice'}}">
-      <label class="label-stripe">{{localize "BITD.AbilityClass"}}</label>
-      <input id="ability-class" type="text" name="system.class" value="{{system.class}}" placeholder="{{localize 'BITD.AbilityClass'}}">
+  {{!-- Sheet Body --}}
+  <section class="sheet-body item-body flex">
+      {{editor system.description target="system.description" button=true editable=editable engine="prosemirror"}}
+    <div class="flex-horizontal marginize-divs">
+      <div class="flex-vertical grow-one">
+
+        <label class="label-stripe">{{localize "SITS.AbilityPurchased"}}</label>
+        <input id="ability-{{_id}}-purchased-value" type="text" name="system.purchased.value" value="{{system.purchased.value}}">
+
+        <label class="label-stripe">{{localize "SITS.AbilityMaxPurchase"}}</label>
+        <input id="ability-{{_id}}-purchased-max" type="text" name="system.purchased.max" value="{{system.purchased.max}}">
+
+      </div>
+      <div class="flex-vertical grow-one">
+
+        <label class="label-stripe">{{localize "SITS.AbilityPlaybook"}}</label>
+        <input id="ability-{{_id}}-playbook" type="text" name="system.playbook" value="{{system.playbook}}">
+
+        <label class="label-stripe">{{localize "SITS.UseTargetField"}} &mdash; {{localize "SITS.Target"}}</label>
+        <div class="flex-horizontal">
+          <input id="ability-{{_id}}-use-target" type="checkbox" name="system.use_target" {{checked system.use_target}}>
+          <input id="ability-{{_id}}-target" type="text" name="system.target" value="{{system.target}}">
+        </div>
+      </div>
+    </div>
+    <div>
       {{#if isGM}}
-       <!-- <div class="label-stripe">{{localize "BITD.Logic"}}</div>
-        <textarea name="system.logic">{{{system.logic}}}</textarea> -->
         <div class="label-stripe">{{localize "BITD.Effects"}}</div>
         <div id="effects">{{> "systems/synths-in-the-shadow/templates/parts/active-effects.html"}}</div>
       {{/if}}
     </div>
+  </section>
 </form>

@@ -52,18 +52,22 @@ export class SitsActor extends Actor {
     const systemData = actorData.system;
 
     if (actorData.type === 'agent') {
-      console.log("Prepare Data for Agent");
       let unit = game.actors.get(systemData.unit.id);
       if (unit) {
-        console.log("Unit Exists");
         systemData.unit.name = unit.name;
         systemData.unit.description = unit.system.description;
         systemData.unit.img = unit.img;
       }
       else {
-        console.log("Unit not exist");
+        systemData.unit = {id: ""};
       }
       
+      const playbook = this.items.filter((item) => {return item.type === 'playbook'})[0]
+      if (playbook) {
+        systemData.playbookName = playbook.name.toLowerCase();
+      } else {
+        systemData.playbookName = "none";
+      }
     
       for (const a in systemData.attributes) {
         for (const s in systemData.attributes[a].skills)
@@ -93,6 +97,12 @@ export class SitsActor extends Actor {
       capacity.light = capacity.default_light;
       capacity.normal = capacity.default_normal;
       capacity.heavy = capacity.default_heavy;
+
+      capacity.max = capacity[capacity.selected];
+
+      capacity.value = 0;
+      this.items.filter((i) => {return (i.type === 'item') && i.system.inplay})
+        .forEach((i) => {capacity.value += parseInt(i.system.capacity)});
 
     }
   }

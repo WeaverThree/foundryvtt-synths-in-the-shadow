@@ -14,28 +14,15 @@ export class SitsSheet extends ActorSheet {
 	activateListeners(html) {
     super.activateListeners(html);
     html.find(".item-add-popup").click(this._onItemAddClick.bind(this));
-    html.find(".malfunction-checklist-popup").click(this._onMalfunctionChecklistClick.bind(this));
     html.find(".update-box").click(this._onUpdateBoxClick.bind(this));
 	
-	//for compatibility with bitd-alternate-sheets v1.0.10
-	let alt_sheets = false;
-	try {alt_sheets = game.modules.get("bitd-alternate-sheets").active;} catch {}
-	if (alt_sheets) {
-		html.find("input.radio-toggle, label.radio-toggle").click((e) => e.preventDefault());
-		html.find("input.radio-toggle, label.radio-toggle").mousedown((e) => {
-			this._onRadioToggle(e);
-		});
-		html.find("input.radio-toggle, label.radio-toggle").contextmenu((e) => {	
-			this._onRadioToggle(e);
-		});		
-	} else {
 		html.find("input.radio-toggle, label.radio-toggle").click((e) => {	
 			this._onRadioToggle(e);
 		});
 		html.find("input.radio-toggle, label.radio-toggle").contextmenu((e) => {	
 			this._onRadioToggle(e);
 		});		
-	}
+	
 
 
     // Post item to chat
@@ -229,66 +216,6 @@ export class SitsSheet extends ActorSheet {
   }
 
 
-   /* -------------------------------------------- */
-
-   async _onMalfunctionChecklistClick(event) {
-    event.preventDefault();
-
-    let html = `<div class="flex-horizontal-center"><div class="malfunction-checklist">`;
-    this.actor.system.malfunction.options.forEach(e => {
-      html += `<div class="malfunction-row"><input id="select-item-${e}" type="checkbox" name="select_items" value="${e}"`;
-      if (this.actor.system.malfunction.list.includes(e)) {
-        html += ` checked`;
-      }
-      html += `>`
-      html += `<label class="flex-horizontal" for="select-item-${e}">`;
-      html += `${game.i18n.localize(e)} <i class="fas fa-question-circle" data-tooltip="tooltip for later"></i>`;
-      html += `</label></div>`;
-    });
-
-    html += `</div></div>`;
-
-    let options = {
-      //width: "200"
-    }
-
-    let dialog = new Dialog({
-      title: `${game.i18n.localize('SITS.ChooseMalfunctions') + " " + this.actor.name}`,
-      content: html,
-      buttons: {
-        one: {
-          icon: '<i class="fas fa-check"></i>',
-          label: game.i18n.localize('SITS.Update'),
-          callback: async (html) => await this.saveMalfunctions(this, $(html).find(':checked'))
-        },
-      },
-      default: "one"
-    }, options);
-
-    dialog.render(true);
-  }
-
-  async saveMalfunctions(target, el) {
-    let items = [];
-    console.log(el);
-    el.each(e => {
-      items.push(el[e].value);
-    })
-    console.log(items);
-
-    let newData = {
-      system: {
-        malfunction: {
-          list: items,
-        }
-      }
-    }
-
-    await target.actor.update(newData);
-  }
-  
-
-
   /* -------------------------------------------- */
 
   async addItemsToSheet(item_type, el) {
@@ -307,6 +234,7 @@ export class SitsSheet extends ActorSheet {
 		await Item.create(items_to_add, {parent: this.document});
 	}
   }
+
   /* -------------------------------------------- */
 
   /**

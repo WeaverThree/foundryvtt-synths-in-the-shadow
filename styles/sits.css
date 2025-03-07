@@ -162,6 +162,9 @@
   font-family: "BarlowCondensed", sans-serif;
   font-size: 14px;
 }
+.synths-in-the-shadow * {
+  scrollbar-color: #9f9dfc transparent;
+}
 .synths-in-the-shadow .window-content {
   background-color: #010e38;
   color: #dadada;
@@ -189,21 +192,14 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.synths-in-the-shadow section > *:not(.label-stripe) {
-  margin-right: 10px;
+.synths-in-the-shadow .actor-sheet {
+  padding: 10px;
 }
-.synths-in-the-shadow section > *:not(.label-stripe):last-child {
-  margin-right: 0px;
-}
-.synths-in-the-shadow section .grow-one {
+.synths-in-the-shadow .grow-one {
   flex-grow: 1;
 }
-.synths-in-the-shadow section .grow-two {
+.synths-in-the-shadow .grow-two {
   flex-grow: 2;
-}
-.synths-in-the-shadow section.experience {
-  margin-bottom: 0px;
-  justify-content: center;
 }
 .synths-in-the-shadow .flex-horizontal {
   display: flex;
@@ -215,6 +211,9 @@
   flex-direction: row;
   justify-content: center;
 }
+.synths-in-the-shadow .centerline {
+  align-items: center;
+}
 .synths-in-the-shadow .flex-vertical {
   display: flex;
   flex-direction: column;
@@ -223,6 +222,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.synths-in-the-shadow .marginize-divs > div {
+  margin-right: 8px;
+}
+.synths-in-the-shadow .marginize-divs > div:last-child {
+  margin-right: 0px;
 }
 .synths-in-the-shadow input {
   border: 0;
@@ -298,15 +303,18 @@
   text-transform: uppercase;
 }
 .synths-in-the-shadow .label-stripe {
-  text-transform: uppercase;
-  background-color: #191813;
-  color: #EEEFFF;
-  margin-bottom: 10px;
-  position: relative;
-  padding-left: 10px;
-  padding-right: 10px;
+  background-color: #9f9dfc;
+  color: #080808;
+  font-size: 14px;
+  height: 18px;
   display: flex;
+  align-items: center;
+  font-style: italic;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  margin-top: 8px;
 }
 .synths-in-the-shadow .label-stripe-gray {
   text-transform: uppercase;
@@ -318,9 +326,24 @@
   display: flex;
   font-weight: bold;
 }
-.synths-in-the-shadow .editor,
 .synths-in-the-shadow .editor-content {
-  min-height: 150px;
+  margin-left: 8px;
+  margin-right: 8px;
+  min-height: 28px;
+}
+.synths-in-the-shadow .prosemirror {
+  height: 200px;
+  color: #dadada;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-family: "BarlowCondensed", sans-serif;
+  font-size: 14px;
+}
+.synths-in-the-shadow .prosemirror .editor-container {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.synths-in-the-shadow .prosemirror .fonts {
+  display: none;
 }
 .synths-in-the-shadow .description {
   font-style: italic;
@@ -373,14 +396,14 @@
 .synths-in-the-shadow .loadout select:hover {
   color: red;
 }
-.synths-in-the-shadow .abilities .item-name, .synths-in-the-shadow .loadout .item-name, .synths-in-the-shadow .faction-items .item-name {
+.synths-in-the-shadow .abilities .item-name, .synths-in-the-shadow .loadout .item-name {
   width: 100px;
   margin-left: 10px;
 }
-.synths-in-the-shadow .abilities .item-body, .synths-in-the-shadow .loadout .item-body, .synths-in-the-shadow .faction-items .item-body {
+.synths-in-the-shadow .abilities .item-body, .synths-in-the-shadow .loadout .item-body {
   width: auto;
 }
-.synths-in-the-shadow .abilities .item-description, .synths-in-the-shadow .loadout .item-description, .synths-in-the-shadow .faction-items .item-description {
+.synths-in-the-shadow .abilities .item-description, .synths-in-the-shadow .loadout .item-description {
   width: 260px;
 }
 .synths-in-the-shadow td {
@@ -1059,62 +1082,6 @@
 .synths-in-the-shadow.unit.sheet .experience-clues-container .experience-clues {
   font-style: italic;
 }
-.synths-in-the-shadow.unit.sheet .edgeflaw input {
-  display: none;
-}
-.synths-in-the-shadow.unit.sheet .edgeflaw input:checked + label {
-  color: red;
-}
-.synths-in-the-shadow.unit.sheet .gang-expert-type-selector .gang-type-boxes {
-  flex-wrap: wrap;
-}
-.synths-in-the-shadow.unit.sheet .cohorts {
-  flex-wrap: wrap;
-}
-.synths-in-the-shadow.unit.sheet .cohorts .cohort-block-wrapper {
-  width: 400px;
-}
-.synths-in-the-shadow.unit.sheet .cohorts .label-stripe {
-  align-items: center;
-  cursor: pointer;
-  margin-bottom: 0px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-}
-.synths-in-the-shadow.unit.sheet .cohorts .item-control {
-  flex-grow: 0;
-}
-.synths-in-the-shadow.unit.sheet .cohorts .cohort-body img {
-  border: 2px solid #191813;
-  width: 1.75rem;
-  height: 1.75rem;
-  border-top: none;
-}
-.synths-in-the-shadow.unit.sheet .cohorts .cohort-body > div {
-  margin-bottom: 10px;
-}
-.synths-in-the-shadow.unit.sheet .cohorts .cohort-block-harm {
-  justify-content: space-around;
-}
-.synths-in-the-shadow.unit.sheet .cohorts .cohort-block-harm input[type=radio] {
-  display: none;
-}
-.synths-in-the-shadow.unit.sheet .cohorts .cohort-block-harm input[type=radio]:checked + label {
-  color: #EEEFFF;
-  font-weight: bold;
-  background-color: #191813;
-}
-.synths-in-the-shadow.unit.sheet .cohorts .cohort-block-harm label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1 0 0;
-  border: 2px solid #191813;
-  border-top: none;
-  border-left: none;
-  padding: 0 5px;
-  text-align: center;
-}
 .synths-in-the-shadow.unit.sheet .playbook-name {
   width: 512px;
   height: 120px;
@@ -1476,6 +1443,7 @@
   justify-content: space-between;
   font-weight: bold;
   font-style: italic;
+  margin-right: 4px;
 }
 .synths-in-the-shadow.actor.agent * .energy_credits {
   display: flex;
@@ -1560,14 +1528,14 @@
   position: relative;
   margin-bottom: 10px;
 }
-.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .experience-pips {
   display: flex;
   /* Hide the browser's default checkbox */
   position: absolute;
   right: 5px;
   top: 5px;
 }
-.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body label {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .experience-pips label {
   height: 20px;
   width: 10px;
   background-image: url("assets/pips/pip-blue.svg");
@@ -1576,34 +1544,34 @@
   margin-right: 0px;
   cursor: pointer;
 }
-.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body label:last-of-type {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .experience-pips label:last-of-type {
   margin-right: 0px;
 }
-.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body label[for$="-0"] {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .experience-pips label[for$="-0"] {
   width: auto;
   height: auto;
   background-image: none !important;
   color: #EEEFFF;
 }
-.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body label[for$="-0"] i {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .experience-pips label[for$="-0"] i {
   margin-top: 4px;
 }
-.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body label:hover {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .experience-pips label:hover {
   background-image: url("assets/pips/pip-blue-hover.svg");
 }
-.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body input {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .experience-pips input {
   display: none;
 }
-.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body input:checked ~ label {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .experience-pips input:checked ~ label {
   background-image: url("assets/pips/pip-base.svg");
 }
-.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body input:checked ~ label:hover {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .experience-pips input:checked ~ label:hover {
   background-image: url("assets/pips/pip-base-hover.svg");
 }
-.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body input:checked + label {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .experience-pips input:checked + label {
   background-image: url("assets/pips/pip-blue.svg");
 }
-.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .stripe-tooth-body input:checked + label:hover {
+.synths-in-the-shadow.actor.agent * .attributes .attributes-exp .experience-pips input:checked + label:hover {
   background-image: url("assets/pips/pip-blue-hover.svg");
 }
 .synths-in-the-shadow.actor.agent * .attributes .attributes-container {
@@ -1790,66 +1758,208 @@
 .synths-in-the-shadow.actor.agent * .damage-armor .armor_uses input:checked + label:hover {
   background-image: url("assets/pips/armor-armed-hot-hover.svg");
 }
-.synths-in-the-shadow.actor.agent * .abilities .item-name, .synths-in-the-shadow.actor.agent * .loadout .item-name {
-  width: 100px;
+.synths-in-the-shadow.actor.agent * .tabs {
+  margin-bottom: 0px;
 }
-.synths-in-the-shadow.actor.agent * .abilities .item-body, .synths-in-the-shadow.actor.agent * .loadout .item-body {
-  width: auto;
-}
-.synths-in-the-shadow.actor.agent * .abilities .item-description, .synths-in-the-shadow.actor.agent * .loadout .item-description {
-  width: 260px;
-}
-.synths-in-the-shadow.actor.agent * .abilities .label-stripe p:first-child {
-  margin-right: 10px;
-}
-.synths-in-the-shadow.actor.agent * .loadout .item-add-popup {
-  margin-left: 10px;
-}
-.synths-in-the-shadow.actor.agent * .teeth-experience {
+.synths-in-the-shadow.actor.agent * .tabs .experience-pips {
   display: flex;
   /* Hide the browser's default checkbox */
-  position: absolute;
-  top: 0px;
-  right: 10px;
+  margin-left: -15px;
+  margin-right: -40px;
 }
-.synths-in-the-shadow.actor.agent * .teeth-experience label {
+.synths-in-the-shadow.actor.agent * .tabs .experience-pips label {
   height: 20px;
   width: 10px;
-  background-image: url("assets/pips/w-pip-blue.svg");
+  background-image: url("assets/pips/pip-blue.svg");
   background-repeat: no-repeat;
   background-size: contain;
   margin-right: 0px;
   cursor: pointer;
 }
-.synths-in-the-shadow.actor.agent * .teeth-experience label:last-of-type {
+.synths-in-the-shadow.actor.agent * .tabs .experience-pips label:last-of-type {
   margin-right: 0px;
 }
-.synths-in-the-shadow.actor.agent * .teeth-experience label[for$="-0"] {
+.synths-in-the-shadow.actor.agent * .tabs .experience-pips label[for$="-0"] {
   width: auto;
   height: auto;
   background-image: none !important;
   color: #EEEFFF;
 }
-.synths-in-the-shadow.actor.agent * .teeth-experience label[for$="-0"] i {
+.synths-in-the-shadow.actor.agent * .tabs .experience-pips label[for$="-0"] i {
   margin-top: 4px;
 }
-.synths-in-the-shadow.actor.agent * .teeth-experience label:hover {
-  background-image: url("assets/pips/w-pip-blue-hover.svg");
+.synths-in-the-shadow.actor.agent * .tabs .experience-pips label:hover {
+  background-image: url("assets/pips/pip-blue-hover.svg");
 }
-.synths-in-the-shadow.actor.agent * .teeth-experience input {
+.synths-in-the-shadow.actor.agent * .tabs .experience-pips input {
   display: none;
 }
-.synths-in-the-shadow.actor.agent * .teeth-experience input:checked ~ label {
-  background-image: url("assets/pips/w-pip-base.svg");
+.synths-in-the-shadow.actor.agent * .tabs .experience-pips input:checked ~ label {
+  background-image: url("assets/pips/pip-base.svg");
 }
-.synths-in-the-shadow.actor.agent * .teeth-experience input:checked ~ label:hover {
-  background-image: url("assets/pips/w-pip-base-hover.svg");
+.synths-in-the-shadow.actor.agent * .tabs .experience-pips input:checked ~ label:hover {
+  background-image: url("assets/pips/pip-base-hover.svg");
 }
-.synths-in-the-shadow.actor.agent * .teeth-experience input:checked + label {
-  background-image: url("assets/pips/w-pip-blue.svg");
+.synths-in-the-shadow.actor.agent * .tabs .experience-pips input:checked + label {
+  background-image: url("assets/pips/pip-blue.svg");
 }
-.synths-in-the-shadow.actor.agent * .teeth-experience input:checked + label:hover {
-  background-image: url("assets/pips/w-pip-blue-hover.svg");
+.synths-in-the-shadow.actor.agent * .tabs .experience-pips input:checked + label:hover {
+  background-image: url("assets/pips/pip-blue-hover.svg");
+}
+.synths-in-the-shadow.actor.agent * .abilities {
+  backdrop-filter: saturate(0.2);
+}
+.synths-in-the-shadow.actor.agent * .abilities table {
+  background-color: transparent !important;
+  border: 0;
+  margin-top: 0;
+  width: 500px;
+}
+.synths-in-the-shadow.actor.agent * .abilities tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: transparent !important;
+}
+.synths-in-the-shadow.actor.agent * .abilities tr:last-child {
+  border-bottom: 0;
+}
+.synths-in-the-shadow.actor.agent * .abilities .checks div {
+  display: flex;
+  /* Hide the browser's default checkbox */
+  display: flex;
+  flex-direction: column;
+}
+.synths-in-the-shadow.actor.agent * .abilities .checks div label {
+  height: 20px;
+  width: 20px;
+  background-image: url("assets/pips/w-skill-black.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 0px;
+  cursor: pointer;
+}
+.synths-in-the-shadow.actor.agent * .abilities .checks div label:last-of-type {
+  margin-right: 0px;
+}
+.synths-in-the-shadow.actor.agent * .abilities .checks div label[for$="-0"] {
+  width: auto;
+  height: auto;
+  background-image: none !important;
+  color: #EEEFFF;
+}
+.synths-in-the-shadow.actor.agent * .abilities .checks div label[for$="-0"] i {
+  margin-top: 4px;
+}
+.synths-in-the-shadow.actor.agent * .abilities .checks div label:hover {
+  background-image: url("assets/pips/w-skill-black-hover.svg");
+}
+.synths-in-the-shadow.actor.agent * .abilities .checks div input {
+  display: none;
+}
+.synths-in-the-shadow.actor.agent * .abilities .checks div input:checked ~ label {
+  background-image: url("assets/pips/w-skill-base.svg");
+}
+.synths-in-the-shadow.actor.agent * .abilities .checks div input:checked ~ label:hover {
+  background-image: url("assets/pips/w-skill-base-hover.svg");
+}
+.synths-in-the-shadow.actor.agent * .abilities .checks div input:checked + label {
+  background-image: url("assets/pips/w-skill-black.svg");
+}
+.synths-in-the-shadow.actor.agent * .abilities .checks div input:checked + label:hover {
+  background-image: url("assets/pips/w-skill-black-hover.svg");
+}
+.synths-in-the-shadow.actor.agent * .abilities .ability-title {
+  font-weight: bold;
+  width: 87px;
+}
+.synths-in-the-shadow.actor.agent * .abilities .ability-target {
+  width: 100px;
+  float: right;
+  margin-top: 12px;
+}
+.synths-in-the-shadow.actor.agent * .loadout select {
+  border: 0;
+  background-color: transparent;
+  color: #080808;
+  font-family: "BarlowCondensed", sans-serif;
+  font-size: 14px;
+  height: 14px;
+  margin-top: 0px;
+  margin-bottom: 4px;
+}
+.synths-in-the-shadow.actor.agent * .loadout select option {
+  color: black;
+}
+.synths-in-the-shadow.actor.agent * .loadout .loadout-playbook {
+  backdrop-filter: saturate(0.2);
+}
+.synths-in-the-shadow.actor.agent * .loadout .loadout-playbook, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* Hide the browser's default checkbox */
+}
+.synths-in-the-shadow.actor.agent * .loadout .loadout-playbook div, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.synths-in-the-shadow.actor.agent * .loadout .loadout-playbook label, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic label {
+  height: 20px;
+  width: 20px;
+  background-image: url("assets/pips/item-check-hot.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 0px;
+  cursor: pointer;
+}
+.synths-in-the-shadow.actor.agent * .loadout .loadout-playbook label:hover, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic label:hover {
+  background-image: url("assets/pips/item-check-hot-hover.svg");
+}
+.synths-in-the-shadow.actor.agent * .loadout .loadout-playbook input, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic input {
+  display: none;
+}
+.synths-in-the-shadow.actor.agent * .loadout .loadout-playbook input + label, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic input + label {
+  background-image: url("assets/pips/item-check-base.svg");
+}
+.synths-in-the-shadow.actor.agent * .loadout .loadout-playbook input + label:hover, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic input + label:hover {
+  background-image: url("assets/pips/item-check-hover.svg");
+}
+.synths-in-the-shadow.actor.agent * .loadout .loadout-playbook input:checked + label, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic input:checked + label {
+  background-image: url("assets/pips/item-check-hot.svg");
+}
+.synths-in-the-shadow.actor.agent * .loadout .loadout-playbook input:checked + label:hover, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic input:checked + label:hover {
+  background-image: url("assets/pips/item-check-hot-hover.svg");
+}
+.synths-in-the-shadow.actor.agent * .loadout .loadout-playbook .cap-0, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic .cap-0 {
+  font-style: italic;
+  /* Hide the browser's default checkbox */
+}
+.synths-in-the-shadow.actor.agent * .loadout .loadout-playbook .cap-0 label, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic .cap-0 label {
+  height: 20px;
+  width: 20px;
+  background-image: url("assets/pips/item-check-zero-hot.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 0px;
+  cursor: pointer;
+}
+.synths-in-the-shadow.actor.agent * .loadout .loadout-playbook .cap-0 label:hover, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic .cap-0 label:hover {
+  background-image: url("assets/pips/item-check-zero-hot-hover.svg");
+}
+.synths-in-the-shadow.actor.agent * .loadout .loadout-playbook .cap-0 input, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic .cap-0 input {
+  display: none;
+}
+.synths-in-the-shadow.actor.agent * .loadout .loadout-playbook .cap-0 input + label, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic .cap-0 input + label {
+  background-image: url("assets/pips/item-check-zero.svg");
+}
+.synths-in-the-shadow.actor.agent * .loadout .loadout-playbook .cap-0 input + label:hover, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic .cap-0 input + label:hover {
+  background-image: url("assets/pips/item-check-zero-hover.svg");
+}
+.synths-in-the-shadow.actor.agent * .loadout .loadout-playbook .cap-0 input:checked + label, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic .cap-0 input:checked + label {
+  background-image: url("assets/pips/item-check-zero-hot.svg");
+}
+.synths-in-the-shadow.actor.agent * .loadout .loadout-playbook .cap-0 input:checked + label:hover, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic .cap-0 input:checked + label:hover {
+  background-image: url("assets/pips/item-check-zero-hot-hover.svg");
 }
 .synths-in-the-shadow.actor.agent * .item {
   justify-content: space-between;
@@ -1882,31 +1992,11 @@
 .synths-in-the-shadow.actor.agent * .alias {
   margin-bottom: 10px;
 }
-.synths-in-the-shadow.item.sheet .item {
-  justify-content: space-between;
+.synths-in-the-shadow.item.sheet .sheet-header img {
+  border: 0;
 }
-.synths-in-the-shadow.item.sheet .item .item-body {
-  margin-bottom: 10px;
-}
-.synths-in-the-shadow.item.sheet .item .item-body * {
-  margin-right: 10px;
-}
-.synths-in-the-shadow.item.sheet .item .item-body .item-description {
-  font-style: italic;
-  text-align: justify;
-}
-.synths-in-the-shadow.item.sheet .item div {
-  flex-grow: 2;
-}
-.synths-in-the-shadow.item.sheet .item .item-control {
-  flex-grow: 1;
-}
-.synths-in-the-shadow.item.sheet .item .item-body,
-.synths-in-the-shadow.item.sheet .item .item-class-label {
-  width: 100px;
-}
-.synths-in-the-shadow.item.sheet .item-class-label {
-  margin-bottom: 10px;
+.synths-in-the-shadow.item.sheet .item-body input[type=text] {
+  margin-left: 1px;
 }
 
 .chat-label {

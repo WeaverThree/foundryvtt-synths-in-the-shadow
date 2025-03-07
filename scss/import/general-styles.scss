@@ -23,27 +23,18 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
 
-  > *:not(.label-stripe) {
-    margin-right: 10px;
+.actor-sheet {
+  padding: 10px;
+}
 
-    &:last-child {
-      margin-right: 0px;
-    }
-  }
+.grow-one {
+  flex-grow: 1;
+}
 
-  .grow-one {
-    flex-grow: 1;
-  }
-
-  .grow-two {
-    flex-grow: 2;
-  }
-
-  &.experience {
-    margin-bottom: 0px;
-    justify-content: center;
-  }
+.grow-two {
+  flex-grow: 2;
 }
 
 .flex-horizontal {
@@ -58,6 +49,10 @@ section {
   justify-content: center;
 }
 
+.centerline {
+  align-items: center;
+}
+
 .flex-vertical {
   display: flex;
   flex-direction: column;
@@ -67,6 +62,15 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.marginize-divs {
+  & > div {
+    margin-right:8px;
+  }
+  & > div:last-child {
+    margin-right: 0px;
+  }
 }
 
 input {
@@ -153,15 +157,19 @@ textarea::placeholder {
 }
 
 .label-stripe {
-  text-transform: uppercase;
-  background-color: $almost_black;
-  color: $almost_white;
-  margin-bottom: 10px;
-  position: relative;
-  padding-left: 10px;
-  padding-right: 10px;
+  background-color: $header-bg;
+  color: $header-fg;
+  font-size: 14px;
+  height: 18px;
   display: flex;
+  align-items: center;
+  font-style: italic;
   font-weight: bold;
+  display:flex;
+  justify-content: center;
+  text-transform: uppercase;
+  margin-top:8px;
+
 }
 
 .label-stripe-gray {
@@ -175,9 +183,31 @@ textarea::placeholder {
   font-weight: bold;
 }
 
-.editor,
+// .editor,
+// .editor-content {
+//   min-height: 150px;
+// }
+
 .editor-content {
-  min-height: 150px;
+  margin-left: 8px;
+  margin-right: 8px;
+  min-height: 28px;
+}
+.prosemirror {
+  height: 200px;
+  color: $main-fg;
+  background-color: $input-bg;
+  font-family: "BarlowCondensed", sans-serif;
+  font-size: 14px;
+
+  .editor-container {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  .fonts {
+    display:none;
+  }
 }
 
 .description {
