@@ -35,8 +35,10 @@ export class SitsAgentSheet extends SitsSheet {
     // Prepare active effects
     sheetData.effects = SitsActiveEffect.prepareActiveEffectCategories(this.actor.effects);
 
+    // IDK what this is
     sheetData.system.description = await TextEditor.enrichHTML(sheetData.system.description, {secrets: sheetData.owner, async: true});
 
+    // Abilities sorted alphabetically and then any we have invested in moved to the top
     sheetData.sortedAbilities = this.actor.items.filter(i => { return i.type === 'ability';})
         .sort((a,b) => {return a.name.localeCompare(b.name);})
         .sort((a,b) => {
@@ -49,12 +51,17 @@ export class SitsAgentSheet extends SitsSheet {
           }
         });
 
+    // All of this playbook's items
     sheetData.sortedPlaybookItems = this.actor.items
-      .filter(i => {return (i.type === 'item') && (i.system.playbook.split(",").includes(this.actor.system.playbookName));})
+      .filter(i => {return (i.type === 'item') && (i.system.playbook.toLowerCase().split(",").includes(this.actor.system.playbookName.toLowerCase()));})
       .sort((a,b) => {return a.name.localeCompare(b.name);});
+
+    // All other non-general items
     sheetData.sortedOtherPlaybookItems = this.actor.items
-      .filter(i => {return (i.type === 'item') && !(i.system.playbook.split(",").includes(this.actor.system.playbookName)) && (i.system.playbook !== 'general');})
+      .filter(i => {return (i.type === 'item') && !(i.system.playbook.toLowerCase().split(",").includes(this.actor.system.playbookName.toLowerCase())) && (i.system.playbook !== 'general');})
       .sort((a,b) => {return a.name.localeCompare(b.name);});
+
+    // General items
     sheetData.sortedGenericItems = this.actor.items
       .filter(i => {return (i.type === 'item') && (i.system.playbook === 'general');})
       .sort((a,b) => {return a.name.localeCompare(b.name);});
@@ -119,11 +126,42 @@ export class SitsAgentSheet extends SitsSheet {
       case "ability":
         break;
       case "playbook":
+        await this._newPlaybook(droppedEntityFull)
         break ;
       default:
         break;
     }
   }
+
+
+  async _newPlaybook(playbook) {
+    // Clear items and abilities
+    let removeItems = this.actor.items.filter((x) => {return x.type === 'item' || x.type ==='ability'}).map((x) => {return x.id});
+    await this.actor.deleteEmbeddedDocuments('Item', removeItems);
+    
+    // Add all abilities for this playbook
+    await this.actor.createEmbeddedDocuments('Item',
+      game.items.filter((x) => {return x.type === 'ability' && x.system.playbook.toLowerCase().split(",").includes(playbook.name.toLowerCase());})
+    );
+
+    // Add all items for this playbook
+    await this.actor.createEmbeddedDocuments('Item',
+      game.items.filter((x) => {return x.type === 'item' && x.system.playbook.toLowerCase().split(",").includes(playbook.name.toLowerCase());})
+    );
+
+    // Add all general items (avoids degenerate case of general + playbook items)
+    await this.actor.createEmbeddedDocuments('Item',
+      game.items.filter((x) => {return x.type === 'item' && x.system.playbook.toLowerCase().split(",").includes("general") && !(x.system.playbook.toLowerCase().split(",").includes(playbook.name.toLowerCase()));})
+    );
+
+  }
+
+
+
+
+
+
+
   /* -------------------------------------------- */
 
   async _onAbilityRadio(event) {
