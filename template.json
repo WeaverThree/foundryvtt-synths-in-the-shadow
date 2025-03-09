@@ -148,7 +148,7 @@
         "default_normal": 5,
         "default_heavy": 7
       },
-      "contacts": []
+      "contacts": {}
     },
 
 
@@ -213,8 +213,6 @@
     },
     
     "npc": {
-      "name": "",
-      "description_short": "",
       "description": "",
       "associated_class": "",
       "associated_faction": "",
@@ -223,7 +221,6 @@
     },
 
     "faction": {
-      "templates": ["default"],
       "type": "",
       "tier": 0,
       "goal_1": "",
@@ -314,21 +311,10 @@
 
     "playbook": {
       "templates": ["default", "logic", "activatedEffect"],
-      "experience_clues": [],
-      "base_skills": {
-        "hunt": [0],
-        "analyze": [0],
-        "scan": [0],
-        "engineer": [0],
-        "manipulate": [0],
-        "infiltrate": [0],
-        "clash": [0],
-        "blast": [0],
-        "hack": [0],
-        "command": [0],
-        "network": [0],
-        "sway": [0]
-      }
+      "experience_clue": "",
+      "skill_primary": "",
+      "skill_secondary": "",
+      "contacts": ""
     },
 
 

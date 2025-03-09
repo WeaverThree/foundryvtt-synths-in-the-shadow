@@ -37,6 +37,15 @@ $hover-brightness: 0.8;
 @import 'import/mixin';
 @import 'fonts.scss';
 
+select, textarea {
+  font-family: "BarlowCondensed", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+select {
+  height: 14px;
+}
+
 //namespacing to avoid conflicts with other modules
 .synths-in-the-shadow{
   font-family: "BarlowCondensed", sans-serif;

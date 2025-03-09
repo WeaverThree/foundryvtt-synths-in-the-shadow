@@ -13,3 +13,95 @@
 }
 
 
+.playbook-body {
+  backdrop-filter: saturate(0.2);
+
+
+    // Abilities
+    .abilities {
+  
+    table {
+      // width: 100%;
+      background-color: transparent !important;
+      border: 0;
+      margin-top:0;
+      // width:500px;
+    }
+    
+    tr {
+      border-bottom: 1px solid $table-lines;
+      background-color: transparent !important;
+    }
+
+    tr:last-child {
+      border-bottom: 0;
+    }
+
+    .checks {
+      div {
+ 
+        label {
+          width:20px;
+          height:20px;
+          background-image: url("assets/pips/w-skill-base.svg");
+          background-repeat: no-repeat;
+          background-size: contain;
+          margin-right: 0px;
+        }
+
+        display:flex;
+        flex-direction: column;
+      }
+    }
+
+    .ability-title {
+      font-weight: bold;
+      width: 87px;
+    }
+
+    .ability-target {
+      width:100px;
+      float:right;
+      margin-top:12px;
+    }
+
+  }
+
+  // Loadout
+
+
+    .loadout-playbook {    
+      padding-top: 8px;
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+
+      label {
+        width:20px;
+        height:20px;
+        background-image: url("assets/pips/item-check-base.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-right: 0px;
+      }
+
+      .cap-0 {
+        font-style:italic;
+        label {
+          background-image: url("assets/pips/item-check-zero.svg");
+        }
+      }
+    }
+  .contacts {
+    height:150px;
+  }
+  
+}
+

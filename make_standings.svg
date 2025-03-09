@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 128 128"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="make_standings.svg"
+   inkscape:export-batch-path="/home/weaver/Documents/sits_foundry"
+   inkscape:export-batch-name=""
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#50505000"
+     bordercolor="#eeeeeeff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050ff"
+     inkscape:document-units="px"
+     borderlayer="true"
+     inkscape:zoom="2"
+     inkscape:cx="208.25"
+     inkscape:cy="91.75"
+     inkscape:window-width="2257"
+     inkscape:window-height="1269"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer2"
+     showguides="true">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="128"
+       height="128"
+       id="page2"
+       margin="0"
+       bleed="0"
+       inkscape:label="standing-neutral" />
+    <inkscape:page
+       x="138"
+       y="0"
+       width="128"
+       height="128"
+       id="page3"
+       margin="0"
+       bleed="0" />
+    <inkscape:page
+       x="276"
+       y="0"
+       width="128"
+       height="128"
+       id="page4"
+       margin="0"
+       bleed="0"
+       inkscape:label="standing-friend" />
+    <inkscape:page
+       x="414"
+       y="0"
+       width="128"
+       height="128"
+       id="page5"
+       margin="0"
+       bleed="0" />
+    <inkscape:page
+       x="552"
+       y="0"
+       width="128"
+       height="128"
+       id="page1"
+       margin="0"
+       bleed="0"
+       inkscape:label="standing-rival" />
+    <inkscape:page
+       x="690"
+       y="0"
+       width="128"
+       height="128"
+       id="page6"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="340,7.0172195"
+       end_point="340,120.98278"
+       center_point="340,64"
+       id="path-effect15"
+       is_visible="true"
+       lpeversion="1.2"
+       lpesatellites=""
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="true"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false"
+       link_styles="false" />
+  </defs>
+  <g
+     inkscape:label="bkg"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:none;stroke:none">
+    <rect
+       style="font-variation-settings:normal;display:inline;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.247843;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none"
+       id="rect5"
+       width="128"
+       height="128"
+       x="0"
+       y="0" />
+    <path
+       id="rect20"
+       style="display:inline;vector-effect:none;fill:#cccccc;stroke-width:0.247843"
+       d="M 276,0 H 404 V 128 H 276 Z"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       id="path21"
+       style="display:inline;vector-effect:none;fill:#cccccc;stroke-width:0.247843"
+       d="M 552,128 H 680 V 0 H 552 Z"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 1"
+     style="display:inline">
+    <rect
+       style="fill:#ffffff;stroke:#ffffff;stroke-width:0.0999999"
+       id="rect19"
+       width="102.51681"
+       height="29.613747"
+       x="12.741594"
+       y="49.19313" />
+    <path
+       id="rect21"
+       style="fill:#aaffaa;stroke:#ffffff;stroke-width:0.0999999"
+       d="m 288.74161,49.19313 51.2584,-35.5 51.25841,35.5 V 78.806877 H 288.74161 Z"
+       sodipodi:nodetypes="cccccc" />
+    <path
+       id="path22"
+       style="fill:#ffaaaa;stroke:#ffffff;stroke-width:0.0999999"
+       d="m 564.74161,78.80687 51.2584,35.5 51.25841,-35.5 V 49.193123 H 564.74161 Z"
+       sodipodi:nodetypes="cccccc" />
+  </g>
+</svg>

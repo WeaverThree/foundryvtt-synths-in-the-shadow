@@ -52,8 +52,16 @@
   "BITD.Loadout": "Loadout",
   "BITD.Load": "Load",
   "SITS.SpecialItems": "Special Items",
-  "SITS.LoadoutCapacity": "Loadout Capacity",
+  "SITS.LoadoutCapacity": "Capacity",
   
+  "SITS.ExpHeader": "XP Triggers",
+  "SITS.ExpClue1": "Every time you <b>roll a desperate action</b>, mark xp in <b>that action</b>'s attribute.",
+  "SITS.ExpClue2": "You expressed your <b>beliefs</b>, <b>drives</b>, <b>maker</b>, or <b>build</b>.",
+  "SITS.ExpClue3": "You struggled with issues from your <b>deviance</b> or <b>malfunctions</b> during the session.",
+  "SITS.ExpClueDescription": "At the end of each session, for each item below, mark <b>1 xp</b> in any track &mdash; or <b>2 xp</b> if that item occurred multiple times.",
+
+
+
   "BITD.System": "System",
   "BITD.Systems": "Systems",
   "BITD.Planet": "Planet",
@@ -100,7 +108,13 @@
   "SITS.ItemPlaybook": "Associated Playbook",
   "SITS.ItemCategory": "Item Category",
 
-  
+  "SITS.PlaybookAbilities": "Associated Abilities",
+  "SITS.PlaybookItems": "Associated Items",
+  "SITS.PlaybookContacts": "Contacts (Name Per Line)",
+  "SITS.PlaybookPrimarySkill": "Primary Skill",
+  "SITS.PlaybookSecondarySkill": "Secondary Skill",
+  "SITS.PlaybookExperienceClue": "Experience Clue",
+
   "BITD.Information": "Information",
   "BITD.GangType": "Gang Type",
   "BITD.ExpertType": "Expert Type",
@@ -110,10 +124,8 @@
   "BITD.Flaws": "Flaws",
   "BITD.Scale": "Scale",
   "BITD.Quality": "Quality",
-  "BITD.PlaybookExpClue1": "Every time you roll a desperate action, mark xp in that action's attribute.",
-  "BITD.PlaybookExpClue2": "You expressed your beliefs, drives, heritage, or background.",
-  "BITD.PlaybookExpClue3": "You struggled with issues from your vice or traumas during the session.",
-  "BITD.PlaybookExpClueDescription": "At the end of each session, for each item below, mark 1 xp (in your playbook or an attribute) or 2 xp if that item occurred multiple times.",
+
+ 
   "BITD.Turf": "Turf",
   "BITD.Claims": "Claims",
   "BITD.Lair": "Lair",

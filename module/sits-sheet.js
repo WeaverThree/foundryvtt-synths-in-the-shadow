@@ -59,11 +59,11 @@ export class SitsSheet extends ActorSheet {
 	
 		// acquaintance status toggle
     html.find('.standing-toggle').click(ev => {
-      let acquaintances = this.actor.system.acquaintances;
-      let acqId = ev.target.closest('.acquaintance').dataset.acquaintance;
-      let clickedAcqIdx = acquaintances.findIndex(item => item.id == acqId);
-      let clickedAcq = acquaintances[clickedAcqIdx];
-      let oldStanding = clickedAcq.standing;
+      let contacts = this.actor.system.contacts;
+      let contactId = $(ev.target).attr("data-contact");
+      console.log(contactId);
+      let targetContact = contacts[contactId];
+      let oldStanding = targetContact.standing;
       let newStanding;
       switch(oldStanding){
         case "friend":
@@ -76,32 +76,21 @@ export class SitsSheet extends ActorSheet {
           newStanding = "friend";
           break;
       }
-      clickedAcq.standing = newStanding;
-      acquaintances.splice(clickedAcqIdx, 1, clickedAcq);
-      this.actor.update({system: {acquaintances : acquaintances}});
+      targetContact.standing = newStanding;
+      this.actor.update({system: {contacts: contacts}});
     });
 	
 	  // Open Acquaintance
     html.find('.open-friend').click(ev => {
-      const element = $(ev.currentTarget).parents(".item");
-		//acqId is the UUID of the Acquaintance
-	  let acqId = element.data("itemId");
-		// if the Acquaintance is not in the world the if loop will trigger
-	  if (game.actors.get(element.data("itemId")) == undefined) {
-		  //send the UUID and this actor to a helper fuction
-		  SitsHelpers.importAcquaintance(this.actor, acqId);
-	  } else {
-      const actor = game.actors.get(element.data("itemId"));
-      actor?.sheet.render(true);
-	  }
+      game.actors.get($(ev.target).attr('data-contact'))?.sheet.render(true);
     });
-	
-	// Remove Acquaintance from agent sheet
+      
+    // Remove Acquaintance from agent sheet
     html.find('.acquaintance-delete').click(ev => {
       //let acqId = ev.target.closest('.acquaintance').dataset.acquaintance; //used when <div class="acquaintance"
 	  const element = $(ev.currentTarget).parents(".item");
 	  let acqId = element.data("itemId");
-	  SitsHelpers.removeAcquaintance(this.actor, acqId);
+	  SitsHelpers.removeContact(this.actor, acqId);
     });
 
 	  // Import Acquaintance by playbook

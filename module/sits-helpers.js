@@ -226,29 +226,27 @@ export class SitsHelpers {
 
   }
   // adds an NPC to the agent as an acquaintance of neutral standing
-  static async addAcquaintance(agent, acq){
-    let current_acquaintances = agent.system.acquaintances;
-    let acquaintance = {
-      id : acq.id,
-      name : acq.name,
-      description_short : acq.system.description_short,
-      standing: "neutral"
-     };
-     let unique_id =  !current_acquaintances.some((oldAcq) => {
-       return oldAcq.id == acq.id;
-     });
-     if(unique_id){
-       await agent.update({system: {acquaintances : current_acquaintances.concat([acquaintance])}});
-     }
-     else{
-       ui.notifications.info(game.i18n.localize("BITD.log.info.SameNPC"));
+  static async addContact(agent, contactActor){
+    let current_contacts = agent.system.contacts;
+    if (contactActor.id in current_contacts) {
+      current_contacts[contactActor.id].name = contactActor.name
+      ui.notifications.info(game.i18n.localize("BITD.log.info.SameNPC"));
+      
+    } else { 
+      let contact = {
+        id: contactActor.id,
+        name : contactActor.name,
+        standing: "neutral"
+      };
+      current_contacts[contactActor.id] = contact;
     }
+    await agent.update({system: {contacts : current_contacts}});
   }
   
-   static async removeAcquaintance(actor, acqId){
-    let current_acquaintances = actor.system.acquaintances;
-    let updated_acquaintances = current_acquaintances.filter(acq => acq._id !== acqId && acq.id !== acqId);
-	await actor.update({system: {acquaintances : updated_acquaintances}});
+  static async removeContact(actor, acqId){
+    let current_contacts = actor.system.acquaintances;
+    delete current_contacts[acqId];
+    await actor.update({system: {contacts : current_contacts}});
   }
   
    static async importAcquaintance(actor, acqId){
@@ -299,7 +297,7 @@ export class SitsHelpers {
 	  let i = 0;
 	  while(i<LM){
 	  const new_acq= pb_actor[i];
-	  await this.addAcquaintance(actor, new_acq);
+	  await this.addContact(actor, new_acq);
 	  i++;}
 	}
 	

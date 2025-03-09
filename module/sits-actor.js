@@ -46,6 +46,31 @@ export class SitsActor extends Actor {
   }
 
   /** @override */
+  prepareBaseData() {
+    // Data modifications in this step occur before processing embedded documents or derived data.
+
+    const actorData = this;
+    const systemData = actorData.system
+  
+    if (actorData.type === 'agent') {
+      let deleteContacts = [];
+      for (let id in systemData.contacts) {
+        let contactActor = game.actors.get(id);
+        if (!contactActor) {
+          deleteContacts.push(id);
+        } else {
+          systemData.contacts[id].name = contactActor.name;
+          systemData.contacts[id].id = id;
+          if(!('standing' in systemData.contacts[id])) {
+            systemData.contacts[id].standing = 'neutral';
+          }
+        }
+      }
+      deleteContacts.forEach((x) => {delete systemData.contacts[x];});
+    }
+  }
+
+  /** @override */
   prepareDerivedData() {
 
     const actorData = this;
@@ -104,7 +129,10 @@ export class SitsActor extends Actor {
       this.items.filter((i) => {return (i.type === 'item') && i.system.inplay})
         .forEach((i) => {capacity.value += parseInt(i.system.capacity)});
 
+
+
     }
+  
   }
 
   /** @override */

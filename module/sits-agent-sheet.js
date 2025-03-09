@@ -1,6 +1,7 @@
 import { SitsSheet } from "./sits-sheet.js";
 import { SitsActiveEffect } from "./sits-active-effect.js";
 import { SitsHelpers } from "./sits-helpers.js";
+import { SitsActor } from "./sits-actor.js"
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -30,7 +31,7 @@ export class SitsAgentSheet extends SitsSheet {
     sheetData.isGM = game.user.isGM;
 
     // Make sure derived attributes are up to date:
-    this.actor.prepareDerivedData();
+    //this.actor.prepareDerivedData();
 
     // Prepare active effects
     sheetData.effects = SitsActiveEffect.prepareActiveEffectCategories(this.actor.effects);
@@ -50,7 +51,6 @@ export class SitsAgentSheet extends SitsSheet {
             return 0;
           }
         });
-
     // All of this playbook's items
     sheetData.sortedPlaybookItems = this.actor.items
       .filter(i => {return (i.type === 'item') && (i.system.playbook.toLowerCase().split(",").includes(this.actor.system.playbookName.toLowerCase()));})
@@ -66,6 +66,9 @@ export class SitsAgentSheet extends SitsSheet {
       .filter(i => {return (i.type === 'item') && (i.system.playbook === 'general');})
       .sort((a,b) => {return a.name.localeCompare(b.name);});
 
+    sheetData.sortedContacts = Object.entries(this.actor.system.contacts).map(([x,y]) => y).sort((a,b) => {return a.name.localeCompare(b.name)})
+
+    sheetData.capacityMaxPlusOne = this.actor.system.capacity.max + 1; // Since we can't do wthis in HBS
 
     return sheetData;
   }
@@ -116,7 +119,7 @@ export class SitsAgentSheet extends SitsSheet {
     let droppedEntityFull = await fromUuid(droppedEntity.uuid);
     switch (droppedEntityFull.type) {
       case "npc":
-        await SitsHelpers.addAcquaintance(this.actor, droppedEntityFull);
+        await SitsHelpers.addContact(this.actor, droppedEntityFull);
         break;
       case "unit":
         await SitsHelpers.addUnit(this.actor, droppedEntityFull);
@@ -138,6 +141,10 @@ export class SitsAgentSheet extends SitsSheet {
     // Clear items and abilities
     let removeItems = this.actor.items.filter((x) => {return x.type === 'item' || x.type ==='ability'}).map((x) => {return x.id});
     await this.actor.deleteEmbeddedDocuments('Item', removeItems);
+
+    // And contacts
+    await this.actor.update({system: {contacts: ""}});
+    await this.actor.update({system: {contacts: {}}});
     
     // Add all abilities for this playbook
     await this.actor.createEmbeddedDocuments('Item',
@@ -154,6 +161,26 @@ export class SitsAgentSheet extends SitsSheet {
       game.items.filter((x) => {return x.type === 'item' && x.system.playbook.toLowerCase().split(",").includes("general") && !(x.system.playbook.toLowerCase().split(",").includes(playbook.name.toLowerCase()));})
     );
 
+    // And contacts
+    let contactNames = playbook.system.contacts.split('\n').map((line) => {return line.trim();}).filter((line) => {return line;});
+    let usedNames = [];
+    
+    game.actors.filter((x) => {return x.type==='npc'}).forEach(async (npc) => {
+      if (contactNames.includes(npc.name)) {
+        usedNames.push(npc.name);
+        await SitsHelpers.addContact(this.actor, npc);
+      }
+    })
+
+    console.log(contactNames)
+    console.log(usedNames)
+
+    contactNames.forEach(async (name) => {
+      if(!usedNames.includes(name)) {
+        let newNpc = await SitsActor.create({name:name, type:"npc"});
+        await SitsHelpers.addContact(this.actor, newNpc);
+      }
+    })
   }
 
 

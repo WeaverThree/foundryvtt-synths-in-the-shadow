@@ -119,7 +119,6 @@ $hover-brightness: 0.8;
     margin-top:4px;
     margin-bottom:0px;
     border:0;
-    font-family: BarlowCondensed;
   }
 
   .second-section {
@@ -367,6 +366,10 @@ $hover-brightness: 0.8;
       border-bottom: 0;
     }
 
+    td:first-child {
+      padding-left:4px;
+    }
+
     .checks {
       div {
         @include pipradio_hover(20px, 20px, "assets/pips/w-skill-base.svg", "assets/pips/w-skill-black.svg", "assets/pips/w-skill-base-hover.svg", "assets/pips/w-skill-black-hover.svg");
@@ -395,9 +398,6 @@ $hover-brightness: 0.8;
       border: 0;
       background-color: transparent;
       color: $header-fg;
-      font-family: "BarlowCondensed", sans-serif;
-      font-size: 14px;
-      height: 14px;
       margin-top: 0px;
       margin-bottom: 4px;
       option {
@@ -405,12 +405,27 @@ $hover-brightness: 0.8;
       }
     }
 
-    .loadout-playbook {
-      backdrop-filter: saturate(0.2);
+    .label-stripe {
+      align-items: normal;
     }
 
+    .capacity-pips {
+      @include pipradio_overload(16px, 16px, "assets/pips/cargo-base.svg", "assets/pips/cargo-hot.svg", "assets/pips/cargo-over.svg", "assets/pips/cargo-over-hot.svg", false);
+      margin-left:4px;
+    }
+
+    .loadout-playbook {
+      backdrop-filter: saturate(0.2);
+      padding-bottom:8px;
+    }
+
+    .itemline {
+      padding-left: 4px;
+      padding-right: 4px;
+    }
 
     .loadout-playbook, .loadout-generic {    
+      padding-top: 8px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -425,6 +440,48 @@ $hover-brightness: 0.8;
       .cap-0 {
         font-style:italic;
         @include pipcheck_hover(20px, 20px, "assets/pips/item-check-zero.svg", "assets/pips/item-check-zero-hot.svg", "assets/pips/item-check-zero-hover.svg", "assets/pips/item-check-zero-hot-hover.svg");
+      }
+
+
+      .contacts-header {
+        justify-content: center;
+      }
+    }
+  }
+
+  .contacts-header {
+    margin-top: 0
+  }
+
+  .contacts {
+
+    padding-top: 8px;
+    padding-bottom: 8px;
+  
+    backdrop-filter: saturate(0.2);
+
+    .contact {
+      
+      display:flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      padding-left: 4px;
+
+      .standing-toggle {
+        background-image: url("assets/pips/standing-neutral.svg");
+        width: 20px;
+        height: 20px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: flex;
+      }
+
+      .standing-friend {
+        background-image: url("assets/pips/standing-friend.svg");
+      }
+
+      .standing-rival {
+        background-image: url("assets/pips/standing-rival.svg");
       }
     }
   }
@@ -459,14 +516,6 @@ $hover-brightness: 0.8;
     }
   }
 
-  .item-class-label {
-    margin-bottom: 10px;
-  }
-
-  .name,
-  .lair,
-  .alias {
-    margin-bottom: 10px;
-  }
+ 
 
 }

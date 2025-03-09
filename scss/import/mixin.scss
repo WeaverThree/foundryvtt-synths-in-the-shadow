@@ -73,6 +73,73 @@
   }
 }
 
+@mixin pipradio_overload($width, $height, $unchecked_background, $checked_background, $unchecked_over, $checked_over, $changeable: true) {
+
+  display: flex;
+
+  label {
+
+    & {
+      height: $height;
+      width: $width;
+      background-image: url($checked_background);
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin-right: 0px;
+  
+      &:last-of-type {
+        margin-right: 0px;
+      }
+
+      &.overload {
+        background-image: url($checked_over);
+      }
+
+      &[for$="-0"] {
+        width: auto;
+        height: auto;
+        background-image: none !important;
+        color: $almost_white;
+
+        i {
+          margin-top: 4px;
+        }
+      }
+
+      @if $changeable {
+      }
+      @else {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  /* Hide the browser's default checkbox */
+  input {
+  
+    display: none;
+  
+    &:checked {
+  
+      & ~ label {
+        background-image: url($unchecked_background);
+      }
+      & + label {
+        background-image: url($checked_background);
+      }
+      & ~ label.overload {
+        background-image: url($unchecked_over);
+      }
+      & + label.overload {
+        background-image: url($checked_over);
+      }
+    }
+  }
+}
+
+
+
+
 @mixin pipradio_hover($width, $height, $unchecked_background, $checked_background, $unchecked_hover, $checked_hover, $changeable: true) {
 
   display: flex;

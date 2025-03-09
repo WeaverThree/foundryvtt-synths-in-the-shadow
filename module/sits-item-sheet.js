@@ -63,6 +63,18 @@ export class SitsItemSheet extends ItemSheet {
     sheetData.effects = prepareActiveEffectCategories(this.document.effects);
 
     sheetData.system.description = await TextEditor.enrichHTML(sheetData.system.description, {secrets: sheetData.owner, async: true});
+    
+    if (this.item.type == 'playbook') {
+      // World (eventually compendium) abilities for playbook sorted alphabetically
+      sheetData.sortedAbilities = game.items
+      .filter(i => {return (i.type === 'ability') && (i.system.playbook.toLowerCase() === this.item.name.toLowerCase());})
+      .sort((a,b) => {return a.name.localeCompare(b.name);});
+
+      // World (eventually compendium) items for playbook sorted alphabetically
+      sheetData.sortedPlaybookItems = game.items
+        .filter(i => {return (i.type === 'item') && (i.system.playbook.toLowerCase().split(",").includes(this.item.name.toLowerCase()));})
+        .sort((a,b) => {return a.name.localeCompare(b.name);});
+    }
 
     return sheetData;
   }

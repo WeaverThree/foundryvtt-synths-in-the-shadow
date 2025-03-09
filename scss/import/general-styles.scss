@@ -1,7 +1,4 @@
-textarea {
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
+
 
 .debug-toggle{
   opacity: 0.1;
@@ -86,6 +83,7 @@ input::placeholder {
 textarea {
   background-color: $input-bg;
   color: $main-fg;
+  border: 0;
 }
 
 textarea::placeholder {
@@ -148,7 +146,6 @@ textarea::placeholder {
   align-items: center;
   font-style: italic;
   font-weight: bold;
-  display:flex;
   justify-content: center;
   margin-left: 8px;
   margin-right: 8px;
@@ -250,8 +247,6 @@ i {
     padding: 0 20px 0 0;
     margin: 0.1em -6px 0 0;
     background-color: $almost_black;
-    font-family: Georgia, "Bitstream Charter", "Times New Roman", serif;
-    font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
     color: white;

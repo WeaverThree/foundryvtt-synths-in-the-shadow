@@ -158,6 +158,16 @@
   font-weight: bold;
   font-style: italic;
 }
+select, textarea {
+  font-family: "BarlowCondensed", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+select {
+  height: 14px;
+}
+
 .synths-in-the-shadow {
   font-family: "BarlowCondensed", sans-serif;
   font-size: 14px;
@@ -169,10 +179,6 @@
   background-color: #010e38;
   color: #dadada;
   background-image: url("assets/scanlines_bkg.png");
-}
-.synths-in-the-shadow textarea {
-  margin-top: 10px;
-  margin-bottom: 20px;
 }
 .synths-in-the-shadow .debug-toggle {
   opacity: 0.1;
@@ -240,6 +246,7 @@
 .synths-in-the-shadow textarea {
   background-color: rgba(255, 255, 255, 0.1);
   color: #dadada;
+  border: 0;
 }
 .synths-in-the-shadow textarea::placeholder {
   color: #b4937d;
@@ -296,7 +303,6 @@
   align-items: center;
   font-style: italic;
   font-weight: bold;
-  display: flex;
   justify-content: center;
   margin-left: 8px;
   margin-right: 8px;
@@ -383,8 +389,6 @@
   padding: 0 20px 0 0;
   margin: 0.1em -6px 0 0;
   background-color: #191813;
-  font-family: Georgia, "Bitstream Charter", "Times New Roman", serif;
-  font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
   color: white;
@@ -1337,7 +1341,6 @@
   margin-top: 4px;
   margin-bottom: 0px;
   border: 0;
-  font-family: BarlowCondensed;
 }
 .synths-in-the-shadow.actor.agent * .second-section {
   margin-bottom: 0px;
@@ -1822,6 +1825,9 @@
 .synths-in-the-shadow.actor.agent * .abilities tr:last-child {
   border-bottom: 0;
 }
+.synths-in-the-shadow.actor.agent * .abilities td:first-child {
+  padding-left: 4px;
+}
 .synths-in-the-shadow.actor.agent * .abilities .checks div {
   display: flex;
   /* Hide the browser's default checkbox */
@@ -1880,19 +1886,69 @@
   border: 0;
   background-color: transparent;
   color: #080808;
-  font-family: "BarlowCondensed", sans-serif;
-  font-size: 14px;
-  height: 14px;
   margin-top: 0px;
   margin-bottom: 4px;
 }
 .synths-in-the-shadow.actor.agent * .loadout select option {
   color: black;
 }
+.synths-in-the-shadow.actor.agent * .loadout .label-stripe {
+  align-items: normal;
+}
+.synths-in-the-shadow.actor.agent * .loadout .capacity-pips {
+  display: flex;
+  /* Hide the browser's default checkbox */
+  margin-left: 4px;
+}
+.synths-in-the-shadow.actor.agent * .loadout .capacity-pips label {
+  height: 16px;
+  width: 16px;
+  background-image: url("assets/pips/cargo-hot.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 0px;
+  cursor: not-allowed;
+}
+.synths-in-the-shadow.actor.agent * .loadout .capacity-pips label:last-of-type {
+  margin-right: 0px;
+}
+.synths-in-the-shadow.actor.agent * .loadout .capacity-pips label.overload {
+  background-image: url("assets/pips/cargo-over-hot.svg");
+}
+.synths-in-the-shadow.actor.agent * .loadout .capacity-pips label[for$="-0"] {
+  width: auto;
+  height: auto;
+  background-image: none !important;
+  color: #EEEFFF;
+}
+.synths-in-the-shadow.actor.agent * .loadout .capacity-pips label[for$="-0"] i {
+  margin-top: 4px;
+}
+.synths-in-the-shadow.actor.agent * .loadout .capacity-pips input {
+  display: none;
+}
+.synths-in-the-shadow.actor.agent * .loadout .capacity-pips input:checked ~ label {
+  background-image: url("assets/pips/cargo-base.svg");
+}
+.synths-in-the-shadow.actor.agent * .loadout .capacity-pips input:checked + label {
+  background-image: url("assets/pips/cargo-hot.svg");
+}
+.synths-in-the-shadow.actor.agent * .loadout .capacity-pips input:checked ~ label.overload {
+  background-image: url("assets/pips/cargo-over.svg");
+}
+.synths-in-the-shadow.actor.agent * .loadout .capacity-pips input:checked + label.overload {
+  background-image: url("assets/pips/cargo-over-hot.svg");
+}
 .synths-in-the-shadow.actor.agent * .loadout .loadout-playbook {
   backdrop-filter: saturate(0.2);
+  padding-bottom: 8px;
+}
+.synths-in-the-shadow.actor.agent * .loadout .itemline {
+  padding-left: 4px;
+  padding-right: 4px;
 }
 .synths-in-the-shadow.actor.agent * .loadout .loadout-playbook, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic {
+  padding-top: 8px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1961,6 +2017,37 @@
 .synths-in-the-shadow.actor.agent * .loadout .loadout-playbook .cap-0 input:checked + label:hover, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic .cap-0 input:checked + label:hover {
   background-image: url("assets/pips/item-check-zero-hot-hover.svg");
 }
+.synths-in-the-shadow.actor.agent * .loadout .loadout-playbook .contacts-header, .synths-in-the-shadow.actor.agent * .loadout .loadout-generic .contacts-header {
+  justify-content: center;
+}
+.synths-in-the-shadow.actor.agent * .contacts-header {
+  margin-top: 0;
+}
+.synths-in-the-shadow.actor.agent * .contacts {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  backdrop-filter: saturate(0.2);
+}
+.synths-in-the-shadow.actor.agent * .contacts .contact {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-left: 4px;
+}
+.synths-in-the-shadow.actor.agent * .contacts .contact .standing-toggle {
+  background-image: url("assets/pips/standing-neutral.svg");
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+}
+.synths-in-the-shadow.actor.agent * .contacts .contact .standing-friend {
+  background-image: url("assets/pips/standing-friend.svg");
+}
+.synths-in-the-shadow.actor.agent * .contacts .contact .standing-rival {
+  background-image: url("assets/pips/standing-rival.svg");
+}
 .synths-in-the-shadow.actor.agent * .item {
   justify-content: space-between;
 }
@@ -1984,19 +2071,76 @@
 .synths-in-the-shadow.actor.agent * .item .item-class-label {
   width: 100px;
 }
-.synths-in-the-shadow.actor.agent * .item-class-label {
-  margin-bottom: 10px;
-}
-.synths-in-the-shadow.actor.agent * .name,
-.synths-in-the-shadow.actor.agent * .lair,
-.synths-in-the-shadow.actor.agent * .alias {
-  margin-bottom: 10px;
-}
 .synths-in-the-shadow.item.sheet .sheet-header img {
   border: 0;
 }
 .synths-in-the-shadow.item.sheet .item-body input[type=text] {
   margin-left: 1px;
+}
+.synths-in-the-shadow.item.sheet .playbook-body {
+  backdrop-filter: saturate(0.2);
+}
+.synths-in-the-shadow.item.sheet .playbook-body .abilities table {
+  background-color: transparent !important;
+  border: 0;
+  margin-top: 0;
+}
+.synths-in-the-shadow.item.sheet .playbook-body .abilities tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: transparent !important;
+}
+.synths-in-the-shadow.item.sheet .playbook-body .abilities tr:last-child {
+  border-bottom: 0;
+}
+.synths-in-the-shadow.item.sheet .playbook-body .abilities .checks div {
+  display: flex;
+  flex-direction: column;
+}
+.synths-in-the-shadow.item.sheet .playbook-body .abilities .checks div label {
+  width: 20px;
+  height: 20px;
+  background-image: url("assets/pips/w-skill-base.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 0px;
+}
+.synths-in-the-shadow.item.sheet .playbook-body .abilities .ability-title {
+  font-weight: bold;
+  width: 87px;
+}
+.synths-in-the-shadow.item.sheet .playbook-body .abilities .ability-target {
+  width: 100px;
+  float: right;
+  margin-top: 12px;
+}
+.synths-in-the-shadow.item.sheet .playbook-body .loadout-playbook {
+  padding-top: 8px;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.synths-in-the-shadow.item.sheet .playbook-body .loadout-playbook div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.synths-in-the-shadow.item.sheet .playbook-body .loadout-playbook label {
+  width: 20px;
+  height: 20px;
+  background-image: url("assets/pips/item-check-base.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 0px;
+}
+.synths-in-the-shadow.item.sheet .playbook-body .loadout-playbook .cap-0 {
+  font-style: italic;
+}
+.synths-in-the-shadow.item.sheet .playbook-body .loadout-playbook .cap-0 label {
+  background-image: url("assets/pips/item-check-zero.svg");
+}
+.synths-in-the-shadow.item.sheet .playbook-body .contacts {
+  height: 150px;
 }
 
 .chat-label {

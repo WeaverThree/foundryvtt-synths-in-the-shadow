@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 128 128"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     style="display:inline;stroke:none"
+     transform="translate(-828)">
+    <rect
+       style="font-variation-settings:normal;display:none;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.247843;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none"
+       id="rect12"
+       width="128"
+       height="128"
+       x="828"
+       y="0" />
+  </g>
+  <g
+     id="layer2"
+     transform="translate(-828)">
+    <path
+       style="display:inline;fill:#eb9a19;fill-opacity:1;stroke:none;stroke-width:0.0999996"
+       d="m 836.98369,21.948514 -0.15152,35.762703 69.40389,48.340273 V 62.40886 Z"
+       id="path10" />
+    <path
+       style="display:inline;fill:#ebe148;fill-opacity:1;stroke:none;stroke-width:0.0999996"
+       d="m 906.23606,62.40886 40.92577,0.112454 0.006,43.530176 h -40.93235 z"
+       id="path11" />
+    <path
+       style="display:inline;fill:#ebbd30;fill-opacity:1;stroke:none;stroke-width:0.0999996"
+       d="M 836.98369,21.948514 906.23606,62.40886 947.16183,62.521314 871.36567,22.52402 Z"
+       id="path12" />
+    <path
+       id="path9"
+       style="display:inline;fill:#ff1210;fill-opacity:1;stroke:none;stroke-width:0.1"
+       d="m 831,17.875 c -0.0583,14.319668 -0.12104,28.639318 -0.17969,42.958984 24.51197,17.071916 49.02362,34.144269 73.53516,51.216796 16.27083,0 32.54167,0 48.8125,0 -10e-4,-17.716796 -0.004,-35.433592 -0.006,-53.150389 -26.7541,-14.117477 -53.50781,-28.235685 -80.26172,-42.353516 -13.9642,-0.231933 -27.92837,-0.465964 -41.89258,-0.697266 -0.003,0.675131 -0.005,1.350261 -0.008,2.025391 z" />
+  </g>
+</svg>
