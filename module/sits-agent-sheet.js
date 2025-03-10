@@ -9,38 +9,52 @@ import { SitsActor } from "./sits-actor.js"
  */
 export class SitsAgentSheet extends SitsSheet {
 
-  /** @override */
-	static get defaultOptions() {
-	  return foundry.utils.mergeObject(super.defaultOptions, {
-  	  classes: ["synths-in-the-shadow", "sheet", "actor", "agent"],
-  	  template: "systems/synths-in-the-shadow/templates/actors/agent-sheet.html",
+  static DEFAULT_OPTIONS = {
+    id: "sits-agent-sheet",
+    classes: ["synths-in-the-shadow"],
+    tag: "form",
+    form: {
+      closeOnSubmit: false,
+    },
+    position: {
       width: 894,
-      height: 890,
-      tabs: [{navSelector: ".tabs", contentSelector: ".tab-content", initial: "abilities"}]
-    });
+      height: 'auto'
+    } 
   }
+  
+  static PARTS = {
+    form: {
+      id: "agent-sheet",
+      template: "systems/synths-in-the-shadow/templates/actors/agent-sheet.html",
+    }
+  }
+
+  //     tabs: [{navSelector: ".tabs", contentSelector: ".tab-content", initial: "abilities"}]
+
 
   /* -------------------------------------------- */
 
   /** @override */
-  async getData(options) {
-    const superData = super.getData( options );
-    const sheetData = superData.data;
-    sheetData.owner = superData.owner;
-    sheetData.editable = superData.editable;
-    sheetData.isGM = game.user.isGM;
+  async _prepareContext(options) {
+    const context = super._prepareContext( options );
+    context.system = this.actor.system;
+    // context.owner = superData.owner;
+    // context.editable = superData.editable;
+    context.isGM = game.user.isGM;
 
-    // Make sure derived attributes are up to date:
-    //this.actor.prepareDerivedData();
+    
+    context._id = this.actor._id;
+    context.img = this.actor.img;
+
 
     // Prepare active effects
-    sheetData.effects = SitsActiveEffect.prepareActiveEffectCategories(this.actor.effects);
+    context.effects = SitsActiveEffect.prepareActiveEffectCategories(this.actor.effects);
 
     // IDK what this is
-    sheetData.system.description = await TextEditor.enrichHTML(sheetData.system.description, {secrets: sheetData.owner, async: true});
+    context.system.description = await TextEditor.enrichHTML(context.system.description, {secrets: context.owner, async: true});
 
     // Abilities sorted alphabetically and then any we have invested in moved to the top
-    sheetData.sortedAbilities = this.actor.items.filter(i => { return i.type === 'ability';})
+    context.sortedAbilities = this.actor.items.filter(i => { return i.type === 'ability';})
         .sort((a,b) => {return a.name.localeCompare(b.name);})
         .sort((a,b) => {
           if (a.system.purchased.value > 0 && !(b.system.purchased.value > 0)) {
@@ -52,25 +66,36 @@ export class SitsAgentSheet extends SitsSheet {
           }
         });
     // All of this playbook's items
-    sheetData.sortedPlaybookItems = this.actor.items
+    context.sortedPlaybookItems = this.actor.items
       .filter(i => {return (i.type === 'item') && (i.system.playbook.toLowerCase().split(",").includes(this.actor.system.playbookName.toLowerCase()));})
       .sort((a,b) => {return a.name.localeCompare(b.name);});
 
     // All other non-general items
-    sheetData.sortedOtherPlaybookItems = this.actor.items
+    context.sortedOtherPlaybookItems = this.actor.items
       .filter(i => {return (i.type === 'item') && !(i.system.playbook.toLowerCase().split(",").includes(this.actor.system.playbookName.toLowerCase())) && (i.system.playbook !== 'general');})
       .sort((a,b) => {return a.name.localeCompare(b.name);});
 
     // General items
-    sheetData.sortedGenericItems = this.actor.items
+    context.sortedGenericItems = this.actor.items
       .filter(i => {return (i.type === 'item') && (i.system.playbook === 'general');})
       .sort((a,b) => {return a.name.localeCompare(b.name);});
 
-    sheetData.sortedContacts = Object.entries(this.actor.system.contacts).map(([x,y]) => y).sort((a,b) => {return a.name.localeCompare(b.name)})
+    context.sortedContacts = Object.entries(this.actor.system.contacts).map(([x,y]) => y).sort((a,b) => {return a.name.localeCompare(b.name)})
 
-    sheetData.capacityMaxPlusOne = this.actor.system.capacity.max + 1; // Since we can't do wthis in HBS
+    context.capacityMaxPlusOne = this.actor.system.capacity.max + 1; // Since we can't do wthis in HBS
 
-    return sheetData;
+
+
+    return context;
+  }
+
+  /** @override */
+  async _preparePartContext(partId, context) {
+    console.log("preparepart")
+    console.log(partId)
+    console.log(context)
+    context.img = this.actor.img;
+    return context;
   }
 
   /** @override */
@@ -171,9 +196,6 @@ export class SitsAgentSheet extends SitsSheet {
         await SitsHelpers.addContact(this.actor, npc);
       }
     })
-
-    console.log(contactNames)
-    console.log(usedNames)
 
     contactNames.forEach(async (name) => {
       if(!usedNames.includes(name)) {

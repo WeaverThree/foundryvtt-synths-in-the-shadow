@@ -99,8 +99,7 @@ Hooks.once("init", async function() {
   Handlebars.registerHelper('malfunctioncounter', function(itemlist, options) {
 
     let html = options.fn(this);
-
-    var count = itemlist.reduce((n,item) => item.type === 'malfunction' ? n+1 : n, 0);
+    var count = itemlist?.reduce((n,item) => item.type === 'malfunction' ? n+1 : n, 0);
 
     const rgx = new RegExp(' value=\"' + count + '\"');
     return html.replace(rgx, "$& checked");

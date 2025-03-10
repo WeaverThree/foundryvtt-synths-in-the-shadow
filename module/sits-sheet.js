@@ -1,12 +1,9 @@
 import { SitsActiveEffect } from "./sits-active-effect.js";
 import { SitsHelpers } from "./sits-helpers.js";
 
-/**
- * Extend the basic ActorSheet with some very simple modifications
- * @extends {ActorSheet}
- */
+const {api, sheets} = foundry.applications;
 
-export class SitsSheet extends ActorSheet {
+export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV2) {
 
   /* -------------------------------------------- */
 
