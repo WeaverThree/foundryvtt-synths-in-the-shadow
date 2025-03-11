@@ -5,12 +5,19 @@ const {api, sheets} = foundry.applications;
 
 export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV2) {
 
+  static DEFAULT_OPTIONS = {
+    actions: {
+      itemAddPopup: SitsSheet.itemAddPopup,
+    }
+  }
+
+
+
   /* -------------------------------------------- */
 
   /** @override */
 	activateListeners(html) {
     super.activateListeners(html);
-    html.find(".item-add-popup").click(this._onItemAddClick.bind(this));
     html.find(".update-box").click(this._onUpdateBoxClick.bind(this));
 	
 		html.find("input.radio-toggle, label.radio-toggle").click((e) => {	
@@ -87,10 +94,13 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
 
   /* -------------------------------------------- */
 
-  async _onItemAddClick(event) {
+  static async itemAddPopup(event, target) {
     event.preventDefault();
-    const item_type = $(event.currentTarget).data("itemType")
-    const distinct = $(event.currentTarget).data("distinct")
+    const item_type = target.getAttribute("data-item-type")
+    const distinct = target.getAttribute("data-distinct")?.toLowerCase() == "true";
+
+    console.log(distinct);
+
     let input_type = "checkbox";
 
     if (typeof distinct !== "undefined") {
@@ -122,6 +132,7 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
       // width: "500"
     }
 
+    // FIXME: DialogV2
     let dialog = new Dialog({
       title: `${game.i18n.localize('Add')} ${item_type}`,
       content: html,

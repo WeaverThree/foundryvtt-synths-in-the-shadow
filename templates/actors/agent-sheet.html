@@ -6,14 +6,14 @@
       <img src="{{img}}" data-edit="img" data-tooltip="{{name}}" class="portrait" />
       <div class="underportrait">
 
-        <a class="item-add-popup" data-distinct="true" data-item-type="unit">
+        <a data-action="itemAddPopup" data-distinct="false" data-item-type="unit">
           <div class="unit underportrait-line">
             <div class="box-title"><b>{{localize 'SITS.Unit'}}</b></div>
             {{system.unit.name}}
             </div>
         </a>
 
-        <a class="item-add-popup" data-distinct="true" data-item-type="playbook">
+        <a data-action="itemAddPopup" data-distinct="true" data-item-type="playbook">
           <div class="playbook underportrait-line">
             <div class="box-title"><b>{{localize 'SITS.Playbook'}}</b></div>
               {{#each items as |item id|}} {{#if (eq item.type "playbook")}}
@@ -42,7 +42,7 @@
 
         <div class="traitsline">
 
-          <a class="item-add-popup" data-distinct="true" data-item-type="maker">
+          <a data-action="itemAddPopup" data-distinct="true" data-item-type="maker">
             <div class="maker">
               <span class="box-title">{{localize "SITS.Maker"}}</span>
                 <div class="fakeinput">
@@ -62,7 +62,7 @@
         
         <div class="traitsline">
           <div class="build">
-            <a class="item-add-popup" data-distinct="true" data-item-type="build">
+            <a data-action="itemAddPopup" data-distinct="true" data-item-type="build">
               <span class="box-title">{{localize "SITS.Build"}}</span>
               <div class="fakeinput">
                 {{#each items as |item id|}} {{#if (eq item.type "build")}}
@@ -80,7 +80,7 @@
 
         <div class="traitsline">
           <div class="deviance">
-            <a class="item-add-popup" data-distinct="true" data-item-type="deviance">
+            <a data-action="itemAddPopup" data-distinct="true" data-item-type="deviance">
               <span class="box-title">{{localize "SITS.Deviance"}}</span>
               <div class="fakeinput">
                 {{#each items as |item id|}} {{#if (eq item.type "deviance")}}
@@ -124,7 +124,7 @@
         {{/multiboxes}}
       </div>
 
-      <a class="item-add-popup" data-item-type="malfunction" data-tooltip="{{localize  'SITS.AddMalfunction'}}">
+      <a data-action="itemAddPopup" data-item-type="malfunction" data-tooltip="{{localize  'SITS.AddMalfunction'}}">
         <div id="agent-{{_id}}-malfunction-container" class="malfunction">
           {{#malfunctioncounter items}}
 
