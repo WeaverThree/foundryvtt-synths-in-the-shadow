@@ -4,7 +4,6 @@
 
     <div class="portrait-area">
       <img src="{{img}}" data-edit="img" data-tooltip="{{name}}" class="portrait" />
-      {{log this}}
       <div class="underportrait">
 
         <a class="item-add-popup" data-distinct="true" data-item-type="unit">
@@ -22,8 +21,8 @@
               {{/if}} {{/each}}
           </div>
         </a>
-      </div>
 
+      </div>
     </div>
 
     <div id="description"> {{!-- MARK: Description --}}
@@ -308,7 +307,7 @@
     <div class="tab-content flex-vertical grow-one">
 
       {{!-- Nav menu --}}
-      <nav class="tabs flex-horizontal">
+      <nav class="main-tabs tabs flex-horizontal">
         <div id="actor-{{_id}}-playbook_xp" class="experience-pips">
           {{#multiboxes system.playbook_xp.value}}
             <input type="radio" id="agent-{{_id}}-playbook_xp-0" name="system.playbook_xp.value" value="0" dtype="Radio">
@@ -318,17 +317,16 @@
             {{/times_from}}
           {{/multiboxes}}
         </div>
-        <a class="item" data-tab="mainpage">{{localize "SITS.AbilitiesLoadoutContacts"}}</a>
-        <a class="item" data-tab="agent-notes">{{localize "SITS.Notes"}}</a>
-        {{#if isGM}}
-          <a class="item" data-tab="effects">{{localize "SITS.Effects"}}</a>
-        {{/if}}
-        <a class="item" data-tab="all-agent-items">{{localize "SITS.AllItems"}}</a>
+        {{#each tabs as |tab|}}
+          <a class="{{tab.cssClass}}" data-action="tab" data-group="{{tab.group}}" data-tab="{{tab.id}}">
+            <label>{{localize tab.label}}</label>
+          </a>
+        {{/each}}
       </nav>
 
 
 
-      <div id="actor-{{_id}}-abilities" class="tab flex-horizontal tab-mainpage" data-tab="mainpage">
+      <div id="actor-{{_id}}-abilities" class="tab tab-mainpage {{tabs.mainpage.cssClass}} flex-horizontal" data-group="main" data-tab="mainpage">
         <div class="flex-horizontal">
           <div class="abilities grow-one">
             <table>
@@ -447,8 +445,8 @@
                     <input type="checkbox" id="item-inplay-{{_id}}-{{../_id}}-1" name="{{_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
                     <label for="item-inplay-{{_id}}-{{../_id}}-1" class="radio_toggle"></label>
                     {{#times_from 2 item.system.capacity}}
-                        <input type="checkbox" id="item-inplay-{{../_id}}-{{../../_id}}-{{this}}" name="{{../_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
-                        <label for="item-inplay-{{../_id}}-{{../../_id}}-{{this}}" class="radio_toggle"></label>
+                      <input type="checkbox" id="item-inplay-{{../_id}}-{{../../_id}}-{{this}}" name="{{../_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
+                      <label for="item-inplay-{{../_id}}-{{../../_id}}-{{this}}" class="radio_toggle"></label>
                     {{/times_from}}
                   </div>
                   <div>
@@ -480,19 +478,19 @@
 
 
       {{!-- Notes --}}
-      <div class="tab flex-vertical" data-tab="agent-notes">
+      <div class="tab {{tabs.mainpage.cssClass}} flex-vertical" data-group="main" data-tab="agentnotes">
         <textarea id="agent-{{_id}}-description" rows="13" name="system.description">{{{system.description}}}</textarea>
       </div>
 
 
       {{!-- Active Effects --}}
-      <div id="agent-{{_id}}-effects" class="tab effects flex-vertical" data-tab="effects">
+      <div id="agent-{{_id}}-effects" class="tab {{tabs.mainpage.cssClass}} effects flex-vertical" data-group="main" data-tab="effects">
         {{> "systems/synths-in-the-shadow/templates/parts/active-effects.html"}}
       </div>
 
 
       {{!-- Full Item List --}}
-      <div class="tab grow-two flex-vertical" data-tab="all-agent-items">
+      <div class="tab {{tabs.mainpage.cssClass}} grow-two flex-vertical" data-group="main" data-tab="allagentitems">
         {{#each items as |item id|}}
           <div class="item flex-horizontal" data-item-id="{{item._id}}">
             <div class="item-body item-sheet-open flex-horizontal">

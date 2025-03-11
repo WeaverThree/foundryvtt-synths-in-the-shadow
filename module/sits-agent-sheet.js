@@ -29,23 +29,26 @@ export class SitsAgentSheet extends SitsSheet {
     }
   }
 
-  //     tabs: [{navSelector: ".tabs", contentSelector: ".tab-content", initial: "abilities"}]
-
+  tabGroups = {
+    main: "mainpage"
+  }
 
   /* -------------------------------------------- */
 
   /** @override */
   async _prepareContext(options) {
-    const context = super._prepareContext( options );
-    context.system = this.actor.system;
+    const context = await super._prepareContext( options );
     // context.owner = superData.owner;
     // context.editable = superData.editable;
     context.isGM = game.user.isGM;
-
     
+    
+    context.system = this.actor.system;
+    context.items = this.actor.items;
+    context.name = this.actor.name;
     context._id = this.actor._id;
     context.img = this.actor.img;
-
+    context.tabs = this.#getTabs();
 
     // Prepare active effects
     context.effects = SitsActiveEffect.prepareActiveEffectCategories(this.actor.effects);
@@ -89,14 +92,24 @@ export class SitsAgentSheet extends SitsSheet {
     return context;
   }
 
-  /** @override */
-  async _preparePartContext(partId, context) {
-    console.log("preparepart")
-    console.log(partId)
-    console.log(context)
-    context.img = this.actor.img;
-    return context;
+
+
+  #getTabs() {
+    const tabs = {
+      mainpage: {id: "mainpage", group: "main", gmOnly:false, gmOnly:true, label: "SITS.AbilitiesLoadoutContacts"},
+      agentnotes: {id: "agentnotes", group: "main", gmOnly:false, label: "SITS.Notes"},
+      effects: {id: "effects", group: "main", gmOnly:true, label: "SITS.Effects"},
+      allagentitems: {id: "allagentitems", group: "main", label: "SITS.AllItems"}
+    }
+    for ( const v of Object.values(tabs) ) {
+      v.active = this.tabGroups[v.group] === v.id;
+      v.cssClass = v.active ? "active" : "";
+    }
+    return tabs;
   }
+
+
+
 
   /** @override */
 	activateListeners(html) {
