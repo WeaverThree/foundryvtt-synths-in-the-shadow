@@ -325,4 +325,10 @@ export class SitsHelpers {
 	static async removeUnit(agent){
     await agent.update({system: {unit: {id: ""}}});
   }
+
+
+  static convertDotPathToNestedObject(path, value) {
+    const [last, ...paths] = path.split('.').reverse();
+    return paths.reduce((acc, el) => ({ [el]: acc }), { [last]: value });
+  }
 }

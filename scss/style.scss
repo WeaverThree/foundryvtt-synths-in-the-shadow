@@ -59,6 +59,7 @@ select {
     background-color: $main-bg;
     color: $main-fg;
     background-image: url("assets/scanlines_bkg.png");
+    overflow-y: auto;
   }
 
 

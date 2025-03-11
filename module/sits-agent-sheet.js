@@ -19,13 +19,19 @@ export class SitsAgentSheet extends SitsSheet {
     position: {
       width: 894,
       height: 'auto'
-    } 
+    },
+    actions: {
+      radioAbility: SitsAgentSheet.onRadioAbility,
+      checkItem: SitsAgentSheet.onCheckItem
+  
+    }
   }
   
   static PARTS = {
     form: {
       id: "agent-sheet",
       template: "systems/synths-in-the-shadow/templates/actors/agent-sheet.html",
+      scrollable: ["window-content"],
     }
   }
 
@@ -118,17 +124,7 @@ export class SitsAgentSheet extends SitsSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
-    // Remove Unit from agent sheet
-    html.find('.unit-delete').click(ev => {
-      const element = $(ev.currentTarget).parents(".item");
-      let unitId = element.data("itemId");
-      SitsHelpers.removeUnit(this.actor, unitId);
-    });
-
-		html.find("input.radio-ability, label.radio-ability").click((e) => {this._onAbilityRadio(e);});
-		html.find("input.radio-ability, label.radio-ability").contextmenu((e) => {this._onAbilityRadio(e);});
     html.find("input.input-to-item").change((e) => {this._onInputToItem(e);});
-    html.find("input.check-item, label.check-item").click((e) => {this._onItemCheck(e);});
 
 	}
 
@@ -226,61 +222,48 @@ export class SitsAgentSheet extends SitsSheet {
 
   /* -------------------------------------------- */
 
-  async _onAbilityRadio(event) {
-    let type = event.target.tagName.toLowerCase();
-    let radio = event.target;
-    if (type == "label") {
-      let labelID = $(radio).attr("for");
-      radio = $(`#${labelID}`).get(0);
-    }
+  static async onRadioAbility(event, target) {
+    let labelID = target.getAttribute("for");
+    let radio = $(`#${labelID}`).get(0);
+    
     let value;
-
     let name = radio.name;
     let [targetId, targetDataPath] = name.split("-");
 
     if (radio.checked || (event.type == "contextmenu")) {
       //find the next lowest-value input with the same name and click that one instead
       value = parseInt(radio.value) - 1;
-      this.element
-        .find(`input[name="${name}"][target="${targetId}"][value="${value}"]`)
-        .trigger("click");
+      $(`input[name="${name}"][target="${targetId}"][value="${value}"]`).click();
     } else {
+      // trigger the click on this one
       value = parseInt(radio.value);
-      //trigger the click on this one
-      $(radio).trigger("click");
+      radio.click();
     }
 
     let targetItem = this.actor.items.get(targetId);
   
-    await targetItem.update(this.convertDotPathToNestedObject(targetDataPath, value));
+    await targetItem.update(SitsHelpers.convertDotPathToNestedObject(targetDataPath, value));
   }
 
-  convertDotPathToNestedObject(path, value) {
-    const [last, ...paths] = path.split('.').reverse();
-    return paths.reduce((acc, el) => ({ [el]: acc }), { [last]: value });
-  }
 
   async _onInputToItem(e) {
     e.preventDefault();
     let [targetId, targetDataPath] = e.target.name.split("-");
     let targetItem = this.actor.items.get(targetId);
-    await targetItem.update(this.convertDotPathToNestedObject(targetDataPath, e.target.value))        
+    await targetItem.update(SitsHelpers.convertDotPathToNestedObject(targetDataPath, e.target.value))        
   }
 
-  async _onItemCheck(event) {
-    let type = event.target.tagName.toLowerCase();
-    let radio = event.target;
-    if (type == "label") {
-      let labelID = $(radio).attr("for");
-      radio = $(`#${labelID}`).get(0);
-    }
-    let value = radio.checked;
+  static async onCheckItem(event, target) {
+    let labelID = target.getAttribute("for");
+    let radio = $(`#${labelID}`).get(0);
+
+    let value = !radio.checked;
     let name = radio.name;
 
-    this.element.find("input[name='" + name + "']").each((i,el)=>{el.value = value;});
+    $("input[name='" + name + "']").each((i,el)=>{el.value = value;});
     
     let [targetId, targetDataPath] = name.split("-");
     let targetItem = this.actor.items.get(targetId); 
-    await targetItem.update(this.convertDotPathToNestedObject(targetDataPath, value));
+    await targetItem.update(SitsHelpers.convertDotPathToNestedObject(targetDataPath, value));
   }
 }

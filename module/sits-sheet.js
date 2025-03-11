@@ -7,7 +7,12 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
 
   static DEFAULT_OPTIONS = {
     actions: {
-      itemAddPopup: SitsSheet.itemAddPopup,
+      itemAddPopup: SitsSheet.onItemAddPopup,
+      radioToggle: SitsSheet.onRadioToggle,
+      radioToggleSingle: SitsSheet.onRadioToggleSingle,
+      rollAttribute: SitsSheet.onRollAttribute,
+      standingToggle: SitsSheet.onStandingToggle,
+      openContact: SitsSheet.onOpenContact,
     }
   }
 
@@ -20,29 +25,11 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
     super.activateListeners(html);
     html.find(".update-box").click(this._onUpdateBoxClick.bind(this));
 	
-		html.find("input.radio-toggle, label.radio-toggle").click((e) => {	
-			this._onRadioToggle(e);
-		});
-		html.find("input.radio-toggle, label.radio-toggle").contextmenu((e) => {	
-			this._onRadioToggle(e);
-		});		
-	
-
-
-    // Post item to chat
-    html.find(".item-post").click((ev) => {
-      const element = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(element.data("itemId"));
-      item.sendToChat();
-    });
-
-    // This is a workaround until is being fixed in FoundryVTT.
+	  // This is a workaround until is being fixed in FoundryVTT.
     if ( this.options.submitOnChange ) {
       html.on("change", "textarea", this._onChangeInput.bind(this));  // Use delegated listener on the form
     }
 
-    html.find(".roll-die-attribute").click(this._onRollAttributeDieClick.bind(this));
-	
     // Update Inventory Item
     html.find('.item-body').click(ev => {
       const element = $(ev.currentTarget).parents(".item");
@@ -63,38 +50,44 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
 	
 		// acquaintance status toggle
     html.find('.standing-toggle').click(ev => {
-      let contacts = this.actor.system.contacts;
-      let contactId = $(ev.target).attr("data-contact");
-      console.log(contactId);
-      let targetContact = contacts[contactId];
-      let oldStanding = targetContact.standing;
-      let newStanding;
-      switch(oldStanding){
-        case "friend":
-          newStanding = "rival";
-          break;
-        case "rival":
-          newStanding = "neutral";
-          break;
-        case "neutral":
-          newStanding = "friend";
-          break;
-      }
-      targetContact.standing = newStanding;
-      this.actor.update({system: {contacts: contacts}});
     });
 	
 	  // Open Acquaintance
     html.find('.open-friend').click(ev => {
-      game.actors.get($(ev.target).attr('data-contact'))?.sheet.render(true);
+      
     });
 
 	
   }
 
+  static onStandingToggle(event, target) {
+    let contacts = this.actor.system.contacts;
+    let contactId = target.getAttribute("data-contact");
+    let targetContact = contacts[contactId];
+    let oldStanding = targetContact.standing;
+    let newStanding;
+    switch(oldStanding){
+      case "friend":
+        newStanding = "rival";
+        break;
+      case "rival":
+        newStanding = "neutral";
+        break;
+      case "neutral":
+        newStanding = "friend";
+        break;
+    }
+    targetContact.standing = newStanding;
+    this.actor.update({system: {contacts: contacts}});
+  }
+
+  static onOpenContact(event, target) {
+    game.actors.get(target.getAttribute('data-contact'))?.sheet.render(true);
+  }
+
   /* -------------------------------------------- */
 
-  static async itemAddPopup(event, target) {
+  static async onItemAddPopup(event, target) {
     event.preventDefault();
     const item_type = target.getAttribute("data-item-type")
     const distinct = target.getAttribute("data-distinct")?.toLowerCase() == "true";
@@ -178,13 +171,10 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
 
   /**
    * Roll an Attribute die.
-   * @param {*} event
    */
-  async _onRollAttributeDieClick(event) {
-
-    const attribute_name = $(event.currentTarget).data("rollAttribute");
+  static async onRollAttribute(event, target) {
+    const attribute_name = target.getAttribute("data-roll-attribute");
     this.actor.rollAttributePopup(attribute_name);
-
   }
 
   /* -------------------------------------------- */
@@ -215,25 +205,30 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
 
   /* -------------------------------------------- */
   
-   async _onRadioToggle(event) {
-    let type = event.target.tagName.toLowerCase();
-    let target = event.target;
-    if (type == "label") {
-      let labelID = $(target).attr("for");
-      target = $(`#${labelID}`).get(0);
-    }
+   static async onRadioToggle(event, target) {
+    event.preventDefault();
+    let labelID = target.getAttribute("for");
+    target = document.getElementById(labelID);
 
     if (target.checked || (event.type == "contextmenu")) {
       //find the next lowest-value input with the same name and click that one instead
       let name = target.name;
       let value = parseInt(target.value) - 1;
-      this.element
-        .find(`input[name="${name}"][value="${value}"]`)
-        .trigger("click");
+      document.querySelector(`input[name="${name}"][value="${value}"]`).click();
     } else {
       //trigger the click on this one
-      $(target).trigger("click");
+      target.click();
     }
+  }	
+
+  static async onRadioToggleSingle(event, target) {
+    event.preventDefault();
+    let labelID = target.getAttribute("for");
+    target = document.getElementById(labelID);
+
+
+    target.click();
+    
   }	
 
 }

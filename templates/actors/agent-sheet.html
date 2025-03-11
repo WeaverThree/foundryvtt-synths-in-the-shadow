@@ -118,7 +118,7 @@
 
           {{#times_from 1 system.overload.max}}
             <input type="radio" id="agent-{{../_id}}-overload-{{this}}" name="system.overload.value" value="{{this}}" dtype="Radio">
-            <label class="radio-toggle" for="agent-{{../_id}}-overload-{{this}}"></label>
+            <label data-action="radioToggle" for="agent-{{../_id}}-overload-{{this}}"></label>
           {{/times_from}}
 
         {{/multiboxes}}
@@ -152,7 +152,7 @@
             <input type="radio" id="energy_credits-{{_id}}-on_hand-0" name="system.energy_credits.on_hand" value="0" checked="checked">
             {{#times_from 1 system.energy_credits.max_hand}}
               <input type="radio" id="energy_credits-{{../_id}}-on_hand-{{this}}" name="system.energy_credits.on_hand" value="{{this}}">
-              <label class="radio-toggle" for="energy_credits-{{../_id}}-on_hand-{{this}}"></label>
+              <label data-action="radioToggle" for="energy_credits-{{../_id}}-on_hand-{{this}}"></label>
             {{/times_from}}
           {{/multiboxes}}
         </div>
@@ -162,7 +162,7 @@
             <input type="radio" id="energy_credits-{{_id}}-savings-0" name="system.energy_credits.savings" value="0" checked="checked">
             {{#times_from 1 system.energy_credits.max_stash}}
               <input type="radio" id="energy_credits-{{../_id}}-savings-{{this}}" name="system.energy_credits.savings" value="{{this}}">
-              <label class="radio-toggle" for="energy_credits-{{../_id}}-savings-{{this}}"></label>
+              <label data-action="radioToggle" for="energy_credits-{{../_id}}-savings-{{this}}"></label>
             {{/times_from}}
           {{/multiboxes}} 
         </div>
@@ -180,7 +180,7 @@
         
           <div id="agent-{{../_id}}-attributes-{{attribute_name}}-title" class="attributes-exp">
             <div class="stripe">
-              <a class="attribute-label roll-die-attribute rollable-text" data-roll-attribute="{{attribute_name}}">
+              <a class="attribute-label rollable-text" data-action="rollAttribute" data-roll-attribute="{{attribute_name}}">
                 {{localize attribute.label}}
               </a>
             </div>
@@ -191,7 +191,7 @@
                 {{#times_from 1 attribute.exp_max}}
                   <input type="radio" id="{{../../_id}}-{{attribute_name}}-exp-{{this}}"
                           name="system.attributes.{{attribute_name}}.exp" value="{{this}}">
-                  <label class="radio-toggle" for="{{../../_id}}-{{attribute_name}}-exp-{{this}}"></label>
+                  <label data-action="radioToggle" for="{{../../_id}}-{{attribute_name}}-exp-{{this}}"></label>
                 {{/times_from}}
               {{/multiboxes}}
             </div>
@@ -213,7 +213,7 @@
                             name="system.attributes.{{attribute_name}}.skills.{{skill_name}}.value" value="{{this}}">
                     <label {{#if (and (gt skill.min 0) (lteq this skill.min))}} data-tooltip="{{localize "BITD.DisabledByAE"}}"{{/if}}
                             {{#if (lteq this (oneless skill.min))}} style="filter: unset; opacity: unset; cursor: unset;"{{/if}}
-                            class="radio-toggle" for="attributes-{{../../../_id}}-{{skill_name}}-{{this}}"></label>
+                            data-action="radioToggle" for="attributes-{{../../../_id}}-{{skill_name}}-{{this}}"></label>
                   {{/times_from}}
             
                   {{#if (eq skill.max 3)}}
@@ -222,7 +222,7 @@
                     <label data-tooltip="{{localize "BITD.NoMastery"}}" class="no-mastery"></label>
                   {{/if}}
 
-                  <div class="attribute-skill-label roll-die-attribute rollable-text" data-roll-attribute="{{skill_name}}">
+                  <div class="attribute-skill-label rollable-text" data-action="rollAttribute" data-roll-attribute="{{skill_name}}">
                     {{localize skill.label}}
                   </div>
                 {{/multiboxes}}
@@ -261,17 +261,17 @@
               <div>
                 {{localize "SITS.Basic"}}
                 <input id="agent-{{_id}}-armor_uses-basic" type="checkbox" name="system.armor_uses.basic" class="check" {{checked system.armor_uses.basic}}>
-                <label for="agent-{{_id}}-armor_uses-basic" class="radio_toggle"></label>
+                <label for="agent-{{_id}}-armor_uses-basic" data-action="radioToggleSingle"></label>
               </div>
               <div>
                 {{localize "SITS.Heavy"}}
                 <input id="agent-{{_id}}-armor_uses-heavy" type="checkbox" name="system.armor_uses.heavy" class="check" {{checked system.armor_uses.heavy}}>
-                <label for="agent-{{_id}}-armor_uses-heavy" class="radio_toggle"></label>
+                <label for="agent-{{_id}}-armor_uses-heavy" data-action="radioToggleSingle"></label>
               </div>
               <div>
                 {{localize "SITS.Special"}}
                 <input id="agent-{{_id}}-armor_uses-special" type="checkbox" name="system.armor_uses.special" class="check" {{checked system.armor_uses.special}}>
-                <label for="agent-{{_id}}-armor_uses-special" class="radio_toggle"></label>
+                <label for="agent-{{_id}}-armor_uses-special" data-action="radioToggleSingle"></label>
               </div>
             </td>
           </tr>
@@ -313,7 +313,7 @@
             <input type="radio" id="agent-{{_id}}-playbook_xp-0" name="system.playbook_xp.value" value="0" dtype="Radio">
             {{#times_from 1 system.playbook_xp.max}}
               <input type="radio" id="agent-{{_id}}-playbook_xp-{{this}}" name="system.playbook_xp.value" value="{{this}}" dtype="Radio">
-              <label class="radio-toggle" for="agent-{{_id}}-playbook_xp-{{this}}"></label>
+              <label data-action="radioToggle" for="agent-{{_id}}-playbook_xp-{{this}}"></label>
             {{/times_from}}
           {{/multiboxes}}
         </div>
@@ -338,7 +338,7 @@
                         <input type="radio" id="ability-{{_id}}-{{../_id}}-0" name="{{_id}}-system.purchased.value" value="0" checked="checked">
                         {{#times_from 1 item.system.purchased.max}}
                           <input type="radio" id="ability-{{../_id}}-{{../../_id}}-{{this}}" name="{{../_id}}-system.purchased.value" value="{{this}}">
-                          <label class="radio-ability" for="ability-{{../_id}}-{{../../_id}}-{{this}}"></label>
+                          <label data-action="radioAbility" for="ability-{{../_id}}-{{../../_id}}-{{this}}"></label>
                         {{/times_from}}
                       {{/multiboxes}}               
                     </div>
@@ -390,10 +390,10 @@
                     <div class="itemline cap-{{item.system.capacity}}">
                       <div class="checks">
                         <input type="checkbox" id="item-inplay-{{_id}}-{{../_id}}-1" name="{{_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
-                        <label for="item-inplay-{{_id}}-{{../_id}}-1" class="radio_toggle"></label>
+                        <label data-action="checkItem" for="item-inplay-{{_id}}-{{../_id}}-1"></label>
                         {{#times_from 2 item.system.capacity}}
                           <input type="checkbox" id="item-inplay-{{../_id}}-{{../../_id}}-{{this}}" name="{{../_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
-                          <label for="item-inplay-{{../_id}}-{{../../_id}}-{{this}}" class="radio_toggle"></label>
+                          <label data-action="checkItem" for="item-inplay-{{../_id}}-{{../../_id}}-{{this}}"></label>
                         {{/times_from}}
                       </div>
                       <div>
@@ -405,10 +405,10 @@
                     <div class="itemline cap-{{item.system.capacity}}">
                       <div class="checks">
                         <input type="checkbox" id="item-inplay-{{_id}}-{{../_id}}-1" name="{{_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
-                        <label for="item-inplay-{{_id}}-{{../_id}}-1" class="radio_toggle"></label>
+                        <label data-action="checkItem" for="item-inplay-{{_id}}-{{../_id}}-1"></label>
                         {{#times_from 2 item.system.capacity}}
                           <input type="checkbox" id="item-inplay-{{../_id}}-{{../../_id}}-{{this}}" name="{{../_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
-                          <label for="item-inplay-{{../_id}}-{{../../_id}}-{{this}}" class="radio_toggle"></label>
+                          <label data-action="checkItem" for="item-inplay-{{../_id}}-{{../../_id}}-{{this}}"></label>
                         {{/times_from}}
                       </div>
                       <div>
@@ -425,12 +425,12 @@
                 <div class="contacts flex-vertical">
                   {{#each sortedContacts as |contact|}}
                     <div class="contact">
-                      <label data-contact="{{contact.id}}" class="standing-toggle
+                      <label data-action="standingToggle" data-contact="{{contact.id}}" class="standing-toggle
                       {{#if (eq contact.standing 'friend' )}} standing-friend
                       {{else if (eq contact.standing 'rival')}} standing-rival
                       {{else}} standing-neutral
                       {{/if}}"></label>
-                      <a class="open-friend" data-contact="{{contact.id}}">{{contact.name}}</a>
+                      <a data-action="openContact" data-contact="{{contact.id}}">{{contact.name}}</a>
                     </div>
                   {{/each}}
                 </div>
@@ -443,10 +443,10 @@
                 <div class="itemline cap-{{item.system.capacity}}">
                   <div class="checks">
                     <input type="checkbox" id="item-inplay-{{_id}}-{{../_id}}-1" name="{{_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
-                    <label for="item-inplay-{{_id}}-{{../_id}}-1" class="radio_toggle"></label>
+                    <label data-action="checkItem" for="item-inplay-{{_id}}-{{../_id}}-1"></label>
                     {{#times_from 2 item.system.capacity}}
                       <input type="checkbox" id="item-inplay-{{../_id}}-{{../../_id}}-{{this}}" name="{{../_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
-                      <label for="item-inplay-{{../_id}}-{{../../_id}}-{{this}}" class="radio_toggle"></label>
+                      <label data-action="checkItem" for="item-inplay-{{../_id}}-{{../../_id}}-{{this}}"></label>
                     {{/times_from}}
                   </div>
                   <div>

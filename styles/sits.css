@@ -179,6 +179,7 @@ select {
   background-color: #010e38;
   color: #dadada;
   background-image: url("assets/scanlines_bkg.png");
+  overflow-y: auto;
 }
 .synths-in-the-shadow .debug-toggle {
   opacity: 0.1;
