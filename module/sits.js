@@ -258,7 +258,7 @@ Hooks.once("init", async function() {
       let checked = (parseInt(current_value) === i) ? 'checked' : '';
       html += `
         <input type="radio" value="${i}" id="clock-${i}-${uniq_id}" data-dType="String" name="${parameter_name}" ${checked}>
-        <label class="radio-toggle" for="clock-${i}-${uniq_id}"></label>
+        <label data-action="radioToggle" class="radio-toggle" for="clock-${i}-${uniq_id}"></label>
       `;
     }
 
@@ -288,7 +288,7 @@ Hooks.once("init", async function() {
       let checked = (parseInt(current_value) === i) ? 'checked' : '';
       html += `
         <input type="radio" value="${i}" id="clock-${i}-${uniq_id}" data-dType="String" name="${parameter_name}" ${checked}>
-        <label class="radio-toggle" for="clock-${i}-${uniq_id}"></label>
+        <label data-action="radioToggle" class="radio-toggle" for="clock-${i}-${uniq_id}"></label>
       `;
     }
 

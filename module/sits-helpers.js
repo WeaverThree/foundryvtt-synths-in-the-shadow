@@ -236,6 +236,7 @@ export class SitsHelpers {
       let contact = {
         id: contactActor.id,
         name : contactActor.name,
+        img : contactActor.img,
         standing: "neutral"
       };
       current_contacts[contactActor.id] = contact;
@@ -244,7 +245,7 @@ export class SitsHelpers {
   }
   
   static async removeContact(actor, acqId){
-    let current_contacts = actor.system.acquaintances;
+    let current_contacts = actor.system.contacts;
     delete current_contacts[acqId];
     await actor.update({system: {contacts : current_contacts}});
   }

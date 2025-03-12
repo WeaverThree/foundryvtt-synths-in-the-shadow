@@ -324,193 +324,224 @@
         {{/each}}
       </nav>
 
+      <section class="content">
 
-
-      <div id="actor-{{_id}}-abilities" class="tab tab-mainpage {{tabs.mainpage.cssClass}} flex-horizontal" data-group="main" data-tab="mainpage">
-        <div class="flex-horizontal">
-          <div class="abilities grow-one">
-            <table>
-              {{#each sortedAbilities as |item id|}}
-                <tr>
-                  <td class="checks">
-                    <div>
-                      {{#multiboxes item.system.purchased.value}}
-                        <input type="radio" id="ability-{{_id}}-{{../_id}}-0" name="{{_id}}-system.purchased.value" value="0" checked="checked">
-                        {{#times_from 1 item.system.purchased.max}}
-                          <input type="radio" id="ability-{{../_id}}-{{../../_id}}-{{this}}" name="{{../_id}}-system.purchased.value" value="{{this}}">
-                          <label data-action="radioAbility" for="ability-{{../_id}}-{{../../_id}}-{{this}}"></label>
-                        {{/times_from}}
-                      {{/multiboxes}}               
-                    </div>
-                  </td>
-                  <td class="ability-title">
-                    {{item.name}}
-                  </td>
-                  <td>
-                    {{#if item.system.use_target}}
-                      <div class="ability-target">
-                        <input type="text" class="input-to-item" id="ability-{{_id}}-{{../_id}}-target" name="{{_id}}-system.target" value="{{item.system.target}}">
+        <div id="actor-{{_id}}-abilities" class="tab tab-mainpage {{tabs.mainpage.cssClass}} flex-horizontal" data-group="main" data-tab="mainpage">
+          <div class="flex-horizontal">
+            <div class="abilities grow-one">
+              <table>
+                {{#each sortedAbilities as |item id|}}
+                  <tr>
+                    <td class="checks">
+                      <div>
+                        {{#multiboxes item.system.purchased.value}}
+                          <input type="radio" id="ability-{{_id}}-{{../_id}}-0" name="{{_id}}-system.purchased.value" value="0" checked="checked">
+                          {{#times_from 1 item.system.purchased.max}}
+                            <input type="radio" id="ability-{{../_id}}-{{../../_id}}-{{this}}" name="{{../_id}}-system.purchased.value" value="{{this}}">
+                            <label data-action="radioAbility" for="ability-{{../_id}}-{{../../_id}}-{{this}}"></label>
+                          {{/times_from}}
+                        {{/multiboxes}}               
                       </div>
-                    {{/if}}
-                    {{{item.system.description}}}
-                  </td>
-                </tr>
-              {{/each}}
-            </table>
-          </div>
-          <div class="loadout grow-one">
-            <div class="label-stripe"> 
-              <select name="system.capacity.selected" id="capacity-selection-{{_id}}">
-                <option value="{{system.capacity.selected}}">{{system.capacity.selected}}</option>
-                <option value="light">Light</option>
-                <option value="normal">Normal</option>
-                <option value="heavy">Heavy</option>
-              </select>
-              {{localize 'SITS.LoadoutCapacity'}}
-
-              <div id="agent-{{_id}}-capacity-pips" class="capacity-pips">
-                {{#multiboxes system.capacity.value}}
-                  <input type="radio" id="capacity-{{_id}}-0" name="system.capacity.value" value="0" checked="checked">
-                  {{#times_from 1 system.capacity.max}}
-                    <input type="radio" id="capacity-{{../_id}}-on_hand-{{this}}" name="system.capacity.value" value="{{this}}">
-                    <label class="radio-toggle" for="capacity-{{../_id}}-on_hand-{{this}}"></label>
-                  {{/times_from}}
-                  {{#times_from capacityMaxPlusOne system.capacity.value}}
-                    <input type="radio" id="capacity-{{../_id}}-on_hand-{{this}}" name="system.capacity.value" value="{{this}}">
-                    <label class="radio-toggle overload" for="capacity-{{../_id}}-on_hand-{{this}}"></label>
-                  {{/times_from}}
-                {{/multiboxes}}
-              </div>
-
+                    </td>
+                    <td class="ability-title">
+                      <a data-action="openItem" data-target="{{item.id}}">
+                        {{item.name}}
+                      </a>
+                    </td>
+                    <td>
+                      {{#if item.system.use_target}}
+                        <div class="ability-target">
+                          <input type="text" class="input-to-item" id="ability-{{_id}}-{{../_id}}-target" name="{{_id}}-system.target" value="{{item.system.target}}">
+                        </div>
+                      {{/if}}
+                      {{{item.system.description}}}
+                    </td>
+                  </tr>
+                {{/each}}
+              </table>
             </div>
-            <div class="flex-horizontal">
-              <div class="loadout-contacts">
-                <div class="loadout-playbook grow-one"> 
-                  {{#each sortedPlaybookItems as |item id|}}
-                    <div class="itemline cap-{{item.system.capacity}}">
-                      <div class="checks">
-                        <input type="checkbox" id="item-inplay-{{_id}}-{{../_id}}-1" name="{{_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
-                        <label data-action="checkItem" for="item-inplay-{{_id}}-{{../_id}}-1"></label>
-                        {{#times_from 2 item.system.capacity}}
-                          <input type="checkbox" id="item-inplay-{{../_id}}-{{../../_id}}-{{this}}" name="{{../_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
-                          <label data-action="checkItem" for="item-inplay-{{../_id}}-{{../../_id}}-{{this}}"></label>
-                        {{/times_from}}
-                      </div>
-                      <div>
-                        {{item.name}}
-                      </div>
-                    </div>
-                  {{/each}}
-                  {{#each sortedOtherPlaybookItems as |item id|}}
-                    <div class="itemline cap-{{item.system.capacity}}">
-                      <div class="checks">
-                        <input type="checkbox" id="item-inplay-{{_id}}-{{../_id}}-1" name="{{_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
-                        <label data-action="checkItem" for="item-inplay-{{_id}}-{{../_id}}-1"></label>
-                        {{#times_from 2 item.system.capacity}}
-                          <input type="checkbox" id="item-inplay-{{../_id}}-{{../../_id}}-{{this}}" name="{{../_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
-                          <label data-action="checkItem" for="item-inplay-{{../_id}}-{{../../_id}}-{{this}}"></label>
-                        {{/times_from}}
-                      </div>
-                      <div>
-                        {{item.name}}
-                      </div>
-                    </div>
-                  {{/each}}
+            <div class="loadout grow-one">
+              <div class="label-stripe"> 
+                <select name="system.capacity.selected" id="capacity-selection-{{_id}}">
+                  <option value="{{system.capacity.selected}}">{{system.capacity.selected}}</option>
+                  <option value="light">Light</option>
+                  <option value="normal">Normal</option>
+                  <option value="heavy">Heavy</option>
+                </select>
+                {{localize 'SITS.LoadoutCapacity'}}
 
-                </div>
-                {{!-- Contacts --}}
-                <div class="label-stripe flex-horizontal contacts-header">
-                  {{localize "SITS.Contacts"}}
-                </div>
-                <div class="contacts flex-vertical">
-                  {{#each sortedContacts as |contact|}}
-                    <div class="contact">
-                      <label data-action="standingToggle" data-contact="{{contact.id}}" class="standing-toggle
-                      {{#if (eq contact.standing 'friend' )}} standing-friend
-                      {{else if (eq contact.standing 'rival')}} standing-rival
-                      {{else}} standing-neutral
-                      {{/if}}"></label>
-                      <a data-action="openContact" data-contact="{{contact.id}}">{{contact.name}}</a>
-                    </div>
-                  {{/each}}
-                </div>
-
-
-              </div>
-
-              <div class="loadout-generic grow-one">
-              {{#each sortedGenericItems as |item id|}}
-                <div class="itemline cap-{{item.system.capacity}}">
-                  <div class="checks">
-                    <input type="checkbox" id="item-inplay-{{_id}}-{{../_id}}-1" name="{{_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
-                    <label data-action="checkItem" for="item-inplay-{{_id}}-{{../_id}}-1"></label>
-                    {{#times_from 2 item.system.capacity}}
-                      <input type="checkbox" id="item-inplay-{{../_id}}-{{../../_id}}-{{this}}" name="{{../_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
-                      <label data-action="checkItem" for="item-inplay-{{../_id}}-{{../../_id}}-{{this}}"></label>
+                <div id="agent-{{_id}}-capacity-pips" class="capacity-pips">
+                  {{#multiboxes system.capacity.value}}
+                    <input type="radio" id="capacity-{{_id}}-0" name="system.capacity.value" value="0" checked="checked">
+                    {{#times_from 1 system.capacity.max}}
+                      <input type="radio" id="capacity-{{../_id}}-on_hand-{{this}}" name="system.capacity.value" value="{{this}}">
+                      <label class="radio-toggle" for="capacity-{{../_id}}-on_hand-{{this}}"></label>
                     {{/times_from}}
-                  </div>
-                  <div>
-                    {{item.name}}
-                  </div>
+                    {{#times_from capacityMaxPlusOne system.capacity.value}}
+                      <input type="radio" id="capacity-{{../_id}}-on_hand-{{this}}" name="system.capacity.value" value="{{this}}">
+                      <label class="radio-toggle overload" for="capacity-{{../_id}}-on_hand-{{this}}"></label>
+                    {{/times_from}}
+                  {{/multiboxes}}
                 </div>
-              {{/each}}
+
               </div>
+              <div class="flex-horizontal">
+                <div class="loadout-contacts">
+                  <div class="loadout-playbook grow-one"> 
+                    {{#each sortedPlaybookItems as |item id|}}
+                      <div class="itemline cap-{{item.system.capacity}}">
+                        <div class="checks">
+                          <input type="checkbox" id="item-inplay-{{_id}}-{{../_id}}-1" name="{{_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
+                          <label data-action="checkItem" for="item-inplay-{{_id}}-{{../_id}}-1"></label>
+                          {{#times_from 2 item.system.capacity}}
+                            <input type="checkbox" id="item-inplay-{{../_id}}-{{../../_id}}-{{this}}" name="{{../_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
+                            <label data-action="checkItem" for="item-inplay-{{../_id}}-{{../../_id}}-{{this}}"></label>
+                          {{/times_from}}
+                        </div>
+                        <div>
+                          <a data-action="openItem" data-target="{{item.id}}">
+                            {{item.name}}
+                          </a>
+                        </div>
+                      </div>
+                    {{/each}}
+                    {{#each sortedOtherPlaybookItems as |item id|}}
+                      <div class="itemline cap-{{item.system.capacity}}">
+                        <div class="checks">
+                          <input type="checkbox" id="item-inplay-{{_id}}-{{../_id}}-1" name="{{_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
+                          <label data-action="checkItem" for="item-inplay-{{_id}}-{{../_id}}-1"></label>
+                          {{#times_from 2 item.system.capacity}}
+                            <input type="checkbox" id="item-inplay-{{../_id}}-{{../../_id}}-{{this}}" name="{{../_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
+                            <label data-action="checkItem" for="item-inplay-{{../_id}}-{{../../_id}}-{{this}}"></label>
+                          {{/times_from}}
+                        </div>
+                        <div>
+                          <a data-action="openItem" data-target="{{item.id}}">
+                            {{item.name}}
+                          </a>
+                        </div>
+                      </div>
+                    {{/each}}
+
+                  </div>
+                  {{!-- Contacts --}}
+                  <div class="label-stripe flex-horizontal contacts-header">
+                    {{localize "SITS.Contacts"}}
+                  </div>
+                  <div class="contacts flex-vertical">
+                    {{#each sortedContacts as |contact|}}
+                      <div class="contact">
+                        <label data-action="standingToggle" data-contact="{{contact.id}}" class="standing-toggle
+                        {{#if (eq contact.standing 'friend' )}} standing-friend
+                        {{else if (eq contact.standing 'rival')}} standing-rival
+                        {{else}} standing-neutral
+                        {{/if}}"></label>
+                        <a data-action="openContact" data-target="{{contact.id}}">{{contact.name}}</a>
+                      </div>
+                    {{/each}}
+                  </div>
+
+
+                </div>
+
+                <div class="loadout-generic grow-one">
+                {{#each sortedGenericItems as |item id|}}
+                  <div class="itemline cap-{{item.system.capacity}}">
+                    <div class="checks">
+                      <input type="checkbox" id="item-inplay-{{_id}}-{{../_id}}-1" name="{{_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
+                      <label data-action="checkItem" for="item-inplay-{{_id}}-{{../_id}}-1"></label>
+                      {{#times_from 2 item.system.capacity}}
+                        <input type="checkbox" id="item-inplay-{{../_id}}-{{../../_id}}-{{this}}" name="{{../_id}}-system.inplay" class="check-item" {{checked item.system.inplay}}>
+                        <label data-action="checkItem" for="item-inplay-{{../_id}}-{{../../_id}}-{{this}}"></label>
+                      {{/times_from}}
+                    </div>
+                    <div>
+                      <a data-action="openItem" data-target="{{item.id}}">
+                        {{item.name}}
+                      </a>
+                    </div>
+                  </div>
+                {{/each}}
+                </div>
+              </div>
+
+
+
+              <div class="label-stripe">{{localize 'SITS.ExpHeader'}}</div>
+              <div class="xp-triggers">
+
+                <p>{{{localize 'SITS.ExpClue1'}}}</p>
+                <p>{{{localize 'SITS.ExpClueDescription'}}}</p>
+                {{#each items as |item id|}} {{#if (eq item.type "playbook")}}
+                  <p>{{{item.system.experience_clue}}}</p>
+                {{/if}} {{/each}}
+                <p>{{{localize 'SITS.ExpClue2'}}}</p>
+                <p>{{{localize 'SITS.ExpClue3'}}}</p>
+
+              </div>
+
             </div>
-
-
-
-            <div class="label-stripe">{{localize 'SITS.ExpHeader'}}</div>
-            <div class="xp-triggers">
-
-              <p>{{{localize 'SITS.ExpClue1'}}}</p>
-              <p>{{{localize 'SITS.ExpClueDescription'}}}</p>
-              {{#each items as |item id|}} {{#if (eq item.type "playbook")}}
-                <p>{{{item.system.experience_clue}}}</p>
-              {{/if}} {{/each}}
-              <p>{{{localize 'SITS.ExpClue2'}}}</p>
-              <p>{{{localize 'SITS.ExpClue3'}}}</p>
-
-            </div>
-
           </div>
         </div>
-      </div>
 
 
-      {{!-- Notes --}}
-      <div class="tab {{tabs.mainpage.cssClass}} flex-vertical" data-group="main" data-tab="agentnotes">
-        <textarea id="agent-{{_id}}-description" rows="13" name="system.description">{{{system.description}}}</textarea>
-      </div>
+        {{!-- Notes --}}
+        <div class="tab {{tabs.agentnotes.cssClass}} flex-vertical" data-group="main" data-tab="agentnotes">
+          <textarea id="agent-{{_id}}-description" rows="13" name="system.description">{{{system.description}}}</textarea>
+        </div>
 
 
-      {{!-- Active Effects --}}
-      <div id="agent-{{_id}}-effects" class="tab {{tabs.mainpage.cssClass}} effects flex-vertical" data-group="main" data-tab="effects">
-        {{> "systems/synths-in-the-shadow/templates/parts/active-effects.html"}}
-      </div>
+        {{!-- Active Effects --}}
+        <div id="agent-{{_id}}-effects" class="tab {{tabs.effects.cssClass}} effects flex-vertical" data-group="main" data-tab="effects">
+          {{> "systems/synths-in-the-shadow/templates/parts/active-effects.html"}}
+        </div>
 
 
-      {{!-- Full Item List --}}
-      <div class="tab {{tabs.mainpage.cssClass}} grow-two flex-vertical" data-group="main" data-tab="allagentitems">
-        {{#each items as |item id|}}
-          <div class="item flex-horizontal" data-item-id="{{item._id}}">
-            <div class="item-body item-sheet-open flex-horizontal">
-              <img src="{{item.img}}" data-tooltip="{{item.name}}" width="24" height="24"/>
-              <div class="item-name">{{item.name}}</div>
+        {{!-- Full Item List --}}
+        <div class="tab allitems {{tabs.allagentitems.cssClass}} grow-two flex-vertical" data-group="main" data-tab="allagentitems">
+          {{#each items as |item id|}}
+            <div class="item flex-horizontal" data-item-id="{{item._id}}">
+              <div class="item-body item-sheet-open flex-horizontal">
+                  <img src="{{item.img}}" data-tooltip="{{item.name}}" width="24" height="24"/>
+                  <div class="item-name">
+                    <a data-action="openItem" data-target="{{item.id}}">
+                      {{item.name}}
+                    </a>
+                  </div>
+              </div>
+              <a data-action="deleteItem" data-target="{{item.id}}" data-tooltip="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
             </div>
-            <a class="item-control item-delete" data-tooltip="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
-          </div>
-        {{/each}}
-        <div class="subhead-stripe"><label>{{localize "SITS.SpecialItems"}}</label></div>
-        {{#if system.unit.id}}
-          <div class="item flex-horizontal" data-item-id="{{system.unit.id}}">
-            <div class="item-body item-sheet-open flex-horizontal">
-              <img src="{{system.unit.img}}" data-tooltip="{{system.unit.name}}" width="24" height="24"/>
-              <div class="item-name">{{system.unit.name}}</div>
+          {{/each}}
+          <div class="subhead-stripe"><label>{{localize "SITS.SpecialItems"}}</label></div>
+          {{#each system.contacts as |item|}}
+            <div class="item flex-horizontal" data-item-id="{{item._id}}">
+              <div class="item-body item-sheet-open flex-horizontal">
+                <img src="{{item.img}}" data-tooltip="{{item.name}}" width="24" height="24"/>
+                <div class="item-name">
+                  <a data-action="openContact" data-target="{{item.id}}">
+                    {{item.name}}
+                  </a>
+                </div>
+              </div>
+              <a data-action="deleteContact" data-target="{{item.id}}" data-tooltip="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
             </div>
-            <a class="item-control unit-delete" data-tooltip="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
-          </div>
-        {{/if}}
-      </div>
+          {{/each}}
+          {{#if system.unit.id}}
+            <div class="item flex-horizontal" data-item-id="{{system.unit.id}}">
+              <div class="item-body item-sheet-open flex-horizontal">
+                <img src="{{system.unit.img}}" data-tooltip="{{system.unit.name}}" width="24" height="24"/>
+                <div class="item-name">
+                  <a data-action="openContact" data-target="{{syste.unit.id}}">
+                    {{system.unit.name}}
+                  </a>
+                </div>
+              </div>
+              <a data-action="deleteUnit" data-tooltip="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
+            </div>
+          {{/if}}
+        </div>
+
+      </section>
 
     </div>
 

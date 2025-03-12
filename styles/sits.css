@@ -389,6 +389,9 @@
 .synths-in-the-shadow .tabs > [data-tab].active {
   text-shadow: 0 0 10px #001fff;
 }
+.synths-in-the-shadow .tab {
+  display: none;
+}
 .synths-in-the-shadow td {
   padding: 5px;
 }
@@ -1300,16 +1303,6 @@
   float: right;
   margin-top: 12px;
 }
-.synths-in-the-shadow .agent-sheet .abilities .item-name, .synths-in-the-shadow .agent-sheet .loadout .item-name {
-  width: 100px;
-  margin-left: 10px;
-}
-.synths-in-the-shadow .agent-sheet .abilities .item-body, .synths-in-the-shadow .agent-sheet .loadout .item-body {
-  width: auto;
-}
-.synths-in-the-shadow .agent-sheet .abilities .item-description, .synths-in-the-shadow .agent-sheet .loadout .item-description {
-  width: 260px;
-}
 .synths-in-the-shadow .agent-sheet .loadout select {
   border: 0;
   background-color: transparent;
@@ -1467,8 +1460,6 @@
 }
 .synths-in-the-shadow .agent-sheet .loadout .loadout-playbook .contacts-header, .synths-in-the-shadow .agent-sheet .loadout .loadout-generic .contacts-header {
   justify-content: center;
-}
-.synths-in-the-shadow .agent-sheet .contacts-header {
   margin-top: 0;
 }
 .synths-in-the-shadow .agent-sheet .contacts {
@@ -1496,28 +1487,15 @@
 .synths-in-the-shadow .agent-sheet .contacts .contact .standing-rival {
   background-image: url("assets/pips/standing-rival.svg");
 }
-.synths-in-the-shadow .agent-sheet .item {
-  justify-content: space-between;
+.synths-in-the-shadow .agent-sheet .xp-triggers {
+  padding-left: 4px;
 }
-.synths-in-the-shadow .agent-sheet .item .item-body {
-  margin-bottom: 10px;
+.synths-in-the-shadow .agent-sheet .allitems .item {
+  padding-left: 20px;
+  padding-right: 20px;
 }
-.synths-in-the-shadow .agent-sheet .item .item-body * {
-  margin-right: 10px;
-}
-.synths-in-the-shadow .agent-sheet .item .item-body .item-description {
-  font-style: italic;
-  text-align: justify;
-}
-.synths-in-the-shadow .agent-sheet .item div {
-  flex-grow: 2;
-}
-.synths-in-the-shadow .agent-sheet .item .item-control {
-  flex-grow: 1;
-}
-.synths-in-the-shadow .agent-sheet .item .item-body,
-.synths-in-the-shadow .agent-sheet .item .item-class-label {
-  width: 100px;
+.synths-in-the-shadow .agent-sheet .allitems .item:nth-child(2n) {
+  backdrop-filter: saturate(0.2);
 }
 
 .synths-in-the-shadow .item-sheet .sheet-header img {

@@ -13,19 +13,21 @@ export class SitsAgentSheet extends SitsSheet {
     id: "sits-agent-sheet",
     classes: ["synths-in-the-shadow"],
     position: {
-      width: 894,
+      width: 873,
       height: 'auto'
     },
     actions: {
       radioAbility: SitsAgentSheet.onRadioAbility,
-      checkItem: SitsAgentSheet.onCheckItem
+      checkItem: SitsAgentSheet.onCheckItem,
+      deleteUnit: SitsAgentSheet.onDeleteUnit,
+
     }
   }
   
   static PARTS = {
     agentsheet: {
       id: "agent-sheet",
-      template: "systems/synths-in-the-shadow/templates/actors/agent-sheet.html",
+      template: "systems/synths-in-the-shadow/templates/actors/agent-sheet.hbs",
       scrollable: ["window-content"],
     }
   }
@@ -69,20 +71,27 @@ export class SitsAgentSheet extends SitsSheet {
             return 0;
           }
         });
+
+    let sortorder = ['weapons', 'armor', 'tools', 'mobility', 'documents', 'programs', 'misc'];
+    
     // All of this playbook's items
     context.sortedPlaybookItems = this.actor.items
       .filter(i => {return (i.type === 'item') && (i.system.playbook.toLowerCase().split(",").includes(this.actor.system.playbookName.toLowerCase()));})
-      .sort((a,b) => {return a.name.localeCompare(b.name);});
+      .sort((a,b) => {return a.name.localeCompare(b.name);})
+      .sort((a,b) => {return sortorder.indexOf(a.system.category.toLowerCase()) - sortorder.indexOf(b.system.category.toLowerCase())});
 
     // All other non-general items
     context.sortedOtherPlaybookItems = this.actor.items
       .filter(i => {return (i.type === 'item') && !(i.system.playbook.toLowerCase().split(",").includes(this.actor.system.playbookName.toLowerCase())) && (i.system.playbook !== 'general');})
-      .sort((a,b) => {return a.name.localeCompare(b.name);});
-
+      .sort((a,b) => {return a.name.localeCompare(b.name);})
+      .sort((a,b) => {return sortorder.indexOf(a.system.category.toLowerCase()) - sortorder.indexOf(b.system.category.toLowerCase())});
+  
     // General items
     context.sortedGenericItems = this.actor.items
       .filter(i => {return (i.type === 'item') && (i.system.playbook === 'general');})
-      .sort((a,b) => {return a.name.localeCompare(b.name);});
+      .sort((a,b) => {return a.name.localeCompare(b.name);})
+      .sort((a,b) => {return sortorder.indexOf(a.system.category.toLowerCase()) - sortorder.indexOf(b.system.category.toLowerCase())});
+  
 
     context.sortedContacts = Object.entries(this.actor.system.contacts).map(([x,y]) => y).sort((a,b) => {return a.name.localeCompare(b.name)})
 
@@ -109,15 +118,18 @@ export class SitsAgentSheet extends SitsSheet {
     return tabs;
   }
 
+  _onRender(context, options) {
+    const itemQuantities = this.element.querySelectorAll('.input-to-item');
+    for (const input of itemQuantities) {
+      input.addEventListener("change", async (e) => {
+        e.preventDefault();
+        let [targetId, targetDataPath] = e.target.name.split("-");
+        let targetItem = this.actor.items.get(targetId);
+        await targetItem.update(SitsHelpers.convertDotPathToNestedObject(targetDataPath, e.target.value))  
+      });
+    }
+  }
 
-
-
-  /** @override */
-	activateListeners(html) {
-
-    html.find("input.input-to-item").change((e) => {this._onInputToItem(e);});
-
-	}
 
   /** @override **/
   async _onDrop(event) {
@@ -184,12 +196,17 @@ export class SitsAgentSheet extends SitsSheet {
         await SitsHelpers.addContact(this.actor, newNpc);
       }
     })
+
+    // Actually add the playbook
+    await Item.create(playbook, {parent: this.document});
   }
 
 
 
 
-
+  static async onDeleteUnit(event, target) {
+    SitsHelpers.removeUnit(this.actor);
+  }
 
 
   /* -------------------------------------------- */
@@ -215,14 +232,6 @@ export class SitsAgentSheet extends SitsSheet {
     let targetItem = this.actor.items.get(targetId);
   
     await targetItem.update(SitsHelpers.convertDotPathToNestedObject(targetDataPath, value));
-  }
-
-
-  async _onInputToItem(e) {
-    e.preventDefault();
-    let [targetId, targetDataPath] = e.target.name.split("-");
-    let targetItem = this.actor.items.get(targetId);
-    await targetItem.update(SitsHelpers.convertDotPathToNestedObject(targetDataPath, e.target.value))        
   }
 
   static async onCheckItem(event, target) {

@@ -313,7 +313,7 @@
     }
   }
 
-    // Abilities
+  // Abilities
   .abilities {
     
     backdrop-filter: saturate(0.2);
@@ -359,21 +359,6 @@
     }
 
   }
-
-  .abilities, .loadout {
-    .item-name {
-      width: 100px;
-      margin-left: 10px;
-    }
-    .item-body {
-      width: auto;
-    }
-    .item-description {
-      width: 260px;
-    }
-  }
-
-  
 
   // MARK: Loadout
   .loadout {
@@ -441,6 +426,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+
       div {
         display: flex;
         flex-direction: row;
@@ -457,12 +443,9 @@
 
       .contacts-header {
         justify-content: center;
+        margin-top: 0
       }
     }
-  }
-
-  .contacts-header {
-    margin-top: 0
   }
 
   .contacts {
@@ -498,34 +481,20 @@
     }
   }
 
-  // ITEM
-  .item {
+  .xp-triggers {
+    padding-left:4px;
+  }
 
-    justify-content: space-between;
 
-    .item-body {
-
-      margin-bottom: 10px;
-      * {
-        margin-right: 10px;
-      }
-
-      .item-description {
-        font-style: italic;
-        text-align: justify;
-      }
+  .allitems {
+    .item {
+      padding-left:20px;
+      padding-right:20px;
     }
-
-    div {
-      flex-grow: 2;
-    }
-    .item-control {
-      flex-grow: 1;
-    }
-    .item-body,
-    .item-class-label {
-      width: 100px;
+    .item:nth-child(2n) {
+      backdrop-filter: saturate(0.2);
     }
   }
+
 
 }

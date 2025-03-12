@@ -13,6 +13,9 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
       rollAttribute: SitsSheet.onRollAttribute,
       standingToggle: SitsSheet.onStandingToggle,
       openContact: SitsSheet.onOpenContact,
+      openItem: SitsSheet.onOpenItem,
+      deleteContact: SitsSheet.onDeleteContact,
+      deleteItem: SitsSheet.onDeleteItem,
     },
     form: {
       submitOnChange: true,
@@ -133,14 +136,22 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
 
     // Delete Inventory Item
     html.find('.item-delete').click( async ev => {
-      const element = $(ev.currentTarget).parents(".item");
-      await this.actor.deleteEmbeddedDocuments("Item", [element.data("itemId")]);
-      element.slideUp(200, () => this.render(false));
+
     });
 
     // manage active effects
     html.find(".effect-control").click(ev => SitsActiveEffect.onManageActiveEffect(ev, this.actor));	
 	}
+
+  static async onDeleteItem(event,target) {
+    const targetId = target.getAttribute("data-target");
+    await this.actor.deleteEmbeddedDocuments("Item", [targetId]);
+  }
+
+  static async onDeleteContact(event, target) {
+    SitsHelpers.removeContact(this.actor, target.getAttribute("data-target"));
+    this.render(true);
+  }
 
   static onStandingToggle(event, target) {
     let contacts = this.actor.system.contacts;
@@ -164,7 +175,11 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
   }
 
   static onOpenContact(event, target) {
-    game.actors.get(target.getAttribute('data-contact'))?.sheet.render(true);
+    game.actors.get(target.getAttribute('data-target'))?.sheet.render(true);
+  }
+
+  static onOpenItem(event, target) {
+    this.actor.items.get(target.getAttribute('data-target'))?.sheet.render(true);
   }
 
   /* -------------------------------------------- */
@@ -242,11 +257,12 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
 
     if (item_type == "unit") {
 		let actor = this.actor;
-		await SitsHelpers.addUnit(actor,items_to_add[0]);
-	}
-	else {
-		await Item.create(items_to_add, {parent: this.document});
-	}
+      await SitsHelpers.addUnit(actor,items_to_add[0]);
+    } else if (item_type == "playbook") {
+      await this._newPlaybook(items_to_add[0]);
+    } else {
+      await Item.create(items_to_add, {parent: this.document});
+    }
   }
 
   /* -------------------------------------------- */
