@@ -17,9 +17,99 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
     form: {
       submitOnChange: true,
       closeOnSubmit: false,
-    }
+    },
+    dragDrop: [{ dragSelector: '[data-drag]', dropSelector: "div.agent-sheet" }],
   }
 
+  constructor(options = {}) {
+    super(options);
+    this.#dragDrop = this.#createDragDropHandlers();
+  }
+
+  #createDragDropHandlers() {
+    return this.options.dragDrop.map((d) => {
+      d.permissions = {
+        dragstart: this._canDragStart.bind(this),
+        drop: this._canDragDrop.bind(this),
+      };
+      d.callbacks = {
+        dragstart: this._onDragStart.bind(this),
+        dragover: this._onDragOver.bind(this),
+        drop: this._onDrop.bind(this),
+      };
+      return new DragDrop(d);
+    });
+  }
+
+  #dragDrop;
+
+  get dragDrop() {
+    return this.#dragDrop;
+  }
+
+  /**
+   * Define whether a user is able to begin a dragstart workflow for a given drag selector
+   * @param {string} selector       The candidate HTML selector for dragging
+   * @returns {boolean}             Can the current user drag this selector?
+   * @protected
+   */
+  _canDragStart(selector) {
+    // game.user fetches the current user
+    //return this.isEditable;
+    return false;
+  }
+
+
+  /**
+   * Define whether a user is able to conclude a drag-and-drop workflow for a given drop selector
+   * @param {string} selector       The candidate HTML selector for the drop target
+   * @returns {boolean}             Can the current user drop on this selector?
+   * @protected
+   */
+  _canDragDrop(selector) {
+    // game.user fetches the current user
+    return this.isEditable;
+  }
+
+
+  /**
+   * Callback actions which occur at the beginning of a drag start workflow.
+   * @param {DragEvent} event       The originating DragEvent
+   * @protected
+   */
+  _onDragStart(event) {
+    const el = event.currentTarget;
+    if ('link' in event.target.dataset) return;
+
+    // Extract the data you need
+    let dragData = null;
+
+    if (!dragData) return;
+
+    // Set data transfer
+    event.dataTransfer.setData('text/plain', JSON.stringify(dragData));
+  }
+
+
+  /**
+   * Callback actions which occur when a dragged element is over a drop target.
+   * @param {DragEvent} event       The originating DragEvent
+   * @protected
+   */
+  _onDragOver(event) {}
+
+
+  /**
+   * Callback actions which occur when a dragged element is dropped on a target.
+   * @param {DragEvent} event       The originating DragEvent
+   * @protected
+   */
+  async _onDrop(event) {}
+
+  // Settup event handlers other than clicks
+  _onRender(context, options) {
+    this.#dragDrop.forEach((d) => d.bind(this.element));
+  }
 
 
   /* -------------------------------------------- */
@@ -50,19 +140,7 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
 
     // manage active effects
     html.find(".effect-control").click(ev => SitsActiveEffect.onManageActiveEffect(ev, this.actor));	
-	
-	
-		// acquaintance status toggle
-    html.find('.standing-toggle').click(ev => {
-    });
-	
-	  // Open Acquaintance
-    html.find('.open-friend').click(ev => {
-      
-    });
-
-	
-  }
+	}
 
   static onStandingToggle(event, target) {
     let contacts = this.actor.system.contacts;

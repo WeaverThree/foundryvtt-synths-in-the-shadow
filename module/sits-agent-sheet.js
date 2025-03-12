@@ -114,38 +114,15 @@ export class SitsAgentSheet extends SitsSheet {
 
   /** @override */
 	activateListeners(html) {
-    super.activateListeners(html);
-
-    // Everything below here is only needed if the sheet is editable
-    if (!this.options.editable) return;
 
     html.find("input.input-to-item").change((e) => {this._onInputToItem(e);});
 
 	}
 
   /** @override **/
-  async _onDropItem(event, droppedItem) {
-    await super._onDropItem(event, droppedItem);
-    if (!this.actor.isOwner) {
-      ui.notifications.error(`You do not have sufficient permissions to edit this agent. Please speak to your GM if you feel you have reached this message in error.`, {permanent: true});
-      return false;
-    }
-	  await this.handleDrop(event, droppedItem);
-  }
-
-  /** @override **/
-  async _onDropActor(event, droppedActor){
-    await super._onDropActor(event, droppedActor);
-    if (!this.actor.isOwner) {
-      ui.notifications.error(`You do not have sufficient permissions to edit this agent. Please speak to your GM if you feel you have reached this message in error.`, {permanent: true});
-      return false;
-    }
-    await this.handleDrop(event, droppedActor);
-  }
-
-  /** @override **/
-  async handleDrop(event, droppedEntity){
-    let droppedEntityFull = await fromUuid(droppedEntity.uuid);
+  async _onDrop(event) {
+    const incoming = TextEditor.getDragEventData(event);
+    let droppedEntityFull = await fromUuid(incoming.uuid);
     switch (droppedEntityFull.type) {
       case "npc":
         await SitsHelpers.addContact(this.actor, droppedEntityFull);
