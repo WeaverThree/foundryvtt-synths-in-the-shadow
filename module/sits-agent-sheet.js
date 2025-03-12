@@ -12,10 +12,6 @@ export class SitsAgentSheet extends SitsSheet {
   static DEFAULT_OPTIONS = {
     id: "sits-agent-sheet",
     classes: ["synths-in-the-shadow"],
-    tag: "form",
-    form: {
-      closeOnSubmit: false,
-    },
     position: {
       width: 894,
       height: 'auto'
@@ -23,12 +19,11 @@ export class SitsAgentSheet extends SitsSheet {
     actions: {
       radioAbility: SitsAgentSheet.onRadioAbility,
       checkItem: SitsAgentSheet.onCheckItem
-  
     }
   }
   
   static PARTS = {
-    form: {
+    agentsheet: {
       id: "agent-sheet",
       template: "systems/synths-in-the-shadow/templates/actors/agent-sheet.html",
       scrollable: ["window-content"],

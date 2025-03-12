@@ -13,6 +13,10 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
       rollAttribute: SitsSheet.onRollAttribute,
       standingToggle: SitsSheet.onStandingToggle,
       openContact: SitsSheet.onOpenContact,
+    },
+    form: {
+      submitOnChange: true,
+      closeOnSubmit: false,
     }
   }
 
