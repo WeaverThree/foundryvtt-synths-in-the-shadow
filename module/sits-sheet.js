@@ -114,6 +114,21 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
     this.#dragDrop.forEach((d) => d.bind(this.element));
   }
 
+  async _prepareContext(options) {
+    const context = await super._prepareContext( options );
+
+    context.isGM = game.user.isGM;
+    context.editable = this.isEditable;
+    
+    context.system = this.actor.system;
+    context.items = this.actor.items;
+    context.name = this.actor.name;
+    context._id = this.actor._id;
+    context.img = this.actor.img;
+    
+    return context;
+  }
+  
 
   /* -------------------------------------------- */
 

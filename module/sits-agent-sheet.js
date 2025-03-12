@@ -41,16 +41,7 @@ export class SitsAgentSheet extends SitsSheet {
   /** @override */
   async _prepareContext(options) {
     const context = await super._prepareContext( options );
-    // context.owner = superData.owner;
-    // context.editable = superData.editable;
-    context.isGM = game.user.isGM;
-    
-    
-    context.system = this.actor.system;
-    context.items = this.actor.items;
-    context.name = this.actor.name;
-    context._id = this.actor._id;
-    context.img = this.actor.img;
+
     context.tabs = this.#getTabs();
 
     // Prepare active effects
