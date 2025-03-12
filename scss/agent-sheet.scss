@@ -360,17 +360,60 @@
 
   }
 
-  // Loadout
+  .abilities, .loadout {
+    .item-name {
+      width: 100px;
+      margin-left: 10px;
+    }
+    .item-body {
+      width: auto;
+    }
+    .item-description {
+      width: 260px;
+    }
+  }
+
+  
+
+  // MARK: Loadout
   .loadout {
 
     select {
       border: 0;
       background-color: transparent;
       color: color.$header-fg;
-      margin-top: 0px;
       margin-bottom: 4px;
+      width: auto;
+      
+      margin-top: -7px; // FIXME: Brute force positioning
+      
+      font-weight: bold;
+      text-transform: uppercase;      
+      text-align: right;
+      
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      
+      box-shadow: none;
+      border: none;
+      cursor: pointer;
+      
+      background: url("data:image/svg+xml;utf8,<svg fill='red' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>") no-repeat right;
+      background-position-x: 41px;
+      
+      &:hover {
+        color: red;
+      }
+
+      &:focus {
+        border: none;
+        outline: none;
+      }
+
       option {
-        color: black;
+        color: color.$main-fg;
+        background: color.$main-bg;
       }
     }
 

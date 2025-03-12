@@ -279,47 +279,6 @@
     }
   }
 
-
-  .loadout {
-    select {
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      box-shadow: none;
-      border: none;
-      cursor: pointer;
-      background: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>") no-repeat right;
-      padding: 0 20px 0 0;
-      margin: 0.1em -6px 0 0;
-      background-color: color.$almost_black;
-      font-weight: bold;
-      text-transform: uppercase;
-      color: white;
-      text-align: right;
-
-      option {
-        color: white;
-      }
-    }
-
-    select:hover {
-      color: red;
-    }
-  }
-
-  .abilities, .loadout {
-    .item-name {
-      width: 100px;
-      margin-left: 10px;
-    }
-    .item-body {
-      width: auto;
-    }
-    .item-description {
-      width: 260px;
-    }
-  }
-
   td {
     padding: 5px;
   }

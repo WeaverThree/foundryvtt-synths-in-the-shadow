@@ -389,38 +389,6 @@
 .synths-in-the-shadow .tabs > [data-tab].active {
   text-shadow: 0 0 10px #001fff;
 }
-.synths-in-the-shadow .loadout select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  box-shadow: none;
-  border: none;
-  cursor: pointer;
-  background: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>") no-repeat right;
-  padding: 0 20px 0 0;
-  margin: 0.1em -6px 0 0;
-  background-color: #191813;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: white;
-  text-align: right;
-}
-.synths-in-the-shadow .loadout select option {
-  color: white;
-}
-.synths-in-the-shadow .loadout select:hover {
-  color: red;
-}
-.synths-in-the-shadow .abilities .item-name, .synths-in-the-shadow .loadout .item-name {
-  width: 100px;
-  margin-left: 10px;
-}
-.synths-in-the-shadow .abilities .item-body, .synths-in-the-shadow .loadout .item-body {
-  width: auto;
-}
-.synths-in-the-shadow .abilities .item-description, .synths-in-the-shadow .loadout .item-description {
-  width: 260px;
-}
 .synths-in-the-shadow td {
   padding: 5px;
 }
@@ -1332,15 +1300,45 @@
   float: right;
   margin-top: 12px;
 }
+.synths-in-the-shadow .agent-sheet .abilities .item-name, .synths-in-the-shadow .agent-sheet .loadout .item-name {
+  width: 100px;
+  margin-left: 10px;
+}
+.synths-in-the-shadow .agent-sheet .abilities .item-body, .synths-in-the-shadow .agent-sheet .loadout .item-body {
+  width: auto;
+}
+.synths-in-the-shadow .agent-sheet .abilities .item-description, .synths-in-the-shadow .agent-sheet .loadout .item-description {
+  width: 260px;
+}
 .synths-in-the-shadow .agent-sheet .loadout select {
   border: 0;
   background-color: transparent;
   color: #080808;
-  margin-top: 0px;
   margin-bottom: 4px;
+  width: auto;
+  margin-top: -7px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: right;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+  background: url("data:image/svg+xml;utf8,<svg fill='red' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>") no-repeat right;
+  background-position-x: 41px;
+}
+.synths-in-the-shadow .agent-sheet .loadout select:hover {
+  color: red;
+}
+.synths-in-the-shadow .agent-sheet .loadout select:focus {
+  border: none;
+  outline: none;
 }
 .synths-in-the-shadow .agent-sheet .loadout select option {
-  color: black;
+  color: #dadada;
+  background: #010e38;
 }
 .synths-in-the-shadow .agent-sheet .loadout .label-stripe {
   align-items: normal;
@@ -1744,9 +1742,6 @@
   font-family: "BarlowCondensed", sans-serif;
   font-size: 14px;
   font-weight: bold;
-}
-.synths-in-the-shadow select {
-  height: 14px;
 }
 
 /*# sourceMappingURL=sits.css.map */
