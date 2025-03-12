@@ -1,7 +1,9 @@
+@use 'color';
+
 .chat-label {
-  background-color: $almost_black;
+  background-color: color.$almost_black;
   font-family: Kirsty, serif;
-  color: $almost_white;
+  color: color.$almost_white;
   font-size: 21px;
   text-align: center;
   padding: 0px 5px;
@@ -9,8 +11,8 @@
   text-transform: capitalize;
 }
 .chat-label-small {
-  background-color: $gray;
-  color: $almost_black;
+  background-color: color.$gray;
+  color: color.$almost_black;
   font-size: small;
   text-align: center;
   padding: 3px 5px;
@@ -19,8 +21,8 @@
 
 .label-stripe-chat {
   text-transform: uppercase;
-  background-color: $almost_black;
-  color: $almost_white;
+  background-color: color.$almost_black;
+  color: color.$almost_white;
   margin-bottom: 10px;
   position: relative;
   padding-top: 3px;
@@ -31,8 +33,8 @@
 
 .label-stripe-chat-small {
   text-transform: capitalize;
-  background-color: $gray;
-  color: $almost_black;
+  background-color: color.$gray;
+  color: color.$almost_black;
   margin-bottom: 10px;
   position: relative;
   padding-top: 3px;
@@ -48,19 +50,19 @@
     font-size: large;
 
     &.critical-success {
-      color: $light_green;
+      color: color.$light_green;
     }
 
     &.success {
-      color: $green;
+      color: color.$green;
     }
 
     &.partial-success {
-      color: $blue;
+      color: color.$blue;
     }
 
     &.failure {
-      color: $red;
+      color: color.$red;
     }
   }
 

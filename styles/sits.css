@@ -158,29 +158,6 @@
   font-weight: bold;
   font-style: italic;
 }
-select, textarea {
-  font-family: "BarlowCondensed", sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-select {
-  height: 14px;
-}
-
-.synths-in-the-shadow {
-  font-family: "BarlowCondensed", sans-serif;
-  font-size: 14px;
-}
-.synths-in-the-shadow * {
-  scrollbar-color: #9f9dfc transparent;
-}
-.synths-in-the-shadow .window-content {
-  background-color: #010e38;
-  color: #dadada;
-  background-image: url("assets/scanlines_bkg.png");
-  overflow-y: auto;
-}
 .synths-in-the-shadow .debug-toggle {
   opacity: 0.1;
 }
@@ -236,12 +213,12 @@ select {
 .synths-in-the-shadow .marginize-divs > div:last-child {
   margin-right: 0px;
 }
-.synths-in-the-shadow input {
+.synths-in-the-shadow input[type=text] {
   border: 0;
   background-color: rgba(255, 255, 255, 0.1);
   color: #dadada;
 }
-.synths-in-the-shadow input::placeholder {
+.synths-in-the-shadow input[type=text]::placeholder {
   color: #b4937d;
 }
 .synths-in-the-shadow textarea {
@@ -414,10 +391,7 @@ select {
 .synths-in-the-shadow td {
   padding: 5px;
 }
-.synths-in-the-shadow {
-  min-width: 420px;
-  min-height: 320px;
-}
+
 .synths-in-the-shadow .clock-zero-label {
   color: #191813;
 }
@@ -722,548 +696,11 @@ select {
 .synths-in-the-shadow .sits-clock-name-type .sits-clock {
   margin: 10px auto;
 }
-.synths-in-the-shadow.unit.sheet .item {
-  justify-content: space-between;
-}
-.synths-in-the-shadow.unit.sheet .item .item-body {
-  margin-bottom: 10px;
-}
-.synths-in-the-shadow.unit.sheet .item .item-body * {
-  margin-right: 10px;
-}
-.synths-in-the-shadow.unit.sheet .item .item-body .item-description {
-  font-style: italic;
-  text-align: justify;
-}
-.synths-in-the-shadow.unit.sheet .item div {
-  flex-grow: 2;
-}
-.synths-in-the-shadow.unit.sheet .item .item-control {
-  flex-grow: 1;
-}
-.synths-in-the-shadow.unit.sheet .item .item-body,
-.synths-in-the-shadow.unit.sheet .item .item-class-label {
-  width: 100px;
-}
-.synths-in-the-shadow.unit.sheet .item-class-label {
-  margin-bottom: 10px;
-}
-.synths-in-the-shadow.unit.sheet .name,
-.synths-in-the-shadow.unit.sheet .lair {
-  margin-bottom: 10px;
-}
-.synths-in-the-shadow.unit.sheet form.actor-sheet {
-  padding: 20px;
-}
-.synths-in-the-shadow.unit.sheet nav {
-  padding-bottom: 10px;
-}
-.synths-in-the-shadow.unit.sheet .unit-coins {
-  display: flex;
-  /* Hide the browser's default checkbox */
-  flex-wrap: wrap;
-  max-width: 72px;
-}
-.synths-in-the-shadow.unit.sheet .unit-coins label {
-  height: 15px;
-  width: 15px;
-  background-color: #DAA520;
-  vertical-align: middle;
-  border: 1px solid #191813;
-  transition: filter 0.1s;
-  cursor: pointer;
-}
-.synths-in-the-shadow.unit.sheet .unit-coins label[for$="-0"] {
-  margin-right: 0px;
-}
-.synths-in-the-shadow.unit.sheet .unit-coins label:hover {
-  filter: brightness(0.8);
-  opacity: 0.9;
-}
-.synths-in-the-shadow.unit.sheet .unit-coins input {
-  display: none;
-}
-.synths-in-the-shadow.unit.sheet .unit-coins input:checked ~ label {
-  background-color: #EEEFFF;
-}
-.synths-in-the-shadow.unit.sheet .unit-coins input:checked + label {
-  background-color: #DAA520;
-}
-.synths-in-the-shadow.unit.sheet .unit-coins label {
-  margin-right: 3px;
-  margin-bottom: 3px;
-}
-.synths-in-the-shadow.unit.sheet .unit-reputation {
-  border-top: 3px solid #191813;
-  display: flex;
-  /* Hide the browser's default checkbox */
-}
-.synths-in-the-shadow.unit.sheet .unit-reputation label {
-  height: 50px;
-  width: 17px;
-  background-image: url("assets/teeth/stresstooth-red.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin-right: 0px;
-  transition: filter 0.1s;
-  cursor: pointer;
-}
-.synths-in-the-shadow.unit.sheet .unit-reputation label:last-of-type {
-  margin-right: 0px;
-}
-.synths-in-the-shadow.unit.sheet .unit-reputation label[for$="-0"] {
-  width: auto;
-  height: auto;
-  background-image: none !important;
-  color: #EEEFFF;
-}
-.synths-in-the-shadow.unit.sheet .unit-reputation label[for$="-0"] i {
-  margin-top: 4px;
-}
-.synths-in-the-shadow.unit.sheet .unit-reputation label:hover {
-  filter: brightness(0.8);
-  opacity: 0.9;
-}
-.synths-in-the-shadow.unit.sheet .unit-reputation input {
-  display: none;
-}
-.synths-in-the-shadow.unit.sheet .unit-reputation input:checked ~ label {
-  background-image: url("assets/teeth/stresstooth-halfgrey.png");
-}
-.synths-in-the-shadow.unit.sheet .unit-reputation input:checked + label {
-  background-image: url("assets/teeth/stresstooth-red.png");
-}
-.synths-in-the-shadow.unit.sheet .unit-reputation input:disabled + label {
-  background-image: url(assets/teeth/stresstooth-black.png);
-}
-.synths-in-the-shadow.unit.sheet .turf-container {
-  overflow-x: scroll;
-  overflow-y: clip;
-}
-.synths-in-the-shadow.unit.sheet .turf-list {
-  display: flex;
-  flex-direction: column;
-  width: 855px;
-}
-.synths-in-the-shadow.unit.sheet .turf-list .turf-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.synths-in-the-shadow.unit.sheet .turf-list .turf-row *:first-child {
-  margin-left: 0px;
-}
-.synths-in-the-shadow.unit.sheet .turf-list .turf-row *:last-child {
-  margin-right: 0px;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block {
-  transition: filter 0.1s;
-  cursor: pointer;
-  width: 130px;
-  height: 100px;
-  background-color: #bbb;
-  position: relative;
-  margin: 20px;
-  flex-grow: initial;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block:hover {
-  filter: brightness(0.8);
-  opacity: 0.9;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block.turf-selected .connector {
-  background-color: #999;
-  z-index: 1;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .connector {
-  position: absolute;
-  display: block;
-  background-color: #bbb;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .connector.right, .synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .connector.left {
-  width: 40px;
-  height: 20px;
-  top: 40px;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .connector.left {
-  left: -40px;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .connector.right {
-  left: 130px;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .connector.top, .synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .connector.bottom {
-  height: 40px;
-  width: 20px;
-  left: 55px;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .connector.top {
-  top: -40px;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .connector.bottom {
-  top: 100px;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block.turf-selected {
-  background-color: #999;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .turf-description {
-  border: none;
-  background: none;
-  resize: none;
-  width: 130px;
-  text-align: center;
-  min-height: auto;
-  font-size: 12px;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .turf-name {
-  border: none;
-  border-radius: 0px;
-  text-align: center;
-  font-weight: bold;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block input[type=checkbox] {
-  transform: scale(1);
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-non-editable .turf-block .turf-control.turf-select {
-  position: absolute;
-  top: -7px;
-  left: -7px;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block {
-  transition: filter 0.1s;
-  cursor: pointer;
-  width: 130px;
-  height: 125px;
-  background-color: #bbb;
-  position: relative;
-  margin: 20px;
-  flex-grow: initial;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block:hover {
-  filter: brightness(0.8);
-  opacity: 0.9;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block.turf-selected .connector {
-  background-color: #999;
-  z-index: 1;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .connector {
-  position: absolute;
-  display: block;
-  background-color: #bbb;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .connector.right, .synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .connector.left {
-  width: 40px;
-  height: 25px;
-  top: 50px;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .connector.left {
-  left: -40px;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .connector.right {
-  left: 130px;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .connector.top, .synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .connector.bottom {
-  height: 40px;
-  width: 25px;
-  left: 52.5px;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .connector.top {
-  top: -40px;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .connector.bottom {
-  top: 125px;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block.turf-selected {
-  background-color: #999;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .turf-description {
-  border: none;
-  background: none;
-  resize: none;
-  width: 130px;
-  text-align: center;
-  min-height: auto;
-  font-size: 12px;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .turf-name {
-  border: none;
-  border-radius: 0px;
-  text-align: center;
-  font-weight: bold;
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block input[type=checkbox] {
-  transform: scale(1);
-}
-.synths-in-the-shadow.unit.sheet .turf-list.section-editable .turf-block .turf-control.turf-select {
-  position: absolute;
-  top: -7px;
-  left: -7px;
-}
-.synths-in-the-shadow.unit.sheet .unit-hold {
-  border-top: 3px solid #191813;
-  display: flex;
-  /* Hide the browser's default checkbox */
-  width: 221px;
-}
-.synths-in-the-shadow.unit.sheet .unit-hold label {
-  transition: filter 0.1s;
-  cursor: pointer;
-}
-.synths-in-the-shadow.unit.sheet .unit-hold label:hover {
-  filter: brightness(0.8);
-  opacity: 0.9;
-}
-.synths-in-the-shadow.unit.sheet .unit-hold label {
-  height: 50px;
-  width: 17px;
-  background-image: url("assets/teeth/stresstooth-halfgrey.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin-right: 5px;
-}
-.synths-in-the-shadow.unit.sheet .unit-hold label:last-of-type {
-  margin-right: 0px;
-}
-.synths-in-the-shadow.unit.sheet .unit-hold input {
-  display: none;
-}
-.synths-in-the-shadow.unit.sheet .unit-hold input:checked + label {
-  background-image: url("assets/teeth/stresstooth-red.png");
-}
-.synths-in-the-shadow.unit.sheet .unit-tier {
-  background-color: #999;
-  height: 33px;
-  width: 145px;
-  display: flex;
-  align-items: center;
-  border-top: 3px solid #191813;
-  display: flex;
-  /* Hide the browser's default checkbox */
-}
-.synths-in-the-shadow.unit.sheet .unit-tier label {
-  transition: filter 0.1s;
-  cursor: pointer;
-}
-.synths-in-the-shadow.unit.sheet .unit-tier label:hover {
-  filter: brightness(0.8);
-  opacity: 0.9;
-}
-.synths-in-the-shadow.unit.sheet .unit-tier label:not([for$="-0"]) {
-  height: 18px;
-  width: 18px;
-  background-color: #191813;
-  vertical-align: middle;
-  border: 2px solid #191813;
-  border-radius: 9px;
-}
-.synths-in-the-shadow.unit.sheet .unit-tier input {
-  display: none;
-}
-.synths-in-the-shadow.unit.sheet .unit-tier input:checked ~ label:not([for$="-0"]) {
-  border-color: gray;
-  background-color: #EEEFFF;
-}
-.synths-in-the-shadow.unit.sheet .unit-tier input:checked + label:not([for$="-0"]) {
-  background-color: #191813;
-  border-color: #191813;
-}
-.synths-in-the-shadow.unit.sheet .unit-tier > * {
-  margin-right: 5px;
-}
-.synths-in-the-shadow.unit.sheet .heat-wanted .small-teeth {
-  height: 20px;
-}
-.synths-in-the-shadow.unit.sheet .heat-wanted .small-teeth label {
-  height: 100%;
-  width: 100%;
-  cursor: default;
-}
-.synths-in-the-shadow.unit.sheet .experience-clues-container {
-  width: 340px;
-  font-size: 12px;
-}
-.synths-in-the-shadow.unit.sheet .experience-clues-container .experience-clues-description {
-  font-weight: bold;
-}
-.synths-in-the-shadow.unit.sheet .experience-clues-container .experience-clues {
-  font-style: italic;
-}
-.synths-in-the-shadow.unit.sheet .playbook-name {
-  width: 512px;
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  font-size: 48px;
-  text-transform: uppercase;
-  border: 3px solid #191813;
-}
-.synths-in-the-shadow.unit.sheet .playbook-name .big-name {
-  font-weight: bold;
-  font-family: Kirsty, serif;
-}
-.synths-in-the-shadow.unit.sheet .playbook-name .big-description {
-  font-size: 20px;
-  font-family: "Crimson Text", serif;
-  color: #191813;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section {
-  border-top: 3px solid #191813;
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 0px;
-  /* Malfunction */
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section > * {
-  margin-right: 10px;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section > *:last-child {
-  margin-right: 0px;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section:last-child {
-  margin-right: 0px;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .big-teeth {
-  display: flex;
-  /* Hide the browser's default checkbox */
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .big-teeth label {
-  height: 50px;
-  width: 17px;
-  background-image: url("assets/teeth/stresstooth-red.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin-right: 0px;
-  transition: filter 0.1s;
-  cursor: pointer;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .big-teeth label:last-of-type {
-  margin-right: 0px;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .big-teeth label[for$="-0"] {
-  width: auto;
-  height: auto;
-  background-image: none !important;
-  color: #EEEFFF;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .big-teeth label[for$="-0"] i {
-  margin-top: 4px;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .big-teeth label:hover {
-  filter: brightness(0.8);
-  opacity: 0.9;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .big-teeth input {
-  display: none;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .big-teeth input:checked ~ label {
-  background-image: url("assets/teeth/stresstooth-halfgrey.png");
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .big-teeth input:checked + label {
-  background-image: url("assets/teeth/stresstooth-red.png");
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap {
-  display: flex;
-  /* Hide the browser's default checkbox */
-  flex-direction: column;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap label {
-  height: 50px;
-  width: 17px;
-  background-image: url("assets/teeth/shorttooth-red.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin-right: 0px;
-  cursor: not-allowed;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap label:last-of-type {
-  margin-right: 0px;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap label[for$="-0"] {
-  width: auto;
-  height: auto;
-  background-image: none !important;
-  color: #EEEFFF;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap label[for$="-0"] i {
-  margin-top: 4px;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap input {
-  display: none;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap input:checked ~ label {
-  background-image: url("assets/teeth/shorttooth-grey.png");
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap input:checked + label {
-  background-image: url("assets/teeth/shorttooth-red.png");
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap .small-teeth {
-  display: flex;
-  flex-direction: row;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .malfunction-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .malfunction-list label {
-  cursor: pointer;
-  font-size: 19px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  margin-right: 10px;
-  transition: filter 0.1s;
-  cursor: pointer;
-  /* Hide the browser's default checkbox */
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .malfunction-list label:hover {
-  filter: brightness(0.8);
-  opacity: 0.9;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .malfunction-list label input {
-  display: none;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .malfunction-list label input:checked ~ .checkmark {
-  color: red;
-}
-.synths-in-the-shadow.unit.sheet .big-teeth-section .malfunction-list label .checkmark {
-  text-decoration: none;
-  font-weight: bold;
-}
-.synths-in-the-shadow.unit.sheet header {
-  margin-bottom: 10px;
-}
-.synths-in-the-shadow .agent-sheet {
-  /*
-  *  Elements that can be changed will hint this by dimming and fading a little on hover
-  */
-  /*
-   * Toothradio. Some (eg malfunction) are not changeable, hence the option.
-   */
-  /*
-   * Custom Radio
-   */
-  /*
-   * Custom Radio Squared
-   */
-  /*
-   * Checkboxes underscored.
-   */
-  /*
-   * Create Clock
-   */
-  /*
-   * Turf Block
-   */
-  /*
-   * Toothradio single elements
-   */
-  /*
-   * Custom Radio Round
-   */
-}
+
+.synths-in-the-shadow .unit-sheet {
+  background-color: green;
+}
+
 .synths-in-the-shadow .agent-sheet .portrait {
   max-width: 200px;
   max-height: 200px;
@@ -1298,7 +735,7 @@ select {
   margin-right: 4px;
   text-align: right;
 }
-.synths-in-the-shadow .agent-sheet .headline input {
+.synths-in-the-shadow .agent-sheet .headline input[type=text] {
   height: 30px;
   font-size: 28px;
   margin-bottom: 4px;
@@ -1311,7 +748,7 @@ select {
   margin-right: -2px;
   display: flex;
 }
-.synths-in-the-shadow .agent-sheet .lookline input {
+.synths-in-the-shadow .agent-sheet .lookline input[type=text] {
   height: 30px;
   font-size: 14px;
   margin-bottom: 4px;
@@ -2072,32 +1509,33 @@ select {
 .synths-in-the-shadow .agent-sheet .item .item-class-label {
   width: 100px;
 }
-.synths-in-the-shadow.item.sheet .sheet-header img {
+
+.synths-in-the-shadow .item-sheet .sheet-header img {
   border: 0;
 }
-.synths-in-the-shadow.item.sheet .item-body input[type=text] {
+.synths-in-the-shadow .item-sheet .item-body input[type=text] {
   margin-left: 1px;
 }
-.synths-in-the-shadow.item.sheet .playbook-body {
+.synths-in-the-shadow .item-sheet .playbook-body {
   backdrop-filter: saturate(0.2);
 }
-.synths-in-the-shadow.item.sheet .playbook-body .abilities table {
+.synths-in-the-shadow .item-sheet .playbook-body .abilities table {
   background-color: transparent !important;
   border: 0;
   margin-top: 0;
 }
-.synths-in-the-shadow.item.sheet .playbook-body .abilities tr {
+.synths-in-the-shadow .item-sheet .playbook-body .abilities tr {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   background-color: transparent !important;
 }
-.synths-in-the-shadow.item.sheet .playbook-body .abilities tr:last-child {
+.synths-in-the-shadow .item-sheet .playbook-body .abilities tr:last-child {
   border-bottom: 0;
 }
-.synths-in-the-shadow.item.sheet .playbook-body .abilities .checks div {
+.synths-in-the-shadow .item-sheet .playbook-body .abilities .checks div {
   display: flex;
   flex-direction: column;
 }
-.synths-in-the-shadow.item.sheet .playbook-body .abilities .checks div label {
+.synths-in-the-shadow .item-sheet .playbook-body .abilities .checks div label {
   width: 20px;
   height: 20px;
   background-image: url("assets/pips/w-skill-base.svg");
@@ -2105,28 +1543,28 @@ select {
   background-size: contain;
   margin-right: 0px;
 }
-.synths-in-the-shadow.item.sheet .playbook-body .abilities .ability-title {
+.synths-in-the-shadow .item-sheet .playbook-body .abilities .ability-title {
   font-weight: bold;
   width: 87px;
 }
-.synths-in-the-shadow.item.sheet .playbook-body .abilities .ability-target {
+.synths-in-the-shadow .item-sheet .playbook-body .abilities .ability-target {
   width: 100px;
   float: right;
   margin-top: 12px;
 }
-.synths-in-the-shadow.item.sheet .playbook-body .loadout-playbook {
+.synths-in-the-shadow .item-sheet .playbook-body .loadout-playbook {
   padding-top: 8px;
   min-width: 220px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-.synths-in-the-shadow.item.sheet .playbook-body .loadout-playbook div {
+.synths-in-the-shadow .item-sheet .playbook-body .loadout-playbook div {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
 }
-.synths-in-the-shadow.item.sheet .playbook-body .loadout-playbook label {
+.synths-in-the-shadow .item-sheet .playbook-body .loadout-playbook label {
   width: 20px;
   height: 20px;
   background-image: url("assets/pips/item-check-base.svg");
@@ -2134,13 +1572,13 @@ select {
   background-size: contain;
   margin-right: 0px;
 }
-.synths-in-the-shadow.item.sheet .playbook-body .loadout-playbook .cap-0 {
+.synths-in-the-shadow .item-sheet .playbook-body .loadout-playbook .cap-0 {
   font-style: italic;
 }
-.synths-in-the-shadow.item.sheet .playbook-body .loadout-playbook .cap-0 label {
+.synths-in-the-shadow .item-sheet .playbook-body .loadout-playbook .cap-0 label {
   background-image: url("assets/pips/item-check-zero.svg");
 }
-.synths-in-the-shadow.item.sheet .playbook-body .contacts {
+.synths-in-the-shadow .item-sheet .playbook-body .contacts {
   height: 150px;
 }
 
@@ -2205,21 +1643,21 @@ select {
   color: red;
 }
 
-.items-to-add {
+.synths-in-the-shadow .items-to-add {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-around;
 }
-.items-to-add input[type=radio],
-.items-to-add input[type=checkbox] {
+.synths-in-the-shadow .items-to-add input[type=radio],
+.synths-in-the-shadow .items-to-add input[type=checkbox] {
   display: none;
 }
-.items-to-add input[type=radio]:checked + label,
-.items-to-add input[type=checkbox]:checked + label {
+.synths-in-the-shadow .items-to-add input[type=radio]:checked + label,
+.synths-in-the-shadow .items-to-add input[type=checkbox]:checked + label {
   font-weight: bold;
 }
-.items-to-add .tooltip .tooltiptext {
+.synths-in-the-shadow .items-to-add .tooltip .tooltiptext {
   visibility: hidden;
   width: 200px;
   background-color: #191813;
@@ -2230,52 +1668,73 @@ select {
   position: absolute;
   z-index: 9999;
 }
-.items-to-add .tooltip:hover .tooltiptext {
+.synths-in-the-shadow .items-to-add .tooltip:hover .tooltiptext {
   visibility: visible;
 }
-
-.dialog .window-content {
+.synths-in-the-shadow .dialog .window-content {
   background-color: #010e38;
   color: #dadada;
   background-image: url("assets/scanlines_bkg.png");
 }
-.dialog .window-content .dialog-buttons button {
+.synths-in-the-shadow .dialog .window-content .dialog-buttons button {
   background-color: #9f9dfc;
   color: #080808;
   border: 2px groove #9f9dfc;
 }
-.dialog .window-content input {
+.synths-in-the-shadow .dialog .window-content input {
   border: 0;
   background-color: rgba(255, 255, 255, 0.1);
   color: #dadada;
 }
-.dialog .window-content input::placeholder {
+.synths-in-the-shadow .dialog .window-content input::placeholder {
   color: #b4937d;
 }
-.dialog .window-content textarea {
+.synths-in-the-shadow .dialog .window-content textarea {
   background-color: rgba(255, 255, 255, 0.1);
   color: #dadada;
 }
-.dialog .window-content textarea::placeholder {
+.synths-in-the-shadow .dialog .window-content textarea::placeholder {
   color: #b4937d;
 }
-.dialog .window-content select {
+.synths-in-the-shadow .dialog .window-content select {
   background-color: #9f9dfc;
   color: #080808;
 }
-.dialog .flex-horizontal-center {
+.synths-in-the-shadow .dialog .flex-horizontal-center {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-.dialog .malfunction-checklist {
+.synths-in-the-shadow .dialog .malfunction-checklist {
   display: flex;
   flex-direction: column;
 }
-.dialog .malfunction-row {
+.synths-in-the-shadow .dialog .malfunction-row {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.synths-in-the-shadow {
+  font-family: "BarlowCondensed", sans-serif;
+  font-size: 14px;
+}
+.synths-in-the-shadow * {
+  scrollbar-color: #9f9dfc transparent;
+}
+.synths-in-the-shadow .window-content {
+  background-color: #010e38;
+  color: #dadada;
+  background-image: url("assets/scanlines_bkg.png");
+  overflow-y: auto;
+}
+.synths-in-the-shadow select, .synths-in-the-shadow textarea {
+  font-family: "BarlowCondensed", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+.synths-in-the-shadow select {
+  height: 14px;
 }
 
 /*# sourceMappingURL=sits.css.map */
