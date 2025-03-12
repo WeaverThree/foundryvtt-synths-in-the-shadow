@@ -40,7 +40,7 @@
 
   .headline {
     display: flex;
-    margin-left: -2px; // Brute-fix oddness
+    // margin-left: -2px; // Brute-fix oddness
     
     .headline-left {
       width: 246px;
@@ -54,14 +54,14 @@
       margin-bottom: 4px;
     }
     
-    .name {
+    input[type="text"].name {
       font-size: 50px;
       height: 64px;
     }
   }
 
   .lookline {
-    margin-right: -2px;
+    // margin-right: -2px;
     display: flex;
     
     input[type="text"] {
@@ -74,7 +74,7 @@
 
   .traitsline {
     display: flex;
-    margin-right: -2px; // Brute-fix oddness
+    // margin-right: -2px; // Brute-fix oddness
 
     .fakeinput {
       width:172px;
@@ -96,7 +96,7 @@
   }
 
   .synopsis {
-    margin-right: -2px; // Brute-fix oddness
+    // margin-right: -2px; // Brute-fix oddness
     height: 64px;
     margin-top:4px;
     margin-bottom:0px;
@@ -248,24 +248,7 @@
     width: 100%;
 
     table {
-      width: 100%;
-      background-color: transparent !important;
-      border: 0;
-      
-      thead {
-        background-color: color.$header-bg;
-        color: color.$header-fg;
-        font-size: 18px;
-        height: 30px;
-        align-items: center;
-        justify-content: center;
-        font-style: italic;
-        text-transform: uppercase;
-        font-weight: bold;
-        text-shadow: none;
-        border: 0;
-      }
-      
+        
       tbody:before {
         // stupid workaround
         line-height: 6px;
@@ -292,6 +275,7 @@
         text-align: center;
         font-weight: bold;
         font-style: italic;
+        padding: 4px;
       }
     }
 
@@ -316,6 +300,9 @@
 
     }
   }
+
+  
+  // MARK: Tabbed Bottom Sec
 
   .tabs {
     margin-bottom:0px;
