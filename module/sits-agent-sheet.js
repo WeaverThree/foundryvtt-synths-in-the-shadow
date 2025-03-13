@@ -10,7 +10,6 @@ import { SitsActor } from "./sits-actor.js"
 export class SitsAgentSheet extends SitsSheet {
 
   static DEFAULT_OPTIONS = {
-    id: "sits-agent-sheet",
     classes: ["synths-in-the-shadow"],
     position: {
       width: 873,
@@ -26,7 +25,6 @@ export class SitsAgentSheet extends SitsSheet {
   
   static PARTS = {
     agentsheet: {
-      id: "agent-sheet",
       template: "systems/synths-in-the-shadow/templates/actors/agent-sheet.hbs",
       scrollable: ["window-content"],
     }

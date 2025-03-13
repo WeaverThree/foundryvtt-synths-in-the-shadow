@@ -45,7 +45,9 @@
     .headline-left {
       width: 246px;
       margin-right: 4px;
-      text-align: right;
+      input[type="text"] {
+        text-align: right;
+      }
     }
 
     input[type="text"] {
@@ -101,6 +103,7 @@
     margin-top:4px;
     margin-bottom:0px;
     border:0;
+    width:100%;
   }
 
   .second-section {
@@ -276,6 +279,10 @@
         font-weight: bold;
         font-style: italic;
         padding: 4px;
+
+        input[type="text"] {
+          text-align: center;
+        }
       }
     }
 
@@ -294,10 +301,8 @@
         align-items: center;
         font-weight: bold;
         font-style: italic;
-      }
-      
-      @include mixin.pipcheck_hover(32px, 32px, "assets/pips/armor-armed.svg", "assets/pips/armor-armed-hot.svg", "assets/pips/armor-armed-hover.svg", "assets/pips/armor-armed-hot-hover.svg");
-
+        @include mixin.pipcheck_hover(32px, 32px, "assets/pips/armor-armed.svg", "assets/pips/armor-armed-hot.svg", "assets/pips/armor-armed-hover.svg", "assets/pips/armor-armed-hot-hover.svg");
+      }     
     }
   }
 
@@ -324,20 +329,35 @@
       border: 0;
       margin-top:0;
       width:500px;
+      tr {
+        border-bottom: 1px solid color.$table-lines;
+        background-color: transparent !important;
+      }
+  
+      tr:last-child {
+        border-bottom: 0;
+      }
+  
+      td:first-child {
+        padding-left:4px;
+      }
+     
+      .ability-title {
+        font-weight: bold;
+        width: 87px;
+      }
+
+      .ability-description {
+        text-align: left;
+      }
+  
+      .ability-target {
+        width:100px;
+        float:right;
+        margin-top:12px;
+      }
     }
     
-    tr {
-      border-bottom: 1px solid color.$table-lines;
-      background-color: transparent !important;
-    }
-
-    tr:last-child {
-      border-bottom: 0;
-    }
-
-    td:first-child {
-      padding-left:4px;
-    }
 
     .checks {
       div {
@@ -347,16 +367,6 @@
       }
     }
 
-    .ability-title {
-      font-weight: bold;
-      width: 87px;
-    }
-
-    .ability-target {
-      width:100px;
-      float:right;
-      margin-top:12px;
-    }
 
   }
 

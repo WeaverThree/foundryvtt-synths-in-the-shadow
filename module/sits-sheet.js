@@ -130,33 +130,9 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
   }
   
 
-  /* -------------------------------------------- */
+     // manage active effects
+    // html.find(".effect-control").click(ev => SitsActiveEffect.onManageActiveEffect(ev, this.actor));	
 
-  /** @override */
-	activateListeners(html) {
-    super.activateListeners(html);
-    html.find(".update-box").click(this._onUpdateBoxClick.bind(this));
-	
-	  // This is a workaround until is being fixed in FoundryVTT.
-    if ( this.options.submitOnChange ) {
-      html.on("change", "textarea", this._onChangeInput.bind(this));  // Use delegated listener on the form
-    }
-
-    // Update Inventory Item
-    html.find('.item-body').click(ev => {
-      const element = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(element.data("itemId"));
-      item.sheet.render(true);
-    });
-
-    // Delete Inventory Item
-    html.find('.item-delete').click( async ev => {
-
-    });
-
-    // manage active effects
-    html.find(".effect-control").click(ev => SitsActiveEffect.onManageActiveEffect(ev, this.actor));	
-	}
 
   static async onDeleteItem(event,target) {
     const targetId = target.getAttribute("data-target");

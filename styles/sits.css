@@ -218,6 +218,7 @@
   background-color: rgba(255, 255, 255, 0.1);
   color: #dadada;
   border-radius: 0;
+  padding: 0 4px;
   height: 26px;
 }
 .synths-in-the-shadow input[type=text]::placeholder {
@@ -736,6 +737,8 @@
 .synths-in-the-shadow .agent-sheet .headline .headline-left {
   width: 246px;
   margin-right: 4px;
+}
+.synths-in-the-shadow .agent-sheet .headline .headline-left input[type=text] {
   text-align: right;
 }
 .synths-in-the-shadow .agent-sheet .headline input[type=text] {
@@ -779,6 +782,7 @@
   margin-top: 4px;
   margin-bottom: 0px;
   border: 0;
+  width: 100%;
 }
 .synths-in-the-shadow .agent-sheet .second-section {
   margin-bottom: 0px;
@@ -1096,6 +1100,9 @@
   font-style: italic;
   padding: 4px;
 }
+.synths-in-the-shadow .agent-sheet .damage-armor tr td input[type=text] {
+  text-align: center;
+}
 .synths-in-the-shadow .agent-sheet .damage-armor .repair_clock {
   margin: 0 auto;
   position: relative;
@@ -1144,9 +1151,6 @@
 .synths-in-the-shadow .agent-sheet .damage-armor .repair_clock .sits-clock *:nth-child(9) {
   transform: rotate(270deg) skewY(180deg);
 }
-.synths-in-the-shadow .agent-sheet .damage-armor .armor_uses {
-  /* Hide the browser's default checkbox */
-}
 .synths-in-the-shadow .agent-sheet .damage-armor .armor_uses div {
   display: flex;
   flex-direction: row;
@@ -1154,8 +1158,9 @@
   align-items: center;
   font-weight: bold;
   font-style: italic;
+  /* Hide the browser's default checkbox */
 }
-.synths-in-the-shadow .agent-sheet .damage-armor .armor_uses label {
+.synths-in-the-shadow .agent-sheet .damage-armor .armor_uses div label {
   height: 32px;
   width: 32px;
   background-image: url("assets/pips/armor-armed-hot.svg");
@@ -1164,22 +1169,22 @@
   margin-right: 0px;
   cursor: pointer;
 }
-.synths-in-the-shadow .agent-sheet .damage-armor .armor_uses label:hover {
+.synths-in-the-shadow .agent-sheet .damage-armor .armor_uses div label:hover {
   background-image: url("assets/pips/armor-armed-hot-hover.svg");
 }
-.synths-in-the-shadow .agent-sheet .damage-armor .armor_uses input {
+.synths-in-the-shadow .agent-sheet .damage-armor .armor_uses div input {
   display: none;
 }
-.synths-in-the-shadow .agent-sheet .damage-armor .armor_uses input + label {
+.synths-in-the-shadow .agent-sheet .damage-armor .armor_uses div input + label {
   background-image: url("assets/pips/armor-armed.svg");
 }
-.synths-in-the-shadow .agent-sheet .damage-armor .armor_uses input + label:hover {
+.synths-in-the-shadow .agent-sheet .damage-armor .armor_uses div input + label:hover {
   background-image: url("assets/pips/armor-armed-hover.svg");
 }
-.synths-in-the-shadow .agent-sheet .damage-armor .armor_uses input:checked + label {
+.synths-in-the-shadow .agent-sheet .damage-armor .armor_uses div input:checked + label {
   background-image: url("assets/pips/armor-armed-hot.svg");
 }
-.synths-in-the-shadow .agent-sheet .damage-armor .armor_uses input:checked + label:hover {
+.synths-in-the-shadow .agent-sheet .damage-armor .armor_uses div input:checked + label:hover {
   background-image: url("assets/pips/armor-armed-hot-hover.svg");
 }
 .synths-in-the-shadow .agent-sheet .tabs {
@@ -1239,15 +1244,27 @@
   margin-top: 0;
   width: 500px;
 }
-.synths-in-the-shadow .agent-sheet .abilities tr {
+.synths-in-the-shadow .agent-sheet .abilities table tr {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   background-color: transparent !important;
 }
-.synths-in-the-shadow .agent-sheet .abilities tr:last-child {
+.synths-in-the-shadow .agent-sheet .abilities table tr:last-child {
   border-bottom: 0;
 }
-.synths-in-the-shadow .agent-sheet .abilities td:first-child {
+.synths-in-the-shadow .agent-sheet .abilities table td:first-child {
   padding-left: 4px;
+}
+.synths-in-the-shadow .agent-sheet .abilities table .ability-title {
+  font-weight: bold;
+  width: 87px;
+}
+.synths-in-the-shadow .agent-sheet .abilities table .ability-description {
+  text-align: left;
+}
+.synths-in-the-shadow .agent-sheet .abilities table .ability-target {
+  width: 100px;
+  float: right;
+  margin-top: 12px;
 }
 .synths-in-the-shadow .agent-sheet .abilities .checks div {
   display: flex;
@@ -1293,15 +1310,6 @@
 }
 .synths-in-the-shadow .agent-sheet .abilities .checks div input:checked + label:hover {
   background-image: url("assets/pips/w-skill-black-hover.svg");
-}
-.synths-in-the-shadow .agent-sheet .abilities .ability-title {
-  font-weight: bold;
-  width: 87px;
-}
-.synths-in-the-shadow .agent-sheet .abilities .ability-target {
-  width: 100px;
-  float: right;
-  margin-top: 12px;
 }
 .synths-in-the-shadow .agent-sheet .loadout select {
   border: 0;
