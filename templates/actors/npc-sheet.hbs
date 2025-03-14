@@ -27,7 +27,7 @@
 
   </section>
   <section>
-    {{editor system.description target="system.description" button=true editable=editable engine="prosemirror"}}
+    <textarea type="text" id="agent-{{_id}}-description" class="description-field" name="system.description" placeholder="[{{localize 'SITS.DescriptionPlaceholder'}}]" {{#unless editable}}disabled{{/unless}}>{{system.description}}</textarea>
   </section>
 
 </div>

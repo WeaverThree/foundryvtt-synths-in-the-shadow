@@ -48,7 +48,8 @@
   
   "SITS.NPCModel": "Model/species",
   "SITS.NPCSynopsisPlaceholder": "Synopsis: A quick notes/description of this character.",
-  "SITS.NPCLookPlaceholder":"This character's look, style, colors, short description, etc.",
+  "SITS.NPCLookPlaceholder": "This character's look, style, colors, short description, etc.",
+  "SITS.DescriptionPlaceholder": "This character's main description.",
 
 
   "SITS.ExpHeader": "XP Triggers",

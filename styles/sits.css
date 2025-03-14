@@ -1555,6 +1555,10 @@
   border: 0;
   width: 100%;
 }
+.synths-in-the-shadow .npc-sheet .description-field {
+  height: 151px;
+  margin-top: 8px;
+}
 
 .synths-in-the-shadow .item-sheet .sheet-header img {
   border: 0;
