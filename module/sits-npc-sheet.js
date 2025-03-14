@@ -7,7 +7,6 @@ import { SitsSheet } from "./sits-sheet.js";
 export class SitsNPCSheet extends SitsSheet {
 
   static DEFAULT_OPTIONS = {
-    id: "sits-npc-sheet",
     classes: ["synths-in-the-shadow"],
     position: {
       width: 800,

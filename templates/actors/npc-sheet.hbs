@@ -1,42 +1,34 @@
-<div class="{{cssClass}} actor-sheet" autocomplete="off">
-<section class="npc-sheet flex-horizontal">
-	<img src="{{img}}" data-edit="img" title="{{name}}" height="150" width="150"/>
-  <section class="npc-lines flex-column">
-	<div class="flex-horizontal">
-		<label class="text-line" for="agent-{{_id}}-name" >{{localize 'BITD.Name'}}:</label>
-		<input type="text" id="agent-{{_id}}-name" name="name" value="{{name}}" placeholder="{{localize 'BITD.Name'}}">
-	</div>
-	<div class="flex-horizontal">
-		<label class="text-line" for="agent-{{_id}}-short-description">{{localize 'BITD.Short'}} {{localize 'BITD.Description'}}:</label>
-		<input type="text" id="agent-{{_id}}-short-description" name="system.description_short" value="{{system.description_short}}">
+<div class="{{cssClass}} npc-sheet actor-sheet" autocomplete="off">
+  <section class="flex-horizontal">
 
-	</div>
-	<div class="flex-horizontal">
-		<label class="text-line" for="agent-{{_id}}-associated-playbook">{{localize 'BITD.Associated'}} {{localize 'BITD.Class'}}:</label>
-		<input type="text" id="agent-{{_id}}-associated-playbook" name="system.associated_playbook" value="{{system.associated_playbook}}">
+    <div class="portrait-area">
+      <img src="{{img}}" {{#if editable}}data-action="editImage"{{/if}} data-edit="img" class="portrait" />
+      <div class="underportrait">
+      </div>
+    </div>
 
-	</div>
-	<div class="flex-horizontal">
-		<label class="text-line" for="agent-{{_id}}-description">{{localize 'BITD.Full'}} {{localize 'BITD.Description'}}:</label>
-		<textarea rows="2" id="agent-{{_id}}-description" name="system.description">{{system.description}}</textarea>
+    <div class="description"> {{!-- MARK: Description --}}
 
-	</div>
-	<div class="flex-horizontal">
-		<label class="text-line" for="agent-{{_id}}-associated-unit-type">{{localize 'BITD.Associated'}} {{localize 'BITD.UnitType'}}:</label>
-		<input type="text" id="agent-{{_id}}-associated-unit-type" name="system.associated_unit_playbook" value="{{system.associated_unit_playbook}}">
+      <div class="headline">
+        <div class="headline-left">
+          <input type="text" id="agent-{{_id}}-model" class="model" name="system.model" value="{{system.model}}" placeholder="[{{localize 'SITS.NPCModel'}}]" {{#unless editable}}disabled{{/unless}}>
+          <input type="text" id="agent-{{_id}}-pronouns" class="pronouns" name="system.pronouns" value="{{system.pronouns}}" placeholder="[{{localize 'SITS.Pronouns'}}]" {{#unless editable}}disabled{{/unless}}>
+        </div>
+        <input type="text" id="agent-{{_id}}-name" class="name" name="name" value="{{name}}" {{#unless editable}}disabled{{/unless}}>
+      </div>
+      <div class="lookline">
+        <input type="text" id="agent-{{_id}}-look" class="look" name="system.look" value="{{system.look}}" placeholder="[{{localize 'SITS.NPCLookPlaceholder'}}]" {{#unless editable}}disabled{{/unless}}>
+      </div>
+      
+      <div class="grow-one">
+        <textarea type="text" id="agent-{{_id}}-synopsis" class="synopsis" name="system.synopsis" placeholder="[{{localize 'SITS.SynopsisPlaceholder'}}]" {{#unless editable}}disabled{{/unless}}>{{system.synopsis}}</textarea>
+      </div>
+    </div> {{!-- end description --}}
 
-	</div>
-	<div class="flex-horizontal">
-		<label class="text-line" for="agent-{{_id}}-associated-faction">{{localize 'BITD.Associated'}} {{localize 'BITD.Faction'}}:</label>
-		<input type="text" id="agent-{{_id}}-associated-faction" name="system.associated_faction" value="{{system.associated_faction}}" >
-
-	</div>
-	<div class="flex-horizontal">
-		<label class="text-line" for="agent-{{_id}}-notes">{{localize 'BITD.Notes'}}:</label>
-		<textarea rows="2" id="agent-{{_id}}-notes" name="system.notes">{{system.notes}}</textarea>
-
-	</div>
-	</section>
   </section>
+  <section>
+    {{editor system.description target="system.description" button=true editable=editable engine="prosemirror"}}
+  </section>
+
 </div>
 

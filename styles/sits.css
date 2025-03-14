@@ -176,9 +176,6 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.synths-in-the-shadow .actor-sheet {
-  padding: 10px;
-}
 .synths-in-the-shadow .grow-one {
   flex-grow: 1;
 }
@@ -718,9 +715,6 @@
 }
 .synths-in-the-shadow .agent-sheet .tab[data-tab].active {
   display: block;
-}
-.synths-in-the-shadow .agent-sheet form.actor-sheet {
-  padding: 20px;
 }
 .synths-in-the-shadow .agent-sheet .underportrait {
   display: flex;
@@ -1504,6 +1498,62 @@
 }
 .synths-in-the-shadow .agent-sheet .allitems .item:nth-child(2n) {
   backdrop-filter: saturate(0.2);
+}
+
+.synths-in-the-shadow .npc-sheet .portrait {
+  max-width: 200px;
+  max-height: 200px;
+  width: auto;
+  height: 200px;
+  border: 1px solid #dadada;
+}
+.synths-in-the-shadow .npc-sheet .underportrait {
+  display: flex;
+  flex-direction: column;
+}
+.synths-in-the-shadow .npc-sheet .underportrait-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.synths-in-the-shadow .npc-sheet .description {
+  margin-left: 8px;
+  width: 100%;
+}
+.synths-in-the-shadow .npc-sheet .description .headline {
+  display: flex;
+}
+.synths-in-the-shadow .npc-sheet .description .headline .headline-left {
+  width: 246px;
+  margin-right: 4px;
+}
+.synths-in-the-shadow .npc-sheet .description .headline .headline-left input[type=text] {
+  text-align: right;
+}
+.synths-in-the-shadow .npc-sheet .description .headline input[type=text] {
+  height: 30px;
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+.synths-in-the-shadow .npc-sheet .description .headline input[type=text].name {
+  font-size: 24px;
+  height: 64px;
+  font-weight: bold;
+}
+.synths-in-the-shadow .npc-sheet .description .lookline {
+  display: flex;
+}
+.synths-in-the-shadow .npc-sheet .description .lookline input[type=text] {
+  height: 30px;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.synths-in-the-shadow .npc-sheet .description .synopsis {
+  height: 95px;
+  margin-top: 4px;
+  margin-bottom: 0px;
+  border: 0;
+  width: 100%;
 }
 
 .synths-in-the-shadow .item-sheet .sheet-header img {

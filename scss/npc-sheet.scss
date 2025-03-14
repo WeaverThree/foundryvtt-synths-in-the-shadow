@@ -1,0 +1,75 @@
+@use 'mixin';
+@use 'color';
+
+.synths-in-the-shadow .npc-sheet {
+
+// MARK: Header
+
+  .portrait{
+    max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: 200px;
+    border: 1px solid color.$main-fg;
+  }
+
+  .underportrait {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .underportrait-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .description {
+
+    margin-left:8px;
+    width:100%;
+
+    .headline {
+      display: flex;
+      
+      .headline-left {
+        width: 246px;
+        margin-right: 4px;
+        input[type="text"] {
+          text-align: right;
+        }
+      }
+
+      input[type="text"] {
+        height: 30px;
+        font-size: 28px;
+        margin-bottom: 4px;
+      }
+      
+      input[type="text"].name {
+        font-size: 24px;
+        height: 64px;
+        font-weight: bold;
+      }
+    }
+
+    .lookline {
+      display: flex;
+      
+      input[type="text"] {
+        height: 30px;
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+      
+    }
+
+    .synopsis {
+      height: 95px;
+      margin-top:4px;
+      margin-bottom:0px;
+      border: 0;
+      width:100%;
+    }
+  }
+}
