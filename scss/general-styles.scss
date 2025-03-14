@@ -1,0 +1,287 @@
+@use 'color';
+@use 'mixin';
+
+.synths-in-the-shadow {
+
+  .debug-toggle{
+    opacity: 0.1;
+
+    &.on{
+      opacity: 0.75;
+    }
+  }
+
+  .rollable-text {
+    transition: color color.$transition-period;
+  }
+  .rollable-text:hover {
+    cursor: pointer;
+    color: color.$hover-highlight;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .grow-one {
+    flex-grow: 1;
+  }
+
+  .grow-two {
+    flex-grow: 2;
+  }
+
+  .flex-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .flex-horizontal-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .centerline {
+    align-items: center;
+  }
+
+  .flex-vertical {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flex-vertical-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .marginize-divs {
+    & > div {
+      margin-right:8px;
+    }
+    & > div:last-child {
+      margin-right: 0px;
+    }
+  }
+
+  input[type="text"] {
+    border: 0;
+    background-color: color.$input-bg;
+    color: color.$main-fg;
+    border-radius:0;
+    padding: 0 4px;
+    height:26px;
+  }
+
+  input[type="text"]::placeholder {
+    color: color.$placeholder-fg;
+  }
+
+  textarea {
+    background-color: color.$input-bg;
+    color: color.$main-fg;
+    border: 0;
+    border-radius: 0;
+    padding: 8px;
+  }
+
+  textarea::placeholder {
+    color: color.$placeholder-fg;
+  }
+
+  .tab[data-tab]{
+    display: none;
+    &.active{
+      display: block;
+    }
+  }
+  .black-label {
+    background-color: color.$header-bg;
+    color: color.$header-fg;
+    font-size: 18px;
+    text-align: center;
+    padding: 0px 5px;
+    height: 30px;
+    text-transform: uppercase;
+    font-family: BarlowCondensed, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .gray-label {
+    background-color: color.$gray;
+    color: color.$almost_black;
+    font-size: 18px;
+    text-align: center;
+    padding: 0px 5px;
+    height: 30px;
+    text-transform: uppercase;
+    font-family: BarlowCondensed, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  .stripe {
+    background-color: color.$header-bg;
+    color: color.$header-fg;
+    font-size: 18px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  .subhead-stripe {
+    background-color: color.$header-bg;
+    color: color.$header-fg;
+    font-size: 14px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    font-weight: bold;
+    justify-content: center;
+    margin-left: 8px;
+    margin-right: 8px;
+    text-transform: uppercase;
+
+  }
+
+  .label-stripe {
+    background-color: color.$header-bg;
+    color: color.$header-fg;
+    font-size: 14px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    font-weight: bold;
+    display:flex;
+    justify-content: center;
+    text-transform: uppercase;
+    margin-top:8px;
+
+  }
+
+  .label-stripe-gray {
+    text-transform: uppercase;
+    background-color: color.$gray;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    font-weight: bold;
+  }
+
+  // .editor,
+  // .editor-content {
+  //   min-height: 150px;
+  // }
+
+  .editor-content {
+    margin-left: 8px;
+    margin-right: 8px;
+    min-height: 28px;
+  }
+  .prosemirror {
+    height: 200px;
+    color: color.$main-fg;
+    background-color: color.$input-bg;
+    font-family: "BarlowCondensed", sans-serif;
+    font-size: 14px;
+
+    .editor-container {
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+
+    .fonts {
+      display:none;
+    }
+  }
+
+  .description {
+    font-style: italic;
+  }
+
+  i {
+    &.nullifier {
+      @include mixin.changeable(color.$transition-period, color.$hover-brightness, color.$hover-opacity, color.$red);
+    }
+  }
+
+  table {
+    width: 100%;
+    background-color: transparent !important;
+    border: 0;
+    border-radius: 0;
+    margin: 8px 0;
+
+    
+    thead {
+      background-color: color.$header-bg;
+      color: color.$header-fg;
+      font-size: 18px;
+      height: 30px;
+      font-style: italic;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-shadow: none;
+      border: 0;
+
+      th {
+        line-height: 1.0;
+        text-align: center;
+      }
+    }
+  }
+  
+  tr {
+
+    background-color: transparent !important;
+
+    td {
+      text-align: center;
+      padding: 4px;
+    }
+  }
+
+
+
+  .tabs {
+    background-color: color.$header-bg;
+    color: color.$header-fg;
+    font-size: 18px;
+    height: 30px;
+    align-items: center;
+    justify-content: space-around;
+    font-style: italic;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 4px;
+
+    & > [data-tab].active {
+      text-shadow: 0 0 10px color.$link_glow;
+    }
+  }
+
+  .tab {
+    display: none;
+  }
+
+  td {
+    padding: 5px;
+  }
+
+}

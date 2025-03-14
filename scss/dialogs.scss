@@ -1,0 +1,99 @@
+@use 'color';
+
+.synths-in-the-shadow {
+
+  .items-to-add {
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      display: none;
+
+      &:checked + label {
+        font-weight: bold;
+      }
+    }
+
+  //Tooltip.
+    .tooltip {
+
+      .tooltiptext {
+        visibility: hidden;
+        width: 200px;
+        background-color: color.$almost_black;
+        color: color.$almost_white;
+        text-align: center;
+        padding: 5px;
+        border-radius: 6px;
+
+        // Position
+        position: absolute;
+        z-index: 9999;
+      }
+
+      &:hover .tooltiptext {
+        visibility: visible;
+      }
+    }
+  }
+
+  .dialog {
+    .window-content {
+      background-color: color.$main-bg;
+      color: color.$main-fg;
+      background-image: url("assets/scanlines_bkg.png");
+
+      .dialog-buttons button {
+        background-color: color.$header-bg;
+        color: color.$header-fg;
+        border: 2px groove color.$header-bg;
+      }
+
+      input {
+        border: 0;
+        background-color: color.$input-bg;
+        color: color.$main-fg;
+      }
+
+      input::placeholder {
+        color: color.$placeholder-fg;
+      }
+
+      textarea {
+        background-color: color.$input-bg;
+        color: color.$main-fg;
+      }
+
+      textarea::placeholder {
+        color: color.$placeholder-fg;
+      }
+
+      select {
+        background-color: color.$header-bg;
+        color: color.$header-fg;
+      }
+    }
+
+
+    .flex-horizontal-center {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .malfunction-checklist {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .malfunction-row {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+}

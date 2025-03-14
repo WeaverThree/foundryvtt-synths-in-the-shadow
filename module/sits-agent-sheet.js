@@ -9,38 +9,47 @@ import { SitsActor } from "./sits-actor.js"
  */
 export class SitsAgentSheet extends SitsSheet {
 
-  /** @override */
-	static get defaultOptions() {
-	  return foundry.utils.mergeObject(super.defaultOptions, {
-  	  classes: ["synths-in-the-shadow", "sheet", "actor", "agent"],
-  	  template: "systems/synths-in-the-shadow/templates/actors/agent-sheet.html",
-      width: 894,
-      height: 890,
-      tabs: [{navSelector: ".tabs", contentSelector: ".tab-content", initial: "abilities"}]
-    });
+  static DEFAULT_OPTIONS = {
+    classes: ["synths-in-the-shadow"],
+    position: {
+      width: 873,
+      height: 'auto'
+    },
+    actions: {
+      radioAbility: SitsAgentSheet.onRadioAbility,
+      checkItem: SitsAgentSheet.onCheckItem,
+      deleteUnit: SitsAgentSheet.onDeleteUnit,
+
+    }
+  }
+  
+  static PARTS = {
+    agentsheet: {
+      template: "systems/synths-in-the-shadow/templates/actors/agent-sheet.hbs",
+      scrollable: ["window-content"],
+    }
+  }
+
+  tabGroups = {
+    main: "mainpage"
   }
 
   /* -------------------------------------------- */
 
   /** @override */
-  async getData(options) {
-    const superData = super.getData( options );
-    const sheetData = superData.data;
-    sheetData.owner = superData.owner;
-    sheetData.editable = superData.editable;
-    sheetData.isGM = game.user.isGM;
+  async _prepareContext(options) {
+    const context = await super._prepareContext( options );
 
-    // Make sure derived attributes are up to date:
-    //this.actor.prepareDerivedData();
+    context.tabs = this.#getTabs();
 
     // Prepare active effects
-    sheetData.effects = SitsActiveEffect.prepareActiveEffectCategories(this.actor.effects);
+    context.effects = SitsActiveEffect.prepareActiveEffectCategories(this.actor.effects);
 
     // IDK what this is
-    sheetData.system.description = await TextEditor.enrichHTML(sheetData.system.description, {secrets: sheetData.owner, async: true});
+    context.system.description = await TextEditor.enrichHTML(context.system.description, {secrets: context.owner, async: true});
 
     // Abilities sorted alphabetically and then any we have invested in moved to the top
-    sheetData.sortedAbilities = this.actor.items.filter(i => { return i.type === 'ability';})
+    context.sortedAbilities = this.actor.items.filter(i => { return i.type === 'ability';})
         .sort((a,b) => {return a.name.localeCompare(b.name);})
         .sort((a,b) => {
           if (a.system.purchased.value > 0 && !(b.system.purchased.value > 0)) {
@@ -51,72 +60,70 @@ export class SitsAgentSheet extends SitsSheet {
             return 0;
           }
         });
+
+    let sortorder = ['weapons', 'armor', 'tools', 'mobility', 'documents', 'programs', 'misc'];
+    
     // All of this playbook's items
-    sheetData.sortedPlaybookItems = this.actor.items
+    context.sortedPlaybookItems = this.actor.items
       .filter(i => {return (i.type === 'item') && (i.system.playbook.toLowerCase().split(",").includes(this.actor.system.playbookName.toLowerCase()));})
-      .sort((a,b) => {return a.name.localeCompare(b.name);});
+      .sort((a,b) => {return a.name.localeCompare(b.name);})
+      .sort((a,b) => {return sortorder.indexOf(a.system.category.toLowerCase()) - sortorder.indexOf(b.system.category.toLowerCase())});
 
     // All other non-general items
-    sheetData.sortedOtherPlaybookItems = this.actor.items
+    context.sortedOtherPlaybookItems = this.actor.items
       .filter(i => {return (i.type === 'item') && !(i.system.playbook.toLowerCase().split(",").includes(this.actor.system.playbookName.toLowerCase())) && (i.system.playbook !== 'general');})
-      .sort((a,b) => {return a.name.localeCompare(b.name);});
-
+      .sort((a,b) => {return a.name.localeCompare(b.name);})
+      .sort((a,b) => {return sortorder.indexOf(a.system.category.toLowerCase()) - sortorder.indexOf(b.system.category.toLowerCase())});
+  
     // General items
-    sheetData.sortedGenericItems = this.actor.items
+    context.sortedGenericItems = this.actor.items
       .filter(i => {return (i.type === 'item') && (i.system.playbook === 'general');})
-      .sort((a,b) => {return a.name.localeCompare(b.name);});
+      .sort((a,b) => {return a.name.localeCompare(b.name);})
+      .sort((a,b) => {return sortorder.indexOf(a.system.category.toLowerCase()) - sortorder.indexOf(b.system.category.toLowerCase())});
+  
 
-    sheetData.sortedContacts = Object.entries(this.actor.system.contacts).map(([x,y]) => y).sort((a,b) => {return a.name.localeCompare(b.name)})
+    context.sortedContacts = Object.entries(this.actor.system.contacts).map(([x,y]) => y).sort((a,b) => {return a.name.localeCompare(b.name)})
 
-    sheetData.capacityMaxPlusOne = this.actor.system.capacity.max + 1; // Since we can't do wthis in HBS
+    context.capacityMaxPlusOne = this.actor.system.capacity.max + 1; // Since we can't do wthis in HBS
 
-    return sheetData;
+
+
+    return context;
   }
 
-  /** @override */
-	activateListeners(html) {
-    super.activateListeners(html);
 
-    // Everything below here is only needed if the sheet is editable
-    if (!this.options.editable) return;
 
-    // Remove Unit from agent sheet
-    html.find('.unit-delete').click(ev => {
-      const element = $(ev.currentTarget).parents(".item");
-      let unitId = element.data("itemId");
-      SitsHelpers.removeUnit(this.actor, unitId);
-    });
-
-		html.find("input.radio-ability, label.radio-ability").click((e) => {this._onAbilityRadio(e);});
-		html.find("input.radio-ability, label.radio-ability").contextmenu((e) => {this._onAbilityRadio(e);});
-    html.find("input.input-to-item").change((e) => {this._onInputToItem(e);});
-    html.find("input.check-item, label.check-item").click((e) => {this._onItemCheck(e);});
-
-	}
-
-  /** @override **/
-  async _onDropItem(event, droppedItem) {
-    await super._onDropItem(event, droppedItem);
-    if (!this.actor.isOwner) {
-      ui.notifications.error(`You do not have sufficient permissions to edit this agent. Please speak to your GM if you feel you have reached this message in error.`, {permanent: true});
-      return false;
+  #getTabs() {
+    const tabs = {
+      mainpage: {id: "mainpage", group: "main", gmOnly:false, gmOnly:true, label: "SITS.AbilitiesLoadoutContacts"},
+      agentnotes: {id: "agentnotes", group: "main", gmOnly:false, label: "SITS.Notes"},
+      effects: {id: "effects", group: "main", gmOnly:true, label: "SITS.Effects"},
+      allagentitems: {id: "allagentitems", group: "main", label: "SITS.AllItems"}
     }
-	  await this.handleDrop(event, droppedItem);
-  }
-
-  /** @override **/
-  async _onDropActor(event, droppedActor){
-    await super._onDropActor(event, droppedActor);
-    if (!this.actor.isOwner) {
-      ui.notifications.error(`You do not have sufficient permissions to edit this agent. Please speak to your GM if you feel you have reached this message in error.`, {permanent: true});
-      return false;
+    for ( const v of Object.values(tabs) ) {
+      v.active = this.tabGroups[v.group] === v.id;
+      v.cssClass = v.active ? "active" : "";
     }
-    await this.handleDrop(event, droppedActor);
+    return tabs;
   }
 
+  _onRender(context, options) {
+    const itemQuantities = this.element.querySelectorAll('.input-to-item');
+    for (const input of itemQuantities) {
+      input.addEventListener("change", async (e) => {
+        e.preventDefault();
+        let [targetId, targetDataPath] = e.target.name.split("-");
+        let targetItem = this.actor.items.get(targetId);
+        await targetItem.update(SitsHelpers.convertDotPathToNestedObject(targetDataPath, e.target.value))  
+      });
+    }
+  }
+
+
   /** @override **/
-  async handleDrop(event, droppedEntity){
-    let droppedEntityFull = await fromUuid(droppedEntity.uuid);
+  async _onDrop(event) {
+    const incoming = TextEditor.getDragEventData(event);
+    let droppedEntityFull = await fromUuid(incoming.uuid);
     switch (droppedEntityFull.type) {
       case "npc":
         await SitsHelpers.addContact(this.actor, droppedEntityFull);
@@ -172,80 +179,61 @@ export class SitsAgentSheet extends SitsSheet {
       }
     })
 
-    console.log(contactNames)
-    console.log(usedNames)
-
     contactNames.forEach(async (name) => {
       if(!usedNames.includes(name)) {
         let newNpc = await SitsActor.create({name:name, type:"npc"});
         await SitsHelpers.addContact(this.actor, newNpc);
       }
     })
+
+    // Actually add the playbook
+    await Item.create(playbook, {parent: this.document});
   }
 
 
 
 
-
+  static async onDeleteUnit(event, target) {
+    SitsHelpers.removeUnit(this.actor);
+  }
 
 
   /* -------------------------------------------- */
 
-  async _onAbilityRadio(event) {
-    let type = event.target.tagName.toLowerCase();
-    let radio = event.target;
-    if (type == "label") {
-      let labelID = $(radio).attr("for");
-      radio = $(`#${labelID}`).get(0);
-    }
+  static async onRadioAbility(event, target) {
+    let labelID = target.getAttribute("for");
+    let radio = $(`#${labelID}`).get(0);
+    
     let value;
-
     let name = radio.name;
     let [targetId, targetDataPath] = name.split("-");
 
     if (radio.checked || (event.type == "contextmenu")) {
       //find the next lowest-value input with the same name and click that one instead
       value = parseInt(radio.value) - 1;
-      this.element
-        .find(`input[name="${name}"][target="${targetId}"][value="${value}"]`)
-        .trigger("click");
+      $(`input[name="${name}"][target="${targetId}"][value="${value}"]`).click();
     } else {
+      // trigger the click on this one
       value = parseInt(radio.value);
-      //trigger the click on this one
-      $(radio).trigger("click");
+      radio.click();
     }
 
     let targetItem = this.actor.items.get(targetId);
   
-    await targetItem.update(this.convertDotPathToNestedObject(targetDataPath, value));
+    await targetItem.update(SitsHelpers.convertDotPathToNestedObject(targetDataPath, value));
   }
 
-  convertDotPathToNestedObject(path, value) {
-    const [last, ...paths] = path.split('.').reverse();
-    return paths.reduce((acc, el) => ({ [el]: acc }), { [last]: value });
-  }
+  static async onCheckItem(event, target) {
+    let labelID = target.getAttribute("for");
+    let radio = $(`#${labelID}`).get(0);
 
-  async _onInputToItem(e) {
-    e.preventDefault();
-    let [targetId, targetDataPath] = e.target.name.split("-");
-    let targetItem = this.actor.items.get(targetId);
-    await targetItem.update(this.convertDotPathToNestedObject(targetDataPath, e.target.value))        
-  }
-
-  async _onItemCheck(event) {
-    let type = event.target.tagName.toLowerCase();
-    let radio = event.target;
-    if (type == "label") {
-      let labelID = $(radio).attr("for");
-      radio = $(`#${labelID}`).get(0);
-    }
-    let value = radio.checked;
+    let value = !radio.checked;
     let name = radio.name;
 
-    this.element.find("input[name='" + name + "']").each((i,el)=>{el.value = value;});
+    $("input[name='" + name + "']").each((i,el)=>{el.value = value;});
     
     let [targetId, targetDataPath] = name.split("-");
     let targetItem = this.actor.items.get(targetId); 
-    await targetItem.update(this.convertDotPathToNestedObject(targetDataPath, value));
+    await targetItem.update(SitsHelpers.convertDotPathToNestedObject(targetDataPath, value));
   }
 }

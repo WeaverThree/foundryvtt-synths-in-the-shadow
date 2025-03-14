@@ -61,6 +61,7 @@ export class SitsActor extends Actor {
         } else {
           systemData.contacts[id].name = contactActor.name;
           systemData.contacts[id].id = id;
+          systemData.contacts[id].img = contactActor.img;
           if(!('standing' in systemData.contacts[id])) {
             systemData.contacts[id].standing = 'neutral';
           }

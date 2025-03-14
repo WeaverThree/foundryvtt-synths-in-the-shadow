@@ -1,0 +1,34 @@
+<div class="{{cssClass}} npc-sheet actor-sheet" autocomplete="off">
+  <section class="flex-horizontal">
+
+    <div class="portrait-area">
+      <img src="{{img}}" {{#if editable}}data-action="editImage"{{/if}} data-edit="img" class="portrait" />
+      <div class="underportrait">
+      </div>
+    </div>
+
+    <div class="description"> {{!-- MARK: Description --}}
+
+      <div class="headline">
+        <div class="headline-left">
+          <input type="text" id="agent-{{_id}}-model" class="model" name="system.model" value="{{system.model}}" placeholder="[{{localize 'SITS.NPCModel'}}]" {{#unless editable}}disabled{{/unless}}>
+          <input type="text" id="agent-{{_id}}-pronouns" class="pronouns" name="system.pronouns" value="{{system.pronouns}}" placeholder="[{{localize 'SITS.Pronouns'}}]" {{#unless editable}}disabled{{/unless}}>
+        </div>
+        <input type="text" id="agent-{{_id}}-name" class="name" name="name" value="{{name}}" {{#unless editable}}disabled{{/unless}}>
+      </div>
+      <div class="lookline">
+        <input type="text" id="agent-{{_id}}-look" class="look" name="system.look" value="{{system.look}}" placeholder="[{{localize 'SITS.NPCLookPlaceholder'}}]" {{#unless editable}}disabled{{/unless}}>
+      </div>
+      
+      <div class="grow-one">
+        <textarea type="text" id="agent-{{_id}}-synopsis" class="synopsis" name="system.synopsis" placeholder="[{{localize 'SITS.SynopsisPlaceholder'}}]" {{#unless editable}}disabled{{/unless}}>{{system.synopsis}}</textarea>
+      </div>
+    </div> {{!-- end description --}}
+
+  </section>
+  <section>
+    {{editor system.description target="system.description" button=true editable=editable engine="prosemirror"}}
+  </section>
+
+</div>
+

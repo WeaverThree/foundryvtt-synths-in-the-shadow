@@ -1,36 +1,18 @@
-// Colors
-$lightgray: #CCC;
-$gray: #999;
-$red: red;
-$almost_black: #191813;
-$almost_white: #EEEFFF;
-$gold: #DAA520;
-$green: #008000;
-$light_green: #12a012;
-$blue: #04578f;
+@use 'mixin';
+@use 'color';
 
-
-
-// Transition period for sheet parts that hint what they can do
-$transition-period: 0.2s;
-$hover-opacity: 0.9;
-$hover-brightness: 0.8;
-
-// Imports
-@import 'mixin.scss';
-
+.synths-in-the-shadow .agent-sheet {
 
 // MARK: Header
 
-& * {
   .portrait{
     max-width: 200px;
     max-height: 200px;
     width: auto;
     height: 200px;
-    border: 1px solid $main-fg;
+    border: 1px solid color.$main-fg;
   }
-  
+
 
   .tab[data-tab]{
     display: none;
@@ -39,17 +21,11 @@ $hover-brightness: 0.8;
     }
   }
 
-  form {
-    &.actor-sheet {
-      padding: 20px;
-    }
-  }
-
   .underportrait {
     display: flex;
     flex-direction: column;
   }
-  
+
   .underportrait-line {
     display: flex;
     flex-direction: row;
@@ -58,31 +34,33 @@ $hover-brightness: 0.8;
 
   .headline {
     display: flex;
-    margin-left: -2px; // Brute-fix oddness
+    // margin-left: -2px; // Brute-fix oddness
     
     .headline-left {
       width: 246px;
       margin-right: 4px;
-      text-align: right;
+      input[type="text"] {
+        text-align: right;
+      }
     }
 
-    input {
+    input[type="text"] {
       height: 30px;
       font-size: 28px;
       margin-bottom: 4px;
     }
     
-    .name {
+    input[type="text"].name {
       font-size: 50px;
       height: 64px;
     }
   }
 
   .lookline {
-    margin-right: -2px;
+    // margin-right: -2px;
     display: flex;
     
-    input {
+    input[type="text"] {
       height: 30px;
       font-size: 14px;
       margin-bottom: 4px;
@@ -92,13 +70,13 @@ $hover-brightness: 0.8;
 
   .traitsline {
     display: flex;
-    margin-right: -2px; // Brute-fix oddness
+    // margin-right: -2px; // Brute-fix oddness
 
     .fakeinput {
       width:172px;
       height: 26px;
       margin-right:4px;
-      background-color: $input-bg;
+      background-color: color.$input-bg;
       font-weight: bold;
       display:flex;
       flex-direction: row;
@@ -114,11 +92,12 @@ $hover-brightness: 0.8;
   }
 
   .synopsis {
-    margin-right: -2px; // Brute-fix oddness
+    // margin-right: -2px; // Brute-fix oddness
     height: 64px;
     margin-top:4px;
     margin-bottom:0px;
     border:0;
+    width:100%;
   }
 
   .second-section {
@@ -140,19 +119,19 @@ $hover-brightness: 0.8;
     // Overload
     .overload {
       width: 301px;
-      background-color: $main-bg;
-      @include pipradio_hover(15px, 30px, "assets/pips/w-pip-base.svg", "assets/pips/w-pip-red.svg", "assets/pips/w-pip-base-hover.svg", "assets/pips/w-pip-red-hover.svg");
+      background-color: color.$main-bg;
+      @include mixin.pipradio_hover(15px, 30px, "assets/pips/w-pip-base.svg", "assets/pips/w-pip-red.svg", "assets/pips/w-pip-base-hover.svg", "assets/pips/w-pip-red-hover.svg");
     }
 
     // Malfunction 
     .malfunction {
       width: 301px;
-      background-color: $main-bg;
+      background-color: color.$main-bg;
       .black-label {
         height: 15px;
         font-size: 13px;
       }
-      @include pipradio(45px, 15px, "assets/pips/w-pipwide-base.svg", "assets/pips/w-pipwide-orange.svg", false);
+      @include mixin.pipradio(45px, 15px, "assets/pips/w-pipwide-base.svg", "assets/pips/w-pipwide-orange.svg", false);
       label {
         cursor: pointer !important;
       }
@@ -162,7 +141,7 @@ $hover-brightness: 0.8;
 
 
   // MARK: Coins
-  
+
   .energy_credits-header {
     display: flex;
     justify-content: space-between;
@@ -175,9 +154,9 @@ $hover-brightness: 0.8;
     display:flex;
     flex-wrap: wrap;
     justify-content: space-between;
-  
+
     .energy_credits-pips {
-      @include pipradio_hover(16px, 16px, "assets/pips/w-ec-base.svg", "assets/pips/ec-hot.svg", "assets/pips/w-ec-base-hover.svg", "assets/pips/ec-hot-hover.svg");
+      @include mixin.pipradio_hover(16px, 16px, "assets/pips/w-ec-base.svg", "assets/pips/ec-hot.svg", "assets/pips/w-ec-base-hover.svg", "assets/pips/ec-hot-hover.svg");
       flex-wrap: wrap;
       align-content: flex-start;
       
@@ -191,11 +170,11 @@ $hover-brightness: 0.8;
     .on_hand {
       width: 38px;
     }
-  
+
     .savings {
       width: 152px;
     }
-  
+
   }
 
 
@@ -230,7 +209,7 @@ $hover-brightness: 0.8;
       margin-bottom: 10px;
 
       .experience-pips {
-        @include pipradio_hover(10px, 20px, "assets/pips/pip-base.svg", "assets/pips/pip-blue.svg", "assets/pips/pip-base-hover.svg", "assets/pips/pip-blue-hover.svg");
+        @include mixin.pipradio_hover(10px, 20px, "assets/pips/pip-base.svg", "assets/pips/pip-blue.svg", "assets/pips/pip-base-hover.svg", "assets/pips/pip-blue-hover.svg");
         position: absolute;
         right: 5px;
         top: 5px;
@@ -240,7 +219,7 @@ $hover-brightness: 0.8;
     .attributes-container {
       display: flex;
       margin: 3px 0px;
-      @include pipradio_hover(20px, 20px, "assets/pips/w-skill-base.svg", "assets/pips/w-skill-black.svg", "assets/pips/w-skill-base-hover.svg", "assets/pips/w-skill-black-hover.svg");
+      @include mixin.pipradio_hover(20px, 20px, "assets/pips/w-skill-base.svg", "assets/pips/w-skill-black.svg", "assets/pips/w-skill-base-hover.svg", "assets/pips/w-skill-black-hover.svg");
       font-style:italic;
       * {
         margin-right: 5px;
@@ -254,7 +233,7 @@ $hover-brightness: 0.8;
     }
   }
 
-  
+
   // MARK: Damage/Armor/Healing
 
   .damage-armor {
@@ -266,24 +245,7 @@ $hover-brightness: 0.8;
     width: 100%;
 
     table {
-      width: 100%;
-      background-color: transparent !important;
-      border: 0;
-      
-      thead {
-        background-color: $header-bg;
-        color: $header-fg;
-        font-size: 18px;
-        height: 30px;
-        align-items: center;
-        justify-content: center;
-        font-style: italic;
-        text-transform: uppercase;
-        font-weight: bold;
-        text-shadow: none;
-        border: 0;
-      }
-     
+        
       tbody:before {
         // stupid workaround
         line-height: 6px;
@@ -293,7 +255,7 @@ $hover-brightness: 0.8;
 
       input[type="text"] {
         width: 100%;
-        color: $damage-color;
+        color: color.$damage-color;
       }
     }
     
@@ -310,13 +272,18 @@ $hover-brightness: 0.8;
         text-align: center;
         font-weight: bold;
         font-style: italic;
+        padding: 4px;
+
+        input[type="text"] {
+          text-align: center;
+        }
       }
     }
 
     // Clock
     .repair_clock {
       margin: 0 auto;
-      @include clock(4, 88);
+      @include mixin.clock(4, 88);
     }
 
     .armor_uses {
@@ -328,25 +295,26 @@ $hover-brightness: 0.8;
         align-items: center;
         font-weight: bold;
         font-style: italic;
-      }
-      
-      @include pipcheck_hover(32px, 32px, "assets/pips/armor-armed.svg", "assets/pips/armor-armed-hot.svg", "assets/pips/armor-armed-hover.svg", "assets/pips/armor-armed-hot-hover.svg");
-
+        @include mixin.pipcheck_hover(32px, 32px, "assets/pips/armor-armed.svg", "assets/pips/armor-armed-hot.svg", "assets/pips/armor-armed-hover.svg", "assets/pips/armor-armed-hot-hover.svg");
+      }     
     }
   }
+
+  
+  // MARK: Tabbed Bottom Sec
 
   .tabs {
     margin-bottom:0px;
     .experience-pips {
-      @include pipradio_hover(10px, 20px, "assets/pips/pip-base.svg", "assets/pips/pip-blue.svg", "assets/pips/pip-base-hover.svg", "assets/pips/pip-blue-hover.svg");
+      @include mixin.pipradio_hover(10px, 20px, "assets/pips/pip-base.svg", "assets/pips/pip-blue.svg", "assets/pips/pip-base-hover.svg", "assets/pips/pip-blue-hover.svg");
       margin-left: -15px;  
       margin-right: -40px;
     }
   }
 
-   // Abilities
+  // Abilities
   .abilities {
-   
+    
     backdrop-filter: saturate(0.2);
 
     table {
@@ -355,53 +323,86 @@ $hover-brightness: 0.8;
       border: 0;
       margin-top:0;
       width:500px;
+      tr {
+        border-bottom: 1px solid color.$table-lines;
+        background-color: transparent !important;
+      }
+  
+      tr:last-child {
+        border-bottom: 0;
+      }
+  
+      td:first-child {
+        padding-left:4px;
+      }
+     
+      .ability-title {
+        font-weight: bold;
+        width: 87px;
+      }
+
+      .ability-description {
+        text-align: left;
+      }
+  
+      .ability-target {
+        width:100px;
+        float:right;
+        margin-top:12px;
+      }
     }
     
-    tr {
-      border-bottom: 1px solid $table-lines;
-      background-color: transparent !important;
-    }
-
-    tr:last-child {
-      border-bottom: 0;
-    }
-
-    td:first-child {
-      padding-left:4px;
-    }
 
     .checks {
       div {
-        @include pipradio_hover(20px, 20px, "assets/pips/w-skill-base.svg", "assets/pips/w-skill-black.svg", "assets/pips/w-skill-base-hover.svg", "assets/pips/w-skill-black-hover.svg");
+        @include mixin.pipradio_hover(20px, 20px, "assets/pips/w-skill-base.svg", "assets/pips/w-skill-black.svg", "assets/pips/w-skill-base-hover.svg", "assets/pips/w-skill-black-hover.svg");
         display:flex;
         flex-direction: column;
       }
     }
 
-    .ability-title {
-      font-weight: bold;
-      width: 87px;
-    }
-
-    .ability-target {
-      width:100px;
-      float:right;
-      margin-top:12px;
-    }
 
   }
 
-  // Loadout
+  // MARK: Loadout
   .loadout {
 
     select {
       border: 0;
       background-color: transparent;
-      color: $header-fg;
-      margin-top: 0px;
+      color: color.$header-fg;
       margin-bottom: 4px;
+      width: auto;
+      
+      margin-top: -7px; // FIXME: Brute force positioning
+      
+      font-weight: bold;
+      text-transform: uppercase;      
+      text-align: right;
+      
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      
+      box-shadow: none;
+      border: none;
+      cursor: pointer;
+      
+      background: url("data:image/svg+xml;utf8,<svg fill='red' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>") no-repeat right;
+      background-position-x: 41px;
+      
+      &:hover {
+        color: red;
+      }
+
+      &:focus {
+        border: none;
+        outline: none;
+      }
+
       option {
-        color: black;
+        color: color.$main-fg;
+        background: color.$main-bg;
       }
     }
 
@@ -410,7 +411,7 @@ $hover-brightness: 0.8;
     }
 
     .capacity-pips {
-      @include pipradio_overload(16px, 16px, "assets/pips/cargo-base.svg", "assets/pips/cargo-hot.svg", "assets/pips/cargo-over.svg", "assets/pips/cargo-over-hot.svg", false);
+      @include mixin.pipradio_overload(16px, 16px, "assets/pips/cargo-base.svg", "assets/pips/cargo-hot.svg", "assets/pips/cargo-over.svg", "assets/pips/cargo-over-hot.svg", false);
       margin-left:4px;
     }
 
@@ -429,35 +430,33 @@ $hover-brightness: 0.8;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+
       div {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
       }
 
-      @include pipcheck_hover(20px, 20px, "assets/pips/item-check-base.svg", "assets/pips/item-check-hot.svg", "assets/pips/item-check-hover.svg", "assets/pips/item-check-hot-hover.svg");
+      @include mixin.pipcheck_hover(20px, 20px, "assets/pips/item-check-base.svg", "assets/pips/item-check-hot.svg", "assets/pips/item-check-hover.svg", "assets/pips/item-check-hot-hover.svg");
 
       .cap-0 {
         font-style:italic;
-        @include pipcheck_hover(20px, 20px, "assets/pips/item-check-zero.svg", "assets/pips/item-check-zero-hot.svg", "assets/pips/item-check-zero-hover.svg", "assets/pips/item-check-zero-hot-hover.svg");
+        @include mixin.pipcheck_hover(20px, 20px, "assets/pips/item-check-zero.svg", "assets/pips/item-check-zero-hot.svg", "assets/pips/item-check-zero-hover.svg", "assets/pips/item-check-zero-hot-hover.svg");
       }
 
 
       .contacts-header {
         justify-content: center;
+        margin-top: 0
       }
     }
-  }
-
-  .contacts-header {
-    margin-top: 0
   }
 
   .contacts {
 
     padding-top: 8px;
     padding-bottom: 8px;
-  
+
     backdrop-filter: saturate(0.2);
 
     .contact {
@@ -486,36 +485,20 @@ $hover-brightness: 0.8;
     }
   }
 
-  // ITEM
-  .item {
+  .xp-triggers {
+    padding-left:4px;
+  }
 
-    justify-content: space-between;
 
-    .item-body {
-
-      margin-bottom: 10px;
-      * {
-        margin-right: 10px;
-      }
-
-      .item-description {
-        font-style: italic;
-        text-align: justify;
-      }
+  .allitems {
+    .item {
+      padding-left:20px;
+      padding-right:20px;
     }
-
-    div {
-      flex-grow: 2;
-    }
-    .item-control {
-      flex-grow: 1;
-    }
-    .item-body,
-    .item-class-label {
-      width: 100px;
+    .item:nth-child(2n) {
+      backdrop-filter: saturate(0.2);
     }
   }
 
- 
 
 }

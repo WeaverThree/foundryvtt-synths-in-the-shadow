@@ -1,0 +1,37 @@
+@use 'mixin';
+@use 'color';
+
+.synths-in-the-shadow {
+
+  .clock-zero-label {
+    color: color.$almost_black;
+  }
+
+  .clocks {
+    &.clocks-4 {
+      @include mixin.clock(4, 200);
+    }
+    &.clocks-6 {
+      @include mixin.clock(6, 200);
+    }
+    &.clocks-8 {
+      @include mixin.clock(8, 200);
+    }
+    &.clocks-10 {
+      @include mixin.clock(10, 200);
+    }
+    &.clocks-12 {
+      @include mixin.clock(12, 200);
+    }
+  }
+
+  .sits-clock-name-type {
+    > * {
+      margin-bottom: 10px;
+    }
+    .sits-clock{
+      margin: 10px auto;
+    }
+  }
+
+}

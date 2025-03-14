@@ -1,99 +1,187 @@
 import { SitsActiveEffect } from "./sits-active-effect.js";
 import { SitsHelpers } from "./sits-helpers.js";
 
-/**
- * Extend the basic ActorSheet with some very simple modifications
- * @extends {ActorSheet}
- */
+const {api, sheets} = foundry.applications;
 
-export class SitsSheet extends ActorSheet {
+export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV2) {
 
-  /* -------------------------------------------- */
+  static DEFAULT_OPTIONS = {
+    actions: {
+      itemAddPopup: SitsSheet.onItemAddPopup,
+      radioToggle: SitsSheet.onRadioToggle,
+      radioToggleSingle: SitsSheet.onRadioToggleSingle,
+      rollAttribute: SitsSheet.onRollAttribute,
+      standingToggle: SitsSheet.onStandingToggle,
+      openContact: SitsSheet.onOpenContact,
+      openItem: SitsSheet.onOpenItem,
+      deleteContact: SitsSheet.onDeleteContact,
+      deleteItem: SitsSheet.onDeleteItem,
+    },
+    form: {
+      submitOnChange: true,
+      closeOnSubmit: false,
+    },
+    dragDrop: [{ dragSelector: '[data-drag]', dropSelector: "div.agent-sheet" }],
+  }
 
-  /** @override */
-	activateListeners(html) {
-    super.activateListeners(html);
-    html.find(".item-add-popup").click(this._onItemAddClick.bind(this));
-    html.find(".update-box").click(this._onUpdateBoxClick.bind(this));
-	
-		html.find("input.radio-toggle, label.radio-toggle").click((e) => {	
-			this._onRadioToggle(e);
-		});
-		html.find("input.radio-toggle, label.radio-toggle").contextmenu((e) => {	
-			this._onRadioToggle(e);
-		});		
-	
+  constructor(options = {}) {
+    super(options);
+    this.#dragDrop = this.#createDragDropHandlers();
+  }
 
-
-    // Post item to chat
-    html.find(".item-post").click((ev) => {
-      const element = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(element.data("itemId"));
-      item.sendToChat();
+  #createDragDropHandlers() {
+    return this.options.dragDrop.map((d) => {
+      d.permissions = {
+        dragstart: this._canDragStart.bind(this),
+        drop: this._canDragDrop.bind(this),
+      };
+      d.callbacks = {
+        dragstart: this._onDragStart.bind(this),
+        dragover: this._onDragOver.bind(this),
+        drop: this._onDrop.bind(this),
+      };
+      return new DragDrop(d);
     });
+  }
 
-    // This is a workaround until is being fixed in FoundryVTT.
-    if ( this.options.submitOnChange ) {
-      html.on("change", "textarea", this._onChangeInput.bind(this));  // Use delegated listener on the form
+  #dragDrop;
+
+  get dragDrop() {
+    return this.#dragDrop;
+  }
+
+  /**
+   * Define whether a user is able to begin a dragstart workflow for a given drag selector
+   * @param {string} selector       The candidate HTML selector for dragging
+   * @returns {boolean}             Can the current user drag this selector?
+   * @protected
+   */
+  _canDragStart(selector) {
+    // game.user fetches the current user
+    //return this.isEditable;
+    return false;
+  }
+
+
+  /**
+   * Define whether a user is able to conclude a drag-and-drop workflow for a given drop selector
+   * @param {string} selector       The candidate HTML selector for the drop target
+   * @returns {boolean}             Can the current user drop on this selector?
+   * @protected
+   */
+  _canDragDrop(selector) {
+    // game.user fetches the current user
+    return this.isEditable;
+  }
+
+
+  /**
+   * Callback actions which occur at the beginning of a drag start workflow.
+   * @param {DragEvent} event       The originating DragEvent
+   * @protected
+   */
+  _onDragStart(event) {
+    const el = event.currentTarget;
+    if ('link' in event.target.dataset) return;
+
+    // Extract the data you need
+    let dragData = null;
+
+    if (!dragData) return;
+
+    // Set data transfer
+    event.dataTransfer.setData('text/plain', JSON.stringify(dragData));
+  }
+
+
+  /**
+   * Callback actions which occur when a dragged element is over a drop target.
+   * @param {DragEvent} event       The originating DragEvent
+   * @protected
+   */
+  _onDragOver(event) {}
+
+
+  /**
+   * Callback actions which occur when a dragged element is dropped on a target.
+   * @param {DragEvent} event       The originating DragEvent
+   * @protected
+   */
+  async _onDrop(event) {}
+
+  // Settup event handlers other than clicks
+  _onRender(context, options) {
+    this.#dragDrop.forEach((d) => d.bind(this.element));
+  }
+
+  async _prepareContext(options) {
+    const context = await super._prepareContext( options );
+
+    context.isGM = game.user.isGM;
+    context.editable = this.isEditable;
+    
+    context.system = this.actor.system;
+    context.items = this.actor.items;
+    context.name = this.actor.name;
+    context._id = this.actor._id;
+    context.img = this.actor.img;
+    
+    return context;
+  }
+  
+
+     // manage active effects
+    // html.find(".effect-control").click(ev => SitsActiveEffect.onManageActiveEffect(ev, this.actor));	
+
+
+  static async onDeleteItem(event,target) {
+    const targetId = target.getAttribute("data-target");
+    await this.actor.deleteEmbeddedDocuments("Item", [targetId]);
+  }
+
+  static async onDeleteContact(event, target) {
+    SitsHelpers.removeContact(this.actor, target.getAttribute("data-target"));
+    this.render(true);
+  }
+
+  static onStandingToggle(event, target) {
+    let contacts = this.actor.system.contacts;
+    let contactId = target.getAttribute("data-contact");
+    let targetContact = contacts[contactId];
+    let oldStanding = targetContact.standing;
+    let newStanding;
+    switch(oldStanding){
+      case "friend":
+        newStanding = "rival";
+        break;
+      case "rival":
+        newStanding = "neutral";
+        break;
+      case "neutral":
+        newStanding = "friend";
+        break;
     }
+    targetContact.standing = newStanding;
+    this.actor.update({system: {contacts: contacts}});
+  }
 
-    html.find(".roll-die-attribute").click(this._onRollAttributeDieClick.bind(this));
-	
-    // Update Inventory Item
-    html.find('.item-body').click(ev => {
-      const element = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(element.data("itemId"));
-      item.sheet.render(true);
-    });
+  static onOpenContact(event, target) {
+    game.actors.get(target.getAttribute('data-target'))?.sheet.render(true);
+  }
 
-    // Delete Inventory Item
-    html.find('.item-delete').click( async ev => {
-      const element = $(ev.currentTarget).parents(".item");
-      await this.actor.deleteEmbeddedDocuments("Item", [element.data("itemId")]);
-      element.slideUp(200, () => this.render(false));
-    });
-
-    // manage active effects
-    html.find(".effect-control").click(ev => SitsActiveEffect.onManageActiveEffect(ev, this.actor));	
-	
-	
-		// acquaintance status toggle
-    html.find('.standing-toggle').click(ev => {
-      let contacts = this.actor.system.contacts;
-      let contactId = $(ev.target).attr("data-contact");
-      console.log(contactId);
-      let targetContact = contacts[contactId];
-      let oldStanding = targetContact.standing;
-      let newStanding;
-      switch(oldStanding){
-        case "friend":
-          newStanding = "rival";
-          break;
-        case "rival":
-          newStanding = "neutral";
-          break;
-        case "neutral":
-          newStanding = "friend";
-          break;
-      }
-      targetContact.standing = newStanding;
-      this.actor.update({system: {contacts: contacts}});
-    });
-	
-	  // Open Acquaintance
-    html.find('.open-friend').click(ev => {
-      game.actors.get($(ev.target).attr('data-contact'))?.sheet.render(true);
-    });
-
-	
+  static onOpenItem(event, target) {
+    this.actor.items.get(target.getAttribute('data-target'))?.sheet.render(true);
   }
 
   /* -------------------------------------------- */
 
-  async _onItemAddClick(event) {
+  static async onItemAddPopup(event, target) {
     event.preventDefault();
-    const item_type = $(event.currentTarget).data("itemType")
-    const distinct = $(event.currentTarget).data("distinct")
+    const item_type = target.getAttribute("data-item-type")
+    const distinct = target.getAttribute("data-distinct")?.toLowerCase() == "true";
+
+    console.log(distinct);
+
     let input_type = "checkbox";
 
     if (typeof distinct !== "undefined") {
@@ -125,6 +213,7 @@ export class SitsSheet extends ActorSheet {
       // width: "500"
     }
 
+    // FIXME: DialogV2
     let dialog = new Dialog({
       title: `${game.i18n.localize('Add')} ${item_type}`,
       content: html,
@@ -159,24 +248,22 @@ export class SitsSheet extends ActorSheet {
 
     if (item_type == "unit") {
 		let actor = this.actor;
-		await SitsHelpers.addUnit(actor,items_to_add[0]);
-	}
-	else {
-		await Item.create(items_to_add, {parent: this.document});
-	}
+      await SitsHelpers.addUnit(actor,items_to_add[0]);
+    } else if (item_type == "playbook") {
+      await this._newPlaybook(items_to_add[0]);
+    } else {
+      await Item.create(items_to_add, {parent: this.document});
+    }
   }
 
   /* -------------------------------------------- */
 
   /**
    * Roll an Attribute die.
-   * @param {*} event
    */
-  async _onRollAttributeDieClick(event) {
-
-    const attribute_name = $(event.currentTarget).data("rollAttribute");
+  static async onRollAttribute(event, target) {
+    const attribute_name = target.getAttribute("data-roll-attribute");
     this.actor.rollAttributePopup(attribute_name);
-
   }
 
   /* -------------------------------------------- */
@@ -207,25 +294,30 @@ export class SitsSheet extends ActorSheet {
 
   /* -------------------------------------------- */
   
-   async _onRadioToggle(event) {
-    let type = event.target.tagName.toLowerCase();
-    let target = event.target;
-    if (type == "label") {
-      let labelID = $(target).attr("for");
-      target = $(`#${labelID}`).get(0);
-    }
+   static async onRadioToggle(event, target) {
+    event.preventDefault();
+    let labelID = target.getAttribute("for");
+    target = document.getElementById(labelID);
 
     if (target.checked || (event.type == "contextmenu")) {
       //find the next lowest-value input with the same name and click that one instead
       let name = target.name;
       let value = parseInt(target.value) - 1;
-      this.element
-        .find(`input[name="${name}"][value="${value}"]`)
-        .trigger("click");
+      document.querySelector(`input[name="${name}"][value="${value}"]`).click();
     } else {
       //trigger the click on this one
-      $(target).trigger("click");
+      target.click();
     }
+  }	
+
+  static async onRadioToggleSingle(event, target) {
+    event.preventDefault();
+    let labelID = target.getAttribute("for");
+    target = document.getElementById(labelID);
+
+
+    target.click();
+    
   }	
 
 }

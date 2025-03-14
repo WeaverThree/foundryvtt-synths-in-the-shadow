@@ -214,10 +214,10 @@
     
     "npc": {
       "description": "",
-      "associated_class": "",
-      "associated_faction": "",
-      "associated_unit_playbook": "",
-      "notes": ""
+      "synopsis": "",
+      "pronouns": "",
+      "model": "", 
+      "look": "",
     },
 
     "faction": {

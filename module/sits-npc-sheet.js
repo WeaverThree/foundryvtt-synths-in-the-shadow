@@ -6,55 +6,37 @@ import { SitsSheet } from "./sits-sheet.js";
  */
 export class SitsNPCSheet extends SitsSheet {
 
-  /** @override */
-	static get defaultOptions() {
-	  return foundry.utils.mergeObject(super.defaultOptions, {
-  	  classes: ["synths-in-the-shadow", "sheet", "actor"],
-  	  template: "systems/synths-in-the-shadow/templates/actors/npc-sheet.html",
-      width: 900,
-      height: 'auto',
-      tabs: [{navSelector: ".tabs", contentSelector: ".tab-content"}]
-    });
+  static DEFAULT_OPTIONS = {
+    classes: ["synths-in-the-shadow"],
+    position: {
+      width: 800,
+      height: 'auto'
+    },
+    actions: {
+    }
+  }
+  
+  static PARTS = {
+    npcsheet: {
+      id: "npc-sheet",
+      template: "systems/synths-in-the-shadow/templates/actors/npc-sheet.hbs",
+      scrollable: ["window-content"],
+    }
   }
 
   /* -------------------------------------------- */
 
   /** @override */
-  async getData(options) {
-    const superData = super.getData( options );
-    const sheetData = superData.data;
+  async _prepareContext(options) {
+    const context = await super._prepareContext( options );
 
-    sheetData.isGM = game.user.isGM;
-    sheetData.owner = superData.owner;
-    sheetData.editable = superData.editable;
+    context.system.description = await TextEditor.enrichHTML(context.system.description, {secrets: context.owner, async: true});
 
-    sheetData.system.description = await TextEditor.enrichHTML(sheetData.system.description, {secrets: sheetData.owner, async: true});
-
-    return sheetData;
+    return context;
   }
 
   /* -------------------------------------------- */
 
     /** @override */
-	activateListeners(html) {
-    super.activateListeners(html);
 
-    // Everything below here is only needed if the sheet is editable
-    if (!this.options.editable) return;
-
-    // Update Inventory Item
-    // html.find('.item-body').click(ev => {
-    //   const element = $(ev.currentTarget).parents(".item");
-    //   const item = this.actor.items.get(element.data("itemId"));
-    //   item.sheet.render(true);
-    // });
-
-    // // Delete Inventory Item
-    // html.find('.item-delete').click(ev => {
-    //   const element = $(ev.currentTarget).parents(".item");
-    //   this.actor.deleteEmbeddedDocuments("Item", [element.data("itemId")]);
-    //   element.slideUp(200, () => this.render(false));
-    // });
-
-	}
 }

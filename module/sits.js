@@ -99,8 +99,7 @@ Hooks.once("init", async function() {
   Handlebars.registerHelper('malfunctioncounter', function(itemlist, options) {
 
     let html = options.fn(this);
-
-    var count = itemlist.reduce((n,item) => item.type === 'malfunction' ? n+1 : n, 0);
+    var count = itemlist?.reduce((n,item) => item.type === 'malfunction' ? n+1 : n, 0);
 
     const rgx = new RegExp(' value=\"' + count + '\"');
     return html.replace(rgx, "$& checked");
@@ -259,7 +258,7 @@ Hooks.once("init", async function() {
       let checked = (parseInt(current_value) === i) ? 'checked' : '';
       html += `
         <input type="radio" value="${i}" id="clock-${i}-${uniq_id}" data-dType="String" name="${parameter_name}" ${checked}>
-        <label class="radio-toggle" for="clock-${i}-${uniq_id}"></label>
+        <label data-action="radioToggle" class="radio-toggle" for="clock-${i}-${uniq_id}"></label>
       `;
     }
 
@@ -289,7 +288,7 @@ Hooks.once("init", async function() {
       let checked = (parseInt(current_value) === i) ? 'checked' : '';
       html += `
         <input type="radio" value="${i}" id="clock-${i}-${uniq_id}" data-dType="String" name="${parameter_name}" ${checked}>
-        <label class="radio-toggle" for="clock-${i}-${uniq_id}"></label>
+        <label data-action="radioToggle" class="radio-toggle" for="clock-${i}-${uniq_id}"></label>
       `;
     }
 
