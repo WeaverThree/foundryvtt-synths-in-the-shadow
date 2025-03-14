@@ -7,49 +7,56 @@ import { SitsSheet } from "./sits-sheet.js";
  */
 export class SitsClockSheet extends SitsSheet {
 
-  /** @override */
-	static get defaultOptions() {
-	  return foundry.utils.mergeObject(super.defaultOptions, {
-  	  classes: ["synths-in-the-shadow", "sheet", "actor", "clock"],
-  	  template: "systems/synths-in-the-shadow/templates/actors/clock-sheet.html",
+  static DEFAULT_OPTIONS = {
+    classes: ["synths-in-the-shadow"],
+    position: {
       width: 360,
       height: 400,
-    });
+    },
+    actions: {
+    }
+  }
+  
+  static PARTS = {
+    npcsheet: {
+      id: "npc-sheet",
+      template: "systems/synths-in-the-shadow/templates/actors/clock-sheet.hbs",
+      scrollable: ["window-content"],
+    }
   }
 
   /* -------------------------------------------- */
 
   /** @override */
-  getData(options) {
-    const superData = super.getData( options );
-    const sheetData = superData.data;
-    sheetData.owner = superData.owner;
-    sheetData.editable = superData.editable;
-    sheetData.isGM = game.user.isGM;
-	sheetData.sizeDropdown = {
-		"4": "4",
-		"6": "6",
-		"8": "8",
-		"10": "10",
-		"12": "12",
-	};
-	sheetData.colorDropdown = {
-		"black": "BITD.Colors.Black",
-		"blue": "BITD.Colors.Blue",
-		"green": "BITD.Colors.Green",
-		"grey": "BITD.Colors.Grey",
-		"red": "BITD.Colors.Red",
-		"white": "BITD.Colors.White",
-		"yellow": "BITD.Colors.Yellow"
-	};
+  async _prepareContext(options) {
+    const context = await super._prepareContext( options );
 
-    return sheetData;
+    context.sizeDropdown = {
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "8": "8",
+      "10": "10",
+      "12": "12",
+      "16": "16",
+    };
+    context.colorDropdown = {
+      "blue": "SITS.Colors.Blue",
+      "green": "SITS.Colors.Green",
+      "red": "SITS.Colors.Red",
+      "yellow": "SITS.Colors.Yellow",
+      "white": "SITS.Colors.White",
+      "black": "SITS.Colors.Black",
+    };
+
+    return context;
   }
 
     /* -------------------------------------------- */
 
   /** @override */
   async _updateObject(event, formData) {
+    console.log("never?")
     let image_path = `systems/synths-in-the-shadow/themes/${formData['system.color']}/${formData['system.type']}clock_${formData['system.value']}.svg`;
     formData['img'] = image_path;
     formData['prototypeToken.texture.src'] = image_path;

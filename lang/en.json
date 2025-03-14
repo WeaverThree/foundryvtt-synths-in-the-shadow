@@ -43,20 +43,30 @@
   "SITS.Heavy": "Heavy",
   "SITS.Special": "Special",
 
-  "SITS.SpecialItems": "Special Items",
-  "SITS.LoadoutCapacity": "Capacity",
-  
-  "SITS.NPCModel": "Model/species",
-  "SITS.NPCSynopsisPlaceholder": "Synopsis: A quick notes/description of this character.",
-  "SITS.NPCLookPlaceholder": "This character's look, style, colors, short description, etc.",
-  "SITS.DescriptionPlaceholder": "This character's main description.",
-
-
   "SITS.ExpHeader": "XP Triggers",
   "SITS.ExpClue1": "Every time you <b>roll a desperate action</b>, mark xp in <b>that action</b>'s attribute.",
   "SITS.ExpClue2": "You expressed your <b>beliefs</b>, <b>drives</b>, <b>maker</b>, or <b>build</b>.",
   "SITS.ExpClue3": "You struggled with issues from your <b>deviance</b> or <b>malfunctions</b> during the session.",
   "SITS.ExpClueDescription": "At the end of each session, for each item below, mark <b>1 xp</b> in any track &mdash; or <b>2 xp</b> if that item occurred multiple times.",
+
+  "SITS.SpecialItems": "Special Items",
+  "SITS.LoadoutCapacity": "Capacity",
+  
+  "SITS.NPCModel": "Model/Species",
+  "SITS.NPCSynopsisPlaceholder": "Synopsis: A quick notes/description of this character.",
+  "SITS.NPCLookPlaceholder": "This character's look, style, colors, short description, etc.",
+  "SITS.DescriptionPlaceholder": "This character's main description.",
+
+  "SITS.ClockDescriptionPlaceholder": "What is this clock about?",
+  "SITS.Colors": {
+    "Black": "Black",
+    "Blue": "Blue",
+    "Green": "Green",
+    "Grey": "Grey",
+    "Red": "Red",
+    "White": "White",
+    "Yellow": "Yellow"
+  },
 
 
 
@@ -300,15 +310,6 @@
   "BITD.GainEdge": "Gain an <strong>Edge</strong>.",
   "BITD.DiceRoller": "Dice Roller",
   
-  "BITD.Colors": {
-    "Black": "Black",
-    "Blue": "Blue",
-    "Green": "Green",
-    "Grey": "Grey",
-    "Red": "Red",
-    "White": "White",
-    "Yellow": "Yellow"
-  },
 
   "SITS.Rank": {
     "0": "E Low",

@@ -206,10 +206,9 @@
 
 
     "clock": {
-      "name": "",
       "type": 4,
-      "value": "0",
-      "owner": ""
+      "value": 0,
+      "description": ""
     },
     
     "npc": {
@@ -217,7 +216,7 @@
       "synopsis": "",
       "pronouns": "",
       "model": "", 
-      "look": "",
+      "look": ""
     },
 
     "faction": {

@@ -3,6 +3,39 @@
 
 .synths-in-the-shadow {
 
+  .clock-block {
+    .clock-header {
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+    }
+    .clock-name {
+      flex-grow: 1;
+    }
+    input[type="text"] {
+      margin-top: -2px;
+      height: 34px;
+    }
+    label {
+      align-content: center;
+    }
+    select {
+      width: 60px;
+    }
+    .clocks {
+      position: relative;
+      justify-content: center;
+      display: flex;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding-right: 20px;
+    }
+    textarea {
+      width: 100%;
+      height: 76px;
+    }
+  }
+
   .clock-zero-label {
     color: color.$almost_black;
   }
@@ -10,6 +43,9 @@
   .clocks {
     &.clocks-4 {
       @include mixin.clock(4, 200);
+    }
+    &.clocks-5 {
+      @include mixin.clock(5, 200);
     }
     &.clocks-6 {
       @include mixin.clock(6, 200);
@@ -22,6 +58,9 @@
     }
     &.clocks-12 {
       @include mixin.clock(12, 200);
+    }
+    &.clocks-16 {
+      @include mixin.clock(16, 200);
     }
   }
 

@@ -394,6 +394,36 @@
   padding: 5px;
 }
 
+.synths-in-the-shadow .clock-block .clock-header {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+.synths-in-the-shadow .clock-block .clock-name {
+  flex-grow: 1;
+}
+.synths-in-the-shadow .clock-block input[type=text] {
+  margin-top: -2px;
+  height: 34px;
+}
+.synths-in-the-shadow .clock-block label {
+  align-content: center;
+}
+.synths-in-the-shadow .clock-block select {
+  width: 60px;
+}
+.synths-in-the-shadow .clock-block .clocks {
+  position: relative;
+  justify-content: center;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-right: 20px;
+}
+.synths-in-the-shadow .clock-block textarea {
+  width: 100%;
+  height: 80px;
+}
 .synths-in-the-shadow .clock-zero-label {
   color: #191813;
 }
@@ -443,6 +473,56 @@
 }
 .synths-in-the-shadow .clocks.clocks-4 .sits-clock *:nth-child(9) {
   transform: rotate(270deg) skewY(180deg);
+}
+.synths-in-the-shadow .clocks.clocks-5 {
+  position: relative;
+}
+.synths-in-the-shadow .clocks.clocks-5 .sits-clock {
+  position: relative;
+  padding: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  list-style: none;
+  overflow: hidden;
+  background-size: cover;
+}
+.synths-in-the-shadow .clocks.clocks-5 .sits-clock label {
+  overflow: hidden;
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  transform-origin: 0% 100%;
+  transition: filter 0.1s;
+  cursor: pointer;
+}
+.synths-in-the-shadow .clocks.clocks-5 .sits-clock label:hover {
+  filter: brightness(0.8);
+  opacity: 0.9;
+}
+.synths-in-the-shadow .clocks.clocks-5 .sits-clock input {
+  position: absolute;
+  display: none;
+}
+.synths-in-the-shadow .clocks.clocks-5 .sits-clock input[value="0"] {
+  display: none;
+}
+.synths-in-the-shadow .clocks.clocks-5 .sits-clock *:nth-child(3) {
+  transform: rotate(0deg) skewY(162deg);
+}
+.synths-in-the-shadow .clocks.clocks-5 .sits-clock *:nth-child(5) {
+  transform: rotate(72deg) skewY(162deg);
+}
+.synths-in-the-shadow .clocks.clocks-5 .sits-clock *:nth-child(7) {
+  transform: rotate(144deg) skewY(162deg);
+}
+.synths-in-the-shadow .clocks.clocks-5 .sits-clock *:nth-child(9) {
+  transform: rotate(216deg) skewY(162deg);
+}
+.synths-in-the-shadow .clocks.clocks-5 .sits-clock *:nth-child(11) {
+  transform: rotate(288deg) skewY(162deg);
 }
 .synths-in-the-shadow .clocks.clocks-6 {
   position: relative;
@@ -691,6 +771,89 @@
 }
 .synths-in-the-shadow .clocks.clocks-12 .sits-clock *:nth-child(25) {
   transform: rotate(330deg) skewY(120deg);
+}
+.synths-in-the-shadow .clocks.clocks-16 {
+  position: relative;
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock {
+  position: relative;
+  padding: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  list-style: none;
+  overflow: hidden;
+  background-size: cover;
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock label {
+  overflow: hidden;
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  transform-origin: 0% 100%;
+  transition: filter 0.1s;
+  cursor: pointer;
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock label:hover {
+  filter: brightness(0.8);
+  opacity: 0.9;
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock input {
+  position: absolute;
+  display: none;
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock input[value="0"] {
+  display: none;
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock *:nth-child(3) {
+  transform: rotate(0deg) skewY(112.5deg);
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock *:nth-child(5) {
+  transform: rotate(22.5deg) skewY(112.5deg);
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock *:nth-child(7) {
+  transform: rotate(45deg) skewY(112.5deg);
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock *:nth-child(9) {
+  transform: rotate(67.5deg) skewY(112.5deg);
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock *:nth-child(11) {
+  transform: rotate(90deg) skewY(112.5deg);
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock *:nth-child(13) {
+  transform: rotate(112.5deg) skewY(112.5deg);
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock *:nth-child(15) {
+  transform: rotate(135deg) skewY(112.5deg);
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock *:nth-child(17) {
+  transform: rotate(157.5deg) skewY(112.5deg);
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock *:nth-child(19) {
+  transform: rotate(180deg) skewY(112.5deg);
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock *:nth-child(21) {
+  transform: rotate(202.5deg) skewY(112.5deg);
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock *:nth-child(23) {
+  transform: rotate(225deg) skewY(112.5deg);
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock *:nth-child(25) {
+  transform: rotate(247.5deg) skewY(112.5deg);
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock *:nth-child(27) {
+  transform: rotate(270deg) skewY(112.5deg);
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock *:nth-child(29) {
+  transform: rotate(292.5deg) skewY(112.5deg);
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock *:nth-child(31) {
+  transform: rotate(315deg) skewY(112.5deg);
+}
+.synths-in-the-shadow .clocks.clocks-16 .sits-clock *:nth-child(33) {
+  transform: rotate(337.5deg) skewY(112.5deg);
 }
 .synths-in-the-shadow .sits-clock-name-type > * {
   margin-bottom: 10px;
