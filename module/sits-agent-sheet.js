@@ -107,7 +107,8 @@ export class SitsAgentSheet extends SitsSheet {
     return tabs;
   }
 
-  _onRender(context, options) {
+  async _onRender(context, options) {
+    await super._onRender(context, options);
     const itemQuantities = this.element.querySelectorAll('.input-to-item');
     for (const input of itemQuantities) {
       input.addEventListener("change", async (e) => {
@@ -119,28 +120,24 @@ export class SitsAgentSheet extends SitsSheet {
     }
   }
 
-
-  /** @override **/
-  async _onDrop(event) {
-    const incoming = TextEditor.getDragEventData(event);
-    let droppedEntityFull = await fromUuid(incoming.uuid);
-    switch (droppedEntityFull.type) {
+  async _onDropActor(event, actor) {
+    switch (actor.type) {
       case "npc":
-        await SitsHelpers.addContact(this.actor, droppedEntityFull);
+        await SitsHelpers.addContact(this.actor, actor);
         break;
       case "unit":
-        await SitsHelpers.addUnit(this.actor, droppedEntityFull);
-        break;
-      case "item":
-        break;
-      case "ability":
-        break;
-      case "playbook":
-        await this._newPlaybook(droppedEntityFull)
-        break ;
-      default:
+        await SitsHelpers.addUnit(this.actor, actor);
         break;
     }
+  }
+
+  async _onDropItem(event, item) {
+    switch (item.type) {
+      case "playbook":
+        await this._newPlaybook(item);
+        break;
+    }
+    await super._onDropItem(event,item);
   }
 
 

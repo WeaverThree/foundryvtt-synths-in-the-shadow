@@ -21,97 +21,17 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
       submitOnChange: true,
       closeOnSubmit: false,
     },
-    dragDrop: [{ dragSelector: '[data-drag]', dropSelector: "div.agent-sheet" }],
   }
 
-  constructor(options = {}) {
-    super(options);
-    this.#dragDrop = this.#createDragDropHandlers();
-  }
+  // constructor(options = {}) {
+  //   super(options);
+  // }
 
-  #createDragDropHandlers() {
-    return this.options.dragDrop.map((d) => {
-      d.permissions = {
-        dragstart: this._canDragStart.bind(this),
-        drop: this._canDragDrop.bind(this),
-      };
-      d.callbacks = {
-        dragstart: this._onDragStart.bind(this),
-        dragover: this._onDragOver.bind(this),
-        drop: this._onDrop.bind(this),
-      };
-      return new DragDrop(d);
-    });
-  }
-
-  #dragDrop;
-
-  get dragDrop() {
-    return this.#dragDrop;
-  }
-
-  /**
-   * Define whether a user is able to begin a dragstart workflow for a given drag selector
-   * @param {string} selector       The candidate HTML selector for dragging
-   * @returns {boolean}             Can the current user drag this selector?
-   * @protected
-   */
-  _canDragStart(selector) {
-    // game.user fetches the current user
-    //return this.isEditable;
-    return false;
-  }
-
-
-  /**
-   * Define whether a user is able to conclude a drag-and-drop workflow for a given drop selector
-   * @param {string} selector       The candidate HTML selector for the drop target
-   * @returns {boolean}             Can the current user drop on this selector?
-   * @protected
-   */
-  _canDragDrop(selector) {
-    // game.user fetches the current user
-    return this.isEditable;
-  }
-
-
-  /**
-   * Callback actions which occur at the beginning of a drag start workflow.
-   * @param {DragEvent} event       The originating DragEvent
-   * @protected
-   */
-  _onDragStart(event) {
-    const el = event.currentTarget;
-    if ('link' in event.target.dataset) return;
-
-    // Extract the data you need
-    let dragData = null;
-
-    if (!dragData) return;
-
-    // Set data transfer
-    event.dataTransfer.setData('text/plain', JSON.stringify(dragData));
-  }
-
-
-  /**
-   * Callback actions which occur when a dragged element is over a drop target.
-   * @param {DragEvent} event       The originating DragEvent
-   * @protected
-   */
-  _onDragOver(event) {}
-
-
-  /**
-   * Callback actions which occur when a dragged element is dropped on a target.
-   * @param {DragEvent} event       The originating DragEvent
-   * @protected
-   */
-  async _onDrop(event) {}
-
-  // Settup event handlers other than clicks
-  _onRender(context, options) {
-    this.#dragDrop.forEach((d) => d.bind(this.element));
+  // Setup event handlers other than clicks
+  async _onRender(context, options) {
+    // this.#dragDrop.forEach((d) => d.bind(this.element));
+    await super._onRender(context, options);
+    console.log(this);
   }
 
   async _prepareContext(options) {
@@ -179,8 +99,6 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
     event.preventDefault();
     const item_type = target.getAttribute("data-item-type")
     const distinct = target.getAttribute("data-distinct")?.toLowerCase() == "true";
-
-    console.log(distinct);
 
     let input_type = "checkbox";
 
