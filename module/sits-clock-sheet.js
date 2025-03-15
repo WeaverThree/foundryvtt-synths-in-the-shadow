@@ -54,15 +54,25 @@ export class SitsClockSheet extends SitsSheet {
 
     /* -------------------------------------------- */
 
-  /** @override */
-  async _updateObject(event, formData) {
-    console.log("never?")
-    let image_path = `systems/synths-in-the-shadow/themes/${formData['system.color']}/${formData['system.type']}clock_${formData['system.value']}.svg`;
-    formData['img'] = image_path;
-    formData['prototypeToken.texture.src'] = image_path;
+  /** 
+   * I'm using this function to cause updates to happen to tokens and img after the user clicks the
+   * form. I'm not sure if this is a good place/way to do it. 
+   * @override 
+   **/
+  async _processSubmitData(event, form, submitData, options={}) {
+    await super._processSubmitData(event, form, submitData, options)
+
+    let image_path = `systems/synths-in-the-shadow/themes/${this.actor.system.color}/${this.actor.system.type}clock_${Math.min(this.actor.system.value, this.actor.system.type)}.svg`;
+
+    await this.actor.update({
+      img: image_path,
+      prototypeToken: {texture: {src: image_path}},
+    })
+
     let data = [];
     let update = {
-      "texture.src": image_path
+      "texture.src": image_path,
+      "name": this.actor.name,
     };
 
     let tokens = this.actor.getActiveTokens();
@@ -79,7 +89,7 @@ export class SitsClockSheet extends SitsSheet {
     }
 
     // Update the Actor
-    return this.object.update(formData);
+    //return this.object.update(submitData);
   }
 
   /* -------------------------------------------- */

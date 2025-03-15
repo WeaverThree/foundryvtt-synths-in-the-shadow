@@ -1,14 +1,8 @@
 <div class="{{cssClass}} clock-block" autocomplete="off">
   <div class="clock-header">
-    {{#if editable}}
-      <div class="clock-name editable">
-        <input type="text" id="{{id}}-clock-name" name="name" value="{{name}}" />
-      </div>
-    {{else}}
-      <div class="clock-name">
-        <input name="name" value="{{actor.name}}" readonly /> 
-      </div>
-    {{/if}}
+    <div class="clock-name">
+      <input type="text" id="{{id}}-clock-name" name="name" value="{{name}}" {{#unless editable}}disabled{{/unless}} />
+    </div>
     {{#if editable}}
       <label for="system.type"><i class="fa fa-chart-pie"></i></label>
       <select data-type="String" name="system.type">

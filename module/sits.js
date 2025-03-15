@@ -247,8 +247,6 @@ Hooks.once("init", async function() {
       current_value = type;
     }
 
-    // Label for 0
-    html += `<label class="clock-zero-label" for="clock-0-${uniq_id}}"><i class="fab fa-creative-commons-zero nullifier"></i></label>`;
     html += `<div id="sits-clock-${uniq_id}" class="sits-clock clock-${type} clock-${type}-${current_value}" style="background-image:url('systems/synths-in-the-shadow/themes/${color}/${type}clock_${current_value}.svg');">`;
 
     let zero_checked = (parseInt(current_value) === 0) ? 'checked' : '';
@@ -277,9 +275,6 @@ Hooks.once("init", async function() {
     if (parseInt(current_value) > parseInt(type)) {
       current_value = type;
     }
-
-    // Label for 0
-    html += `<div id="sits-clock-${uniq_id}" class="sits-clock clock-${type} clock-${type}-${current_value}" style="background-image:url('systems/synths-in-the-shadow/themes/white/${type}clock_${current_value}.svg');">`;
 
     let zero_checked = (parseInt(current_value) === 0) ? 'checked' : '';
     html += `<input type="radio" value="0" id="clock-0-${uniq_id}}" data-dType="String" name="${parameter_name}" ${zero_checked}>`;

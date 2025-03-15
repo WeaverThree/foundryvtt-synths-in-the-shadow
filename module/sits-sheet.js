@@ -28,11 +28,9 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
   // }
 
   // Setup event handlers other than clicks
-  async _onRender(context, options) {
-    // this.#dragDrop.forEach((d) => d.bind(this.element));
-    await super._onRender(context, options);
-    console.log(this);
-  }
+  // async _onRender(context, options) {
+  //   await super._onRender(context, options);
+  // }
 
   async _prepareContext(options) {
     const context = await super._prepareContext( options );
