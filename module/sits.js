@@ -263,33 +263,6 @@ Hooks.once("init", async function() {
     html += `</div>`;
     return html;
   });
-  // Clocks in black for clocks embedded in sheets
-  Handlebars.registerHelper('sits-clock', function(parameter_name, type, current_value, uniq_id) {
-
-    let html = '';
-
-    if (current_value === null || current_value === 'null') {
-      current_value = 0;
-    }
-
-    if (parseInt(current_value) > parseInt(type)) {
-      current_value = type;
-    }
-
-    let zero_checked = (parseInt(current_value) === 0) ? 'checked' : '';
-    html += `<input type="radio" value="0" id="clock-0-${uniq_id}}" data-dType="String" name="${parameter_name}" ${zero_checked}>`;
-
-    for (let i = 1; i <= parseInt(type); i++) {
-      let checked = (parseInt(current_value) === i) ? 'checked' : '';
-      html += `
-        <input type="radio" value="${i}" id="clock-${i}-${uniq_id}" data-dType="String" name="${parameter_name}" ${checked}>
-        <label data-action="radioToggle" class="radio-toggle" for="clock-${i}-${uniq_id}"></label>
-      `;
-    }
-
-    html += `</div>`;
-    return html;
-  });
   
   Handlebars.registerHelper('pc', function( string ) {
     return SitsHelpers.getProperCase( string );

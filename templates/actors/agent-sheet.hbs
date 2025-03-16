@@ -254,7 +254,7 @@
             <td>{{localize "SITS.MoreEffect"}}</td>
             <td rowspan="3">
               <div id="agent-{{_id}}-repair_clock" class="flex-horizontal-center repair_clock clocks-{{system.repair_clock.max}} {{#unless editable}}disabled{{/unless}}">
-                {{{sits-clock "system.repair_clock.value" system.repair_clock.max system.repair_clock.value _id}}}
+                {{{sits-clock-color "system.repair_clock.value" system.repair_clock.max "blue" system.repair_clock.value _id}}}
               </div>
             </td>
             <td rowspan="3" id="agent-{{_id}}-armor_uses" class="armor_uses">
