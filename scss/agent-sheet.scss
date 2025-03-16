@@ -32,9 +32,12 @@
     justify-content: space-between;
   }
 
+  .descipriton {
+    flex-grow: 1;
+  }
+
   .headline {
     display: flex;
-    // margin-left: -2px; // Brute-fix oddness
     
     .headline-left {
       width: 246px;
@@ -53,11 +56,11 @@
     input[type="text"].name {
       font-size: 50px;
       height: 64px;
+      font-weight:bold;
     }
   }
 
   .lookline {
-    // margin-right: -2px;
     display: flex;
     
     input[type="text"] {
@@ -70,7 +73,6 @@
 
   .traitsline {
     display: flex;
-    // margin-right: -2px; // Brute-fix oddness
 
     .fakeinput {
       width:172px;

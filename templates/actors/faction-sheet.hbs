@@ -1,0 +1,72 @@
+<div class="{{cssClass}} faction-sheet" autocomplete="off">
+
+  <section id="faction-{{_id}}-header" class="flex-horizontal marginize-divs">
+
+    <div class="portrait-area">
+      <img src="{{img}}" {{#if editable}}data-action="editImage"{{/if}} data-edit="img" class="portrait" />
+      <div class="underportrait {{#unless editable}}disabled{{/unless}}">
+       <table class="rank">
+          <thead>
+            <tr class="head"><td colspan="{{maxrank}}"> {{{localize 'SITS.RankHeader'}}} </td></tr>
+            <tr class="top">
+              {{#each ranks as |rank|}}
+                <td colspan="2" {{#if rank.active}}class="active"{{/if}}>{{rank.rank}}</td>
+              {{/each}}
+            </tr>
+            <tr class="bottom">
+              {{#each subranks as |subrank|}}
+                <td {{#if subrank.active}}class="active"{{/if}}>{{subrank.subrank}}</td>
+              {{/each}}
+            </tr>
+          </thead>
+          <tr class="buttons">
+            <td colspan="{{maxrank}}">
+              {{#multiboxes system.rank.value}}
+              {{#times_from 1 maxrank}}
+                <input type="radio" id="agent-{{../_id}}-rank-{{this}}" name="system.rank.value" value="{{this}}" dtype="Radio">
+                <label data-action="radioToggle" for="agent-{{../_id}}-rank-{{this}}"></label>
+              {{/times_from}}
+              {{/multiboxes}}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="description"> {{!-- MARK: Description --}}
+
+      <div class="headline">
+        <input type="text" id="faction-{{_id}}-name" class="name" name="name" value="{{name}}" {{#unless editable}}disabled{{/unless}}>
+      </div>
+      <div class="lookline">
+        <input type="text" id="faction-{{_id}}-look" class="look" name="system.byline" value="{{system.byline}}" placeholder="[{{localize 'SITS.BylinePlaceholder'}}]" {{#unless editable}}disabled{{/unless}}>
+      </div>
+
+    
+      <div class="descline">
+        <div class="detail">
+          <span class="box-title">{{localize "SITS.Territory"}}</span>
+          <input type="text" id="faction-{{_id}}-territory" name="system.territory" value="{{system.territory}}" {{#unless editable}}disabled{{/unless}}>
+        </div>
+        <div class="detail">
+          <span class="box-title">{{localize "SITS.Assets"}}</span>
+          <input type="text" id="faction-{{_id}}-assets" name="system.assets" value="{{system.assets}}" {{#unless editable}}disabled{{/unless}}>
+        </div>
+      </div>
+
+      <div class="descline">
+        <div class="detail">
+          <span class="box-title">{{localize "SITS.Allies"}}</span>
+          <input type="text" id="faction-{{_id}}-allies" name="system.allies" value="{{system.allies}}" {{#unless editable}}disabled{{/unless}}>
+        </div>
+        <div class="detail">
+          <span class="box-title">{{localize "SITS.Enemies"}}</span>
+          <input type="text" id="faction-{{_id}}-enemies" name="system.enemies" value="{{system.enemies}}" {{#unless editable}}disabled{{/unless}}>
+        </div>
+      </div>
+
+    </div>
+  
+  </section>
+
+</div>

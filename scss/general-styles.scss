@@ -258,6 +258,56 @@
   }
 
 
+  table.rank {
+    thead {
+      td {
+        line-height: 15px;
+      }
+      td.active {
+        background-color: color.$header-bg-alt;
+      }
+    }
+    
+    tr.buttons {
+      padding: 0;
+      margin: 0;
+
+      td {
+        padding: 0;
+        margin: 0;
+      }
+
+      label {
+        height: 28px;
+        width: 14px;
+        margin-top: 3px;
+        display: inline-block;
+
+        background-image: url("assets/pips/w-pip-base.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+
+      input {
+        display: none;
+  
+        &:checked {
+    
+          & ~ label {
+            background-image: url("assets/pips/w-pip-base.svg");
+          }
+          & + label {
+            background-image: url("assets/pips/w-pip-blue.svg");
+          }
+              
+        }
+
+      }
+
+    }
+
+  }
+
 
   .tabs {
     background-color: color.$header-bg;

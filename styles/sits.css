@@ -372,6 +372,38 @@
   text-align: center;
   padding: 4px;
 }
+.synths-in-the-shadow table.rank thead td {
+  line-height: 15px;
+}
+.synths-in-the-shadow table.rank thead td.active {
+  background-color: #7877c4;
+}
+.synths-in-the-shadow table.rank tr.buttons {
+  padding: 0;
+  margin: 0;
+}
+.synths-in-the-shadow table.rank tr.buttons td {
+  padding: 0;
+  margin: 0;
+}
+.synths-in-the-shadow table.rank tr.buttons label {
+  height: 28px;
+  width: 14px;
+  margin-top: 3px;
+  display: inline-block;
+  background-image: url("assets/pips/w-pip-base.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.synths-in-the-shadow table.rank tr.buttons input {
+  display: none;
+}
+.synths-in-the-shadow table.rank tr.buttons input:checked ~ label {
+  background-image: url("assets/pips/w-pip-base.svg");
+}
+.synths-in-the-shadow table.rank tr.buttons input:checked + label {
+  background-image: url("assets/pips/w-pip-blue.svg");
+}
 .synths-in-the-shadow .tabs {
   background-color: #9f9dfc;
   color: #080808;
@@ -861,10 +893,6 @@
   margin: 10px auto;
 }
 
-.synths-in-the-shadow .unit-sheet {
-  background-color: green;
-}
-
 .synths-in-the-shadow .agent-sheet .portrait {
   max-width: 200px;
   max-height: 200px;
@@ -887,6 +915,9 @@
   flex-direction: row;
   justify-content: space-between;
 }
+.synths-in-the-shadow .agent-sheet .descipriton {
+  flex-grow: 1;
+}
 .synths-in-the-shadow .agent-sheet .headline {
   display: flex;
 }
@@ -905,6 +936,7 @@
 .synths-in-the-shadow .agent-sheet .headline input[type=text].name {
   font-size: 50px;
   height: 64px;
+  font-weight: bold;
 }
 .synths-in-the-shadow .agent-sheet .lookline {
   display: flex;
@@ -1660,6 +1692,78 @@
 }
 .synths-in-the-shadow .agent-sheet .allitems .item:nth-child(2n) {
   backdrop-filter: saturate(0.2);
+}
+
+.synths-in-the-shadow .unit-sheet {
+  background-color: green;
+}
+
+.synths-in-the-shadow .faction-sheet .portrait {
+  max-width: 200px;
+  max-height: 200px;
+  width: auto;
+  height: 200px;
+  border: 1px solid #dadada;
+}
+.synths-in-the-shadow .faction-sheet .underportrait {
+  display: flex;
+  flex-direction: column;
+}
+.synths-in-the-shadow .faction-sheet .underportrait-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.synths-in-the-shadow .faction-sheet .description {
+  flex-grow: 1;
+}
+.synths-in-the-shadow .faction-sheet .headline {
+  display: flex;
+  flex-grow: 1;
+}
+.synths-in-the-shadow .faction-sheet .headline .headline-left {
+  width: 246px;
+  margin-right: 4px;
+}
+.synths-in-the-shadow .faction-sheet .headline .headline-left input[type=text] {
+  text-align: right;
+}
+.synths-in-the-shadow .faction-sheet .headline input[type=text] {
+  height: 30px;
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+.synths-in-the-shadow .faction-sheet .headline input[type=text].name {
+  font-size: 50px;
+  height: 64px;
+  font-weight: bold;
+}
+.synths-in-the-shadow .faction-sheet .lookline {
+  display: flex;
+}
+.synths-in-the-shadow .faction-sheet .lookline input[type=text] {
+  height: 30px;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.synths-in-the-shadow .faction-sheet .descline {
+  display: flex;
+}
+.synths-in-the-shadow .faction-sheet .descline .detail {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-right: 4px;
+}
+.synths-in-the-shadow .faction-sheet .descline .detail:last-child {
+  margin-right: 0px;
+}
+.synths-in-the-shadow .faction-sheet .synopsis {
+  height: 64px;
+  margin-top: 4px;
+  margin-bottom: 0px;
+  border: 0;
+  width: 100%;
 }
 
 .synths-in-the-shadow .npc-sheet .portrait {

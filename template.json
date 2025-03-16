@@ -220,25 +220,29 @@
     },
 
     "faction": {
-      "type": "",
-      "tier": 0,
-      "goal_1": "",
-      "goal_1_clock_max": 4,
-      "goal_2": "",
-      "goal_2_clock_max": 4,
-      "turf": "",
+      "goal_1_clock": {
+        "description": "",
+        "clock_type": 4,
+        "value": 0
+      },
+      "goal_2_clock": {
+        "description": "",
+        "clock_type": 4,
+        "value": 0
+      },
+      "byline": "",
+      "territory": "",
       "assets": "",
       "quirks": "",
-      "notables": "",
       "allies": "",
       "enemies": "",
       "situation": "",
-      "goal_clock": 0,
       "notes": "",
+      "notable_people": "",
+      "contacts": [],
       "rank": {
-        "value": 0,
-        "min": 0,
-        "max": 11
+        "value": 1,
+        "ranks": ["SITS.Rank.E", "SITS.Rank.D", "SITS.Rank.C", "SITS.Rank.B", "SITS.Rank.A", "SITS.Rank.S"]
       }
     }
   },
