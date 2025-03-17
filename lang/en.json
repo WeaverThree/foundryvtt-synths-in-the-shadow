@@ -78,7 +78,18 @@
   },
   "SITS.RankHeader": " &mdash; RANK &mdash; ",
 
-
+  "SITS.BylinePlaceholder": "Describe this faction quickly.",
+  "SITS.Leader": "Leader",
+  "SITS.Territory": "Territory",
+  "SITS.Allies": "Allies",
+  "SITS.Enemies": "Enemies",
+  "SITS.Assets": "Assets",
+  "SITS.NotablePeople": "Notable People",
+  "SITS.Situation": "Situation",
+  "SITS.Quirks": "Quirks",
+  "SITS.AssociatedNPCs": "Associated NPCs",
+  "SITS.FactionClock1NamePlaceholder": "Faction Clock #1",
+  "SITS.FactionClock2NamePlaceholder": "Faction Clock #2",
 
 
   "BITD.System": "System",

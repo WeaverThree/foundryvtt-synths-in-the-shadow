@@ -215,7 +215,7 @@
   background-color: rgba(255, 255, 255, 0.1);
   color: #dadada;
   border-radius: 0;
-  padding: 0 4px;
+  padding: 0 8px;
   height: 26px;
 }
 .synths-in-the-shadow input[type=text]::placeholder {
@@ -433,6 +433,8 @@
 }
 .synths-in-the-shadow .clock-block .clock-name {
   flex-grow: 1;
+  font-weight: bold;
+  font-style: italic;
 }
 .synths-in-the-shadow .clock-block input[type=text] {
   margin-top: -2px;
@@ -454,6 +456,7 @@
 .synths-in-the-shadow .clock-block textarea {
   width: 100%;
   height: 76px;
+  font-weight: normal;
 }
 .synths-in-the-shadow .clock-zero-label {
   color: #191813;
@@ -1758,12 +1761,31 @@
 .synths-in-the-shadow .faction-sheet .descline .detail:last-child {
   margin-right: 0px;
 }
+.synths-in-the-shadow .faction-sheet .descline input[type=text] {
+  font-weight: bold;
+}
+.synths-in-the-shadow .faction-sheet .descline textarea {
+  font-weight: normal;
+  font-style: normal;
+}
 .synths-in-the-shadow .faction-sheet .synopsis {
   height: 64px;
   margin-top: 4px;
   margin-bottom: 0px;
   border: 0;
   width: 100%;
+}
+.synths-in-the-shadow .faction-sheet .contact {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.synths-in-the-shadow .faction-sheet .faction-clocks {
+  margin-top: 8px;
+}
+.synths-in-the-shadow .faction-sheet .faction-clocks .clock-block:first-child {
+  margin-right: 8px;
 }
 
 .synths-in-the-shadow .npc-sheet .portrait {

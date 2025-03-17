@@ -45,28 +45,116 @@
     
       <div class="descline">
         <div class="detail">
-          <span class="box-title">{{localize "SITS.Territory"}}</span>
-          <input type="text" id="faction-{{_id}}-territory" name="system.territory" value="{{system.territory}}" {{#unless editable}}disabled{{/unless}}>
+          <span class="box-title">{{localize "SITS.Leader"}}</span>
+          <input type="text" id="faction-{{_id}}-leader" name="system.leader" value="{{system.leader}}" {{#unless editable}}disabled{{/unless}}>
         </div>
         <div class="detail">
-          <span class="box-title">{{localize "SITS.Assets"}}</span>
-          <input type="text" id="faction-{{_id}}-assets" name="system.assets" value="{{system.assets}}" {{#unless editable}}disabled{{/unless}}>
+          <span class="box-title">{{localize "SITS.Territory"}}</span>
+          <input type="text" id="faction-{{_id}}-territory" name="system.territory" value="{{system.territory}}" {{#unless editable}}disabled{{/unless}}>
         </div>
       </div>
 
       <div class="descline">
         <div class="detail">
           <span class="box-title">{{localize "SITS.Allies"}}</span>
-          <input type="text" id="faction-{{_id}}-allies" name="system.allies" value="{{system.allies}}" {{#unless editable}}disabled{{/unless}}>
+          <textarea type="text" id="faction-{{_id}}-allies" class="allies" name="system.allies" {{#unless editable}}disabled{{/unless}}>{{system.allies}}</textarea>
         </div>
         <div class="detail">
           <span class="box-title">{{localize "SITS.Enemies"}}</span>
-          <input type="text" id="faction-{{_id}}-enemies" name="system.enemies" value="{{system.enemies}}" {{#unless editable}}disabled{{/unless}}>
+          <textarea type="text" id="faction-{{_id}}-enemies" class="enemies" name="system.enemies" {{#unless editable}}disabled{{/unless}}>{{system.enemies}}</textarea>
         </div>
       </div>
 
+      <div class="descline">
+        <div class="detail">
+          <span class="box-title">{{localize "SITS.Assets"}}</span>
+          <textarea type="text" id="faction-{{_id}}-assets" class="assets" name="system.assets" {{#unless editable}}disabled{{/unless}}>{{system.assets}}</textarea>
+        </div>
+        <div class="detail">
+          <span class="box-title">{{localize "SITS.NotablePeople"}}</span>
+          <textarea type="text" id="faction-{{_id}}-notable_people" class="notable_people" name="system.notable_people" {{#unless editable}}disabled{{/unless}}>{{system.notable_people}}</textarea>
+        </div>
+      </div>
+
+    </div> {{!-- End Description --}}
+
+  </section>
+
+  <section class="lower">
+
+    <span class="box-title">{{localize "SITS.Situation"}}</span>
+    <textarea type="text" id="faction-{{_id}}-situation" class="situation" name="system.situation" {{#unless editable}}disabled{{/unless}}>{{system.situation}}</textarea>
+
+    <div class="descline">
+      <div class="detail">
+        <span class="box-title">{{localize "SITS.Quirks"}}</span>
+        <textarea type="text" id="faction-{{_id}}-quirks" class="quirks" name="system.quirks" {{#unless editable}}disabled{{/unless}}>{{system.quirks}}</textarea>
+      </div>
+      <div class="detail">
+        <span class="box-title">{{localize "SITS.Notes"}}</span>
+        <textarea type="text" id="faction-{{_id}}-notes" class="notes" name="system.notes" {{#unless editable}}disabled{{/unless}}>{{system.notes}}</textarea>
+      </div>
+      <div class="contacts">
+        <span class="box-title">{{localize "SITS.AssociatedNPCs"}}</span>
+        {{#each sortedContacts as |contact|}}
+          <div class="contact">
+            <img src="{{contact.img}}" width="16" height="16"/>
+            <a data-action="openContact" data-target="{{contact.id}}">{{contact.name}}</a>
+            <a data-action="deleteContact" data-target="{{item.id}}" data-tooltip="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
+          </div>
+        {{/each}}
+      </div>
     </div>
-  
+
+    <div class="faction-clocks flex-horizontal">
+      <div class="clock-block grow-one">
+        <div class="clock-header">
+          <div class="clock-name">
+            <input type="text" id="faction-{{id}}-goal_1_clock-name" name="system.goal_1_clock.name" value="{{system.goal_1_clock.name}}" placeholder="[{{localize 'SITS.FactionClock1NamePlaceholder'}}]" {{#unless editable}}disabled{{/unless}} />
+          </div>
+          {{#if editable}}
+            <label for="system.goal_1_clock.clock_type"><i class="fa fa-chart-pie"></i></label>
+            <select data-type="String" name="system.goal_1_clock.clock_type">
+              {{selectOptions sizeDropdown selected=system.goal_1_clock.clock_type}}
+            </select>
+            
+            <label for="system.goal_1_clock.color"><i class="fa fa-palette"></i></label>
+            <select data-type="String" name="system.goal_1_clock.color">
+              {{selectOptions colorDropdown selected=system.goal_1_clock.color localize=true}}
+            </select>
+          {{/if}}
+        </div>
+        <div class="clocks clocks-{{system.goal_1_clock.clock_type}}">
+          {{log this}}
+          {{{sits-clock-color "system.goal_1_clock.value" system.goal_1_clock.clock_type system.goal_1_clock.color system.goal_1_clock.value _id}}}
+        </div>
+        <textarea type="text" id="agent-{{_id}}-description" class="description-field" name="system.goal_1_clock.description" placeholder="[{{localize 'SITS.ClockDescriptionPlaceholder'}}]" {{#unless editable}}disabled{{/unless}}>{{system.goal_1_clock.description}}</textarea>
+      </div>
+
+      <div class="clock-block grow-one">
+        <div class="clock-header">
+          <div class="clock-name">
+            <input type="text" id="faction-{{id2}}-goal_2_clock-name" name="system.goal_2_clock.name" value="{{system.goal_2_clock.name}}" placeholder="[{{localize 'SITS.FactionClock2NamePlaceholder'}}]" {{#unless editable}}disabled{{/unless}} />
+          </div>
+          {{#if editable}}
+            <label for="system.goal_2_clock.clock_type"><i class="fa fa-chart-pie"></i></label>
+            <select data-type="String" name="system.goal_2_clock.clock_type">
+              {{selectOptions sizeDropdown selected=system.goal_2_clock.clock_type}}
+            </select>
+            
+            <label for="system.goal_2_clock.color"><i class="fa fa-palette"></i></label>
+            <select data-type="String" name="system.goal_2_clock.color">
+              {{selectOptions colorDropdown selected=system.goal_2_clock.color localize=true}}
+            </select>
+          {{/if}}
+        </div>
+        <div class="clocks clocks-{{system.goal_2_clock.clock_type}}">
+          {{{sits-clock-color "system.goal_2_clock.value" system.goal_2_clock.clock_type system.goal_2_clock.color system.goal_2_clock.value _id2}}}
+        </div>
+        <textarea type="text" id="faction-{{_id2}}-description" class="description-field" name="system.goal_2_clock.description" placeholder="[{{localize 'SITS.ClockDescriptionPlaceholder'}}]" {{#unless editable}}disabled{{/unless}}>{{system.goal_2_clock.description}}</textarea>
+      </div>
+    </div>
+
   </section>
 
 </div>

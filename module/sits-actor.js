@@ -52,7 +52,7 @@ export class SitsActor extends Actor {
     const actorData = this;
     const systemData = actorData.system
   
-    if (actorData.type === 'agent') {
+    if (actorData.type === 'agent' || actorData.type === 'faction') {
       let deleteContacts = [];
       for (let id in systemData.contacts) {
         let contactActor = game.actors.get(id);

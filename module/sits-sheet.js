@@ -35,6 +35,8 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
   async _prepareContext(options) {
     const context = await super._prepareContext( options );
 
+    context._id2 = context._id + "2";
+
     context.isGM = game.user.isGM;
     context.editable = this.isEditable;
     

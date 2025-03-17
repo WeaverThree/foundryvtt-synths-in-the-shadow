@@ -29,7 +29,7 @@ export class SitsFactionSheet extends SitsSheet {
 
  /** @override */
  async _prepareContext(options) {
-  const context = await super._prepareContext( options );
+    const context = await super._prepareContext( options );
 
     // Prepare active effects??
     context.effects = SitsActiveEffect.prepareActiveEffectCategories(this.actor.effects);
@@ -47,7 +47,36 @@ export class SitsFactionSheet extends SitsSheet {
     })
     context.maxrank = i;
 
+    context.sortedContacts = Object.entries(this.actor.system.contacts).map(([x,y]) => y).sort((a,b) => {return a.name.localeCompare(b.name)})
+
+    context.sizeDropdown = {
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "8": "8",
+      "10": "10",
+      "12": "12",
+      "16": "16",
+    };
+    context.colorDropdown = {
+      "blue": "SITS.Colors.Blue",
+      "green": "SITS.Colors.Green",
+      "red": "SITS.Colors.Red",
+      "yellow": "SITS.Colors.Yellow",
+      "white": "SITS.Colors.White",
+      "black": "SITS.Colors.Black",
+    };
+
     return context;
+  }
+
+  async _onDropActor(event, actor) {
+    switch (actor.type) {
+      case "npc":
+        await SitsHelpers.addContact(this.actor, actor);
+        this.render(true); // not sure why needed but...
+        break;
+    }
   }
 
 }

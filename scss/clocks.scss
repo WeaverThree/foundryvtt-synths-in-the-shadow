@@ -11,6 +11,8 @@
     }
     .clock-name {
       flex-grow: 1;
+      font-weight: bold;
+      font-style: italic;
     }
     input[type="text"] {
       margin-top: -2px;
@@ -32,6 +34,7 @@
     textarea {
       width: 100%;
       height: 76px;
+      font-weight: normal;
     }
   }
 

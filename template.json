@@ -222,24 +222,34 @@
     "faction": {
       "goal_1_clock": {
         "description": "",
+        "name":"",
+        "color": "green",
         "clock_type": 4,
         "value": 0
       },
       "goal_2_clock": {
         "description": "",
+        "name":"",
+        "color": "red",
         "clock_type": 4,
         "value": 0
       },
       "byline": "",
+
+      "leader": "",
       "territory": "",
-      "assets": "",
-      "quirks": "",
+
       "allies": "",
       "enemies": "",
-      "situation": "",
-      "notes": "",
+      
+      "assets": "",
       "notable_people": "",
-      "contacts": [],
+      
+      "situation": "",
+      
+      "quirks": "",
+      "notes": "",
+      "contacts": {},
       "rank": {
         "value": 1,
         "ranks": ["SITS.Rank.E", "SITS.Rank.D", "SITS.Rank.C", "SITS.Rank.B", "SITS.Rank.A", "SITS.Rank.S"]

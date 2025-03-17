@@ -78,6 +78,15 @@
     .detail:last-child {
       margin-right: 0px;
     }
+
+    input[type="text"] {
+      font-weight: bold;
+    }
+
+    textarea {
+      font-weight: normal;
+      font-style: normal;
+    }
   }
 
   .synopsis {
@@ -88,7 +97,20 @@
     width:100%;
   }
 
+  .contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
 
+  .faction-clocks
+  {
+    margin-top: 8px;
+    .clock-block:first-child {
+      margin-right: 8px;
+    }
+  }
   
 
 }
