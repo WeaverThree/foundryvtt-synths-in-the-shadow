@@ -314,7 +314,7 @@
     }
   }
 
-  // Abilities
+  // MARK: Abilities
   .abilities {
     
     backdrop-filter: saturate(0.2);
@@ -351,6 +351,18 @@
         width:100px;
         float:right;
         margin-top:12px;
+      }
+
+      .add-playbook {
+        font-size: 24px;
+        font-weight: bold;
+        font-style: italic;
+        height: 250px;
+      }
+
+      .add-ability {
+        font-style: italic;
+        padding-top: 8px;
       }
     }
     
@@ -451,8 +463,14 @@
         justify-content: center;
         margin-top: 0
       }
+
+      .add-item {
+        justify-content: center;
+      }
     }
   }
+
+  // MARK: Contacts
 
   .contacts {
 
@@ -485,7 +503,13 @@
         background-image: url("assets/pips/standing-rival.svg");
       }
     }
+
+    .add-contact {
+      justify-content: center;
+    }
   }
+
+  // MARK: MISC
 
   .xp-triggers {
     padding-left:4px;

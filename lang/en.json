@@ -42,6 +42,10 @@
   "SITS.Basic": "Basic",
   "SITS.Heavy": "Heavy",
   "SITS.Special": "Special",
+  "SITS.AbilitiesAddPlaybook": "<span class=large>&mdash; No Abilities Loaded &mdash;</span><br/><br/>Add a playbook to fill in<br/> abilities, contacts, and items,<br/> or add them manually below.",
+  "SITS.AddAbility": "&mdash; Add Ability &mdash;",
+  "SITS.AddContact": "&mdash; Add Contact &mdash;",
+  "SITS.AddItem": "&mdash; Add Item &mdash;",
 
   "SITS.ExpHeader": "XP Triggers",
   "SITS.ExpClue1": "Every time you <b>roll a desperate action</b>, mark xp in <b>that action</b>'s attribute.",

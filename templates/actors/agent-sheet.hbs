@@ -326,10 +326,19 @@
 
       <section class="content">
 
+      {{!-- MARK: Abilities --}}
+
         <div id="actor-{{_id}}-abilities" class="tab tab-mainpage {{tabs.mainpage.cssClass}} flex-horizontal" data-group="main" data-tab="mainpage">
           <div class="flex-horizontal">
             <div class="abilities grow-one">
               <table>
+                {{#unless anyAbilities}}
+                  <tr>
+                    <td class="add-playbook {{#unless editable}}disabled{{/unless}}" colspan="3">
+                      <a data-action="itemAddPopup" data-distinct="true" data-item-type="playbook">{{{localize 'SITS.AbilitiesAddPlaybook'}}}</a>
+                    </td>
+                  </tr>
+                {{/unless}}
                 {{#each sortedAbilities as |item id|}}
                   <tr>
                     <td class="checks {{#unless ../editable}}disabled{{/unless}}">
@@ -358,10 +367,19 @@
                     </td>
                   </tr>
                 {{/each}}
+                <tr>
+                  {{#if editable}}
+                    <td class="add-ability" colspan="3">
+                      <a data-action="itemAddPopup" data-distinct="false" data-item-type="ability">{{{localize 'SITS.AddAbility'}}}</a>
+                    </td>
+                  {{/if}}
+                </tr>
               </table>
             </div>
+
+            {{!-- MARK: Loadout/Contacts --}}
             <div class="loadout grow-one">
-              <div class="label-stripe {{#unless ../editable}}disabled{{/unless}}"> 
+              <div class="label-stripe {{#unless editable}}disabled{{/unless}}"> 
                 <select name="system.capacity.selected" id="capacity-selection-{{_id}}">
                   <option value="{{system.capacity.selected}}">{{system.capacity.selected}}</option>
                   <option value="light">Light</option>
@@ -422,6 +440,11 @@
                         </div>
                       </div>
                     {{/each}}
+                    {{#if editable}}
+                      <div class="itemline add-item">
+                        <a data-action="itemAddPopup" data-distinct="false" data-item-type="item">{{{localize 'SITS.AddItem'}}}</a>
+                      </div>
+                    {{/if}}
 
                   </div>
                   {{!-- Contacts --}}
@@ -439,6 +462,11 @@
                         <a data-action="openContact" data-target="{{contact.id}}">{{contact.name}}</a>
                       </div>
                     {{/each}}
+                    {{#if editable}}
+                      <div class="contact add-contact">
+                        <a data-action="itemAddPopup" data-distinct="false" data-item-type="npc">{{{localize 'SITS.AddContact'}}}</a>
+                      </div>
+                    {{/if}}
                   </div>
 
 
@@ -466,7 +494,8 @@
               </div>
 
 
-
+              {{!-- MARK: XP Triggers --}}
+              
               <div class="label-stripe">{{localize 'SITS.ExpHeader'}}</div>
               <div class="xp-triggers">
 
@@ -485,19 +514,19 @@
         </div>
 
 
-        {{!-- Notes --}}
+        {{!-- MARK: Notes --}}
         <div class="tab {{tabs.agentnotes.cssClass}} flex-vertical" data-group="main" data-tab="agentnotes">
           <textarea id="agent-{{_id}}-description" rows="13" name="system.description">{{{system.description}}}</textarea>
         </div>
 
 
-        {{!-- Active Effects --}}
+        {{!-- MARK: Active Effects --}}
         <div id="agent-{{_id}}-effects" class="tab {{tabs.effects.cssClass}} effects flex-vertical" data-group="main" data-tab="effects">
           {{> "systems/synths-in-the-shadow/templates/parts/active-effects.html"}}
         </div>
 
 
-        {{!-- Full Item List --}}
+        {{!-- MARK:Full Item List --}}
         <div class="tab allitems {{tabs.allagentitems.cssClass}} grow-two flex-vertical" data-group="main" data-tab="allagentitems">
           {{#each items as |item id|}}
             <div class="item flex-horizontal" data-item-id="{{item._id}}">

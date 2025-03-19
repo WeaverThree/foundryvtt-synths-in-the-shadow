@@ -60,6 +60,8 @@ export class SitsAgentSheet extends SitsSheet {
             return 0;
           }
         });
+  
+    context.anyAbilities = context.sortedAbilities.length !== 0;
 
     let sortorder = ['weapons', 'armor', 'tools', 'mobility', 'documents', 'programs', 'misc'];
     
@@ -80,9 +82,14 @@ export class SitsAgentSheet extends SitsSheet {
       .filter(i => {return (i.type === 'item') && (i.system.playbook === 'general');})
       .sort((a,b) => {return a.name.localeCompare(b.name);})
       .sort((a,b) => {return sortorder.indexOf(a.system.category.toLowerCase()) - sortorder.indexOf(b.system.category.toLowerCase())});
-  
+
+    context.anyItems = (context.sortedPlaybookItems.length !== 0) 
+        || (context.sortedOtherPlaybookItems.length !== 0)
+        || (context.sortedGenericItems !== 0)
 
     context.sortedContacts = Object.entries(this.actor.system.contacts).map(([x,y]) => y).sort((a,b) => {return a.name.localeCompare(b.name)})
+
+    context.anyContacts = context.sortedContacts.length !== 0;
 
     context.capacityMaxPlusOne = this.actor.system.capacity.max + 1; // Since we can't do wthis in HBS
 

@@ -11,6 +11,10 @@
     }
   }
 
+  .large {
+    font-size: 200%;
+  }
+
   .rollable-text {
     transition: color color.$transition-period;
   }

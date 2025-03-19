@@ -164,6 +164,9 @@
 .synths-in-the-shadow .debug-toggle.on {
   opacity: 0.75;
 }
+.synths-in-the-shadow .large {
+  font-size: 200%;
+}
 .synths-in-the-shadow .rollable-text {
   transition: color 0.2s;
 }
@@ -1457,6 +1460,16 @@
   float: right;
   margin-top: 12px;
 }
+.synths-in-the-shadow .agent-sheet .abilities table .add-playbook {
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+  height: 250px;
+}
+.synths-in-the-shadow .agent-sheet .abilities table .add-ability {
+  font-style: italic;
+  padding-top: 8px;
+}
 .synths-in-the-shadow .agent-sheet .abilities .checks div {
   display: flex;
   /* Hide the browser's default checkbox */
@@ -1661,6 +1674,9 @@
   justify-content: center;
   margin-top: 0;
 }
+.synths-in-the-shadow .agent-sheet .loadout .loadout-playbook .add-item, .synths-in-the-shadow .agent-sheet .loadout .loadout-generic .add-item {
+  justify-content: center;
+}
 .synths-in-the-shadow .agent-sheet .contacts {
   padding-top: 8px;
   padding-bottom: 8px;
@@ -1685,6 +1701,9 @@
 }
 .synths-in-the-shadow .agent-sheet .contacts .contact .standing-rival {
   background-image: url("assets/pips/standing-rival.svg");
+}
+.synths-in-the-shadow .agent-sheet .contacts .add-contact {
+  justify-content: center;
 }
 .synths-in-the-shadow .agent-sheet .xp-triggers {
   padding-left: 4px;

@@ -35,8 +35,7 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
   async _prepareContext(options) {
     const context = await super._prepareContext( options );
 
-    context._id2 = context._id + "2";
-
+    
     context.isGM = game.user.isGM;
     context.editable = this.isEditable;
     
@@ -44,6 +43,7 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
     context.items = this.actor.items;
     context.name = this.actor.name;
     context._id = this.actor._id;
+    context._id2 = context._id + "-2"; // For second clocks and such
     context.img = this.actor.img;
     
     return context;
