@@ -125,10 +125,10 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
 
         itemgroups[sortedkey].sort((a,b) => {return a.name.localeCompare(b.name);}).forEach(item => {
           html += `<div class="item"><input id="select-item-${item._id}" type="${input_type}" name="select_items" value="${item._id}">`;
-          html += `<label class="flex-horizontal" for="select-item-${item._id}">`;
+          html += `<label for="select-item-${item._id}"><label for="select-item-${item._id}"></label>`;
           html += `${game.i18n.localize(item.name)}`;
           html += `</label>`
-          html += `${item.system.description}</div>`;
+          html += `<div class="description">${item.system.description}</div></div>`;
         });
       });
 
@@ -136,10 +136,10 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
 
       items.sort((a,b) => {return a.name.localeCompare(b.name);}).forEach(item => {
         html += `<div class="item"><input id="select-item-${item._id}" type="${input_type}" name="select_items" value="${item._id}">`;
-        html += `<label class="flex-horizontal" for="select-item-${item._id}">`;
+        html += `<label for="select-item-${item._id}"><label for="select-item-${item._id}"></label>`;
         html += `${game.i18n.localize(item.name)}`;
         html += `</label>`
-        html += `${item.system.description}</div>`;
+        html += `<div class="description">${item.system.description}</div></div>`;
       });
     }
 

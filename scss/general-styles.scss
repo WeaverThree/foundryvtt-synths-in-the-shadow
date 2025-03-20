@@ -134,7 +134,7 @@
     font-style: italic;
   }
 
-  .stripe {
+  .stripe, h2 {
     background-color: color.$header-bg;
     color: color.$header-fg;
     font-size: 18px;
@@ -143,6 +143,10 @@
     align-items: center;
     font-style: italic;
     font-weight: bold;
+  }
+
+  h2 {
+    padding-left: 16px;
   }
 
   .subhead-stripe {

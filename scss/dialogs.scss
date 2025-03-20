@@ -7,14 +7,40 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
 
     input[type="radio"],
     input[type="checkbox"] {
       display: none;
 
-      &:checked + label {
+      & + label {
         font-weight: bold;
+        display: flex;
+        justify-content: flex-start;
+      }
+
+      & + label label { 
+        background-image: url("assets/pips/item-check-base.svg");
+        background-clip: content-box;
+        background-size: contain;
+        height: 20px;
+        width: 20px;
+        margin-right: 4px;
+      }
+
+      &:checked + label label {
+        background-image: url("assets/pips/item-check-hot.svg");
+      }
+    }
+    
+    .description {
+      margin-left: 32px;
+      margin-top: 4px;
+      margin-bottom: 12px;
+      font-style: normal;
+
+      p {
+        margin-top: 0;
       }
     }
 

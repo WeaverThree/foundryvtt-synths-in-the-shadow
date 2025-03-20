@@ -23,6 +23,10 @@
   font-family: "BarlowCondensed", sans-serif;
   font-size: 14px;
 
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "BarlowCondensed", sans-serif;
+  }
+
   * {
     scrollbar-color: color.$header-bg transparent;
   }

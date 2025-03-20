@@ -267,7 +267,7 @@
   font-weight: bold;
   font-style: italic;
 }
-.synths-in-the-shadow .stripe {
+.synths-in-the-shadow .stripe, .synths-in-the-shadow h2 {
   background-color: #9f9dfc;
   color: #080808;
   font-size: 18px;
@@ -276,6 +276,9 @@
   align-items: center;
   font-style: italic;
   font-weight: bold;
+}
+.synths-in-the-shadow h2 {
+  padding-left: 16px;
 }
 .synths-in-the-shadow .subhead-stripe {
   background-color: #9f9dfc;
@@ -2004,15 +2007,39 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 .synths-in-the-shadow .items-to-add input[type=radio],
 .synths-in-the-shadow .items-to-add input[type=checkbox] {
   display: none;
 }
-.synths-in-the-shadow .items-to-add input[type=radio]:checked + label,
-.synths-in-the-shadow .items-to-add input[type=checkbox]:checked + label {
+.synths-in-the-shadow .items-to-add input[type=radio] + label,
+.synths-in-the-shadow .items-to-add input[type=checkbox] + label {
   font-weight: bold;
+  display: flex;
+  justify-content: flex-start;
+}
+.synths-in-the-shadow .items-to-add input[type=radio] + label label,
+.synths-in-the-shadow .items-to-add input[type=checkbox] + label label {
+  background-image: url("assets/pips/item-check-base.svg");
+  background-clip: content-box;
+  background-size: contain;
+  height: 20px;
+  width: 20px;
+  margin-right: 4px;
+}
+.synths-in-the-shadow .items-to-add input[type=radio]:checked + label label,
+.synths-in-the-shadow .items-to-add input[type=checkbox]:checked + label label {
+  background-image: url("assets/pips/item-check-hot.svg");
+}
+.synths-in-the-shadow .items-to-add .description {
+  margin-left: 32px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  font-style: normal;
+}
+.synths-in-the-shadow .items-to-add .description p {
+  margin-top: 0;
 }
 .synths-in-the-shadow .items-to-add .tooltip .tooltiptext {
   visibility: hidden;
@@ -2075,6 +2102,9 @@
 .synths-in-the-shadow {
   font-family: "BarlowCondensed", sans-serif;
   font-size: 14px;
+}
+.synths-in-the-shadow h1, .synths-in-the-shadow h2, .synths-in-the-shadow h3, .synths-in-the-shadow h4, .synths-in-the-shadow h5, .synths-in-the-shadow h6 {
+  font-family: "BarlowCondensed", sans-serif;
 }
 .synths-in-the-shadow * {
   scrollbar-color: #9f9dfc transparent;

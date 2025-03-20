@@ -34,7 +34,7 @@ Hooks.once("init", async function() {
 	roller: simpleRollPopup
   };
   game.system.sitsClocks = {
-    sizes: [ 4, 6, 8, 10, 12 ]
+    sizes: [ 4, 5, 6, 8, 10, 12, 16 ]
   };
 
   game.system.malfunctions = [ "cold", "haunted", "obsessed", "paranoid", "reckless", "soft", "unstable", "vicious" ];
