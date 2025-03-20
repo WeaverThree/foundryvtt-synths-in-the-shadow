@@ -21,6 +21,8 @@ import { SitsActiveEffect } from "./sits-active-effect.js";
 
 window.SitsHelpers = SitsHelpers;
 
+
+
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
@@ -45,17 +47,17 @@ Hooks.once("init", async function() {
   registerSystemSettings();
 
   // Register sheet application classes
-  Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("sits", SitsAgentSheet, { types: ["agent"], makeDefault: true });
-  Actors.registerSheet("sits", SitsUnitSheet, { types: ["unit"], makeDefault: true });
-  Actors.registerSheet("sits", SitsClockSheet, { types: ["clock"], makeDefault: true });
-  Actors.registerSheet("sits", SitsNPCSheet, { types: ["npc"], makeDefault: true });
-  Actors.registerSheet("sits", SitsFactionSheet, { types: ["faction"], makeDefault: true });
-  Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("sits", SitsItemSheet, {makeDefault: true});
+  foundry.documents.collections.Actors.unregisterSheet("core", ActorSheet);
+  foundry.documents.collections.Actors.registerSheet("sits", SitsAgentSheet, { types: ["agent"], makeDefault: true });
+  foundry.documents.collections.Actors.registerSheet("sits", SitsUnitSheet, { types: ["unit"], makeDefault: true });
+  foundry.documents.collections.Actors.registerSheet("sits", SitsClockSheet, { types: ["clock"], makeDefault: true });
+  foundry.documents.collections.Actors.registerSheet("sits", SitsNPCSheet, { types: ["npc"], makeDefault: true });
+  foundry.documents.collections.Actors.registerSheet("sits", SitsFactionSheet, { types: ["faction"], makeDefault: true });
+  foundry.documents.collections.Items.unregisterSheet("core", ItemSheet);
+  foundry.documents.collections.Items.registerSheet("sits", SitsItemSheet, {makeDefault: true});
   await preloadHandlebarsTemplates();
 
-  Actors.registeredSheets.forEach(element => console.log(element.Actor.name));
+  foundry.documents.collections.Actors.registeredSheets.forEach(element => console.log(element.Actor.name));
 
 
   // Is the value Turf side.
