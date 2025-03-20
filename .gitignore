@@ -2,3 +2,7 @@
 /.vscode
 /.vscode/*
 /blades-in-the-dark.lock
+/foundry
+/foundry-config.yaml
+/node_modules
+/package-lock.json

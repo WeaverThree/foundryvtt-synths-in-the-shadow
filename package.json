@@ -1,0 +1,24 @@
+{
+    "private": true,
+    "name": "foundryvtt-synths-in-the-shadow",
+    "version": "1.0.0",
+    "description": "A WIP Foundry system for a WIP game system. It's unlikely you should see this anywhere.",
+    "homepage": "https://github.com/WeaverThree/foundryvtt-synths-in-the-shadow",
+    "bugs": {
+        "url": "https://github.com/WeaverThree/foundryvtt-synths-in-the-shadow/issues"
+    },
+    "license": "GPL-3.0",
+    "author": {
+        "name": "Weaver"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/WeaverThree/foundryvtt-synths-in-the-shadow.git"
+    },
+    "scripts": {
+        "createSymlinks": "node ./tools/create-symlinks.mjs"
+    },
+    "dependencies": {
+        "js-yaml": "^4.1.0"
+    }
+}
