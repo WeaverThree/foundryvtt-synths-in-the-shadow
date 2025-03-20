@@ -6,7 +6,7 @@
       <img src="{{img}}" {{#if editable}}data-action="editImage"{{/if}} data-edit="img" class="portrait" />
       <div class="underportrait">
 
-        {{#if editable}}<a data-action="itemAddPopup" data-distinct="false" data-item-type="unit">{{/if}}
+        {{#if editable}}<a data-action="itemAddPopup" data-distinct="true" data-item-type="unit">{{/if}}
           <div class="unit underportrait-line">
             <div class="box-title"><b>{{localize 'SITS.Unit'}}</b></div>
             {{system.unit.name}}
@@ -124,7 +124,7 @@
         {{/multiboxes}}
       </div>
 
-      {{#if editiable}}<a data-action="itemAddPopup" data-item-type="malfunction" data-tooltip="{{localize 'SITS.AddMalfunction'}}">{{/if}}
+      {{#if editable}}<a data-action="itemAddPopup" data-item-type="malfunction" data-tooltip="{{localize 'SITS.AddMalfunction'}}">{{/if}}
         <div id="agent-{{_id}}-malfunction-container" class="malfunction">
           {{#malfunctioncounter items}}
 
@@ -138,7 +138,7 @@
             
           {{/malfunctioncounter}}
         </div>
-      {{#if editiable}}</a>{{/if}}
+      {{#if editable}}</a>{{/if}}
 
       <div class="energy_credits-header">
         <div>{{localize "SITS.Energy Credits"}}</div>
@@ -370,7 +370,7 @@
                 <tr>
                   {{#if editable}}
                     <td class="add-ability" colspan="3">
-                      <a data-action="itemAddPopup" data-distinct="false" data-item-type="ability">{{{localize 'SITS.AddAbility'}}}</a>
+                      <a data-action="itemAddPopup" data-item-type="ability">{{{localize 'SITS.AddAbility'}}}</a>
                     </td>
                   {{/if}}
                 </tr>
@@ -442,7 +442,7 @@
                     {{/each}}
                     {{#if editable}}
                       <div class="itemline add-item">
-                        <a data-action="itemAddPopup" data-distinct="false" data-item-type="item">{{{localize 'SITS.AddItem'}}}</a>
+                        <a data-action="itemAddPopup" data-item-type="item">{{{localize 'SITS.AddItem'}}}</a>
                       </div>
                     {{/if}}
 
@@ -464,7 +464,7 @@
                     {{/each}}
                     {{#if editable}}
                       <div class="contact add-contact">
-                        <a data-action="itemAddPopup" data-distinct="false" data-item-type="npc">{{{localize 'SITS.AddContact'}}}</a>
+                        <a data-action="itemAddPopup" data-item-type="npc">{{{localize 'SITS.AddContact'}}}</a>
                       </div>
                     {{/if}}
                   </div>

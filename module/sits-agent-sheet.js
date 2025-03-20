@@ -189,9 +189,6 @@ export class SitsAgentSheet extends SitsSheet {
         await SitsHelpers.addContact(this.actor, newNpc);
       }
     })
-
-    // Actually add the playbook
-    await Item.create(playbook, {parent: this.document});
   }
 
 

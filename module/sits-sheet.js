@@ -1,7 +1,7 @@
 import { SitsActiveEffect } from "./sits-active-effect.js";
 import { SitsHelpers } from "./sits-helpers.js";
 
-const {api, sheets} = foundry.applications;
+const {api, sheets, ux} = foundry.applications;
 
 export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV2) {
 
@@ -100,79 +100,125 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
     const item_type = target.getAttribute("data-item-type")
     const distinct = target.getAttribute("data-distinct")?.toLowerCase() == "true";
 
-    let input_type = "checkbox";
-
-    if (typeof distinct !== "undefined") {
-      input_type = "radio";
-    }
+    let input_type = distinct ? "radio" : "checkbox";
 
     let items = await SitsHelpers.getAllItemsByType(item_type, game);
 
     let html = `<div class="items-to-add">`;
+    
+    if (item_type !== 'playbook' && items.length !== 0 && items[0]?.system?.playbook !== undefined) {
 
-    items.forEach(e => {
-      let addition_price_load = ``;
+      // Display items sorted in groups by playbook
 
-      if (typeof e.system.load !== "undefined") {
-        addition_price_load += `(${e.system.load})`
-      } else if (typeof e.system.price !== "undefined") {
-        addition_price_load += `(${e.system.price})`
-      }
+      let itemgroups = {};
+      items.forEach((item) => {
+        const playbook = item.system.playbook.toLowerCase();
+        if (!(playbook in itemgroups)) {
+          itemgroups[playbook] = [];
+        }
+        itemgroups[playbook].push(item);
+      })
 
-      html += `<input id="select-item-${e._id}" type="${input_type}" name="select_items" value="${e._id}">`;
-      html += `<label class="flex-horizontal" for="select-item-${e._id}">`;
-      html += `${game.i18n.localize(e.name)} ${addition_price_load} <i class="fas fa-question-circle" data-tooltip="${game.i18n.localize(e.system.description)}"></i>`;
-      html += `</label>`;
-    });
+      Object.entries(itemgroups).map(([k,v]) => {return k;}).sort((a,b) => {return a.localeCompare(b)}).forEach((sortedkey) => {
+
+        html += `<h2>${sortedkey.toUpperCase()}</h2>`
+
+        itemgroups[sortedkey].sort((a,b) => {return a.name.localeCompare(b.name);}).forEach(item => {
+          html += `<div class="item"><input id="select-item-${item._id}" type="${input_type}" name="select_items" value="${item._id}">`;
+          html += `<label class="flex-horizontal" for="select-item-${item._id}">`;
+          html += `${game.i18n.localize(item.name)}`;
+          html += `</label>`
+          html += `${item.system.description}</div>`;
+        });
+      });
+
+    } else { // Just display a list of items
+
+      items.sort((a,b) => {return a.name.localeCompare(b.name);}).forEach(item => {
+        html += `<div class="item"><input id="select-item-${item._id}" type="${input_type}" name="select_items" value="${item._id}">`;
+        html += `<label class="flex-horizontal" for="select-item-${item._id}">`;
+        html += `${game.i18n.localize(item.name)}`;
+        html += `</label>`
+        html += `${item.system.description}</div>`;
+      });
+    }
 
     html += `</div>`;
 
-    let options = {
-      // width: "500"
-    }
-
-    // FIXME: DialogV2
-    let dialog = new Dialog({
-      title: `${game.i18n.localize('Add')} ${item_type}`,
+    const data = await api.DialogV2.confirm({
+      window: {title: `${game.i18n.localize('Add')} ${item_type}`},
+      classes: ["synths-in-the-shadow"],
       content: html,
-      buttons: {
-        one: {
-          icon: '<i class="fas fa-check"></i>',
-          label: game.i18n.localize('Add'),
-          callback: async (html) => await this.addItemsToSheet(item_type, $(html).find('.items-to-add'))
-        },
-        two: {
-          icon: '<i class="fas fa-times"></i>',
-          label: game.i18n.localize('Cancel'),
-          callback: () => false
-        }
+      yes: {
+        icon: '<i class="fas fa-check"></i>',
+        label: game.i18n.localize('Add'),
+        callback: (event, button, dialog) => new ux.FormDataExtended(button.form).object
       },
-      default: "two"
-    }, options);
-
-    dialog.render(true);
-  }
-
-
-  /* -------------------------------------------- */
-
-  async addItemsToSheet(item_type, el) {
-
-    let items = await SitsHelpers.getAllItemsByType(item_type, game);
-    let items_to_add = [];
-    el.find("input:checked").each(function() {
-      items_to_add.push(items.find(e => e._id === $(this).val()));
+      no: {
+        label: game.i18n.localize('Cancel'),
+      },
+      rejectClose: false,
     });
 
-    if (item_type == "unit") {
-		let actor = this.actor;
-      await SitsHelpers.addUnit(actor,items_to_add[0]);
-    } else if (item_type == "playbook") {
-      await this._newPlaybook(items_to_add[0]);
-    } else {
-      await Item.create(items_to_add, {parent: this.document});
+    if (!data?.select_items) {
+      return;
     }
+
+    // Normalize dialog returns
+
+    let ids_to_add = [];
+    if (typeof data.select_items === 'object') {
+      data.select_items.forEach((item) => {if (item) {ids_to_add.push(item);}})
+    } else if (data.select_items) {
+      ids_to_add.push(data.select_items);
+    }
+
+    // Turn IDs into actual item/actors
+
+    let items_to_add = [];
+    switch (item_type) {
+      case 'unit':
+      case 'npc':
+        ids_to_add.forEach((id) => {
+          let actor = game.actors.get(id);
+          if (actor) {
+            items_to_add.push(actor);
+          }
+        });
+        break;
+      default:
+        ids_to_add.forEach((id) => {
+          let item = game.items.get(id);
+          if (item) {
+            items_to_add.push(item);
+          }
+        });
+        break;
+    } 
+
+    // Process items
+
+    switch (item_type) {
+      case 'unit':
+        await SitsHelpers.addUnit(this.actor,items_to_add[0]);
+        break;
+      case 'npc':
+        items_to_add.forEach((npc) => {
+          SitsHelpers.addContact(this.actor, npc);
+        });
+        break;
+
+      case 'playbook':
+        await this._newPlaybook(items_to_add[0]);
+      default:
+        await Item.create(items_to_add, {parent: this.document});
+        break;
+    }
+
   }
+
+
+
 
   /* -------------------------------------------- */
 
@@ -183,32 +229,6 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
     const attribute_name = target.getAttribute("data-roll-attribute");
     this.actor.rollAttributePopup(attribute_name);
   }
-
-  /* -------------------------------------------- */
-
-  async _onUpdateBoxClick(event) {
-    event.preventDefault();
-    const item_id = $(event.currentTarget).data("item");
-    var update_value = $(event.currentTarget).data("value");
-      const update_type = $(event.currentTarget).data("utype");
-      if ( update_value === undefined) {
-      update_value = document.getElementById('fac-' + update_type + '-' + item_id).value;
-    };
-    var update;
-    if ( update_type === "status" ) {
-      update = {_id: item_id, system:{status:{value: update_value}}};
-    }
-    else if (update_type == "hold") {
-      update = {_id: item_id, system:{hold:{value: update_value}}};
-    } else {
-      console.log("update attempted for type undefined in sits-sheet.js onUpdateBoxClick function");
-      return;
-    };
-
-    await this.actor.updateEmbeddedDocuments("Item", [update]);
-
-
-    }
 
   /* -------------------------------------------- */
   
