@@ -1803,6 +1803,9 @@
   justify-content: flex-start;
   align-items: center;
 }
+.synths-in-the-shadow .faction-sheet .add-contact {
+  justify-content: center;
+}
 .synths-in-the-shadow .faction-sheet .faction-clocks {
   margin-top: 8px;
 }

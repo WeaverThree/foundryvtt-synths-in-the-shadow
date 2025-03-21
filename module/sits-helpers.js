@@ -244,10 +244,10 @@ export class SitsHelpers {
     await agent.update({system: {contacts : current_contacts}});
   }
   
-  static async removeContact(actor, acqId){
-    let current_contacts = actor.system.contacts;
-    delete current_contacts[acqId];
-    await actor.update({system: {contacts : current_contacts}});
+  static async removeContact(actor, contactId){
+    let deleteThis = {};
+    deleteThis["system.contacts.-=" + contactId] = null;
+    await actor.update(deleteThis);
   }
   
    static async importAcquaintance(actor, acqId){

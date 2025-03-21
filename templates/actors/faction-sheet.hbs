@@ -100,9 +100,14 @@
           <div class="contact">
             <img src="{{contact.img}}" width="16" height="16"/>
             <a data-action="openContact" data-target="{{contact.id}}">{{contact.name}}</a>
-            <a data-action="deleteContact" data-target="{{item.id}}" data-tooltip="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
+            {{#if editable}}<a data-action="deleteContact" data-target="{{contact.id}}"><i class="fas fa-trash"></i></a>{{/if}}
           </div>
         {{/each}}
+        {{#if editable}}
+          <div class="contact add-contact">
+            <a data-action="itemAddPopup" data-item-type="npc">{{{localize 'SITS.AddNPC'}}}</a>
+          </div>
+        {{/if}}
       </div>
     </div>
 
@@ -125,7 +130,6 @@
           {{/if}}
         </div>
         <div class="clocks clocks-{{system.goal_1_clock.clock_type}}">
-          {{log this}}
           {{{sits-clock-color "system.goal_1_clock.value" system.goal_1_clock.clock_type system.goal_1_clock.color system.goal_1_clock.value _id}}}
         </div>
         <textarea type="text" id="agent-{{_id}}-description" class="description-field" name="system.goal_1_clock.description" placeholder="[{{localize 'SITS.ClockDescriptionPlaceholder'}}]" {{#unless editable}}disabled{{/unless}}>{{system.goal_1_clock.description}}</textarea>

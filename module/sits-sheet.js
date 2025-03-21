@@ -61,7 +61,6 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
 
   static async onDeleteContact(event, target) {
     SitsHelpers.removeContact(this.actor, target.getAttribute("data-target"));
-    this.render(true);
   }
 
   static onStandingToggle(event, target) {
@@ -164,6 +163,8 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
       return;
     }
 
+    console.log(data);
+
     // Normalize dialog returns
 
     let ids_to_add = [];
@@ -206,6 +207,7 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
         items_to_add.forEach((npc) => {
           SitsHelpers.addContact(this.actor, npc);
         });
+        this.render(true);
         break;
 
       case 'playbook':
