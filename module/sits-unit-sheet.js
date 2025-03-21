@@ -7,16 +7,38 @@ import { SitsHelpers } from "./sits-helpers.js";
  */
 export class SitsUnitSheet extends SitsSheet {
 
-  /** @override */
-	static get defaultOptions() {
-	  return foundry.utils.mergeObject(super.defaultOptions, {
-  	  classes: ["synths-in-the-shadow", "sheet", "actor", "unit"],
-  	  template: "systems/synths-in-the-shadow/templates/actors/unit-sheet.html",
-      width: 940,
-      height: 940,
-      tabs: [{navSelector: ".tabs", contentSelector: ".tab-content", initial: "turfs"}]
-    });
+  static DEFAULT_OPTIONS = {
+    classes: ["synths-in-the-shadow"],
+    position: {
+      width: 1000,
+      height: 'auto'
+    },
+    actions: {
+    }
   }
+  
+  static PARTS = {
+    agentsheet: {
+      template: "systems/synths-in-the-shadow/templates/actors/unit-sheet.hbs",
+      scrollable: ["window-content"],
+    }
+  }
+
+  // #getTabs() {
+  //   const tabs = {
+  //     mainpage: {id: "mainpage", group: "main", gmOnly:false, gmOnly:true, label: "SITS.AbilitiesLoadoutContacts"},
+  //     agentnotes: {id: "agentnotes", group: "main", gmOnly:false, label: "SITS.Notes"},
+  //     effects: {id: "effects", group: "main", gmOnly:true, label: "SITS.Effects"},
+  //     allagentitems: {id: "allagentitems", group: "main", label: "SITS.AllItems"}
+  //   }
+  //   for ( const v of Object.values(tabs) ) {
+  //     v.active = this.tabGroups[v.group] === v.id;
+  //     v.cssClass = v.active ? "active" : "";
+  //   }
+  //   return tabs;
+  // }
+
+//tabs: [{navSelector: ".tabs", contentSelector: ".tab-content", initial: "turfs"}]
 
   /* -------------------------------------------- */
 

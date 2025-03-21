@@ -34,6 +34,21 @@ export class SitsAgentSheet extends SitsSheet {
     main: "mainpage"
   }
 
+
+  #getTabs() {
+    const tabs = {
+      mainpage: {id: "mainpage", group: "main", gmOnly:false, gmOnly:true, label: "SITS.AbilitiesLoadoutContacts"},
+      agentnotes: {id: "agentnotes", group: "main", gmOnly:false, label: "SITS.Notes"},
+      effects: {id: "effects", group: "main", gmOnly:true, label: "SITS.Effects"},
+      allagentitems: {id: "allagentitems", group: "main", label: "SITS.AllItems"}
+    }
+    for ( const v of Object.values(tabs) ) {
+      v.active = this.tabGroups[v.group] === v.id;
+      v.cssClass = v.active ? "active" : "";
+    }
+    return tabs;
+  }
+
   /* -------------------------------------------- */
 
   /** @override */
@@ -96,22 +111,6 @@ export class SitsAgentSheet extends SitsSheet {
 
 
     return context;
-  }
-
-
-
-  #getTabs() {
-    const tabs = {
-      mainpage: {id: "mainpage", group: "main", gmOnly:false, gmOnly:true, label: "SITS.AbilitiesLoadoutContacts"},
-      agentnotes: {id: "agentnotes", group: "main", gmOnly:false, label: "SITS.Notes"},
-      effects: {id: "effects", group: "main", gmOnly:true, label: "SITS.Effects"},
-      allagentitems: {id: "allagentitems", group: "main", label: "SITS.AllItems"}
-    }
-    for ( const v of Object.values(tabs) ) {
-      v.active = this.tabGroups[v.group] === v.id;
-      v.cssClass = v.active ? "active" : "";
-    }
-    return tabs;
   }
 
   async _onRender(context, options) {
