@@ -153,54 +153,24 @@
 
 
     "unit": {
-      "name": "",
       "reputation": [0],
       "lair": "",
-      "tier": "",
-      "deity": "",
-      "rep2": {
-        "value": "",
-        "visible": false,
-        "label": "BITD.Description"
-      },
-      "hold": ["strong"],
-      "experience": [0],
-      "exp_clock": {
-        "value": 0,
-        "number": 0,
-        "size": 6,
-        "color": "black"
-      },
-      "hold_types": ["weak", "strong"],
-      "coins": {
+
+
+      "energy_credits": {
         "max": 4,
-        "value": [0]
+        "value": 0
       },
-      "vault": {
-        "value": [0],
-        "max": 0
-      },
-      "turf": {
-        "descriptions": [],
-        "max": 6,
-        "bonus": 0
-      },
-      "features": [],
-      "heat": [0],
-      "wanted": [0],
-      "acquaintances": [],
-      "acquaintances_label": "BITD.Contacts",
+
+      "contacts": {},
       "agent_mod": {
         "add_malfunction": 0,
         "add_overload": 0,
         "mastery": false
       },
-      "max": {
-        "heat": 9,
-        "tier": 4,
-        "wanted": 4,
-        "rep": 12,
-        "exp": 10
+      "rank": {
+        "value": 1,
+        "ranks": ["SITS.Rank.E", "SITS.Rank.D", "SITS.Rank.C", "SITS.Rank.B", "SITS.Rank.A", "SITS.Rank.S"]
       }
     },
 
@@ -259,7 +229,20 @@
 
 
   "Item": {
-    "types": ["item", "playbook", "ability", "maker", "build", "deviance", "unit_upgrade", "unit_playbook", "unit_reputation", "unit_upgrade", "unit_ability", "malfunction"],
+    "types": [
+        "item",
+        "playbook",
+        "ability",
+        "chip",
+        "maker",
+        "build",
+        "deviance",
+        "malfunction",
+        "unit_reputation",
+        "unit_construction",
+        "unit_research",
+        "city_sector"
+      ],
 
     "templates": {
       "default": {
@@ -274,47 +257,11 @@
         },
         "target": "",
         "use_target": false
-      },
-      "logic": {
-        "logic": ""
-      }
-    },
-
-    "activatedEffect": {
-      "activation": {
-        "type": "",
-        "cost": 0,
-        "condition": ""
-      },
-      "duration": {
-        "value": null,
-        "units": ""
-      },
-      "target": {
-        "value": null,
-        "width": null,
-        "units": "",
-        "type": ""
-      },
-      "range": {
-        "value": null,
-        "long": null,
-        "units": ""
-      },
-      "uses": {
-        "value": 0,
-        "max": 0,
-        "per": null
-      },
-      "consume": {
-        "type": "",
-        "target": null,
-        "amount": null
       }
     },
    
     "item": {
-      "templates": ["default", "logic", "activatedEffect"],
+      "templates": ["default"],
       "playbook": "",
       "category": "",
       "capacity": 1,
@@ -323,7 +270,7 @@
 
 
     "playbook": {
-      "templates": ["default", "logic", "activatedEffect"],
+      "templates": ["default"],
       "experience_clue": "",
       "skill_primary": "",
       "skill_secondary": "",
@@ -332,126 +279,45 @@
 
 
     "ability": {
-      "templates": ["ability", "logic", "activatedEffect"]
+      "templates": ["ability"]
     },
 
+    "chip": {
+      "templates": ["default"]
+    },
 
     "maker": {
-      "templates": ["default", "activatedEffect"]
+      "templates": ["default"]
     },
     "build": {
-      "templates": ["default", "activatedEffect"]
+      "templates": ["default"]
     },
     "deviance": {
-      "templates": ["default", "activatedEffect"]
+      "templates": ["default"]
     },
 
 
     "unit_reputation": {
       "templates": ["default"]
     },
-    "unit_upgrade": {
-      "templates": ["ability", "logic", "activatedEffect"],
-      "unit_playbook": ""
+    "city_sector": {
+      "templates": ["default"]
     },
-    "unit_ability": {
-      "templates": ["ability", "activatedEffect"]
+
+    "unit_construction": {
+      "templates": ["default"],
+      "effect": "",
+      "build_clock": {
+        "value":0,
+        "max":4
+      }
     },
-    "unit_playbook": {
-      "templates": ["activatedEffect"],
-      "description": "",
-      "experience_clues": "",
-      "turfs": {
-        "1": {
-          "name": "",
-          "value": "",
-          "description": "",
-          "connects": []
-        },
-        "2": {
-          "name": "",
-          "value": "",
-          "description": "",
-          "connects": []
-        },
-        "3": {
-          "name": "",
-          "value": "",
-          "description": "",
-          "connects": []
-        },
-        "4": {
-          "name": "",
-          "value": "",
-          "description": "",
-          "connects": []
-        },
-        "5": {
-          "name": "",
-          "value": "",
-          "description": "",
-          "connects": []
-        },
-        "6": {
-          "name": "",
-          "value": "",
-          "description": "",
-          "connects": []
-        },
-        "7": {
-          "name": "",
-          "value": "",
-          "description": "",
-          "connects": []
-        },
-        "8": {
-          "name": "BITD.Lair",
-          "value": 1,
-          "description": "",
-          "connects": []
-        },
-        "9": {
-          "name": "",
-          "value": "",
-          "description": "",
-          "connects": []
-        },
-        "10": {
-          "name": "",
-          "value": "",
-          "description": "",
-          "connects": []
-        },
-        "11": {
-          "name": "",
-          "value": "",
-          "description": "",
-          "connects": []
-        },
-        "12": {
-          "name": "",
-          "value": "",
-          "description": "",
-          "connects": []
-        },
-        "13": {
-          "name": "",
-          "value": "",
-          "description": "",
-          "connects": []
-        },
-        "14": {
-          "name": "",
-          "value": "",
-          "description": "",
-          "connects": []
-        },
-        "15": {
-          "name": "",
-          "value": "",
-          "description": "",
-          "connects": []
-        }
+    "unit_research": {
+      "templates": ["default"],
+      "effect": "",
+      "build_clock": {
+        "value":0,
+        "max":4
       }
     }
   }

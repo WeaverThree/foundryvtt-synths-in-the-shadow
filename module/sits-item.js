@@ -48,19 +48,21 @@ export class SitsItem extends Item {
       case 'malfunction':
         this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/unstable-orb.svg";
         break;
-      case 'unit_upgrade':
-        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/team-upgrade.svg";
-        break;
-      case 'unit_playbook':
-        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/crossed-bones.svg";
-        break;
       case 'unit_reputation':
         this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/abstract-070.svg";
         break;
-      case 'unit_ability':
-        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/team-idea.svg";
+      case 'unit_construction':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/airtight-hatch.svg";
         break;
-      
+      case 'unit_research':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/disc.svg";
+        break;
+      case 'city_sector':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/modern-city.svg";
+        break;  
+      case 'chip':
+        this.DEFAULT_ICON = "systems/synths-in-the-shadow/styles/assets/gameicons/cpu.svg";
+        break;
     }
 
     return super.create(data, options);
