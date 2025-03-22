@@ -1,0 +1,9 @@
+<section class="description">
+  {{log this}}
+  {{#if editable}} 
+    <prose-mirror name="system.description" data-document-uuid="{{uuid}}" value="{{system.description}}" collaborate="true" toggled="true">
+      {{{enrichedDescription}}}
+    </prose-mirror>
+  {{else}} {{{enrichedDescription}}}
+  {{/if}}
+</section>

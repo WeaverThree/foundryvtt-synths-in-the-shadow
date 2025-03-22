@@ -1,0 +1,7 @@
+<section class="item-core">
+  {{#if hascore}}
+    {{#each core_subtemplate as |core|}}
+      {{~> (core) @root~}}
+    {{/each}}
+  {{/if}}
+</section>

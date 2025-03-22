@@ -11,6 +11,11 @@ export const preloadHandlebarsTemplates = async function() {
     // Agent Sheet Partials
     "systems/synths-in-the-shadow/templates/parts/turf-list.html",
     "systems/synths-in-the-shadow/templates/parts/active-effects.html",
+
+    "systems/synths-in-the-shadow/templates/items/core-item.hbs",
+    "systems/synths-in-the-shadow/templates/items/core-ability.hbs",
+    "systems/synths-in-the-shadow/templates/items/core-playbook.hbs",
+    "systems/synths-in-the-shadow/templates/items/core-construction-research.hbs",
   ];
 
   // Load the template parts

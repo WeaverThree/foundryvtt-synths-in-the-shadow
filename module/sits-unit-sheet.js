@@ -8,7 +8,6 @@ import { SitsHelpers } from "./sits-helpers.js";
 export class SitsUnitSheet extends SitsSheet {
 
   static DEFAULT_OPTIONS = {
-    classes: ["synths-in-the-shadow"],
     position: {
       width: 1000,
       height: 'auto'

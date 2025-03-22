@@ -1,0 +1,61 @@
+<section class="playbook-body flex-horizontal marginize-divs">
+  <div class="flex-vertical grow-one">
+
+    <label class="label-stripe">{{localize "SITS.PlaybookAbilities"}}</label>
+    {{!-- simplified from agent sheet --}}
+    <div class="abilities grow-one">
+      <table>
+        {{#each sortedAbilities as |item id|}}
+          <tr>
+            <td class="checks">
+              <div>
+                {{#times_from 1 item.system.purchased.max}}
+                  <label class="ability-box-example"></label>
+                {{/times_from}}
+              </div>
+            </td>
+            <td class="ability-title">
+              {{item.name}}
+            </td>
+            <td>
+              {{{item.system.description}}}
+            </td>
+          </tr>
+        {{/each}}
+      </table>
+    </div>
+
+  </div>
+  <div class="flex-vertical grow-one">
+
+    <label class="label-stripe">{{localize "SITS.PlaybookItems"}}</label>
+    <div class="loadout-playbook"> 
+      {{#each sortedPlaybookItems as |item id|}}
+        <div class="itemline cap-{{item.system.capacity}}">
+          <div class="checks">
+            <label class="item-box-example"></label>
+            {{#times_from 2 item.system.capacity}}
+              <label class="item-box-example"></label>
+            {{/times_from}}
+          </div>
+          <div>
+            {{item.name}}
+          </div>
+        </div>
+      {{/each}}
+    </div>
+
+    <label class="label-stripe">{{localize "SITS.PlaybookContacts"}}</label>
+    <textarea type="text" id="playbook-{{_id}}-contact_names" class="contact_names" name="system.contact_names">{{system.contact_names}}</textarea>
+
+    <label class="label-stripe">{{localize "SITS.PlaybookPrimarySkill"}}</label>
+    <input id="playbook-{{_id}}-skill_primary" type="text" name="system.skill_primary" value="{{system.skill_primary}}">
+
+    <label class="label-stripe">{{localize "SITS.PlaybookSecondarySkill"}}</label>
+    <input id="playbook-{{_id}}-skill_secondary" type="text" name="system.skill_secondary" value="{{system.skill_secondary}}">
+
+    <label class="label-stripe">{{localize "SITS.PlaybookExperienceClue"}}</label>
+    <textarea type="text" id="playbook-{{_id}}-experience_clue" class="experience_clue" name="system.experience_clue">{{system.experience_clue}}</textarea>
+    
+  </div>
+</section>

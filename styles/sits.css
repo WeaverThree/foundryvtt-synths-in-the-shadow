@@ -1873,32 +1873,34 @@
   margin-top: 8px;
 }
 
-.synths-in-the-shadow .item-sheet .sheet-header img {
+.synths-in-the-shadow.item-sheet .sheet-header img {
   border: 0;
+  width: 64px;
+  height: 64px;
 }
-.synths-in-the-shadow .item-sheet .item-body input[type=text] {
+.synths-in-the-shadow.item-sheet .item-body input[type=text] {
   margin-left: 1px;
 }
-.synths-in-the-shadow .item-sheet .playbook-body {
+.synths-in-the-shadow.item-sheet .playbook-body {
   backdrop-filter: saturate(0.2);
 }
-.synths-in-the-shadow .item-sheet .playbook-body .abilities table {
+.synths-in-the-shadow.item-sheet .playbook-body .abilities table {
   background-color: transparent !important;
   border: 0;
   margin-top: 0;
 }
-.synths-in-the-shadow .item-sheet .playbook-body .abilities tr {
+.synths-in-the-shadow.item-sheet .playbook-body .abilities tr {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   background-color: transparent !important;
 }
-.synths-in-the-shadow .item-sheet .playbook-body .abilities tr:last-child {
+.synths-in-the-shadow.item-sheet .playbook-body .abilities tr:last-child {
   border-bottom: 0;
 }
-.synths-in-the-shadow .item-sheet .playbook-body .abilities .checks div {
+.synths-in-the-shadow.item-sheet .playbook-body .abilities .checks div {
   display: flex;
   flex-direction: column;
 }
-.synths-in-the-shadow .item-sheet .playbook-body .abilities .checks div label {
+.synths-in-the-shadow.item-sheet .playbook-body .abilities .checks div label {
   width: 20px;
   height: 20px;
   background-image: url("assets/pips/w-skill-base.svg");
@@ -1906,28 +1908,28 @@
   background-size: contain;
   margin-right: 0px;
 }
-.synths-in-the-shadow .item-sheet .playbook-body .abilities .ability-title {
+.synths-in-the-shadow.item-sheet .playbook-body .abilities .ability-title {
   font-weight: bold;
   width: 87px;
 }
-.synths-in-the-shadow .item-sheet .playbook-body .abilities .ability-target {
+.synths-in-the-shadow.item-sheet .playbook-body .abilities .ability-target {
   width: 100px;
   float: right;
   margin-top: 12px;
 }
-.synths-in-the-shadow .item-sheet .playbook-body .loadout-playbook {
+.synths-in-the-shadow.item-sheet .playbook-body .loadout-playbook {
   padding-top: 8px;
   min-width: 220px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-.synths-in-the-shadow .item-sheet .playbook-body .loadout-playbook div {
+.synths-in-the-shadow.item-sheet .playbook-body .loadout-playbook div {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
 }
-.synths-in-the-shadow .item-sheet .playbook-body .loadout-playbook label {
+.synths-in-the-shadow.item-sheet .playbook-body .loadout-playbook label {
   width: 20px;
   height: 20px;
   background-image: url("assets/pips/item-check-base.svg");
@@ -1935,13 +1937,13 @@
   background-size: contain;
   margin-right: 0px;
 }
-.synths-in-the-shadow .item-sheet .playbook-body .loadout-playbook .cap-0 {
+.synths-in-the-shadow.item-sheet .playbook-body .loadout-playbook .cap-0 {
   font-style: italic;
 }
-.synths-in-the-shadow .item-sheet .playbook-body .loadout-playbook .cap-0 label {
+.synths-in-the-shadow.item-sheet .playbook-body .loadout-playbook .cap-0 label {
   background-image: url("assets/pips/item-check-zero.svg");
 }
-.synths-in-the-shadow .item-sheet .playbook-body .contacts {
+.synths-in-the-shadow.item-sheet .playbook-body .contacts {
   height: 150px;
 }
 

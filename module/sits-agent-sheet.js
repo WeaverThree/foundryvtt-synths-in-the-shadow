@@ -10,7 +10,6 @@ import { SitsActor } from "./sits-actor.js"
 export class SitsAgentSheet extends SitsSheet {
 
   static DEFAULT_OPTIONS = {
-    classes: ["synths-in-the-shadow"],
     position: {
       width: 873,
       height: 'auto'

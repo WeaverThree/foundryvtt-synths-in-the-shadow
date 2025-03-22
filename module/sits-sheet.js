@@ -6,6 +6,7 @@ const {api, sheets, ux} = foundry.applications;
 export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV2) {
 
   static DEFAULT_OPTIONS = {
+    classes: ["synths-in-the-shadow"],
     actions: {
       itemAddPopup: SitsSheet.onItemAddPopup,
       radioToggle: SitsSheet.onRadioToggle,
@@ -35,16 +36,14 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
   async _prepareContext(options) {
     const context = await super._prepareContext( options );
 
-    
     context.isGM = game.user.isGM;
-    context.editable = this.isEditable;
     
     context.system = this.actor.system;
     context.items = this.actor.items;
     context.name = this.actor.name;
     context._id = this.actor._id;
-    context._id2 = context._id + "-2"; // For second clocks and such
     context.img = this.actor.img;
+    context._id2 = context._id + "-2"; // For second clocks and such
     
     return context;
   }

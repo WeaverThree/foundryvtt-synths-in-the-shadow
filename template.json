@@ -274,7 +274,7 @@
       "experience_clue": "",
       "skill_primary": "",
       "skill_secondary": "",
-      "contacts": ""
+      "contact_names": ""
     },
 
 
@@ -307,17 +307,19 @@
     "unit_construction": {
       "templates": ["default"],
       "effect": "",
-      "build_clock": {
+      "clock": {
         "value":0,
-        "max":4
+        "max":4,
+        "color": "blue"
       }
     },
     "unit_research": {
       "templates": ["default"],
       "effect": "",
-      "build_clock": {
+      "clock": {
         "value":0,
-        "max":4
+        "max":4,
+        "color": "blue"
       }
     }
   }

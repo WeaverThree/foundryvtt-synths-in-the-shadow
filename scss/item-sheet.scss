@@ -1,10 +1,12 @@
 @use 'color';
 
-.synths-in-the-shadow .item-sheet {
+.synths-in-the-shadow.item-sheet {
 
   .sheet-header { // why won't this work inside .item???
     img {
       border: 0;
+      width: 64px;
+      height: 64px;
     }
   }
 

@@ -1,0 +1,5 @@
+<section class="gmnotes">
+  {{#if isGM}}
+    <textarea type="text" id="item-{{_id}}-gmnotes" class="gmnotes" name="system.gmnotes" placeholder="[{{localize 'SITS.GMNotesPlaceholder'}}]" {{#unless editable}}disabled{{/unless}}>{{system.gmnotes}}</textarea>
+  {{/if}}
+</section>

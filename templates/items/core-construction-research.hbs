@@ -1,0 +1,22 @@
+<div class="{{cssClass}} clock-block" autocomplete="off">
+  <textarea type="text" id="item-{{_id}}-effect" class="effect-field" name="system.effect" placeholder="[{{localize 'SITS.EffectPlaceholder'}}]" {{#unless editable}}disabled{{/unless}}>{{system.effect}}</textarea>
+  <div class="clock-header">
+    {{#if editable}}
+      <label for="system.clock.max"><i class="fa fa-chart-pie"></i></label>
+      <select data-type="String" name="system.clock.max">
+        {{selectOptions sizeDropdown selected=system.clock.max}}
+
+      </select>
+      
+      <label for="system.clock.color"><i class="fa fa-palette"></i></label>
+      <select data-type="String" name="system.clock.color">
+        {{selectOptions colorDropdown selected=system.clock.color localize=true}}
+
+      </select>
+    {{/if}}
+  </div>
+  <div class="clocks clocks-{{system.clock.max}}">
+    {{{sits-clock-color "system.clock.value" system.clock.max system.clock.color system.clock.value _id}}}
+  </div>
+
+</div>

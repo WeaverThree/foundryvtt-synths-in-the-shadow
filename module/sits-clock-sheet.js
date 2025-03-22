@@ -8,7 +8,6 @@ import { SitsSheet } from "./sits-sheet.js";
 export class SitsClockSheet extends SitsSheet {
 
   static DEFAULT_OPTIONS = {
-    classes: ["synths-in-the-shadow"],
     position: {
       width: 360,
       height: 400,
