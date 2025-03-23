@@ -3,10 +3,17 @@
 .synths-in-the-shadow.item-sheet {
 
   .sheet-header { // why won't this work inside .item???
+    margin-bottom: 8px;
     img {
       border: 0;
-      width: 64px;
+      width: 66px;
+      height: 66px;
+    }
+    input[type="text"].name {
+      font-size: 34px;
       height: 64px;
+      font-weight:bold;
+      flex-grow: 1;
     }
   }
 

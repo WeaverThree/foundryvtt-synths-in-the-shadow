@@ -197,25 +197,31 @@
   //   min-height: 150px;
   // }
 
-  .editor-content {
-    margin-left: 8px;
-    margin-right: 8px;
-    min-height: 28px;
-  }
+
+
   .prosemirror {
-    height: 200px;
     color: color.$main-fg;
     background-color: color.$input-bg;
     font-family: "BarlowCondensed", sans-serif;
     font-size: 14px;
+    margin-bottom: 8px;
 
-    .editor-container {
+    position: relative;
+
+    .editor-content {
       margin-left: 8px;
       margin-right: 8px;
     }
 
     .fonts {
       display:none;
+    }
+    button.toggle {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      height: 32px;
+      width: 32px;
     }
   }
 

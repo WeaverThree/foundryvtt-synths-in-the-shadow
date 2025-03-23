@@ -318,24 +318,27 @@
   display: flex;
   font-weight: bold;
 }
-.synths-in-the-shadow .editor-content {
-  margin-left: 8px;
-  margin-right: 8px;
-  min-height: 28px;
-}
 .synths-in-the-shadow .prosemirror {
-  height: 200px;
   color: #dadada;
   background-color: rgba(255, 255, 255, 0.1);
   font-family: "BarlowCondensed", sans-serif;
   font-size: 14px;
+  margin-bottom: 8px;
+  position: relative;
 }
-.synths-in-the-shadow .prosemirror .editor-container {
+.synths-in-the-shadow .prosemirror .editor-content {
   margin-left: 8px;
   margin-right: 8px;
 }
 .synths-in-the-shadow .prosemirror .fonts {
   display: none;
+}
+.synths-in-the-shadow .prosemirror button.toggle {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: 32px;
+  width: 32px;
 }
 .synths-in-the-shadow .description {
   font-style: italic;
@@ -1873,10 +1876,19 @@
   margin-top: 8px;
 }
 
+.synths-in-the-shadow.item-sheet .sheet-header {
+  margin-bottom: 8px;
+}
 .synths-in-the-shadow.item-sheet .sheet-header img {
   border: 0;
-  width: 64px;
+  width: 66px;
+  height: 66px;
+}
+.synths-in-the-shadow.item-sheet .sheet-header input[type=text].name {
+  font-size: 34px;
   height: 64px;
+  font-weight: bold;
+  flex-grow: 1;
 }
 .synths-in-the-shadow.item-sheet .item-body input[type=text] {
   margin-left: 1px;
