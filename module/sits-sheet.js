@@ -162,8 +162,6 @@ export class SitsSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV
       return;
     }
 
-    console.log(data);
-
     // Normalize dialog returns
 
     let ids_to_add = [];

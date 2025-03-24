@@ -83,6 +83,8 @@ export class SitsItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemShe
     context.core_subtemplate = [`systems/synths-in-the-shadow/templates/items/core-${core_name}.hbs`]
 
     context.enrichedDescription = await TextEditor.enrichHTML(context.system.description, {secrets: context.owner, async: true});
+    context.enrichedExpClue = await TextEditor.enrichHTML(context.system.experience_clue, {secrets: context.owner, async: true});
+
 
     if (core_name === 'construction-research') {
       context.sizeDropdown = {
@@ -105,6 +107,9 @@ export class SitsItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemShe
     }
 
     if (this.item.type == 'playbook') {
+
+      context.skills = game.system.skills;
+
       // World (eventually compendium) abilities for playbook sorted alphabetically
       context.sortedAbilities = game.items
       .filter(i => {return (i.type === 'ability') && (i.system.playbook.toLowerCase() === this.item.name.toLowerCase());})

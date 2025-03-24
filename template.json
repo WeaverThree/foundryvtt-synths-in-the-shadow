@@ -148,13 +148,15 @@
         "default_normal": 5,
         "default_heavy": 7
       },
-      "contacts": {}
+      "contacts": {},
+      "gmnotes": ""
     },
 
 
     "unit": {
       "reputation": [0],
       "lair": "",
+      "gmnotes": "",
 
 
       "energy_credits": {
@@ -178,6 +180,7 @@
     "clock": {
       "type": 4,
       "value": 0,
+      "gmnotes": "",
       "description": ""
     },
     
@@ -186,6 +189,7 @@
       "synopsis": "",
       "pronouns": "",
       "model": "", 
+      "gmnotes": "",
       "look": ""
     },
 
@@ -219,6 +223,7 @@
       
       "quirks": "",
       "notes": "",
+      "gmnotes": "",
       "contacts": {},
       "rank": {
         "value": 1,
@@ -246,7 +251,8 @@
 
     "templates": {
       "default": {
-        "description": ""
+        "description": "",
+        "gmnotes": ""
       },
       "ability": {
         "description": "",

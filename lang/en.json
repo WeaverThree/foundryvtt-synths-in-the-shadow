@@ -17,6 +17,8 @@
   "TYPES.Item.unit_research": "Unit Research",
   "TYPES.Item.city_sector": "City Sector",
 
+  "SITS.GMNotesPlaceholder": "GM's Notes -- Invisible to Players",
+
   "SITS.Maker": "Maker",
   "SITS.Build": "Build",
   "SITS.Deviance": "Deviance",
@@ -96,42 +98,6 @@
   "SITS.FactionClock2NamePlaceholder": "Faction Clock #2",
   "SITS.AddNPC": "&mdash; Add NPC &mdash;",
 
-
-  "BITD.System": "System",
-  "BITD.Systems": "Systems",
-  "BITD.Planet": "Planet",
-  "BITD.Planets": "Planets",
-  "BITD.Faction": "Faction",
-  "BITD.Factions": "Active Factions",
-  "BITD.Notables": "Notable Locations",
-  "BITD.NotableNPCs": "Notable People",
-  "BITD.Scene": "Scene",
-  "BITD.Rule": "Rule",
-  "BITD.Stats": "Stats",
-  "BITD.Goal": "Goal",
-  "BITD.Assets": "Assets",
-  "BITD.Quirks": "Quirks",
-  "BITD.Situation": "Situation",
-  "BITD.Update": "Update",
-  "BITD.Warning": "Be aware, this will clear all Heat/Wanted",
-  "BITD.Status": "Status",
-  "BITD.Jobs": "Jobs",
-  "BITD.Allies": "Allies",
-  "BITD.Friends": "Friends",
-  "BITD.Associates": "Associates",
-  "BITD.Neutral": "Neutral",
-  "BITD.Adversaries": "Adversaries",
-  "BITD.Enemies": "Enemies",
-  "BITD.AtWar": "At War!",
-  "BITD.Defeated": "Defeated",
-  "BITD.UnitType": "Unit Type",
-  "BITD.UnitTypeBox": "Click to choose a Unit Type",
-  "BITD.FactionType": "Faction Type",
-  "BITD.Price": "Price",
-  "BITD.Logic": "Logic",
-  "BITD.ExpClues": "Exp Clues",
-  
-  
   "SITS.AbilityPurchased": "Ability Levels Purchased",
   "SITS.AbilityMaxPurchase": "Ability Levels Available",
   "SITS.AbilityPlaybook": "Associated Playbook",
@@ -160,7 +126,8 @@
   "BITD.Scale": "Scale",
   "BITD.Quality": "Quality",
 
- 
+  "SITS.EffectPlaceholder": "Describe Gameplay Effect",
+
   "BITD.Turf": "Turf",
   "BITD.Claims": "Claims",
   "BITD.Lair": "Lair",

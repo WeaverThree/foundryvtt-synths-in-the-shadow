@@ -24,10 +24,19 @@
     }
   }
 
+  .effect-field {
+    margin-bottom: 8px;
+  }
+
 
   .playbook-body {
     backdrop-filter: saturate(0.2);
 
+      margin-top: 4px;
+
+      div label:first-child {
+        margin-top: 0;
+      }
 
       // Abilities
       .abilities {
@@ -75,6 +84,10 @@
         width:100px;
         float:right;
         margin-top:12px;
+      }
+
+      .contact_names {
+        height: 104px;
       }
 
     }

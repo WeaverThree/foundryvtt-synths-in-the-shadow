@@ -40,6 +40,8 @@
 
   select, textarea {
     font-family: "BarlowCondensed", sans-serif;
+    background-color: color.$input-bg;
+    color: color.$main-fg;
     font-size: 14px;
     font-weight: bold;
   }

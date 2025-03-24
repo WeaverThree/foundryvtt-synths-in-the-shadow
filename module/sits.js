@@ -37,6 +37,22 @@ Hooks.once("init", async function() {
     sizes: [ 4, 5, 6, 8, 10, 12, 16 ]
   };
 
+  game.system.skills = {
+    'analyze': 'SITS.AttribAnalyze',
+    'blast': 'SITS.AttribBlast',
+    'clash': 'SITS.AttribClash',
+    'command': 'SITS.AttribCommand',
+    'engineer': 'SITS.AttribEngineer',
+    'hunt': 'SITS.AttribHunt',
+    'hack': 'SITS.AttribHack',
+    'infiltrate': 'SITS.AttribInfiltrate',
+    'manipulate': 'SITS.AttribManipulate',
+    'network': 'SITS.AttribNetwork',
+    'scan': 'SITS.AttribScan',
+    'sway': 'SITS.AttribSway',
+  };
+  
+
   game.system.malfunctions = [ "cold", "haunted", "obsessed", "paranoid", "reckless", "soft", "unstable", "vicious" ];
 
   CONFIG.Item.documentClass = SitsItem;

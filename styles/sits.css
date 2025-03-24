@@ -325,6 +325,10 @@
   font-size: 14px;
   margin-bottom: 8px;
   position: relative;
+  min-height: 100px;
+}
+.synths-in-the-shadow .prosemirror.active {
+  min-height: 200px;
 }
 .synths-in-the-shadow .prosemirror .editor-content {
   margin-left: 8px;
@@ -340,7 +344,10 @@
   height: 32px;
   width: 32px;
 }
-.synths-in-the-shadow .description {
+.synths-in-the-shadow .gmnotes {
+  backdrop-filter: hue-rotate(270deg);
+}
+.synths-in-the-shadow .name {
   font-style: italic;
 }
 .synths-in-the-shadow i.nullifier {
@@ -412,6 +419,14 @@
 }
 .synths-in-the-shadow table.rank tr.buttons input:checked + label {
   background-image: url("assets/pips/w-pip-blue.svg");
+}
+.synths-in-the-shadow string-tags .tags {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 4px;
+}
+.synths-in-the-shadow string-tags .tags .tag {
+  font-size: 14px;
 }
 .synths-in-the-shadow .tabs {
   background-color: #9f9dfc;
@@ -1893,8 +1908,15 @@
 .synths-in-the-shadow.item-sheet .item-body input[type=text] {
   margin-left: 1px;
 }
+.synths-in-the-shadow.item-sheet .effect-field {
+  margin-bottom: 8px;
+}
 .synths-in-the-shadow.item-sheet .playbook-body {
   backdrop-filter: saturate(0.2);
+  margin-top: 4px;
+}
+.synths-in-the-shadow.item-sheet .playbook-body div label:first-child {
+  margin-top: 0;
 }
 .synths-in-the-shadow.item-sheet .playbook-body .abilities table {
   background-color: transparent !important;
@@ -1928,6 +1950,9 @@
   width: 100px;
   float: right;
   margin-top: 12px;
+}
+.synths-in-the-shadow.item-sheet .playbook-body .abilities .contact_names {
+  height: 104px;
 }
 .synths-in-the-shadow.item-sheet .playbook-body .loadout-playbook {
   padding-top: 8px;
@@ -2134,6 +2159,8 @@
 }
 .synths-in-the-shadow select, .synths-in-the-shadow textarea {
   font-family: "BarlowCondensed", sans-serif;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #dadada;
   font-size: 14px;
   font-weight: bold;
 }

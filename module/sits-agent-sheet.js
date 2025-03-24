@@ -171,7 +171,7 @@ export class SitsAgentSheet extends SitsSheet {
     );
 
     // And contacts
-    let contactNames = playbook.system.contacts.split('\n').map((line) => {return line.trim();}).filter((line) => {return line;});
+    let contactNames = playbook.system.contact_names.split('\n').map((line) => {return line.trim();}).filter((line) => {return line;});
     let usedNames = [];
     
     game.actors.filter((x) => {return x.type==='npc'}).forEach(async (npc) => {

@@ -207,6 +207,11 @@
     margin-bottom: 8px;
 
     position: relative;
+    min-height: 100px;
+
+    &.active {
+      min-height: 200px;
+    }
 
     .editor-content {
       margin-left: 8px;
@@ -225,7 +230,11 @@
     }
   }
 
-  .description {
+  .gmnotes {
+    backdrop-filter: hue-rotate(270deg);
+  }
+
+  .name {
     font-style: italic;
   }
 
@@ -320,6 +329,18 @@
 
     }
 
+  }
+
+
+  string-tags {
+    .tags {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 4px;
+      .tag {
+        font-size: 14px;
+      }
+    }
   }
 
 
